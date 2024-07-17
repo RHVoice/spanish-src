@@ -14,40 +14,40 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 define LetterLseq [
-a:a |
-á:a| 
-b:[b e] |
-c:[c e] |
-d:[d e] |
-e:e |
-é:e |
-f:[e f e] |
-g:[x e] |
-h:[a ts e] |
-i:i |
-í:i |
-j:[x o t a] |
-k:[k a] |
-l:[e l e] |
-{ll}:[e ll e] |
-m:[e m e] |
-n:[e n e] |
-ñ:[e ni e] |
-o:o |
-ó:o |
-p:[p e] |
-q:[k u] |
-r:[e rr e] |
-s:[e s e] |
-t:[t e] |
-u:u |
-ú:u |
-ü:u |
-v:[u v e] |
-w:[u v e d o b l e] |
-x:[e k i s] |
-y:[i g r j e g a] |
-z:[c e t a]] ;
+a:a1 |
+á:a1 | 
+b:[b e1] |
+c:[c e1] |
+d:[d e1] |
+e:e1 |
+é:e1 |
+f:[e1 f e] |
+g:[x e1] |
+h:[a1 ts e] |
+i:i1 |
+í:i1 |
+j:[x o1 t a] |
+k:[k a1] |
+l:[e1 l e] |
+{ll}:[e1 ll e] |
+m:[e1 m e] |
+n:[e1 n e] |
+ñ:[e1 ni e] |
+o:o1 |
+ó:o1 |
+p:[p e1] |
+q:[k u1] |
+r:[e1 rr e] |
+s:[e1 s e] |
+t:[t e1] |
+u:u1 |
+ú:u1 |
+ü:u1 |
+v:[u1 v e] |
+w:[u v e d o1 b l e] |
+x:[e1 k i s] |
+y:[i1 g r j e g a] |
+z:[c e1 t a]] ;
 
 define TranscribeLetterSequence LetterLseq -> || _ ;
 

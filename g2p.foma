@@ -34,16 +34,22 @@ define TranscribeConsonant
 b:b | 
 c:c | 
 {ca}:{ka} | # casa, finca.
+[c a1]:[k a1] | # acá.
 {co}:{ko} | # coche, cinco
+[c o1]:[k o1] | # marcó, achicó.
 [c u]:{ku} | # curso, cuveta
+[c u1]:[k u1] | # cúspide.
 {ch}:ts | # Chico, cholo
 d:d | 
 f:f | 
 g:g | # siglo
 [g u e]:[g e] | # sigue, guerra
 [g e]:[x e] | # Gente, generación
+[g e1]:[x e1] | # génesis
 [g u i]:[g i] | # guiso, guineo
+[g u i1]:[g i1] | # guía
 [g i]:[x i] | 
+[g i1]:[x i1] | 
 [g u a]:[g w a] | # antigua, guarida
 [g ü e]:[g w e] | # antigüedad, desagüe
 [g ü i]:[g w i] | # agüita
@@ -80,8 +86,12 @@ define SpanishRules
 [b i u]:[b j u] | # biudo
 [c i a]:[c j a] | # referencia
 [c i e]:[c j e] | # ciego
-[c i o]:[c j o] | # institución
+[c i o]:[c j o] | # servicio
 [c i u]:[c j u] | 
+[c i a1]:[c j a1] | # viciándose
+[c i e1]:[c j e1] | 
+[c i o1]:[c j o1] | # asociación, institución
+[c i u1]:[c j u1] | 
 [d i a]:[d j a] | # diafragma
 [d i e]:[d j e] | # diente
 [d i o]:[d j o] | # adiós
@@ -125,7 +135,8 @@ define SpanishRules
 [t i a]:[t j a] | 
 [t i e]:[t j e] | 
 [t i o]:[t j o] | 
-[t i u]:[t j u] | 
+[t i u]:[t j u] | # veintiuno
+[t i u1]:[t j u1] | # veintiún
 [ts i a]:[ts j a] | 
 [ts i e]:[ts j e] | 
 [ts i o]:[ts j o] | 
@@ -143,6 +154,8 @@ define SpanishRules
 [b u e]:[b w e] | 
 [b u i]:[b w i] | 
 [b u o]:[b w o] | 
+[c c]:[k c] | # selección, leccionario
+[c l]:[k l] | # claro (klaro, not claro)
 [c r]:[k r] | # secreto (sekreto, not secreto)
 [c t]:[k t] | # actualización (aktwalicacjo1n, not actwalicacjo1n)
 [c u a]:[c w a] | 
