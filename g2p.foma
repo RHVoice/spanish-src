@@ -1,0 +1,217 @@
+# Copyright (C) 2024  Mateo Cedillo <angelitomateocedillo@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 2.1 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+define TranscribeVowel 
+a:a | 
+á:a1 | 
+Á:a1 | 
+e:e | 
+é:e1 | 
+É:e1 | 
+i:i | 
+í:i1 | 
+Í:i1 | 
+o:o | 
+ó:o1 | 
+Ó:o1 | 
+u:u | 
+ú:u1 | 
+Ú:u1 ; 
+
+define TranscribeConsonant 
+b:b | 
+c:c | 
+{ca}:{ka} | # casa, finca.
+{co}:{ko} | # coche, cinco
+[c u]:{ku} | # curso, cuveta
+{ch}:ts | # Chico, cholo
+d:d | 
+f:f | 
+g:g | # siglo
+[g u e]:[g e] | # sigue, guerra
+[g e]:[x e] | # Gente, generación
+[g u i]:[g i] | # guiso, guineo
+[g i]:[x i] | 
+[g u a]:[g w a] | # antigua, guarida
+[g ü e]:[g w e] | # antigüedad, desagüe
+[g ü i]:[g w i] | # agüita
+[g u o]:[g w o] | # antiguo
+h: "" | # H is a sylent consonant, so no phoneme.
+j:x | 
+k:k | 
+l:l | 
+{ll}:ll | # aquella
+m:m | 
+n:n | 
+ñ:ni | # año, otoño
+p:p | 
+r:r | 
+{rr}:rr | # Rato, tierra
+s:s | 
+{sh}:sh | # especialmente para palabras estrangeras (foreigth words)
+t:t | 
+ŭ:u | 
+v:v | 
+z:c | # c (ce, ci) and z (za, ze, zi, zo, zu) are the same phoneme.
+q:k | #Todo: special handling for q. When after q has "u" as next letter, the "u" is a silent vowel. So, u needs to be removed and replaced with w, closed vowel of u.
+[q u e]:[k e] | # queso, buque
+[q u i]:[k i] | # quito, quijada
+w:w | 
+x:{ks} | # Existe, éxito
+y:i ; 
+
+define SpanishRules 
+# closed vowel i
+[b i a]:[b j a] | # biacrusis
+[b i e]:[b j e] | # bien
+[b i o]:[b j o] | # biología
+[b i u]:[b j u] | # biudo
+[c i a]:[c j a] | # referencia
+[c i e]:[c j e] | # ciego
+[c i o]:[c j o] | # institución
+[c i u]:[c j u] | 
+[d i a]:[d j a] | # diafragma
+[d i e]:[d j e] | # diente
+[d i o]:[d j o] | # adiós
+[d i u]:[d j u] | 
+[f i a]:[f j a] | # fiar
+[f i e]:[f j e] | # fiera
+[f i o]:[f j o] | # fiona
+[f i u]:[f j u] | 
+[k i a]:[k j a] | # sequia
+[k i e]:[k j e] | # quieto
+[k i o]:[k j o] | # kiosco
+[k i u]:[k j u] | # quiubo
+[l i a]:[l j a] | # Cecilia
+[l i e]:[l j e] | # lienzo
+[l i o]:[l j o] | # julio
+[l i u]:[l j u] | # well, no more examples.
+[m i a]:[m j a] | 
+[m i e]:[m j e] | 
+[m i o]:[m j o] | 
+[m i u]:[m j u] | 
+[n i a]:[n j a] | 
+[n i e]:[n j e] | 
+[n i o]:[n j o] | 
+[n i u]:[n j u] | 
+[p i a]:[p j a] | 
+[p i e]:[p j e] | 
+[p i o]:[p j o] | 
+[p i u]:[p j u] | 
+[r i a]:[r j a] | 
+[r i e]:[r j e] | 
+[r i o]:[r j o] | 
+[r i u]:[r j u] | 
+[s i a]:[s j a] | 
+[s i e]:[s j e] | 
+[s i o]:[s j o] | 
+[s i u]:[s j u] | 
+[sh i a]:[sh j a] | 
+[sh i e]:[sh j e] | 
+[sh i o]:[sh j o] | 
+[sh i u]:[sh j u] | 
+[t i a]:[t j a] | 
+[t i e]:[t j e] | 
+[t i o]:[t j o] | 
+[t i u]:[t j u] | 
+[ts i a]:[ts j a] | 
+[ts i e]:[ts j e] | 
+[ts i o]:[ts j o] | 
+[ts i u]:[ts j u] | 
+[v i a]:[v j a] | 
+[v i e]:[v j e] | 
+[v i o]:[v j o] | 
+[v i u]:[v j u] | 
+[x i a]:[x j a] | 
+[x i e]:[x j e] | 
+[x i o]:[x j o] | 
+[x i u]:[x j u] | 
+# closed vowel u
+[b u a]:[b w a] | 
+[b u e]:[b w e] | 
+[b u i]:[b w i] | 
+[b u o]:[b w o] | 
+[c r]:[k r] | # secreto (sekreto, not secreto)
+[c t]:[k t] | # actualización (aktwalicacjo1n, not actwalicacjo1n)
+[c u a]:[c w a] | 
+[c u e]:[c w e] | 
+[c u i]:[c w i] | 
+[c u o]:[c w o] | 
+[d u a]:[d w a] | 
+[d u e]:[d w e] | 
+[d u i]:[d w i] | 
+[d u o]:[d w o] | 
+[f u a]:[f w a] | 
+[f u e]:[f w e] | 
+[f u i]:[f w i] | 
+[f u o]:[f w o] | 
+[k u a]:[k w a] | 
+[k u e]:[k w e] | 
+[k u e1]:[k e1] | # qué
+[k u i]:[k w i] | 
+[k u i1]:[k i1] | # sequía
+[k u o]:[k w o] | 
+[l u a]:[l w a] | 
+[l u e]:[l w e] | 
+[l u i]:[l w i] | 
+[l u o]:[l w o] | 
+[m u a]:[m w a] | 
+[m u e]:[m w e] | 
+[m u i]:[m w i] | 
+[m u o]:[m w o] | 
+[n u a]:[n w a] | 
+[n u e]:[n w e] | 
+[n u i]:[n w i] | 
+[n u o]:[n w o] | 
+[p u a]:[p w a] | 
+[p u e]:[p w e] | 
+[p u i]:[p w i] | 
+[p u o]:[p w o] | 
+[r u a]:[r w a] | 
+[r u e]:[r w e] | 
+[r u i]:[r w i] | 
+[r u o]:[r w o] | 
+[s u a]:[s w a] | 
+[s u e]:[s w e] | 
+[s u i]:[s w i] | 
+[s u o]:[s w o] | 
+[sh u a]:[sh w a] | # shuar, u is a closed vowel
+[sh u e]:[sh w e] | 
+[sh u i]:[sh w i] | 
+[sh u o]:[sh w o] | 
+[t u a]:[t w a] | 
+[t u e]:[t w e] | 
+[t u i]:[t w i] | 
+[t u o]:[t w o] | 
+[ts u a]:[ts w a] | 
+[ts u e]:[ts w e] | 
+[ts u i]:[ts w i] | 
+[ts u o]:[ts w o] | 
+[v u a]:[v w a] | 
+[v u e]:[v w e] | 
+[v u i]:[v w i] | 
+[v u o]:[v w o] | 
+[x u a]:[x w a] | 
+[x u e]:[x w e] | 
+[x u i]:[x w i] | 
+[x u o]:[x w o] ; 
+
+define Stage1 TranscribeVowel @-> ; 
+define Stage2 TranscribeConsonant @-> ; 
+define Stage3 SpanishRules @-> ; 
+
+regex Stage1 .o.
+Stage2 .o.
+Stage3 ;

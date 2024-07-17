@@ -1,0 +1,54 @@
+# Copyright (C) 2024  Mateo Cedillo <angelitomateocedillo@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 2.1 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+define LetterLseq [
+a:a |
+á:a| 
+b:[b e] |
+c:[c e] |
+d:[d e] |
+e:e |
+é:e |
+f:[e f e] |
+g:[x e] |
+h:[a ts e] |
+i:i |
+í:i |
+j:[x o t a] |
+k:[k a] |
+l:[e l e] |
+{ll}:[e ll e] |
+m:[e m e] |
+n:[e n e] |
+ñ:[e ni e] |
+o:o |
+ó:o |
+p:[p e] |
+q:[k u] |
+r:[e rr e] |
+s:[e s e] |
+t:[t e] |
+u:u |
+ú:u |
+ü:u |
+v:[u v e] |
+w:[u v e d o b l e] |
+x:[e k i s] |
+y:[i g r j e g a] |
+z:[c e t a]] ;
+
+define TranscribeLetterSequence LetterLseq -> || _ ;
+
+regex TranscribeLetterSequence ; 

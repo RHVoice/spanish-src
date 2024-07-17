@@ -1,0 +1,96 @@
+# Copyright (C) 2024  Mateo Cedillo <angelitomateocedillo@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 2.1 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+define DefiniteArticle 
+lo | la | los | las ; 
+
+define IndefiniteArticle 
+un | una | unos | unas ; 
+
+define PersonalPronoun 
+yo | tú | su | sus | vos | él | ella | nosotros | nosotras | usted | vuestro | vuestra | vuestros | ellos | ellas | le ; 
+
+define PersonalReflexivePronoun 
+me | se | te | os | nos | la | lo | las | los ; 
+
+define DemonstrativePronoun 
+ese | esa | este | esta | esos | esas | estos | estas | en este | en esta | en estos | en estas | de este | de esta | de estos | de estas | de ese | de esa | de esos | de esas | en este | en esta | en estos | en estas | aquel | aquella | aquellos | aquellas | de aquel | de aquella | de aquellos | de aquellas | en aquel | en aquella | en aquellos | en aquellas | que ; 
+
+define PossessiveAdjective 
+mi | mis | tu | tus | su | sus | nuestro | nuestra | nuestros | nuestras | vuestro | vuestra | vuestros | vuestras | de él | de ella | de ellos | de ellas | en él | en ella | en ellos | en ellas ; 
+
+define Preposition 
+de | de los | de las | de un | de una | de unos | de unas | en | no | nos | nas | en un | en una | en unos | en unas | por | para él | para ella | para ellos | para ellas | desde | entre | sobre ; 
+
+define UnstressedConjunction 
+y | tu | sí | más | como ; 
+
+define Conjunction 
+a pesar de | todavía | sin embargo | asimismo | por tanto | porque | entonces | pese a | a pesar | caso | apenas | enquanto ; 
+
+define Ser 
+ser | soy | és | é | somos | sois | son | era | érase | éramos | éreis | eran | fui | fuiste | fue | fuimos | fuiste | fueron | será | serás | serán | seremos | sereis | sería | serías | seríamos | seríais | serían ;
+
+define Estar 
+estar | estoy | estás | está | estamos | estáis | estado | estaba | estabas | estábamos | estaban | estuve | estuvo | estuvimos | estuvieran | estaré | estarás | estará | estaremos | estarán ; 
+
+define Tener 
+tener | tengo | tienes | tiene | tenemos | tiendes | tienen | tenía | tenías | teníamos | tenéis | tenían | tuve | tenido | tuvo | tuvimos | tuviste | tuvieran | tendré | tendrás | tendrá | tendremos | tendráis | tendrán | tendría | tendrías | tendríamos | tendrían ; 
+
+define Hacer 
+hazer | hago | haz | hacemos | hacen ; 
+
+define Poder 
+poder | puedo | puedes | puede | podemos | podéis | pueden | podía | podías | podíamos | podíais | podían | pude | pudo | pudimos | pudieran | podré | podrás | podrá | podremos | podreis | podrán | podría | podrías | podríamos | podrían ; 
+
+define Ir 
+ir | voy | vas | va | vamos | van | iba | ibas | íbamos | iban | iré | irás | irá | iremos | irán ; 
+
+define Haber 
+haber | oye | deberíamos | habrán | había | habían | havíamos | habré | habrá | habrás | habremos | habrán | habría | habríamos | habrían ; 
+
+define AuxiliaryVerb 
+Ser | Estar | Tener | Haber ; 
+
+define WhWord 
+qué | quién | quiénes | cuándo | donde | adonde | cuanto | cuanta | cuantos | cuantas | cuan | cual | cuales | como ; 
+
+define FunctionWord 
+DefiniteArticle | 
+IndefiniteArticle | 
+PersonalPronoun | 
+PersonalReflexivePronoun | 
+DemonstrativePronoun | 
+PossessiveAdjective | 
+Preposition | 
+UnstressedConjunction | 
+Conjunction | 
+AuxiliaryVerb ; 
+
+regex 
+DefiniteArticle -> def ,, 
+IndefiniteArticle -> indef ,, 
+PersonalPronoun -> pp ,, 
+PersonalReflexivePronoun -> prp ,, 
+DemonstrativePronoun -> dp ,, 
+PossessiveAdjective -> pos ,, 
+[Preposition -nos] -> prep ,, 
+[UnstressedConjunction - se] -> uconj ,, 
+Conjunction -> conj ,, 
+Ser -> cop ,, 
+Estar -> cop ,, 
+Tener -> aux ,, 
+Haber -> aux ,, 
+\FunctionWord -> content ; 
