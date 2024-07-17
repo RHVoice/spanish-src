@@ -22,8 +22,8 @@ define Consonant
 b|c|ts|d|f|g|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|w|z ; 
 define Onset 
 0 | Consonant | 
-{bl} | {br} | {bw} | {ts} | {pl} | {pr} | {pw} | {dl} | {dr} | {dw} | {tl} | {tr} | {tw} | {gl} | {gr} | [g u0] | {kl} | {kr} | 
-[k u0] | {ll} | [ll u0] | {fl} | {fr} | {fu} | {xu} ; 
+{bl} | {bj} | {br} | {bw} | {ts} | [ts j] | [ts w] | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | {gw} | {kl} | {kj} | {kr} | 
+{kw} | {lj} | {ll} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {rj} | {rw} ; 
 
 define Syllable Onset %{ Nucleus %} Consonant* ; 
 

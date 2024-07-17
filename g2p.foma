@@ -81,8 +81,11 @@ y:i ;
 define SpanishRules 
 # closed vowel i
 [b i a]:[b j a] | # biacrusis
+[b i a1]:[b j a1] | 
 [b i e]:[b j e] | # bien
+[b i e1]:[b j e1] | 
 [b i o]:[b j o] | # biología
+[b i o1]:[b j o1] | # biósfera
 [b i u]:[b j u] | # biudo
 [c i a]:[c j a] | # referencia
 [c i e]:[c j e] | # ciego
@@ -106,10 +109,13 @@ define SpanishRules
 [k i u]:[k j u] | # quiubo
 [l i a]:[l j a] | # Cecilia
 [l i e]:[l j e] | # lienzo
+[l i e1]:[l j e1] | # lienzo
 [l i o]:[l j o] | # julio
+[l i o1]:[l j o1] | # julio
 [l i u]:[l j u] | # well, no more examples.
 [m i a]:[m j a] | 
 [m i e]:[m j e] | 
+[m i e1]:[m j e1] | 
 [m i o]:[m j o] | 
 [m i u]:[m j u] | 
 [n i a]:[n j a] | 

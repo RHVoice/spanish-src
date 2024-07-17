@@ -29,6 +29,7 @@ define Letter
 [a|A]:a | 
 [À|à]:[á grabe] | 
 [Á|á]:[á agudo] | 
+[Ä|ä]:[á diéresis] | 
 [Â|â]:[á circunflejo] | 
 [Ã|ã]:[á tilde] | 
 [b|B]:bé | 
@@ -36,13 +37,15 @@ define Letter
 [Ç|ç]:[cé cedilla] | 
 [d|D]:dé | 
 [e|E]:e | 
-[É|é]:[ê agudo] | 
+[É|é]:[é agudo] | 
+[Ë|ë]:[é diéresis] | 
 [Ê|ê]:[ê circunflejo] | 
 [f|F]:efe | 
 [g|G]:gé | 
 [h|H]:ache | 
 [i|I]:i | 
 [í|Í]:[í agudo] | 
+[ï|Ï]:[í diéresis] | 
 [j|J]:jota | 
 [k|K]:ca | 
 [l|L]:ele | 
@@ -50,7 +53,8 @@ define Letter
 [n|N]:ene | 
 [ñ|Ñ]:eñe | 
 [o|O]:o | 
-[Ó|ó]:[ô agudo] | 
+[Ó|ó]:[ó agudo] | 
+[Ö|ö]:[ó diéresis] | 
 [Ô|ô]:[ô circunflejo] | 
 [Õ|õ]:[ô tilde] | 
 [Ö|ö]:[ô diéresis] | 
@@ -62,7 +66,7 @@ define Letter
 [u|U]:u | 
 [Ú|ú]:[ú agudo] | 
 [Ü|ü]:[ú diéresis] | 
-[v|V]:vé | 
+[v|V]:uve | 
 [w|W]:[uve doble] | 
 [x|X]:equis | 
 [y|Y]:[i griega] | 

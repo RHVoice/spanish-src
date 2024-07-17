@@ -26,22 +26,22 @@ define PersonalReflexivePronoun
 me | se | te | os | nos | la | lo | las | los ; 
 
 define DemonstrativePronoun 
-ese | esa | este | esta | esos | esas | estos | estas | en este | en esta | en estos | en estas | de este | de esta | de estos | de estas | de ese | de esa | de esos | de esas | en este | en esta | en estos | en estas | aquel | aquella | aquellos | aquellas | de aquel | de aquella | de aquellos | de aquellas | en aquel | en aquella | en aquellos | en aquellas | que ; 
+ese | esa | este | esta | esos | esas | estos | estas | [en este] | [en esta] | [en estos] | [en estas] | [de este] | [de esta] | [de estos] | [de estas] | [de ese] | [de esa] | [de esos] | [de esas] | [en este] | [en esta] | [en estos] | [en estas] | aquel | aquella | aquellos | aquellas | [de aquel] | [de aquella] | [de aquellos] | [de aquellas] | [en aquel] | [en aquella] | [en aquellos] | [en aquellas] | que ; 
 
 define PossessiveAdjective 
-mi | mis | tu | tus | su | sus | nuestro | nuestra | nuestros | nuestras | vuestro | vuestra | vuestros | vuestras | de él | de ella | de ellos | de ellas | en él | en ella | en ellos | en ellas ; 
+mi | mis | tu | tus | su | sus | nuestro | nuestra | nuestros | nuestras | vuestro | vuestra | vuestros | vuestras | [de él] | [de ella] | [de ellos] | [de ellas] | [en él] | [en ella] | [en ellos] | [en ellas] ; 
 
 define Preposition 
-de | de los | de las | de un | de una | de unos | de unas | en | no | nos | nas | en un | en una | en unos | en unas | por | para él | para ella | para ellos | para ellas | desde | entre | sobre ; 
+de | [de los] | [de las] | [de un] | [de una] | [de unos] | [de unas] | en | no | nos | [en un] | [en una] | [en unos] | [en unas] | por | [para él] | [para ella] | [para ellos] | [para ellas] | desde | entre | sobre ; 
 
 define UnstressedConjunction 
 y | tu | sí | más | como ; 
 
 define Conjunction 
-a pesar de | todavía | sin embargo | asimismo | por tanto | porque | entonces | pese a | a pesar | caso | apenas | enquanto ; 
+[a pesar de] | todavía | [sin embargo] | asimismo | [por tanto] | porque | entonces | [pese a] | [a pesar] | caso | apenas | enquanto ; 
 
 define Ser 
-ser | soy | és | é | somos | sois | son | era | érase | éramos | éreis | eran | fui | fuiste | fue | fuimos | fuiste | fueron | será | serás | serán | seremos | sereis | sería | serías | seríamos | seríais | serían ;
+ser | soy | és | somos | sois | son | era | érase | éramos | érais | eran | fui | fuiste | fue | fuimos | fuistes | fueron | será | serás | serán | seremos | sereis | sería | serías | seríamos | seríais | serían ;
 
 define Estar 
 estar | estoy | estás | está | estamos | estáis | estado | estaba | estabas | estábamos | estaban | estuve | estuvo | estuvimos | estuvieran | estaré | estarás | estará | estaremos | estarán ; 
