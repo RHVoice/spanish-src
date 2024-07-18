@@ -17,7 +17,7 @@ define Digit
 %0 : cero | 
 1:uno | 
 2:dos | 
-3:três | 
+3:trés | 
 4:cuatro | 
 5:cinco | 
 6:seis | 
