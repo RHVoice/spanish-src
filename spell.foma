@@ -26,6 +26,20 @@ define Digit
 9:nueve ; 
 
 define Letter 
+# These are some strange characters that i found, for example, in social media, these are alphabet letters but a tonal/visual representation, like genders.
+[ą|ă|Ą|Ă|ā|Ā]:a | 
+[Ć|ć|Ĉ|ĉ|Ċ|ċ|Č|č]:cé | 
+[Ď|ď|Đ|đ]:dé | 
+[Ē|ē|Ĕ|ĕ|Ė|ė|Ę|ę|Ě|ě]:e | 
+[Ĝ|ĝ|Ğ|ğ|Ġ|ġ|Ģ|ģ]:gé | 
+[Ĥ|ĥ|Ħ|ħ]:ache | 
+[Ĩ|ĩ|Ī|ī|Ĭ|ĭ|Į|į|İ|ı]:i | 
+[î]:i | 
+[Ĵ|ĵ]:jota | 
+[Ķ|ķ]:ka | 
+[Ĺ|ĺ|Ļ|ļ|Ľ|ľ|Ł|ł]:ele | 
+[Ń|ń|Ņ|ņ|Ň|ň]:ene | 
+# regular letters:
 [a|A]:a | 
 [À|à]:[á grabe] | 
 [Á|á]:[á agudo] | 
