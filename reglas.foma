@@ -1,0 +1,9 @@
+define rrRule 
+r -> [rr] || .#. _ ; 
+
+define psiException 
+{psi} -> {si} || .#. _ ; 
+
+regex 
+psiException .o. 
+rrRule ; 

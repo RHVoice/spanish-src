@@ -14,7 +14,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 define Nucleus 
-[[a | e | i | o | u | a0 | a1 | e0 | e1 | i0 | i1 | o0 | o1 | u0 | u1]] ; 
+a | a0 | a1 | 
+e | e0 | e1 | 
+i | i0 | i1 | 
+o | o0 | o1 | 
+u | u0 | u1 ; 
 
 define MarkNuclei Nucleus @-> %{ ... %} ; 
 
