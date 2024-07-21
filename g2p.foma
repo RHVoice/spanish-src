@@ -101,7 +101,7 @@ q:k | #Todo: special handling for q. When after q has "u" as next letter, the "u
 [q u i1]:[k i1] | # sequía
 w:w | 
 x:{ks} | # Existe, éxito
-y:i ; 
+y:y ; 
 
 define SpanishRules 
 # closed vowel i
@@ -132,11 +132,22 @@ define WordStartRules
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
 r -> [rr] || .#. _ ; # rato, rico, roma, all words starting r are a RR sound.
 
+define WordMidRules 
+# when y is a standalone word, converts to i because it is an open vowel.
+y -> i || .#. _ .#. ; 
+
 define WordEndRules 
-c -> k || _ .#. ; # cómic, tictac
+# handling of closed vowel y to the end of word. Pley, soy, estoy, voy, hay, etc.
+{ay} -> [a yc] || _ .#. ,, # hay alguien aquí?
+{ey} -> [e yc] || _ .#. ,, # vacabuey, rey, ley.
+{oy} -> [o yc] || _ .#. ,, # voy, soy, estoy.
+{uy} -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
+{ly} -> [l i] || _ .#. ,, # this is especially for foreign words.
+# now, when a words ends with c, convert to k.
+c -> k || _ .#. ; # cómic, tictac.
 
 define Stage1 
-NormalizeCharacters -> ,, 
+NormalizeCharacters @-> ,,
 TranscribeVowel @-> ; 
 
 define Stage2 TranscribeConsonant @-> ; 
@@ -147,9 +158,10 @@ source stress.foma
 regex 
 Stage1 .o.
 Stage2 .o.
-Stage3.o.
-WordStartRules.o.
-WordEndRules.o.
-SpanishStress.o.
+Stage3 .o.
+WordStartRules .o.
+WordMidRules .o.
+WordEndRules .o.
+SpanishStress .o.
 #SpanishStress2.o.
 unstress ; 

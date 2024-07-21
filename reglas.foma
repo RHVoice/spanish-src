@@ -5,9 +5,15 @@ define psiException
 {psi} -> {si} || .#. _ ; 
 
 define WordEndRules 
+{ay} -> [a i c] || _ .#. ,, 
 c -> k || _ .#. ;
+
+
+define IRule 
+y -> i || .#. _ .#. ; 
 
 regex 
 psiException .o. 
 WordEndRules .o. 
-rrRule ; 
+rrRule .o. 
+IRule ;
