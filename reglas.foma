@@ -4,6 +4,10 @@ r -> [rr] || .#. _ ;
 define psiException 
 {psi} -> {si} || .#. _ ; 
 
+define WordEndRules 
+c -> k || _ .#. ;
+
 regex 
 psiException .o. 
+WordEndRules .o. 
 rrRule ; 

@@ -25,7 +25,15 @@ define NormalizeCharacters
 [Ĵ|ĵ]:j | 
 [Ķ|ķ]:k | 
 [Ĺ|ĺ|Ļ|ļ|Ľ|ľ|Ł|ł]:l | 
-[Ń|ń|Ņ|ņ|Ň|ň]:n ; 
+[Ń|ń|Ņ|ņ|Ň|ň]:n | 
+[Ō|ō|Ŏ|ŏ|Ő|ő|Œ|œ]:o | 
+[Ŕ|ŕ|Ŗ|ŗ|Ř|ř]:r | 
+[Ś|ś|Ŝ|ŝ|Ş|ş]:s | 
+[Ţ|ţ|Ť|ť|Ŧ|ŧ]:t | 
+[Ũ|ũ|Ū|ū|Ŭ|ŭ|Ů|ů|Ű|ű|Ų|ų]:u | 
+[Ŵ|ŵ]:w | 
+[Ŷ|ŷ]:y | 
+[Ź|ź|Ż|ż]:z ; 
 
 define TranscribeVowel 
 a:a | 
@@ -124,6 +132,9 @@ define WordStartRules
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
 r -> [rr] || .#. _ ; # rato, rico, roma, all words starting r are a RR sound.
 
+define WordEndRules 
+c -> k || _ .#. ; # cómic, tictac
+
 define Stage1 
 NormalizeCharacters -> ,, 
 TranscribeVowel @-> ; 
@@ -131,8 +142,14 @@ TranscribeVowel @-> ;
 define Stage2 TranscribeConsonant @-> ; 
 define Stage3 SpanishRules @-> ; 
 
+source stress.foma
+
 regex 
 Stage1 .o.
 Stage2 .o.
 Stage3.o.
-WordStartRules ; 
+WordStartRules.o.
+WordEndRules.o.
+SpanishStress.o.
+#SpanishStress2.o.
+unstress ; 
