@@ -133,9 +133,16 @@ define SpanishRules
 [u o1]:[w o1] | # continuó
 # c to k exceptions:
 [c c]:[k c] | # selección, leccionario
+[c d]:[k d] | # Anécdota.
+[c k]:k | # talkback.
 [c l]:[k l] | # claro (klaro, not claro)
+[c m]:[k m] | # francmasonería.
+[c n]:[k n] | # cneorácea, tecnología.
+[c p]:[k p] | # yucpa
 [c r]:[k r] | # secreto (sekreto, not secreto)
-[c t]:[k t] ; # actualización (aktwalizhazhjo1n, not actwalicacjo1n)
+[c s]:[k s] | # clics.
+[c t]:[k t] | # actualización (aktwalizhazhjo1n, not actwalicacjo1n)
+{cy}:[c i] ; # Cynthia.
 
 define WordStartRules 
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
@@ -152,18 +159,26 @@ define WordEndRules
 {oy} -> oi || _ .#. ,, # voy, soy, estoy.
 {uy} -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
 # The following is especially for foreign words.
+{ky} -> [k i] || _ .#. ,, 
 {ly} -> [l i] || _ .#. ,, 
 {py} -> [p i] || _ .#. ,, 
+{ry} -> [r i] || _ .#. ,, # cherry.
 {ty} -> [t i] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
 c -> k || _ .#. ; # cómic, tictac.
+
+define exceptions 
+[t ts]:ts | # switch
+[[{wi} (%-) {fi}] : [u ai f ai1]] ; 
 
 define Stage1 
 NormalizeCharacters @-> ,,
 TranscribeVowel @-> ; 
 
 define Stage2 TranscribeConsonant @-> ; 
-define Stage3 SpanishRules @-> ; 
+define Stage3 
+SpanishRules @-> ,, 
+exceptions@-> ;
 
 source stress.foma
 
@@ -175,5 +190,4 @@ WordStartRules .o.
 WordMidRules .o.
 WordEndRules .o.
 SpanishStress .o.
-#SpanishStress2.o.
 unstress ; 

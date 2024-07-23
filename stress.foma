@@ -14,16 +14,21 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-define StressedVowel [a1 | e1 | i1 | o1 | u1] ; 
+define StressedVowel [a1 | ai1 | au1 | e1 | ei1 | eu1 | i1 | o1 | oi1 | u1] ; 
 define NotStress [\StressedVowel]* ; 
-define UnstressedVowel [a | e | i | o | u] ; 
+define UnstressedVowel [a | ai | au | e | ei | eu | i | o | oi | u] ; 
 define Consonant b|c|ts|d|f|g|x|k|l|{ll}|m|n|ni|p|r|{rr}|s|sh|t|v|w|{zh} ; 
 
 define stresses 
-[a:a1|
+[ai:ai1|
+au:au1|
+a:a1|
 e:e1|
+ei:ei1|
+eu:eu1|
 i:i1|
 o:o1|
+oi:oi1|
 u:u1] ; 
 
 # In words that end in a vowel, n or s, the stress generally falls on the penultimate syllable.
@@ -35,8 +40,13 @@ _ .#. ;
 
 define unstress [
 a:a0|
+ai:ai0|
+au:au0|
 e:e0|
+ei:ei0|
+eu:eu0|
 i:i0|
 o:o0|
+oi:oi0|
 u:u0
 ] @-> || _ ;

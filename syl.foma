@@ -19,8 +19,11 @@ e | e0 | e1 |
 i | i0 | i1 | 
 o | o0 | o1 | 
 u | u0 | u1 | 
-ai | ei | oi 
-au | eu ; 
+ai | ai0 | ai1 | 
+ei | ei0 | ei1 | 
+oi | oi0 | oi1 | 
+au | au0 | au1 |
+eu | eu0 | eu1 ; 
 
 define MarkNuclei Nucleus @-> %{ ... %} ; 
 

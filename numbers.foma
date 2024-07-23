@@ -13,13 +13,10 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-source ../common/roman.foma
+source roman_numbers.foma
 
 define MapRomanNumeral 
-RomanMapping -> || .#. _ .#. ; 
-
-define RomanNumeral 
-RomanMapping.u ; 
+ESRomanMapping -> || .#. _ .#. ; 
 
 define MaleOrdChar %º ; 
 define FemaleOrdChar %ª ; 
@@ -30,7 +27,7 @@ define Digit %0|NZDigit ;
 
 define UnformattedNumber [NZDigit Digit^<15] ; 
 define FormattedNumber NZDigit Digit^<3 [%. Digit^3]^{1,4} ; 
-define Number [[UnformattedNumber | FormattedNumber] (OrdChar)] | RomanNumeral ; 
+define Number [[UnformattedNumber | FormattedNumber] (OrdChar)] | ESRomanNumeral ; 
 
 define Unit 
 1:uno | 
@@ -67,12 +64,12 @@ define FemaleOrdUnit
 
 
 define Teen 
-1:onze | 
+1:once | 
 2:doze | 
-3:treze | 
-4:catorze | 
-5:quinze | 
-6:dieciseis | 
+3:trece | 
+4:catorce | 
+5:quince | 
+6:dieciséis | 
 7:diecisiete | 
 8:dieciocho | 
 9:diecinueve ; 
