@@ -93,7 +93,7 @@ s:s |
 t:t | 
 ŭ:u | 
 v:v | 
-z:c | # c (ce, ci) and z (za, ze, zi, zo, zu) are the same phoneme.
+z:zh | # previously c, but z is a bit long sound diferent than c (ce, ci).
 q:k | #Todo: special handling for q. When after q has "u" as next letter, the "u" is a silent vowel. So, u needs to be removed and replaced with w, closed vowel of u.
 [q u e]:[k e] | # queso, buque
 [q u e1]:[k e1] | # qué
@@ -104,6 +104,15 @@ x:{ks} | # Existe, éxito
 y:y ; 
 
 define SpanishRules 
+# au, eu, ou.
+{au}:au | # audacia, Aurelia, bau.
+{eu}:eu | # neuronal, reusar, deuda.
+# There aren't many words with ou in Spanish, so commenting for now to avoid less observation in any corpus.
+#{ou}:ou | # estadounidense, glamour.
+# ai, ei, oi.
+{ai}:ai | # paisage, aire, Haití.
+{ei}:ei | # aceite, reintentar, reiniciar.
+{oi}:oi | # coincidir, espermatozoide, androide.
 # closed vowel i
 {ia}:[j a] | # biacrusis, referencia, viciándose, diafragma, fiar, sequia, cecilia, ...
 [i a1]:[j a1] | # viciándose, viciado, desquiciado
@@ -126,7 +135,7 @@ define SpanishRules
 [c c]:[k c] | # selección, leccionario
 [c l]:[k l] | # claro (klaro, not claro)
 [c r]:[k r] | # secreto (sekreto, not secreto)
-[c t]:[k t] ; # actualización (aktwalicacjo1n, not actwalicacjo1n)
+[c t]:[k t] ; # actualización (aktwalizhazhjo1n, not actwalicacjo1n)
 
 define WordStartRules 
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
@@ -138,11 +147,14 @@ y -> i || .#. _ .#. ;
 
 define WordEndRules 
 # handling of closed vowel y to the end of word. Pley, soy, estoy, voy, hay, etc.
-{ay} -> [a yc] || _ .#. ,, # hay alguien aquí?
-{ey} -> [e yc] || _ .#. ,, # vacabuey, rey, ley.
-{oy} -> [o yc] || _ .#. ,, # voy, soy, estoy.
+{ay} -> ai || _ .#. ,, # hay alguien aquí?
+{ey} -> ei || _ .#. ,, # vacabuey, rey, ley.
+{oy} -> oi || _ .#. ,, # voy, soy, estoy.
 {uy} -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
-{ly} -> [l i] || _ .#. ,, # this is especially for foreign words.
+# The following is especially for foreign words.
+{ly} -> [l i] || _ .#. ,, 
+{py} -> [p i] || _ .#. ,, 
+{ty} -> [t i] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
 c -> k || _ .#. ; # cómic, tictac.
 

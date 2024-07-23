@@ -18,12 +18,14 @@ a | a0 | a1 |
 e | e0 | e1 | 
 i | i0 | i1 | 
 o | o0 | o1 | 
-u | u0 | u1 ; 
+u | u0 | u1 | 
+ai | ei | oi 
+au | eu ; 
 
 define MarkNuclei Nucleus @-> %{ ... %} ; 
 
 define Consonant 
-b|c|ts|d|f|g|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|w|z ; 
+b|c|ts|d|f|g|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|w|zh ; 
 define Onset 
 0 | Consonant | 
 {bl} | {bj} | {br} | {bw} | {ts} | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | {gw} | {kl} | {kj} | {kr} | 

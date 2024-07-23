@@ -47,7 +47,7 @@ v:[u1 v e] |
 w:[u v e d o1 b l e] |
 x:[e1 k i s] |
 y:[i1 g r j e g a] |
-z:[c e1 t a]] ;
+z:[zh e1 t a]] ;
 
 define TranscribeLetterSequence LetterLseq -> || _ ;
 
