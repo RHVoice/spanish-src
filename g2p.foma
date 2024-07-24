@@ -178,8 +178,12 @@ define Stage1
 NormalizeCharacters @-> ,,
 TranscribeVowel @-> ; 
 
-define Stage2 TranscribeConsonant @-> ; 
-define Stage3 SpanishRules @-> ; 
+define Stage2 
+TranscribeConsonant @-> ; 
+
+define Stage3 
+SpanishRules @-> ,, 
+exceptions @-> ; 
 
 define rules 
 Stage1 .o.
@@ -193,6 +197,5 @@ source stress.foma
 
 regex 
 rules .o.
-#exceptions.o.
 SpanishStress .o.
 unstress ; 

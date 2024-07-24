@@ -24,6 +24,7 @@ define OrdChar MaleOrdChar | FemaleOrdChar ;
 
 define ProcNumChar [ %-:menos |
 %+: más |
+%$: dólares |
 %.: punto |
 %,: coma ] ;
 
