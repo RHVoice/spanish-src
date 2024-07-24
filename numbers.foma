@@ -22,12 +22,16 @@ define MaleOrdChar %º ;
 define FemaleOrdChar %ª ; 
 define OrdChar MaleOrdChar | FemaleOrdChar ; 
 
+define ProcNumChar [ %-:menos |
+%+: más |
+%.: punto |
+%,: coma ] ;
+
 define NZDigit 1|2|3|4|5|6|7|8|9 ; 
 define Digit %0|NZDigit ; 
 
-define UnformattedNumber [NZDigit Digit^<15] ; 
-define FormattedNumber NZDigit Digit^<3 [%. Digit^3]^{1,4} ; 
-define Number [[UnformattedNumber | FormattedNumber] (OrdChar)] | ESRomanNumeral ; 
+define UnformattedNumber [NZDigit Digit^<16] ; 
+define Number [UnformattedNumber (OrdChar)] | ESRomanNumeral ; 
 
 define Unit 
 1:uno | 
@@ -245,5 +249,4 @@ define ZeroRule
 [%0 FemaleOrdChar] : cerésima ; 
 
 regex 
-ZeroRule | NumberRules ; 
-
+ProcNumChar | ZeroRule | NumberRules ; 

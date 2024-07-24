@@ -58,9 +58,9 @@ define Letter a|A|á|Á|b|B|c|C|d|D|e|E|é|É|f|F|g|G|h|H|i|I|í|Í|j|J|k|K|l|L|
 
 define NZDigit 1|2|3|4|5|6|7|8|9;
 define Digit %0|NZDigit;
-
-define Number %0 | [NZDigit Digit*];
-
+define UnformattedNumber [Digit Digit*] ;
+define Number  UnformattedNumber;
+define DecimalSeparator %.|%,;
 define Word Letter+ ;
 
 define Stage1 
@@ -70,9 +70,15 @@ Word @-> ... word || _ .#. | \Letter ,,
 
 define Stage2 
 word -> lseq || [.#.|word|num|sym] LetterSequence _ ,, 
+sym -> num || [sym|.#.] %- _ Digit,
+sym -> num || [sym|.#.] %+ _ Digit,
+num DecimalSeparator _ Digit+,,
 num -> dig || Digit^16 _ ;
 
 define Stage3 
-lseq:0 %' sym:word -> || .#. | [\%' sym] _ .#. | Letter ; 
+#lseq:0 %' sym:word -> || .#. | [\%' sym] _ .#. | Letter ,, 
+word -> lseq || .#. _ ,,
+num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
+ DecimalSeparator num Digit+ num DecimalSeparator _ ; 
 
 regex Stage1 .o. Stage2 .o. Stage3;

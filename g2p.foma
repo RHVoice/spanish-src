@@ -159,35 +159,40 @@ define WordEndRules
 {oy} -> oi || _ .#. ,, # voy, soy, estoy.
 {uy} -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
 # The following is especially for foreign words.
+{dy} -> [d i] || _ .#. ,, 
 {ky} -> [k i] || _ .#. ,, 
 {ly} -> [l i] || _ .#. ,, 
+{ny} -> [n i] || _ .#. ,, # Danny, Ronny.
 {py} -> [p i] || _ .#. ,, 
 {ry} -> [r i] || _ .#. ,, # cherry.
+{sy} -> [S i] || _ .#. ,, 
 {ty} -> [t i] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
 c -> k || _ .#. ; # cómic, tictac.
 
 define exceptions 
 [t ts]:ts | # switch
-[[{wi} (%-) {fi}] : [u ai f ai1]] ; 
+[[{wi} (%-) {fi}] : [w ai f ai1]] ; 
 
 define Stage1 
 NormalizeCharacters @-> ,,
 TranscribeVowel @-> ; 
 
 define Stage2 TranscribeConsonant @-> ; 
-define Stage3 
-SpanishRules @-> ,, 
-exceptions@-> ;
+define Stage3 SpanishRules @-> ; 
 
-source stress.foma
-
-regex 
+define rules 
 Stage1 .o.
 Stage2 .o.
 Stage3 .o.
 WordStartRules .o.
 WordMidRules .o.
-WordEndRules .o.
+WordEndRules ;
+
+source stress.foma
+
+regex 
+rules .o.
+#exceptions.o.
 SpanishStress .o.
 unstress ; 
