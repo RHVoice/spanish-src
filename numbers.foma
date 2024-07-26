@@ -24,6 +24,7 @@ define OrdChar MaleOrdChar | FemaleOrdChar ;
 
 define ProcNumChar [ %-:menos |
 %+: más |
+%$: dólares |
 %.: punto |
 %,: coma ] ;
 
@@ -182,9 +183,6 @@ mlns:mlnth | blns:blnth | tlns:tlnth -> || _ OrdChar ;
 define RemoveZeros 
 %0 ([TenOrHundredSymbol | OrdTenOrHundredSymbol]) @-> 0 ; 
 
-define Insertzeros 
-[%0] -> zero || [ .#. | [.#. %0+]] _ ;
-
 define MarkTeens 
 [[1 ten]:0] NZDigit [0:teen] -> ; 
 
@@ -225,7 +223,6 @@ define RemoveThousandsSeparators
 
 define NumberRules 
 Number .o. 
-Insertzeros.o.
 MapRomanNumeral .o. 
 RemoveThousandsSeparators .o. 
 SeparatePowerOfThousand(ths) .o. 
