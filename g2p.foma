@@ -165,7 +165,7 @@ define WordEndRules
 {ny} -> [n i] || _ .#. ,, # Danny, Ronny.
 {py} -> [p i] || _ .#. ,, 
 {ry} -> [r i] || _ .#. ,, # cherry.
-{sy} -> [S i] || _ .#. ,, 
+{sy} -> [s i] || _ .#. ,, 
 {ty} -> [t i] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
 c -> k || _ .#. ; # cómic, tictac.
