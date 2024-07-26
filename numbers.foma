@@ -189,7 +189,7 @@ define MarkTeens
 define InsertAnds 
 [..] -> and || 
 NZDigit ten _ NZDigit , 
-NZDigit hnd _ (%0 ten) NZDigit , 
+#NZDigit hnd _ (%0 ten) NZDigit , 
 PowerOfThousandSymbol _ [[NZDigit [hnd|hnd0] %0 ten %0] | [%0 hnd (%0 ten) NZDigit]] .#. ; 
 
 define RemoveOnes 
