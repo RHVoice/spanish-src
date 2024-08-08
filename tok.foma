@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+source romans.foma
+
 define CaseVariants 
 a -> a|A , 
 á -> á|Á , 
@@ -70,10 +72,12 @@ Word @-> ... word || _ .#. | \Letter ,,
 
 define Stage2 
 word -> lseq || [.#.|word|num|sym] LetterSequence _ ,, 
+word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] , 
 sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,
 num DecimalSeparator _ Digit+,,
-num -> dig || Digit^16 _ ;
+num -> dig || Digit^16 _ ,, 
+[num:0] [%º|%ª] [sym:num] -> ; 
 
 define Stage3 
 #lseq:0 %' sym:word -> || .#. | [\%' sym] _ .#. | Letter ,, 

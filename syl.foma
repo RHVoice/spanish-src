@@ -15,28 +15,30 @@
 
 define Nucleus 
 a | a0 | a1 | 
+{au} | {eu} | {ou} | 
+{ai} | {ei} | {oi} | 
 e | e0 | e1 | 
 i | i0 | i1 | 
 o | o0 | o1 | 
-u | u0 | u1 | 
-ai | ai0 | ai1 | 
-ei | ei0 | ei1 | 
-oi | oi0 | oi1 | 
-au | au0 | au1 |
-eu | eu0 | eu1 ; 
+u | u0 | u1 ; 
 
-define MarkNuclei Nucleus @-> %{ ... %} ; 
+define MarkNuclei 
+Nucleus @-> %{ ... %} ; 
 
 define Consonant 
 b|c|ts|d|f|g|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|w|zh ; 
+
 define Onset 
 0 | Consonant | 
 {bl} | {bj} | {br} | {bw} | {ts} | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | {gw} | {kl} | {kj} | {kr} | 
 {kw} | {lj} | {ll} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | {rw} | y ; 
 
-define Syllable Onset %{ Nucleus %} Consonant* ; 
+define Syllable 
+#[Nucleus | a | e | o] %{ i | u %} Consonant* | # Au, da, cia. A, e, o, after "i" or "u", is a syllable, then any Consonant.
+Onset %{ Nucleus %} Consonant* ; 
 
-define MarkSyllables Syllable @> ... "." || _ Syllable;
+define MarkSyllables 
+Syllable @> ... "." || _ Syllable;
 
 regex 
 MarkNuclei .o. 
