@@ -27,7 +27,7 @@ o:o1|
 u:u1] ; 
 
 # In words that end in a vowel, n or s, the stress generally falls on the penultimate syllable.
-define SpanishStress stresses @-> ||
+define SpanishStress (stresses Consonant *) @-> ||
 _ \UnstressedVowel + UnstressedVowel + (n|s) + .#. ; 
 
 define SpanishStress2 (stresses Consonant *) @-> ||

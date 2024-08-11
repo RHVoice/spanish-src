@@ -151,6 +151,7 @@ define WordEndRules
 {oy} -> [o yc] || _ .#. ,, # voy, soy, estoy.
 {uy} -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
 # The following is especially for foreign words.
+{by} -> [b i] || _ .#. ,, 
 {dy} -> [d i] || _ .#. ,, 
 {ky} -> [k i] || _ .#. ,, 
 {ly} -> [l i] || _ .#. ,, 
