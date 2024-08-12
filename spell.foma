@@ -111,7 +111,7 @@ define Symbol
 %> : [maior que] | 
 %= : igual | 
 %? : [cerrar interrogación] | 
-%@ : arrôba | 
+%@ : arroba | 
 %[ : [abre corchete] | 
 %] : [cierra corchete] | 
 %\ : [barra invertida] | 
