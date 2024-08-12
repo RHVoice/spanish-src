@@ -13,28 +13,6 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-define NormalizeCharacters 
-# These are some strange characters that i found, for example, in social media, these are alphabet letters but a tonal/visual representation, like genders. So, although these symbols are set up in spell, we need to pass to g2p so that it treats them as normal letters and forms words with these.
-[ą|ă|Ą|Ă|ā|Ā]:a | 
-[Ć|ć|Ĉ|ĉ|Ċ|ċ|Č|č]:c | 
-[Ď|ď|Đ|đ]:d | 
-[Ē|ē|Ĕ|ĕ|Ė|ė|Ę|ę|Ě|ě]:e | 
-[Ĝ|ĝ|Ğ|ğ|Ġ|ġ|Ģ|ģ]:g | 
-[Ĥ|ĥ|Ħ|ħ]:h | 
-[Ĩ|ĩ|Ī|ī|Ĭ|ĭ|Į|į|İ|ı]:i | 
-[Ĵ|ĵ]:j | 
-[Ķ|ķ]:k | 
-[Ĺ|ĺ|Ļ|ļ|Ľ|ľ|Ł|ł]:l | 
-[Ń|ń|Ņ|ņ|Ň|ň]:n | 
-[Ō|ō|Ŏ|ŏ|Ő|ő|Œ|œ]:o | 
-[Ŕ|ŕ|Ŗ|ŗ|Ř|ř]:r | 
-[Ś|ś|Ŝ|ŝ|Ş|ş]:s | 
-[Ţ|ţ|Ť|ť|Ŧ|ŧ]:t | 
-[Ũ|ũ|Ū|ū|Ŭ|ŭ|Ů|ů|Ű|ű|Ų|ų]:u | 
-[Ŵ|ŵ]:w | 
-[Ŷ|ŷ]:y | 
-[Ź|ź|Ż|ż]:z ; 
-
 define TranscribeVowel 
 a:a | 
 á:a1 | 
@@ -167,6 +145,8 @@ c -> k || _ .#. ; # cómic, tictac.
 define exceptions 
 [t ts]:ts | # switch
 [[{wi} (%-) {fi}] : [w a i f a1 yc]] ; 
+
+source special_chars.foma
 
 define Stage1 
 NormalizeCharacters @-> ,,

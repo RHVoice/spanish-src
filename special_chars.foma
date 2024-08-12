@@ -1,0 +1,44 @@
+define NormalizeCharacters 
+# These are some strange characters that i found, for example, in social media, these are alphabet letters but a tonal/visual representation, like genders. So, although these symbols are set up in spell, we need to pass to g2p so that it treats them as normal letters and forms words with these.
+[ą|ă|Ą|Ă|ā|Ā]:a | 
+[Ć|ć|Ĉ|ĉ|Ċ|ċ|Č|č]:c | 
+[Ď|ď|Đ|đ]:d | 
+[Ē|ē|Ĕ|ĕ|Ė|ė|Ę|ę|Ě|ě]:e | 
+[Ĝ|ĝ|Ğ|ğ|Ġ|ġ|Ģ|ģ]:g | 
+[Ĥ|ĥ|Ħ|ħ]:h | 
+[Ĩ|ĩ|Ī|ī|Ĭ|ĭ|Į|į|İ|ı]:i | 
+[Ĵ|ĵ]:j | 
+[Ķ|ķ]:k | 
+[Ĺ|ĺ|Ļ|ļ|Ľ|ľ|Ł|ł]:l | 
+[Ń|ń|Ņ|ņ|Ň|ň]:n | 
+[Ō|ō|Ŏ|ŏ|Ő|ő|Œ|œ]:o | 
+[Ŕ|ŕ|Ŗ|ŗ|Ř|ř]:r | 
+[Ś|ś|Ŝ|ŝ|Ş|ş]:s | 
+[Ţ|ţ|Ť|ť|Ŧ|ŧ]:t | 
+[Ũ|ũ|Ū|ū|Ŭ|ŭ|Ů|ů|Ű|ű|Ų|ų]:u | 
+[Ŵ|ŵ]:w | 
+[Ŷ|ŷ]:y | 
+[Ź|ź|Ż|ż]:z ; 
+
+define NormalizeCharactersSpell 
+# These are some strange characters that i found, for example, in social media, these are alphabet letters but a tonal/visual representation, like genders.
+[ą|ă|Ą|Ă|ā|Ā]:a | 
+[Ć|ć|Ĉ|ĉ|Ċ|ċ|Č|č]:cé | 
+[Ď|ď|Đ|đ]:dé | 
+[Ē|ē|Ĕ|ĕ|Ė|ė|Ę|ę|Ě|ě]:e | 
+[Ĝ|ĝ|Ğ|ğ|Ġ|ġ|Ģ|ģ]:gé | 
+[Ĥ|ĥ|Ħ|ħ]:ache | 
+[Ĩ|ĩ|Ī|ī|Ĭ|ĭ|Į|į|İ|ı]:i | 
+[î]:i | 
+[Ĵ|ĵ]:jota | 
+[Ķ|ķ]:ka | 
+[Ĺ|ĺ|Ļ|ļ|Ľ|ľ|Ł|ł]:ele | 
+[Ń|ń|Ņ|ņ|Ň|ň]:ene | 
+[Ō|ō|Ŏ|ŏ|Ő|ő|Œ|œ]:o | 
+[Ŕ|ŕ|Ŗ|ŗ|Ř|ř]:erre | 
+[Ś|ś|Ŝ|ŝ|Ş|ş]:ese | 
+[Ţ|ţ|Ť|ť|Ŧ|ŧ]:té | 
+[Ũ|ũ|Ū|ū|Ŭ|ŭ|Ů|ů|Ű|ű|Ų|ų]:u | 
+[Ŵ|ŵ]:[uve doble] | 
+[Ŷ|ŷ]:[i griega] | 
+[Ź|ź|Ż|ż]:ceta ; 

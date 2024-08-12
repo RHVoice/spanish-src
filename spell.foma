@@ -25,28 +25,7 @@ define Digit
 8:ocho | 
 9:nueve ; 
 
-define Letter 
-# These are some strange characters that i found, for example, in social media, these are alphabet letters but a tonal/visual representation, like genders.
-[ą|ă|Ą|Ă|ā|Ā]:a | 
-[Ć|ć|Ĉ|ĉ|Ċ|ċ|Č|č]:cé | 
-[Ď|ď|Đ|đ]:dé | 
-[Ē|ē|Ĕ|ĕ|Ė|ė|Ę|ę|Ě|ě]:e | 
-[Ĝ|ĝ|Ğ|ğ|Ġ|ġ|Ģ|ģ]:gé | 
-[Ĥ|ĥ|Ħ|ħ]:ache | 
-[Ĩ|ĩ|Ī|ī|Ĭ|ĭ|Į|į|İ|ı]:i | 
-[î]:i | 
-[Ĵ|ĵ]:jota | 
-[Ķ|ķ]:ka | 
-[Ĺ|ĺ|Ļ|ļ|Ľ|ľ|Ł|ł]:ele | 
-[Ń|ń|Ņ|ņ|Ň|ň]:ene | 
-[Ō|ō|Ŏ|ŏ|Ő|ő|Œ|œ]:o | 
-[Ŕ|ŕ|Ŗ|ŗ|Ř|ř]:erre | 
-[Ś|ś|Ŝ|ŝ|Ş|ş]:ese | 
-[Ţ|ţ|Ť|ť|Ŧ|ŧ]:té | 
-[Ũ|ũ|Ū|ū|Ŭ|ŭ|Ů|ů|Ű|ű|Ų|ų]:u | 
-[Ŵ|ŵ]:[uve doble] | 
-[Ŷ|ŷ]:[i griega] | 
-[Ź|ź|Ż|ż]:ceta | 
+define RegularLetter 
 # regular letters:
 [a|A]:a | 
 [À|à]:[á grabe] | 
@@ -93,6 +72,10 @@ define Letter
 [x|X]:equis | 
 [y|Y]:[i griega] | 
 [z|Z]:ceta ; 
+
+source special_chars.foma
+
+define Letter RegularLetter + NormalizeCharactersSpell ;
 
 define Whitespace 
 tab:tab | 

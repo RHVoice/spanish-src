@@ -56,8 +56,9 @@ define ConsonantLetterSequence
 define LetterSequence 
 [ConsonantLetterSequence .o. CaseVariants].l ; 
 
-define Letter a|A|á|Á|b|B|c|C|d|D|e|E|é|É|f|F|g|G|h|H|i|I|í|Í|j|J|k|K|l|L|m|M|n|N|ñ|Ñ|o|O|ó|Ó|p|P|q|Q|r|R|s|S|t|T|u|U|ú|Ú|ü|Ü|v|V|w|W|x|X|y|Y|z|Z;
-
+define SmallLetter a|á|b|c|d|e|é|f|g|h|i|í|j|k|l|m|n|ñ|o|ó|p|q|r|s|t|u|ú|ü|v|w|x|y|z;
+define CapitalLetter A|Á|B|C|D|E|É|F|G|H|I|Í|J|K|L|M|N|Ñ|O|Ó|P|Q|R|S|T|U|Ú|Ü|V|W|X|Y|Z;
+define Letter SmallLetter | CapitalLetter;
 define NZDigit 1|2|3|4|5|6|7|8|9;
 define Digit %0|NZDigit;
 define UnformattedNumber [Digit Digit*] ;
@@ -71,18 +72,29 @@ Word @-> ... word || _ .#. | \Letter ,,
 \[Letter | Digit] @-> ... sym || _ ; 
 
 define Stage2 
+[..] -> lseq || SmallLetter _ CapitalLetter , CapitalLetter _ CapitalLetter SmallLetter ,, 
 word -> lseq || [.#.|word|num|sym] LetterSequence _ ,, 
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] , 
 sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,
 num DecimalSeparator _ Digit+,,
 num -> dig || Digit^16 _ ,, 
-[num:0] [%º|%ª] [sym:num] -> ; 
+[num:0] [%º|%ª] [sym:num] -> ,, 
+num -> dig || %0 + Digit _ ; 
 
 define Stage3 
 #lseq:0 %' sym:word -> || .#. | [\%' sym] _ .#. | Letter ,, 
-word -> lseq || .#. _ ,,
-num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
- DecimalSeparator num Digit+ num DecimalSeparator _ ; 
+word -> lseq || .#. _ ;
+#num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
+# DecimalSeparator num Digit+ num DecimalSeparator _ ; 
 
-regex Stage1 .o. Stage2 .o. Stage3;
+source special_chars.foma
+
+define Normalize 
+NormalizeCharacters @-> ; 
+
+regex 
+Normalize.o. 
+Stage1 .o. 
+Stage2 .o. 
+Stage3;
