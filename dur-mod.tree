@@ -1,4 +1,4 @@
-																				; -*- Mode: Scheme -*-
+                                        ; -*- Mode: Scheme -*-
 ((utt_type is e)
  ((R:SylStructure.parent.parent.R:Phrase.parent.phrases_out is 0)
   ((R:SylStructure.parent.ssyl_out is 0)
@@ -6,7 +6,11 @@
     ((ph_vc is +)
      ((150))
      ((100)))
-    ((100)))
+    ((ssyl_in is 0)
+     ((125))
+     ((ph_vc is +)
+      ((150))
+      ((100)))))
    ((100)))
   ((100)))
  ((100)))

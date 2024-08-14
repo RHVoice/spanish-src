@@ -72,15 +72,16 @@ Word @-> ... word || _ .#. | \Letter ,,
 \[Letter | Digit] @-> ... sym || _ ; 
 
 define Stage2 
-[..] -> lseq || SmallLetter _ CapitalLetter , CapitalLetter _ CapitalLetter SmallLetter ,, 
+[..] -> lseq || CapitalLetter _ CapitalLetter SmallLetter ,, 
 word -> lseq || [.#.|word|num|sym] LetterSequence _ ,, 
-word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] , 
+word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ,, 
 sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,
 num DecimalSeparator _ Digit+,,
 num -> dig || Digit^16 _ ,, 
-[num:0] [%º|%ª] [sym:num] -> ,, 
-num -> dig || %0 + Digit _ ; 
+# We will handle zeros here, especially for decimals. Numbers.foma uses zeros as a part of rules.
+num -> dig || .#. %0 NZDigit+ _ , .#. %0^2 NZDigit+ _ , .#. %0^3 NZDigit+ _ ,, 
+[num:0] [%º|%ª] [sym:num] -> ; 
 
 define Stage3 
 #lseq:0 %' sym:word -> || .#. | [\%' sym] _ .#. | Letter ,, 
@@ -90,11 +91,8 @@ word -> lseq || .#. _ ;
 
 source special_chars.foma
 
-define Normalize 
-NormalizeCharacters @-> ; 
-
 regex 
-Normalize.o. 
+NormalizeCharacters.o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3;

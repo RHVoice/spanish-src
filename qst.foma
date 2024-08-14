@@ -19,7 +19,7 @@ define WhQuestionTagger
 q -> whq || %+ whw ?* %= _ .#. ; 
 
 define AltQuestionTagger 
-q -> altq || \%- o \%- ?* %= _ .#. ; # ¿Vienes hoy o mañana?
+q -> altq || o [qué|cómo] ?* %= _ .#. ; # ¿Quieres ir al cine, o qué?
 
 define Tagger 
 DefaultTagger .o. 

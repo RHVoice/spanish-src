@@ -77,7 +77,7 @@ define KPKey
 [{kp-} : 0] [Digit | Plus | Minus | Star | Slash | Dot | Enter];
 
 define FKey 
-f:ef Number ;
+f:efe Number ;
 
 define Key 
 KPKey | FKey | SpecialChar | OtherKey;

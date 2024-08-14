@@ -146,10 +146,7 @@ define exceptions
 [t ts]:ts | # switch
 [[{wi} (%-) {fi}] : [w a i f a1 yc]] ; 
 
-source special_chars.foma
-
 define Stage1 
-NormalizeCharacters @-> ,,
 TranscribeVowel @-> ; 
 
 define Stage2 
@@ -159,7 +156,10 @@ define Stage3
 SpanishRules @-> ,, 
 exceptions @-> ; 
 
+source special_chars.foma
+
 define rules 
+NormalizeCharactersG2p .o.
 Stage1 .o.
 Stage2 .o.
 Stage3 .o.
