@@ -116,7 +116,8 @@ define SpanishRules
 
 define WordStartRules 
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
-r -> [rr] || .#. _ ; # rato, rico, roma, all words starting r are a RR sound.
+[d e sh] -> [d e s] || .#. _ ,, # des prefix. Deshabilitar, deshacer.
+r -> [rr] || .#. _, [l|n|s] _ ; # at the start: rato, rico, roma, all words starting r needs to be a RR sound. However, in words that contains l, n or s anywere, needs to be a rr sound, too.
 
 define WordMidRules 
 # when y is a standalone word, converts to i because it is an open vowel.

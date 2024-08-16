@@ -1,5 +1,5 @@
 define rrRule 
-r -> [rr] || .#. _ ; 
+r -> [rr] || .#. _, [l|n|s] _ ; 
 
 define psiException 
 {psi} -> {si} || .#. _ ; 

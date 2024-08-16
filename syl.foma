@@ -15,15 +15,13 @@
 
 define Nucleus 
 a | a0 | a1 | 
-{au} | {eu} | {ou} | 
-{ai} | {ei} | {oi} | 
 e | e0 | e1 | 
 i | i0 | i1 | 
 o | o0 | o1 | 
 u | u0 | u1 ; 
 
 define MarkNuclei 
-Nucleus @-> %{ ... %} ; 
+Nucleus (i|i0|u|u0) + (i|i0|u|u0) @-> %{ ... %} ; 
 
 define Consonant 
 b|c|ts|d|f|g|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|w|zh ; 
@@ -35,7 +33,7 @@ define Onset
 
 define Syllable 
 #[Nucleus | a | e | o] %{ i | u %} Consonant* | # Au, da, cia. A, e, o, after "i" or "u", is a syllable, then any Consonant.
-Onset %{ Nucleus %} Consonant* ; 
+Onset %{ Nucleus+(%i0|%u0) %} Consonant* ; 
 
 define MarkSyllables 
 Syllable @> ... "." || _ Syllable;

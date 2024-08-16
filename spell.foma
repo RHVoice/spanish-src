@@ -75,7 +75,7 @@ define RegularLetter
 
 source special_chars.foma
 
-define Letter RegularLetter + NormalizeCharactersSpell ;
+define Letter RegularLetter | NormalizeCharactersSpell ;
 
 define Whitespace 
 tab:tab | 

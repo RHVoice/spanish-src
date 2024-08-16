@@ -18,6 +18,7 @@ a:a1 |
 á:a1 | 
 b:[b e1] |
 c:[c e1] |
+{ch}:[ts e1] |
 d:[d e1] |
 e:e1 |
 é:e1 |
@@ -49,6 +50,9 @@ x:[e1 k i s] |
 y:[i1 g r j e g a] |
 z:[c e1 t a]] ;
 
-define TranscribeLetterSequence LetterLseq -> || _ ;
+source special_chars.foma
+
+define TranscribeLetterSequence 
+LetterLseq|NormalizeCharactersLseq -> || _ ;
 
 regex TranscribeLetterSequence ; 

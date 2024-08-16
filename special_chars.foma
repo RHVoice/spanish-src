@@ -1,3 +1,18 @@
+# Copyright (C) 2024  Mateo Cedillo <angelitomateocedillo@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 2.1 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 define NormalizeCharacters 
 # These are some strange characters that i found, for example, in social media, these are alphabet letters but a tonal/visual representation, like genders. So, although these symbols are set up in spell, we need to pass to g2p so that it treats them as normal letters and forms words with these.
 [ä|â|ą|ă|Ą|Ă|ā|Ā] -> a || _ ,,
@@ -43,8 +58,7 @@ define NormalizeCharactersG2p
 [Ź|ź|Ż|ż] -> {z} || _ ; 
 
 define NormalizeCharactersSpell 
-# These are some strange characters that i found, for example, in social media, these are alphabet letters but a tonal/visual representation, like genders.
-[ą|ă|Ą|Ă|ā|Ā]:a | 
+[ä|â|ą|ă|Ą|Ă|ā|Ā]:a | 
 [Ć|ć|Ĉ|ĉ|Ċ|ċ|Č|č]:cé | 
 [Ď|ď|Đ|đ]:dé | 
 [Ē|ē|Ĕ|ĕ|Ė|ė|Ę|ę|Ě|ě]:e | 
@@ -64,3 +78,27 @@ define NormalizeCharactersSpell
 [Ŵ|ŵ]:[uve doble] | 
 [Ŷ|ŷ]:[i griega] | 
 [Ź|ź|Ż|ż]:ceta ; 
+
+define NormalizeCharactersLseq 
+# Users can navigate between these following characters, character by character.
+[ä|â|ą|ă|Ą|Ă|ā|Ā]: [a1] | 
+[Ć|ć|Ĉ|ĉ|Ċ|ċ|Č|č]: [c e1] | 
+[Ď|ď|Đ|đ]: [d e1] | 
+[Ē|ē|Ĕ|ĕ|Ė|ė|Ę|ę|Ě|ě]: [e1] | 
+[Ĝ|ĝ|Ğ|ğ|Ġ|ġ|Ģ|ģ]: [x e1] | 
+[Ĥ|ĥ|Ħ|ħ]: [a1 ts e] | 
+[Ĩ|ĩ|Ī|ī|Ĭ|ĭ|Į|į|İ|ı]: [i1] | 
+[î]:[i1] | 
+[Ĵ|ĵ]: [x o1 t a] | 
+[Ķ|ķ]: [k a1] | 
+[Ĺ|ĺ|Ļ|ļ|Ľ|ľ|Ł|ł]: [e1 l e] | 
+[Ń|ń|Ņ|ņ|Ň|ň]: [e1 n e] | 
+[Ō|ō|Ŏ|ŏ|Ő|ő|Œ|œ]: [o1] | 
+[Ŕ|ŕ|Ŗ|ŗ|Ř|ř]: [e1 rr e] | 
+[Ś|ś|Ŝ|ŝ|Ş|ş]: [e1 s e] | 
+[Ţ|ţ|Ť|ť|Ŧ|ŧ]: [t e1] | 
+[Ũ|ũ|Ū|ū|Ŭ|ŭ|Ů|ů|Ű|ű|Ų|ų]: [u1] | 
+[Ŵ|ŵ]:[u v e d o1 b l e] | 
+[Ŷ|ŷ]:[i g r j e1 g a] | 
+[Ź|ź|Ż|ż]: [c e1 t a] ; 
+# Regarding downcase, some of these special characters doesn't have it. Meaning, there are or a upercase or a lowercase only of a symbol, so not applied.
