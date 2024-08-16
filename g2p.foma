@@ -174,4 +174,5 @@ regex
 rules .o. 
 unstress .o. 
 SpanishStress .o. 
-SpanishStress2 ; 
+SpanishStress2 .o. 
+UnstressWords ;  
