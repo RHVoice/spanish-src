@@ -144,8 +144,9 @@ define WordEndRules
 c -> k || _ .#. ; # cómic, tictac.
 
 define exceptions 
-[t ts]:ts | # switch
-[[{wi} (%-) {fi}] : [w a i f a1 yc]] ; 
+[t ch]:ts | # switch
+[[{wi} (%-) {fi}] : [w a i f a1 yc]] | 
+[{etc.} : [e t c e1 t e r a]] @-> ; 
 
 define Stage1 
 TranscribeVowel @-> ; 
@@ -154,8 +155,7 @@ define Stage2
 TranscribeConsonant @-> ; 
 
 define Stage3 
-SpanishRules @-> ,, 
-exceptions @-> ; 
+SpanishRules @-> ; 
 
 source special_chars.foma
 
@@ -171,8 +171,9 @@ WordEndRules ;
 source stress.foma
 
 regex 
+exceptions .o. 
 rules .o. 
 unstress .o. 
 SpanishStress .o. 
 SpanishStress2 .o. 
-UnstressWords ;  
+UnstressWords ; 
