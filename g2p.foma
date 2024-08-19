@@ -146,6 +146,7 @@ c -> k || _ .#. ; # cómic, tictac.
 
 define exceptions 
 # a way to preserve most comon homonymous words for later conversion.
+[{hacia} : [a c j ac]] | 
 [{hasta} : [a s t ac]] | 
 [{como} : [k o m oc]] | 
 [{cuando} : [k w a n d oc]] | 

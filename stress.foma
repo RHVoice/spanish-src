@@ -37,6 +37,7 @@ define SpanishStress2 stresses -> ||
 .#. noStress+ noStress+ _ Consonant .#. ; 
 
 define UnstressWords 
+[a0 c j ac] -> [a0 c j a0] || .#. _ .#. ,, 
 [a0 s t ac] -> [a0 s t a0] || .#. _ .#. ,, 
 [k o0 m oc] -> [k o0 m o0] || .#. _ .#. ,, 
 [k w a0 n d oc] -> [k w a0 n d o0] || .#. _ .#. ,, 
