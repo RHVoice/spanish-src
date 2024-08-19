@@ -37,7 +37,7 @@ define SpanishStress2 stresses -> ||
 .#. noStress+ noStress+ _ Consonant .#. ; 
 
 define UnstressWords 
-[a1 s t a0] -> [a0 s t a0] || .#. _ .#. ,, # Palabra homónima, asta (de la bander) y hasta (condición)
+[a1 s t a0] -> [a0 s t a0] || .#. _ .#. ,, # Palabra homónima, asta (de la bandera) y hasta (condición)
 [p e1 r o0] -> [p e0 r o0] || .#. _ .#. ,, 
 [s o1 b r e0] -> [s o0 b r e0] || .#. _ .#. ,, # palabra homónima. sobre (conector) y sobre (objeto)
 [u1 n a0] -> [u0 n a0] || .#. _ .#. ,, 

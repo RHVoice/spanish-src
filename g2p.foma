@@ -112,7 +112,8 @@ define SpanishRules
 [c r]:[k r] | # secreto (sekreto, not secreto)
 [c s]:[k s] | # clics.
 [c t]:[k t] | # actualización (aktwalizhazhjo1n, not actwalicacjo1n)
-{cy}:[c i] ; # Cynthia.
+{cy}:[c i] | # Cynthia.
+[t ts]:ts ; # switch
 
 define WordStartRules 
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
@@ -144,7 +145,6 @@ define WordEndRules
 c -> k || _ .#. ; # cómic, tictac.
 
 define exceptions 
-[t ch]:ts | # switch
 [[{wi} (%-) {fi}] : [w a i f a1 yc]] | 
 [{etc.} : [e t c e1 t e r a]] @-> ; 
 
