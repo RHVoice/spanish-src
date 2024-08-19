@@ -145,7 +145,13 @@ define WordEndRules
 c -> k || _ .#. ; # cómic, tictac.
 
 define exceptions 
-[{hasta} : [a s t ac]] | # a way to preserve the homonymous word for later conversion.
+# a way to preserve most comon homonymous words for later conversion.
+[{hasta} : [a s t ac]] | 
+[{como} : [k o m oc]] | 
+[{cuando} : [k w a n d oc]] | 
+[{donde} : [d o n d ec]] | 
+[{quienes} : [k j e n ec s]] | 
+# Other exceptions:
 [[{wi} (%-) {fi}] : [w a i f a1 yc]] | 
 [{etc.} : [e t c e1 t e r a]] @-> ; 
 
