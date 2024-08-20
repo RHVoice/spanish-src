@@ -53,7 +53,9 @@ g:g | # siglo
 [g i1]:[x i1] | 
 [g u a]:[g w a] | # antigua, guarida
 [g ü e]:[g w e] | # antigüedad, desagüe
+[g ü e1]:[g w e1] | # averigüé
 [g ü i]:[g w i] | # agüita
+[g ü i1]:[g w i1] | # Lingüística.
 [g u o]:[g w o] | # antiguo
 h: "" | # H is a sylent consonant, so no phoneme.
 j:x | 
