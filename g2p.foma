@@ -147,16 +147,18 @@ define WordEndRules
 c -> k || _ .#. ; # cómic, tictac.
 
 define exceptions 
-# a way to preserve most comon homonymous words for later conversion.
-[{hacia} : [a c j ac]] | 
-[{hasta} : [a s t ac]] | 
-[{como} : [k o m oc]] | 
-[{cuando} : [k w a n d oc]] | 
-[{donde} : [d o n d ec]] | 
-[{quienes} : [k j e n ec s]] | 
+# a way to preserve most comon homonymous words for later conversion in UnstressWords.
+[{hacia} : [a c i a00]] | 
+[{hasta} : [a s t a00]] | 
+[{como} : [k o m o00]] | 
+[{cuando} : [k w a n d o00]] | 
+[{cuanto} : [k w a n t o00]] | 
+[{donde} : [d o n d e00]] | 
+[{quienes} : [k i e n e00 s]] | 
 # Other exceptions:
 [[{wi} (%-) {fi}] : [w a i f a1 yc]] | 
-[{etc.} : [e t c e1 t e r a]] @-> ; 
+[{p.m.} : [d e l a t a1 r d e]] | 
+[{etc.} : [e t c e1 t e r a]] @-> || .#. _ ; 
 
 define Stage1 
 TranscribeVowel @-> ; 
@@ -166,6 +168,11 @@ TranscribeConsonant @-> ;
 
 define Stage3 
 SpanishRules @-> ; 
+
+define FixPhoneme 
+{a0} -> {a} || _ ,, 
+{e0} -> {e} || _ ,, 
+{o0} -> {o} || _ ; 
 
 source special_chars.foma
 
@@ -187,3 +194,4 @@ unstress .o.
 SpanishStress .o. 
 SpanishStress2 .o. 
 UnstressWords ; 
+#FixPhoneme ; 

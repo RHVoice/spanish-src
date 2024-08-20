@@ -61,6 +61,7 @@ define CapitalLetter A|Á|B|C|D|E|É|F|G|H|I|Í|J|K|L|M|N|Ñ|O|Ó|P|Q|R|S|T|U|Ú
 define Letter SmallLetter | CapitalLetter;
 define ExceptionalWord 
 [[e|E] [t|T] [c|C] %.] | 
+[[p|P] %. [m|M] %.] | 
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
 define NZDigit 1|2|3|4|5|6|7|8|9;
 define Digit %0|NZDigit;
