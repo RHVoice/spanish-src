@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# One of references that helped a lot: https://www.reddit.com/r/Spanish/comments/1336w1x/stress_pattern_on_espa%C3%B1ol/
+
 define StressedVowel [a1 | e1 | i1 | o1 | u1] ; 
 define UnstressedVowel a0|e0|i0|o0|u0 ; 
 define vowel  UnstressedVowel  | StressedVowel ; 
@@ -32,11 +34,17 @@ define SpanishStress stresses -> ||
 
 define SpanishStress2 stresses -> || 
 # If a word ends with a consonant, the stress falls in the last vowel of the syllable. Example, Español.
-.#. noStress* _ Consonant .#. ; 
+.#. noStress+ noStress+ _ Consonant .#. ; 
 
 define UnstressWords 
-[a1 s t a0] -> [a0 s t a0] || .#. _ .#. ,, # Palabra homónima, asta (de la bander) y hasta (condición)
-[p e1 r o] -> [p e0 r o] || .#. _ .#. ,, 
+[a0 c i0 a00] -> [a0 c j a0] || .#. _ .#. ,, 
+[a0 s t a00] -> [a0 s t a0] || .#. _ .#. ,, 
+[k o0 m o00] -> [k o0 m o0] || .#. _ .#. ,, 
+[k w a0 n d o00] -> [k w a0 n d o0] || .#. _ .#. ,, 
+[k w a0 n t o00] -> [k w a0 n t o0] || .#. _ .#. ,, 
+[d o0 n d e00] -> [d o0 n d e0] || .#. _ .#. ,, 
+[k j e0 n e00 s] -> [k j e0 n e0 s] || .#. _ .#. ,, 
+[p e1 r o0] -> [p e0 r o0] || .#. _ .#. ,, 
 [s o1 b r e0] -> [s o0 b r e0] || .#. _ .#. ,, # palabra homónima. sobre (conector) y sobre (objeto)
 [u1 n a0] -> [u0 n a0] || .#. _ .#. ,, 
 [u1 n o0 s] -> [u0 n o0 s] || .#. _ .#. ,, 

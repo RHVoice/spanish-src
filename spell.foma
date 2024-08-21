@@ -103,6 +103,7 @@ define Symbol
 %+ : más | 
 %, : coma | 
 %- : guión | 
+%— : raya | 
 %. : punto | 
 %/ : barra | 
 %: : [dos puntos] | 
