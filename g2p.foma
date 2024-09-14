@@ -115,7 +115,8 @@ define SpanishRules
 [c s]:[k s] | # clics.
 [c t]:[k t] | # actualización (aktwalizhazhjo1n, not actwalicacjo1n)
 {cy}:[c i] | # Cynthia.
-[t ts]:ts ; # switch
+[t ts]:ts | # switch
+[d o w]:[d o u] ; # Change ow sound. Window, windows.
 
 define WordStartRules 
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
