@@ -120,6 +120,7 @@ define SpanishRules
 
 define WordStartRules 
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
+[ts r i] -> [k r i] || .#. _ ,, # Christian, christina.
 [d e sh] -> [d e s] || .#. _ ,, # des prefix. Deshabilitar, deshacer.
 r -> [rr] || .#. _, [l|n|s] _ ; # at the start: rato, rico, roma, all words starting r needs to be a RR sound. However, in words that contains l, n or s anywere, needs to be a rr sound, too.
 
