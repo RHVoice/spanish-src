@@ -155,6 +155,7 @@ define exceptions
 [{como} : [k o m o00]] | 
 [{cuando} : [k w a n d o00]] | 
 [{cuanto} : [k w a n t o00]] | 
+[{desde} : [d e s d e00]] | 
 [{donde} : [d o n d e00]] | 
 [{quienes} : [k i e n e00 s]] | 
 # Other exceptions:
