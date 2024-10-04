@@ -157,6 +157,7 @@ define exceptions
 [{cuanto} : [k w a n t o00]] | 
 [{desde} : [d e s d e00]] | 
 [{donde} : [d o n d e00]] | 
+[{porque} : [p o r k e00]] | 
 [{quienes} : [k i e n e00 s]] | 
 # Other exceptions:
 [[{wi} (%-) {fi}] : [w a i f a1 yc]] | 
