@@ -119,6 +119,7 @@ define SpanishRules
 [d o w]:[d o u] ; # Change ow sound. Window, windows.
 
 define WordStartRules 
+{any} -> {ani} || .#. _ ,, # Especially for English text.
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
 [ts r i] -> [k r i] || .#. _ ,, # Christian, christina.
 [d e sh] -> [d e s] || .#. _ ,, # des prefix. Deshabilitar, deshacer.
