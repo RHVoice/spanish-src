@@ -150,7 +150,7 @@ define WordEndRules
 c -> k || _ .#. ; # cómic, tictac.
 
 define exceptions 
-# a way to preserve most comon homonymous words for later conversion in UnstressWords.
+# a way to preserve most comon homonymous words for later conversion in pg2p.
 [{hacia} : [a c i a00]] | 
 [{hasta} : [a s t a00]] | 
 [{como} : [k o m o00]] | 
@@ -177,11 +177,6 @@ TranscribeConsonant @-> ;
 define Stage3 
 SpanishRules @-> ; 
 
-define FixPhoneme 
-{a0} -> {a} || _ ,, 
-{e0} -> {e} || _ ,, 
-{o0} -> {o} || _ ; 
-
 source special_chars.foma
 
 define rules 
@@ -202,4 +197,3 @@ unstress .o.
 SpanishStress .o. 
 SpanishStress2 .o. 
 UnstressWords ; 
-#FixPhoneme ; 
