@@ -29,7 +29,7 @@ b|c|ts|d|f|g|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|w|zh ;
 define Onset 
 0 | Consonant | 
 {bl} | {bj} | {br} | {bw} | {ts} | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | {gw} | {kl} | {kj} | {kr} | 
-{kw} | {lj} | {ll} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | {rw} | y ; 
+{kw} | {lj} | {ll} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {rw} | y ; 
 
 define Syllable 
 #[Nucleus | a | e | o] %{ i | u %} Consonant* | # Au, da, cia. A, e, o, after "i" or "u", is a syllable, then any Consonant.

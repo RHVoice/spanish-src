@@ -6,7 +6,8 @@ define WB %# | PB ;
 define distinguishStress [
 a00: a0 |
 e00: e0 |
-o00: o0 ]
+o00: o0 |
+J: j ]
 @-> || _ ; 
 
 define objectPronoun 

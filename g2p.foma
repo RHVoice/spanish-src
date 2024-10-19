@@ -73,6 +73,7 @@ s:s |
 {sh}:sh | # especialmente para palabras estrangeras (foreigth words)
 t:t | 
 ŭ:u | 
+ü:u | # In cases outside g rules.
 v:v | 
 z:zh | # previously c, but z is a bit long sound diferent than c (ce, ci).
 q:k | 
@@ -151,7 +152,7 @@ c -> k || _ .#. ; # cómic, tictac.
 
 define exceptions 
 # a way to preserve most comon homonymous words for later conversion in pg2p.
-[{hacia} : [a c i a00]] | 
+[{hacia} : [a c J a00]] | 
 [{hasta} : [a s t a00]] | 
 [{como} : [k o m o00]] | 
 [{cuando} : [k w a n d o00]] | 
@@ -159,7 +160,7 @@ define exceptions
 [{desde} : [d e s d e00]] | 
 [{donde} : [d o n d e00]] | 
 [{porque} : [p o r k e00]] | 
-[{quienes} : [k i e n e00 s]] | 
+[{quienes} : [k J e n e00 s]] | 
 # Other exceptions:
 [[{wi} (%-) {fi}] : [w a i f a1 yc]] | 
 [{a.c.} : [a n t e s d e k r i1 s t o]] | 

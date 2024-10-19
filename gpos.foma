@@ -14,16 +14,16 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 define DefiniteArticle 
-lo | la | los | las ; 
+el | la | los | las ; 
 
 define IndefiniteArticle 
 un | una | unos | unas ; 
 
 define PersonalPronoun 
-yo | tú | su | sus | vos | él | ella | nosotros | nosotras | usted | vuestro | vuestra | vuestros | ellos | ellas | le ; 
+yo | tú | su | sus | vos | él | ella | nosotros | nosotras | vosotros | vosotras | usted | ustedes | vuestro | vuestra | vuestros | ellos | ellas | lo | la | le ; 
 
 define PersonalReflexivePronoun 
-me | se | te | os | nos | la | lo | las | los ; 
+me | mí | se | te | ti | os | nos ; 
 
 define DemonstrativePronoun 
 ese | esa | este | esta | esos | esas | estos | estas | aquel | aquella | aquellos | aquellas | que ; 
@@ -44,16 +44,16 @@ define Ser
 ser | soy | és | somos | sois | son | era | érase | éramos | érais | eran | fui | fuiste | fue | fuimos | fuistes | fueron | será | serás | serán | seremos | sereis | sería | serías | seríamos | seríais | serían ;
 
 define Estar 
-estar | estoy | estás | está | estamos | estáis | estado | estaba | estabas | estábamos | estaban | estuve | estuvo | estuvimos | estuvieran | estaré | estarás | estará | estaremos | estarán ; 
+estar | estoy | estás | está | estamos | estáis | estado | estaba | estabas | estábamos | estaban | estuve | estuvo | estuvimos | estuviéramos | estuvieran | estaré | estarás | estará | estaremos | estarán ; 
 
 define Tener 
-tener | tengo | tienes | tiene | tenemos | tiendes | tienen | tenía | tenías | teníamos | tenéis | tenían | tuve | tenido | tuvo | tuvimos | tuviste | tuvieran | tendré | tendrás | tendrá | tendremos | tendráis | tendrán | tendría | tendrías | tendríamos | tendrían ; 
+tener | tengo | tienes | tiene | tenemos | tiendes | tienen | tenía | tenías | teníamos | tenéis | tenían | tuve | tenido | tuvo | tuvimos | tuviste | tuviera | tuvieran | tuviéramos | tendré | tendrás | tendrá | tendremos | tendráis | tendrán | tendría | tendrías | tendríamos | tendrían ; 
 
 define Hacer 
-hazer | hago | haz | hacemos | hacen ; 
+harán | hicieron | haciendo | hazer | hago | haz | hacemos | hacen ; 
 
 define Poder 
-poder | puedo | puedes | puede | podemos | podéis | pueden | podía | podías | podíamos | podíais | podían | pude | pudo | pudimos | pudieran | podré | podrás | podrá | podremos | podreis | podrán | podría | podrías | podríamos | podrían ; 
+poder | puedo | puedes | puede | podemos | podéis | pueden | podía | podías | podíamos | podíais | podían | pude | pudo | pudimos | pudiera | pudieran | pudieras | podré | podrás | podrá | podremos | podreis | podrán | podría | podrías | podríamos | podrían ; 
 
 define Ir 
 ir | voy | vas | va | vamos | van | iba | ibas | íbamos | iban | iré | irás | irá | iremos | irán ; 
@@ -86,7 +86,7 @@ PersonalPronoun -> pp ,,
 PersonalReflexivePronoun -> prp ,, 
 DemonstrativePronoun -> dp ,, 
 PossessiveAdjective -> pos ,, 
-[Preposition -nos] -> prep ,, 
+Preposition -> prep ,, 
 [UnstressedConjunction - se] -> uconj ,, 
 Conjunction -> conj ,, 
 Ser -> cop ,, 
