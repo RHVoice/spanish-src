@@ -17,16 +17,34 @@
 
 define StressedVowel [a1 | e1 | i1 | o1 | u1] ; 
 define UnstressedVowel a0|e0|i0|o0|u0 ; 
+define StressedDhipthong i1 | u1 ;
+define UnstressedDhipthong i0 | u0 ;
 define vowel  UnstressedVowel  | StressedVowel ; 
-define pc   \vowel;
+define dhipthong  UnstressedDhipthong  | StressedDhipthong ; 
+define pc   \vowel ; 
+define pcd   \dhipthong ; 
 define Consonant b|c|ts|d|f|g|x|k|l|{ll}|m|ni|p|r|{rr}|sh|t|v|w|{zh} ; 
+define ConsonantNS b|c|ts|d|f|g|x|k|l|{ll}|m|n|ni|p|r|{rr}|s|sh|t|v|w|{zh} ; 
 define noStress UnstressedVowel | pc | StressMark ; 
+define noStressD UnstressedDhipthong | pcd | StressMark ; 
 define stresses 
 [a0:a1|
 e0:e1|
 i0:i1|
 o0:o1|
 u0:u1] ; 
+
+define openStressess 
+[a0:a1|
+e0:e1|
+o0:o1] ;
+
+define closeStresses 
+[i0:i1|
+u0:u1] ; 
+
+define dipthongStress openStressess @-> || 
+.#. noStressD _ pcd* UnstressedDhipthong ConsonantNS [vowel|Consonant] (n|s) .#. ; 
 
 define SpanishStress stresses -> || 
 # In words that end in a vowel, n or s, the stress generally falls on the penultimate syllable.
