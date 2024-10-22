@@ -14,14 +14,14 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 define Nucleus 
-a | a0 | a1 | 
-e | e0 | e1 | 
-i | i0 | i1 | 
-o | o0 | o1 | 
-u | u0 | u1 ; 
+a0 | a1 | 
+e0 | e1 | 
+i0 | i1 | 
+o0 | o1 | 
+u0 | u1 ; 
 
 define MarkNuclei 
-Nucleus (i|i0|u|u0) + (i|i0|u|u0) @-> %{ ... %} ; 
+Nucleus (a0|e0|o0) + (i0|u0) @-> %{ ... %} ; 
 
 define Consonant 
 b|c|ts|d|f|g|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|w|zh ; 
