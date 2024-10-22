@@ -195,7 +195,7 @@ regex
 exceptions .o. 
 rules .o. 
 unstress .o. 
-dipthongStress .o. 
+dhipthongStress .o. 
 SpanishStress .o. 
 SpanishStress2 .o. 
 UnstressWords ; 

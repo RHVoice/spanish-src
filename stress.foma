@@ -43,8 +43,9 @@ define closeStresses
 [i0:i1|
 u0:u1] ; 
 
-define dipthongStress openStressess @-> || 
-.#. noStressD _ pcd* UnstressedDhipthong ConsonantNS [vowel|Consonant] (n|s) .#. ; 
+define dhipthongStress openStressess @-> || 
+#.#. noStressD _ pcd* UnstressedDhipthong ConsonantNS [vowel|Consonant] (n|s) .#. ; 
+.#. noStressD* _ UnstressedDhipthong ConsonantNS vowel (n|s) .#. ; 
 
 define SpanishStress stresses -> || 
 # In words that end in a vowel, n or s, the stress generally falls on the penultimate syllable.
