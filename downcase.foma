@@ -48,5 +48,8 @@ X -> x || _ ,,
 Y -> y || _ ,, 
 Z -> z || _ ; 
 
+source special_chars.foma
+
 regex 
+NormalizeCharactersDowncase .o. 
 Downcase ; 
