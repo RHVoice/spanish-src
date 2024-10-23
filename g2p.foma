@@ -161,6 +161,12 @@ define exceptions
 [{donde} : [d o n d e00]] | 
 [{porque} : [p o r k e00]] | 
 [{quienes} : [k J e n e00 s]] | 
+# Indefinite pronouns:
+[{esta} : [e s t a00]] | 
+[{este} : [e s t e00]] | 
+[{estas} : [e s t a00 s]] | 
+[{estos} : [e s t o00 s]] | 
+[{para} : [p a r a00]] | 
 # Other exceptions:
 [[{wi} (%-) {fi}] : [w a i f a1 yc]] | 
 [{a.c.} : [a n t e s d e k r i1 s t o]] | 
