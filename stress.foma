@@ -44,8 +44,12 @@ define closeStresses
 u0:u1] ; 
 
 define dhipthongStress openStressess @-> || 
-#.#. noStressD _ pcd* UnstressedDhipthong ConsonantNS [vowel|Consonant] (n|s) .#. ; 
+# Explanation: we stress dhipthongs, (au, eu, ou) and (ai, ei, oi) putting the stress in the first long vowel (a, e or o) For example: pausa, leudar, fraile, aire.
 .#. noStressD* _ UnstressedDhipthong ConsonantNS UnstressedVowel (n|s) .#. ; 
+
+define MonosylStress stresses -> || 
+# Monosyllables in spanish always have the stress in the only one vowel between first consonants, and last consonants.
+.#. ConsonantNS+ _ ConsonantNS .#. ; 
 
 define SpanishStress stresses -> || 
 # In words that end in a vowel, n or s, the stress generally falls on the penultimate syllable.
@@ -56,9 +60,7 @@ define SpanishStress2 stresses -> ||
 .#. noStress+ noStress+ _ Consonant .#. ; 
 
 define UnstressWords 
-# This word, Mar, needs to be stressed for better prosody and interpretation.
-[m a0 r] -> [m a1 r] || .#. _ .#. ,, 
-[m i0 l] -> [m i1 l] || .#. _ .#. ,, 
+[s i1 n] -> [s i0 n] || .#. _ .#. ,, 
 [p e1 r o0] -> [p e0 r o0] || .#. _ .#. ,, 
 [s o1 b r e0] -> [s o0 b r e0] || .#. _ .#. ,, # palabra homónima. sobre (conector) y sobre (objeto)
 [u1 n a0] -> [u0 n a0] || .#. _ .#. ,, 

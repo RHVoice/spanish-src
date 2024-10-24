@@ -208,6 +208,7 @@ exceptions .o.
 rules .o. 
 unstress .o. 
 dhipthongStress .o. 
+MonosylStress .o. 
 SpanishStress .o. 
 SpanishStress2 .o. 
 UnstressWords ; 
