@@ -162,6 +162,12 @@ define exceptions
 [{porque} : [p o r k e00]] | 
 [{quienes} : [k J e n e00 s]] | 
 # Indefinite pronouns:
+[{cuya} : [k u y a00]] | 
+[{cuyas} : [k u y a00 s]] | 
+[{cuyo} : [k u y o00]] | 
+[{cuyos} : [k u y o00 s]] | 
+[{esa} : [e s a00]] | 
+[{esas} : [e s a00 s]] | 
 [{esta} : [e s t a00]] | 
 [{este} : [e s t e00]] | 
 [{estas} : [e s t a00 s]] | 
@@ -173,7 +179,7 @@ define exceptions
 [{a.m.} : [d e l a m a ni a1 n a]] | 
 [{d.c.} : [d e s p w e1 s d e k r i1 s t o]] | 
 [{p.m.} : [d e l a t a1 r d e]] | 
-[{etc.} : [e t c e1 t e r a]] @-> || .#. _ ; 
+[{etc.} : [e t c e1 t e r a]] @-> || .#. _ .#. ; 
 
 define Stage1 
 TranscribeVowel @-> ; 
@@ -187,17 +193,17 @@ SpanishRules @-> ;
 source special_chars.foma
 
 define rules 
-NormalizeCharactersG2p .o.
-Stage1 .o.
-Stage2 .o.
-Stage3 .o.
-WordStartRules .o.
-WordMidRules .o.
+Stage1 .o. 
+Stage2 .o. 
+Stage3 .o. 
+WordStartRules .o. 
+WordMidRules .o. 
 WordEndRules ;
 
 source stress.foma
 
 regex 
+NormalizeCharactersG2p .o. 
 exceptions .o. 
 rules .o. 
 unstress .o. 
