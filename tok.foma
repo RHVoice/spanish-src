@@ -81,7 +81,7 @@ Word @-> ... word || _ .#. | \Letter ,,
 
 define Stage2 
 [..] -> lseq || CapitalLetter _ CapitalLetter SmallLetter ,, 
-word -> lseq || CapitalLetterWithoutRoman CapitalLetterWithoutRoman CapitalLetterWithoutRoman _ ,,
+#word -> lseq || CapitalLetterWithoutRoman CapitalLetterWithoutRoman CapitalLetterWithoutRoman _ ,,
 word -> lseq || [.#.|word|num|sym] LetterSequence _ ,, 
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ,, 
 sym -> num || [sym|.#.] %- _ Digit,
