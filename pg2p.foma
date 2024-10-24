@@ -6,7 +6,9 @@ define WB %# | PB ;
 define distinguishStress [
 a00: a0 |
 e00: e0 |
+i00: i0 |
 o00: o0 |
+u00: u0 |
 J: j ]
 @-> || _ ; 
 

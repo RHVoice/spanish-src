@@ -173,6 +173,16 @@ define exceptions
 [{estas} : [e s t a00 s]] | 
 [{estos} : [e s t o00 s]] | 
 [{para} : [p a r a00]] | 
+# Monosyllable exceptions:
+[{les} : [l e00 s]] | 
+[{los} : [l o00 s]] | 
+[{las} : [l a00 s]] | 
+[{nos} : [n o00 s]] | 
+[{por} : [p o00 r]] | 
+[{mis} : [m i00 s]] | 
+[{sus} : [s u00 s]] | 
+[{tus} : [t u00 s]] | 
+[{mas} : [m a00 s]] | 
 # Other exceptions:
 [[{wi} (%-) {fi}] : [w a i f a1 yc]] | 
 [{a.c.} : [a n t e s d e k r i1 s t o]] | 
