@@ -23,8 +23,8 @@ define vowel  UnstressedVowel  | StressedVowel ;
 define dhipthong  UnstressedDhipthong  | StressedDhipthong ; 
 define pc   \vowel ; 
 define pcd   \dhipthong ; 
-define Consonant b|c|ts|d|f|g|x|k|l|{ll}|m|ni|p|r|{rr}|sh|t|v|w|{zh} ; 
-define ConsonantNS b|c|ts|d|f|g|x|k|l|{ll}|m|n|ni|p|r|{rr}|s|sh|t|v|w|{zh} ; 
+define Consonant b|c|ts|d|f|g|x|k|l|{ll}|m|ni|p|r|{rr}|sh|t|v|w|zh ; 
+define ConsonantNS b|c|ts|d|f|g|x|k|l|{ll}|m|n|ni|p|r|{rr}|s|sh|t|v|w|zh ; 
 define noStress UnstressedVowel | pc | StressMark ; 
 define noStressD UnstressedDhipthong | pcd | StressMark ; 
 define stresses 
@@ -60,6 +60,8 @@ define SpanishStress2 stresses -> ||
 .#. noStress+ noStress+ _ Consonant .#. ; 
 
 define UnstressWords 
+[f e0] -> [f e1] || .#. _ .#. ,, 
+[d j o0 s] -> [d j o1 s] || .#. _ .#. ,, 
 [s i1 n] -> [s i0 n] || .#. _ .#. ,, 
 [p e1 r o0] -> [p e0 r o0] || .#. _ .#. ,, 
 [s o1 b r e0] -> [s o0 b r e0] || .#. _ .#. ,, # palabra homónima. sobre (conector) y sobre (objeto)

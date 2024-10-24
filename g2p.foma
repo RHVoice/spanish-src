@@ -174,11 +174,14 @@ define exceptions
 [{estos} : [e s t o00 s]] | 
 [{para} : [p a r a00]] | 
 # Monosyllable exceptions:
+[{con} : [k o00 n]] | 
+[{del} : [d e00 l]] | 
 [{les} : [l e00 s]] | 
 [{los} : [l o00 s]] | 
 [{las} : [l a00 s]] | 
 [{nos} : [n o00 s]] | 
 [{por} : [p o00 r]] | 
+[{pues} : [p w e00 s]] | 
 [{mis} : [m i00 s]] | 
 [{sus} : [s u00 s]] | 
 [{tus} : [t u00 s]] | 
