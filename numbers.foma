@@ -36,7 +36,7 @@ define Number [UnformattedNumber (OrdChar)] | ESRomanNumeral ;
 
 define Unit 
 1:uno | 
-2:dos | 
+2:dós | 
 3:trés | 
 4:cuatro | 
 5:cinco | 
@@ -221,6 +221,11 @@ and -> y || _ ,,
 define RemoveThousandsSeparators 
 %. -> 0 ; 
 
+define fixes 
+[veinte y ]+:[veinti] -> || _ ,, 
+[dós mil]:[dos mil] -> || _ ,, 
+[trés mil]:[tres mil] -> || _ ; 
+
 define NumberRules 
 Number .o. 
 MapRomanNumeral .o. 
@@ -242,12 +247,14 @@ InsertAnds .o.
 RemoveZeros .o. 
 PowerOfThousandSymbolsToSingular .o. 
 RemoveOnes .o. 
-Translate ; 
+Translate .o. 
+fixes ; 
 
 define ZeroRule 
 %0 : cero | 
 [%0 MaleOrdChar] : cerésimo | 
 [%0 FemaleOrdChar] : cerésima ; 
+
 
 regex 
 ProcNumChar | ZeroRule | NumberRules ; 
