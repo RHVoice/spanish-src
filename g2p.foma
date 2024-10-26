@@ -162,6 +162,7 @@ define exceptions
 [{porque} : [p o r k e00]] | 
 [{quienes} : [k J e n e00 s]] | 
 # Indefinite pronouns:
+[{ante} : [a n t e00]] | # Ante todo, ante ciertas circunstancias, etc.
 [{cuya} : [k u y a00]] | 
 [{cuyas} : [k u y a00 s]] | 
 [{cuyo} : [k u y o00]] | 
