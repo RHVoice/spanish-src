@@ -14,14 +14,14 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 define Nucleus 
-a|a0 | a1 | 
+[[a|a0 | a1 | 
 e|e0 | e1 | 
+o|o0 | o1] (i|i0|u|u0)] | 
 i|i0 | i1 | 
-o|o0 | o1 | 
 u|u0 | u1 ; 
 
 define MarkNuclei 
-Nucleus (i|i0|u0) + (i|i0|u0) @-> %{ ... %} ; 
+Nucleus @-> %{ ... %} ; 
 
 define Consonant 
 b|c|ts|d|f|g|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|w|zh ; 
@@ -33,7 +33,7 @@ define Onset
 
 define Syllable 
 #[Nucleus | a | e | o] %{ i | u %} Consonant* | # Au, da, cia. A, e, o, after "i" or "u", is a syllable, then any Consonant.
-Onset %{ Nucleus+(%i0|%u0) %} Consonant* ; 
+Onset %{ Nucleus %} Consonant* ; 
 
 define MarkSyllables 
 Syllable @> ... "." || _ Syllable;
