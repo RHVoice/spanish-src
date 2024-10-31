@@ -13,6 +13,9 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+define vocal 
+[a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|w] ; 
+
 define TranscribeVowel 
 a:a | 
 á:a1 | 
@@ -70,7 +73,7 @@ p:p |
 r:r | 
 {rr}:rr | # Rato, tierra
 s:s | 
-{sh}:sh | # especialmente para palabras estrangeras (foreigth words)
+{sh}:sh | # especialmente para palabras estrangeras (foreign words)
 t:t | 
 ŭ:u | 
 ü:u | # In cases outside g rules.
@@ -124,7 +127,7 @@ define WordStartRules
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
 [ts r i] -> [k r i] || .#. _ ,, # Christian, christina.
 [d e sh] -> [d e s] || .#. _ ,, # des prefix. Deshabilitar, deshacer.
-r -> [rr] || .#. _, [l|n|s] _ ; # at the start: rato, rico, roma, all words starting r needs to be a RR sound. However, in words that contains l, n or s anywere, needs to be a rr sound, too.
+r -> [rr] || .#. _, [l|n|s] _ ; # at the start: rato, rico, roma, all words starting r needs to be a RR sound. However, in words that contains l, n or s anywere, needs to be a rr sound, too. For example: alrededor, enredo, Desramar.
 
 define WordMidRules 
 # when y is a standalone word, converts to i because it is an open vowel.
@@ -150,6 +153,13 @@ define WordEndRules
 {ty} -> [t i] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
 c -> k || _ .#. ; # cómic, tictac.
+
+define approximants 
+# In Spanish, there are about 4 approximants, that are voiced consonants that occurs in different contexts. The good news, all approximants occurs between vowels.
+{b} -> bh || vocal _ vocal ,, 
+{d} -> dh || vocal _ vocal ,, 
+{g} -> gh || vocal _ vocal ,, 
+{v} -> vh || vocal _ vocal ; 
 
 define exceptions 
 # a way to preserve most comon homonymous words for later conversion in pg2p.
@@ -223,7 +233,8 @@ Stage2 .o.
 Stage3 .o. 
 WordStartRules .o. 
 WordMidRules .o. 
-WordEndRules ;
+WordEndRules .o. 
+approximants ; 
 
 source stress.foma
 

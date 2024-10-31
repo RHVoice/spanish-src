@@ -1,3 +1,6 @@
+define vocal 
+[a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1] ; 
+
 define rrRule 
 r -> [rr] || .#. _, [l|n|s] _ ; 
 
@@ -8,6 +11,11 @@ define WordEndRules
 {ay} -> [a i c] || _ .#. ,, 
 c -> k || _ .#. ;
 
+define approximants 
+{b} -> [bh] || vocal _ vocal ,, 
+{d} -> [dh] || vocal _ vocal ,, 
+{g} -> [gh] || vocal _ vocal ,, 
+{v} -> [vh] || vocal _ vocal ; 
 
 define IRule 
 y -> i || .#. _ .#. ; 
@@ -16,4 +24,5 @@ regex
 psiException .o. 
 WordEndRules .o. 
 rrRule .o. 
+approximants .o. 
 IRule ;
