@@ -140,6 +140,7 @@ define WordEndRules
 {by} -> [b i] || _ .#. ,, 
 {dy} -> [d i] || _ .#. ,, 
 {ky} -> [k i] || _ .#. ,, 
+[i n g] -> [i n] || _ .#. ,, 
 {ly} -> [l i] || _ .#. ,, 
 {my} -> [m i] || _ .#. ,, 
 {ny} -> [n i] || _ .#. ,, # Danny, Ronny.
@@ -169,10 +170,20 @@ define exceptions
 [{cuyos} : [k u y o00 s]] | 
 [{esa} : [e s a00]] | 
 [{esas} : [e s a00 s]] | 
+[{ese} : [e s e00]] | 
+[{esos} : [e s o00 s]] | 
 [{esta} : [e s t a00]] | 
 [{este} : [e s t e00]] | 
 [{estas} : [e s t a00 s]] | 
 [{estos} : [e s t o00 s]] | 
+[{nuestro} : [n w e s t r o00]] | 
+[{nuestra} : [n w e s t r a00]] | 
+[{nuestros} : [n w e s t r o00 s]] | 
+[{nuestras} : [n w e s t r a00 s]] | 
+[{vuestro} : [v w e s t r o00]] | 
+[{vuestra} : [v w e s t r a00]] | 
+[{vuestros} : [v w e s t r o00 s]] | 
+[{vuestras} : [v w e s t r a00 s]] | 
 [{para} : [p a r a00]] | 
 # Monosyllable exceptions:
 [{con} : [k o00 n]] | 

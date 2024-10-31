@@ -13,16 +13,16 @@ J: j ]
 @-> || _ ; 
 
 define objectPronoun 
-[[u0 n] | [e0 l] | [e1 s e0] | [e1 s t e0] | [a0 k e1 l]] ; 
+[u0 n] | [e0 l] | [e0 s e0] | [e0 s t e0] | [a0 k e1 l] ; 
 
 define object 
 [s o0 b r e0]: [s o1 b r e0] ; 
 # Un sobre, el sobre, ese sobre, este sobre, aquel sobre (a paper object)
 # We'll need to stress "sobre" in these five cases, because we are talking of the paper object, not the "about" preposition (hablar sobre ella / talk about her, for example).
 
-define word 
-object @-> || WB _ WB objectPronoun ; 
+define SobreWord 
+object @-> || objectPronoun|wb _ ; 
 
 regex 
 distinguishStress .o. 
-word ; 
+SobreWord ; 
