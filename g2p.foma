@@ -36,6 +36,7 @@ u:u |
 define TranscribeConsonant 
 b:b | 
 c:c | 
+ç:s | 
 {ca}:{ka} | # casa, finca.
 [c a1]:[k a1] | # acá.
 {co}:{ko} | # coche, cinco
