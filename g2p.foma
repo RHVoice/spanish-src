@@ -84,7 +84,7 @@ q:k |
 [q u e1]:[k e1] | # qué
 [q u i]:[k i] | # quito, quijada
 [q u i1]:[k i1] | # sequía
-w:w | 
+w:u | # Change to a u sound for some cases.
 x:{ks} | # Existe, éxito
 y:y ; 
 
@@ -120,7 +120,7 @@ define SpanishRules
 [c t]:[k t] | # actualización (aktwalizhazhjo1n, not actwalicacjo1n)
 {cy}:[c i] | # Cynthia.
 [t ts]:ts | # switch
-[d o w]:[d o u] ; # Change ow sound. Window, windows.
+[a p p]:[a p] ; # For English words.
 
 define WordStartRules 
 {any} -> {ani} || .#. _ ,, # Especially for English text.
@@ -151,6 +151,8 @@ define WordEndRules
 {ry} -> [r i] || _ .#. ,, # cherry.
 {sy} -> [s i] || _ .#. ,, 
 {ty} -> [t i] || _ .#. ,, 
+{uy} -> [u i] || _ .#. ,, 
+[u y s] -> [u i s] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
 c -> k || _ .#. ; # cómic, tictac.
 

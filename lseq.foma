@@ -44,10 +44,10 @@ t:[t e1] |
 u:u1 |
 ú:u1 |
 ü:u1 |
-v:[u1 v e] |
-w:[u v e d o1 b l e] |
+v:[u1 vh e] |
+w:[u vh e dh o1 b l e] |
 x:[e1 k i s] |
-y:[i1 g r j e g a] |
+y:[i1 g r j e gh a] |
 z:[c e1 t a]] ;
 
 source special_chars.foma

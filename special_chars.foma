@@ -320,11 +320,11 @@ define NormalizeCharactersLseq
 [ù|Ù]: [u1] | 
 [𝑼|𝒖]: [u1] | 
 [𝓤|𝓾]: [u1] | 
-[𝑽|𝒗]: [u1 v e] | 
-[𝓥|𝓿]: [u1 v e] | 
-[Ŵ|ŵ]:[u v e d o1 b l e] | 
-[𝑾|𝒘]:[u v e d o1 b l e] | 
-[𝓦|𝔀]:[u v e d o1 b l e] | 
+[𝑽|𝒗]: [u1 vh e] | 
+[𝓥|𝓿]: [u1 vh e] | 
+[Ŵ|ŵ]:[u vh e dh o1 b l e] | 
+[𝑾|𝒘]:[u vh e dh o1 b l e] | 
+[𝓦|𝔀]:[u vh e dh o1 b l e] | 
 [𝑿|𝒙]:[e1 k i s] | 
 [𝓧|𝔁]:[e1 k i s] | 
 [Ŷ|ŷ]:[i g r j e1 g a] | 
