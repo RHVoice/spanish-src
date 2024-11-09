@@ -108,6 +108,8 @@ define SpanishRules
 [u i1]:[w i1] | # cuídate
 {uo}:[w o] | # reciduo
 [u o1]:[w o1] | # continuó
+# Brian, not bryan:
+[b r y]:[b r j] | 
 # c to k exceptions:
 [c c]:[k c] | # selección, leccionario
 [c d]:[k d] | # Anécdota.
@@ -181,6 +183,7 @@ define exceptions
 [{cuyas} : [k u y a00 s]] | 
 [{cuyo} : [k u y o00]] | 
 [{cuyos} : [k u y o00 s]] | 
+[{entre} : [e n t r e00]] | 
 [{esa} : [e s a00]] | 
 [{esas} : [e s a00 s]] | 
 [{ese} : [e s e00]] | 
@@ -206,7 +209,7 @@ define exceptions
 [{las} : [l a00 s]] | 
 [{nos} : [n o00 s]] | 
 [{por} : [p o00 r]] | 
-[{pues} : [p w e00 s]] | 
+[{pues} : [p w e S]] | 
 [{mis} : [m i00 s]] | 
 [{sus} : [s u00 s]] | 
 [{tus} : [t u00 s]] | 

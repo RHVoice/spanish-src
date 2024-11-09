@@ -61,6 +61,7 @@ define SmallLetter a|á|b|c|d|e|é|f|g|h|i|í|j|k|l|m|n|ñ|o|ó|p|q|r|s|t|u|ú|�
 define CapitalLetter A|Á|B|C|D|E|É|F|G|H|I|Í|J|K|L|M|N|Ñ|O|Ó|P|Q|R|S|T|U|Ú|Ü|V|W|X|Y|Z;
 define CapitalLetterWithoutRoman CapitalLetter - [[I|X]:[?+]] ; 
 define Letter SmallLetter | CapitalLetter;
+define atSym %@ ; 
 define ExceptionalWord 
 [[a|A] %. [m|M] %.] | 
 [[p|P] %. [m|M] %.] | 
@@ -104,10 +105,10 @@ word -> lseq || .#. _ ;
 #num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
 # DecimalSeparator num Digit+ num DecimalSeparator _ ; 
 
-source special_chars.foma
+#source special_chars.foma
 
 regex 
-NormalizeCharacters.o. 
+#NormalizeCharacters.o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3;

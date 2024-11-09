@@ -14,21 +14,23 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 define Nucleus 
-[[a|a0 | a1 | 
-e|e0 | e1 | 
-o|o0 | o1] (i|i0|u|u0)] | 
+[[a | a0 | a1 | 
+e | e0 | e1 | 
+o | o0 | o1] (i0|u0)] | 
 i|i0 | i1 | 
-u|u0 | u1 ; 
+u | u0 | u1 ; 
+# área, línea, zapatear (á-rea, lí-nea, za-pa-tear).
+#[[e0] (a1)] ; 
 
 define MarkNuclei 
 Nucleus @-> %{ ... %} ; 
 
 define Consonant 
-b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|vh|w|zh ; 
+b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|vh|w|yc|zh ; 
 
 define Onset 
 0 | Consonant | 
-{bl} | {bj} | {br} | {bw} | [bh w] | {ts} | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh w] | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | {gw} | [gh  w] | {kl} | {kj} | {kr} | 
+{bl} | {bj} | {br} | [b r j] | {bw} | [bh w] | {ts} | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh w] | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | {gw} | [gh  w] | {kl} | {kj} | {kr} | 
 {kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | [vh w] | {mj} | {nj} | {nw} | {rw} | y ; 
 
 define Syllable 

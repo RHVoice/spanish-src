@@ -23,8 +23,8 @@ define vowel  UnstressedVowel  | StressedVowel ;
 define dhipthong  UnstressedDhipthong  | StressedDhipthong ; 
 define pc   \vowel ; 
 define pcd   \dhipthong ; 
-define Consonant b|bh|c|ts|d|dh|f|g|gh|x|k|l|ll|m|ni|p|r|rr|sh|t|v|vh|w|zh ; 
-define ConsonantNS b|c|ts|d|f|g|x|k|l|{ll}|m|n|ni|p|r|{rr}|s|sh|t|v|w|zh ; 
+define Consonant b|bh|c|ts|d|dh|f|g|gh|x|k|l|ll|m|ni|p|r|rr|sh|t|v|vh|w|yc|zh ; 
+define ConsonantNS b|c|ts|d|f|g|x|k|l|{ll}|m|n|ni|p|r|rr|s|sh|t|v|w|yc|zh ; 
 define noStress UnstressedVowel | pc | StressMark ; 
 define noStressD UnstressedDhipthong | pcd | StressMark ; 
 define stresses 
