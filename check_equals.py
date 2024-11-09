@@ -1,8 +1,8 @@
 import difflib
 
-with open("checktrans-expected-results - copia.txt", "r") as f:
+with open("checktrans-output - copia.txt", "r") as f:
     text1 = f.readlines()
-with open("checktrans-expected-results.txt", "r") as f2:
+with open("checktrans-output.txt", "r") as f2:
     text2 = f2.readlines()
 
 if len(text1) != len(text2):
