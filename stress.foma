@@ -23,8 +23,8 @@ define vowel  UnstressedVowel  | StressedVowel ;
 define dhipthong  UnstressedDhipthong  | StressedDhipthong ; 
 define pc   \vowel ; 
 define pcd   \dhipthong ; 
-define Consonant b|bh|c|ts|d|dh|f|g|gh|x|k|l|ll|m|ni|p|r|rr|sh|t|v|vh|w|yc|zh ; 
-define ConsonantNS b|c|ts|d|f|g|x|k|l|{ll}|m|n|ni|p|r|rr|s|sh|t|v|w|yc|zh ; 
+define Consonant b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|ni|p|r|rr|sh|t|v|vh|w|yc|zh ; 
+define ConsonantNS b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|vh|w|yc|zh ; 
 define noStress UnstressedVowel | pc | StressMark ; 
 define noStressD UnstressedDhipthong | pcd | StressMark ; 
 define stresses 
@@ -45,12 +45,14 @@ u0:u1] ;
 
 define dhipthongStress openStressess @-> || 
 # Explanation: we stress dhipthongs, (au, eu, ou) and (ai, ei, oi) putting the stress in the first long vowel (a, e or o) For example: pausa, leudar, fraile, aire.
-#.#. noStressD* _ UnstressedDhipthong ConsonantNS UnstressedVowel (n|s) .#. ; 
-.#. noStressD* _ UnstressedDhipthong ConsonantNS* UnstressedVowel (n|s) .#. ; 
+#.#. noStressD* _ UnstressedDhipthong ConsonantNS* (UnstressedVowel (n|s)) .#. ;
+.#. noStressD* _ UnstressedDhipthong ConsonantNS* UnstressedVowel (n|s) .#. ;
 
 define MonosylStress stresses -> || 
 # Monosyllables in spanish always have the stress in the only one vowel between first consonants, and last consonants.
-.#. ConsonantNS+ _ ConsonantNS .#. ; 
+.#. ConsonantNS+ _ ConsonantNS* .#. ,, 
+# Also, monosyllables can start with a vowel, ann more than one consonant. Let's put two.
+.#. _ ConsonantNS^2 .#. ; 
 
 define SpanishStress stresses -> || 
 # In words that end in a vowel, n or s, the stress generally falls on the penultimate syllable.
@@ -61,9 +63,6 @@ define SpanishStress2 stresses -> ||
 .#. noStress+ noStress+ _ Consonant .#. ; 
 
 define UnstressWords 
-[f e0] -> [f e1] || .#. _ .#. ,, 
-[d j o0 s] -> [d j o1 s] || .#. _ .#. ,, 
-[s i1 n] -> [s i0 n] || .#. _ .#. ,, 
 [m j e1 n t r a0 s] -> [m j e0 n t r a0 s] || .#. _ .#. ,, 
 [p e1 r o0] -> [p e0 r o0] || .#. _ .#. ,, 
 [s o1 b r e0] -> [s o0 b r e0] || .#. _ .#. ,, # palabra homónima. sobre (conector) y sobre (objeto)

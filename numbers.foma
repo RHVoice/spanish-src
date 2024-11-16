@@ -37,7 +37,7 @@ define Number [UnformattedNumber (OrdChar)] | ESRomanNumeral ;
 define Unit 
 1:uno | 
 2:dós | 
-3:trés | 
+3:tres | 
 4:cuatro | 
 5:cinco | 
 6:seis | 
@@ -222,9 +222,21 @@ define RemoveThousandsSeparators
 %. -> 0 ; 
 
 define fixes 
-[veinte y ]+:[veinti] -> || _ ,, 
-[dós mil]:[dos mil] -> || _ ,, 
-[trés mil]:[tres mil] -> || _ ; 
+[veinte y uno]:[veintiuno] -> || _ ,, 
+[veinte y dós]:[veintidós] -> || _ ,, 
+[veinte y tres]:[veintitrés] -> || _ ,, 
+[veinte y cuatro]:[veinticuatro] -> || _ ,, 
+[veinte y cinco]:[veinticinco] -> || _ ,, 
+[veinte y seis]:[veintiséis] -> || _ ,, 
+[veinte y siete]:[veintisiete] -> || _ ,, 
+[veinte y ocho]:[veintiocho] -> || _ ,, 
+[veinte y nueve]:[veintinueve] -> || _ ,, 
+[dós mil]:[dosmil] -> || _ ,, 
+[tres mil]:[tresmil] -> || _ ; 
+
+define fixes2 
+[veinte y dosmil]:[veintidosmil] -> || _ ,, 
+[veinte y tresmil]:[veintitresmil] -> || _ ; 
 
 define NumberRules 
 Number .o. 
@@ -248,7 +260,8 @@ RemoveZeros .o.
 PowerOfThousandSymbolsToSingular .o. 
 RemoveOnes .o. 
 Translate .o. 
-fixes ; 
+fixes .o. 
+fixes2 ; 
 
 define ZeroRule 
 %0 : cero | 

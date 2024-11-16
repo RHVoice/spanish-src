@@ -168,15 +168,20 @@ define approximants
 
 define exceptions 
 # a way to preserve most comon homonymous words for later conversion in pg2p.
+[{aunque} : [a u n k e00]] | 
 [{hacia} : [a c J a00]] | 
 [{hasta} : [a s t a00]] | 
+[{bajo} : [b a X o00]] | 
+[{contra} : [k o n t r a00]] | 
 [{como} : [k o m o00]] | 
 [{cuando} : [k w a n d o00]] | 
 [{cuanto} : [k w a n t o00]] | 
 [{desde} : [d e s d e00]] | 
 [{donde} : [d o n d e00]] | 
+[{hemos} : [e m o00 s]] | 
 [{porque} : [p o r k e00]] | 
 [{quienes} : [k J e n e00 s]] | 
+[{sino} : [s i n o00]] | 
 # Indefinite pronouns:
 [{ante} : [a n t e00]] | # Ante todo, ante ciertas circunstancias, etc.
 [{cuya} : [k u y a00]] | 
@@ -203,17 +208,35 @@ define exceptions
 [{para} : [p a r a00]] | 
 # Monosyllable exceptions:
 [{con} : [k o00 n]] | 
+[{de} : [d e00]] | 
 [{del} : [d e00 l]] | 
+[{en} : [e00 n]] | 
+[{el} : [e00 l]] | 
 [{les} : [l e00 s]] | 
+[{le} : [l e00]] | 
+[{lo} : [l o00]] | 
 [{los} : [l o00 s]] | 
+[{la} : [l a00]] | 
 [{las} : [l a00 s]] | 
+[{me} : [m e00]] | 
 [{nos} : [n o00 s]] | 
 [{por} : [p o00 r]] | 
 [{pues} : [p w e S]] | 
+[{mi} : [m i00]] | 
 [{mis} : [m i00 s]] | 
+[{ni} : [n i00]] | 
+[{que} : [k e00]] | 
+[{se} : [s e00]] | 
+[{si} : [s i00]] | 
+[{sin} : [s i00 n]] | 
+[{su} : [s u00]] | 
 [{sus} : [s u00 s]] | 
+[{te} : [t e00]] | 
+[{tu} : [t u00]] | 
 [{tus} : [t u00 s]] | 
 [{mas} : [m a00 s]] | 
+# Prepositions:
+[{tras} : [t r a00 s]] | 
 # Other exceptions:
 [[{wi} (%-) {fi}] : [w a i f a1 yc]] | 
 [{a.c.} : [a n t e s d e k r i1 s t o]] | 
