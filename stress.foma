@@ -24,8 +24,8 @@ define dhipthong  UnstressedDhipthong  | StressedDhipthong ;
 define pc   \vowel ; 
 define pcd   \dhipthong ; 
 define Consonant b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|ni|p|r|rr|sh|t|v|vh|w|yc|zh ; 
-define ConsonantNS b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|vh|w|yc|zh ; 
-define noStress UnstressedVowel | pc | StressMark ; 
+define ConsonantNS b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|vh|w|y|yc|zh ; 
+define noStress UnstressedVowel | pc ; 
 define noStressD UnstressedDhipthong | pcd | StressMark ; 
 define stresses 
 [a0:a1|
@@ -45,8 +45,8 @@ u0:u1] ;
 
 define dhipthongStress openStressess @-> || 
 # Explanation: we stress dhipthongs, (au, eu, ou) and (ai, ei, oi) putting the stress in the first long vowel (a, e or o) For example: pausa, leudar, fraile, aire.
-#.#. noStressD* _ UnstressedDhipthong ConsonantNS* (UnstressedVowel (n|s)) .#. ;
-.#. noStressD* _ UnstressedDhipthong ConsonantNS* UnstressedVowel (n|s) .#. ;
+#.#. noStressD* _ UnstressedDhipthong ConsonantNS* UnstressedVowel (n|s) .#. ;
+.#. noStressD* _ UnstressedDhipthong ConsonantNS* .#., .#. noStressD* _ UnstressedDhipthong ConsonantNS* UnstressedVowel (n|s) .#. ;
 
 define MonosylStress stresses -> || 
 # Monosyllables in spanish always have the stress in the only one vowel between first consonants, and last consonants.
@@ -60,7 +60,7 @@ define SpanishStress stresses -> ||
 
 define SpanishStress2 stresses -> || 
 # If a word ends with a consonant, the stress falls in the last vowel of the syllable. Example, Español.
-.#. noStress+ noStress+ _ Consonant .#. ; 
+.#. noStress+ noStress+ _ Consonant* .#. ; 
 
 define UnstressWords 
 [m j e1 n t r a0 s] -> [m j e0 n t r a0 s] || .#. _ .#. ,, 

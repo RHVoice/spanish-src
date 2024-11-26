@@ -126,10 +126,18 @@ define SpanishRules
 [a p p]:[a p] ; # For English words.
 
 define WordStartRules 
+# source rules from cldr/common/transforms/es-es_FONIPA.xml
+{ct} -> t || .#. _ ,, # ctónico
+{cz} -> z || .#. _ ,, # czar
+{gn} -> n || .#. _ ,, # gnomo
+{mn} -> n || .#. _ ,, # mnemotécnico
+{pt} -> t || .#. _ ,, # pterodáctilo
+{ks} -> s || .#. _ ,, # xilófono
+# Matthew's rules:
 {any} -> {ani} || .#. _ ,, # Especially for English text.
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
 [ts r i] -> [k r i] || .#. _ ,, # Christian, christina.
-[d e sh] -> [d e s] || .#. _ ,, # des prefix. Deshabilitar, deshacer.
+[d e sh] -> [d e s] || .#. _ ,, # des prefix. Deshabilitar, deshacer, deshecho.
 r -> [rr] || .#. _, [l|n|s] _ ; # at the start: rato, rico, roma, all words starting r needs to be a RR sound. However, in words that contains l, n or s anywere, needs to be a rr sound, too. For example: alrededor, enredo, Desramar.
 
 define WordMidRules 
