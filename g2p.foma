@@ -153,17 +153,19 @@ define WordEndRules
 # The following is especially for foreign words.
 {by} -> [b i] || _ .#. ,, 
 {dy} -> [d i] || _ .#. ,, 
+{gy} -> [g i] || _ .#. ,, 
 {ky} -> [k i] || _ .#. ,, 
 [i n g] -> [i n] || _ .#. ,, 
 {ly} -> [l i] || _ .#. ,, 
 {my} -> [m i] || _ .#. ,, 
 {ny} -> [n i] || _ .#. ,, # Danny, Ronny.
 {py} -> [p i] || _ .#. ,, 
-{ry} -> [r i] || _ .#. ,, # cherry.
+{ry} -> [r i] || _ .#. ,, 
+[rr y] -> [rr i] || _ .#. ,, # cherry.
 {sy} -> [s i] || _ .#. ,, 
 {ty} -> [t i] || _ .#. ,, 
 {uy} -> [u i] || _ .#. ,, 
-[u y s] -> [u i s] || _ .#. ,, 
+[y s] -> [i s] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
 c -> k || _ .#. ; # cómic, tictac.
 
@@ -188,6 +190,7 @@ define exceptions
 [{donde} : [d o n d e00]] | 
 [{hemos} : [e m o00 s]] | 
 [{porque} : [p o r k e00]] | 
+[{quien} : [k J e00 n]] | 
 [{quienes} : [k J e n e00 s]] | 
 [{sino} : [s i n o00]] | 
 # Indefinite pronouns:
