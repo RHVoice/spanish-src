@@ -152,12 +152,12 @@ define WordEndRules
 {uy} -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
 # The following is especially for foreign words.
 {by} -> [b i] || _ .#. ,, 
-{dy} -> [d i] || _ .#. ,, 
+{dy} -> [d i] || _ ,, 
 {gy} -> [g i] || _ .#. ,, 
 {ky} -> [k i] || _ .#. ,, 
 [i n g] -> [i n] || _ .#. ,, 
 {ly} -> [l i] || _ .#. ,, 
-{my} -> [m i] || _ .#. ,, 
+{my} -> [m i] || _ ,, 
 {ny} -> [n i] || _ .#. ,, # Danny, Ronny.
 {py} -> [p i] || _ .#. ,, 
 {ry} -> [r i] || _ .#. ,, 
@@ -218,6 +218,9 @@ define exceptions
 [{vuestras} : [v w e s t r a00 s]] | 
 [{para} : [p a r a00]] | 
 # Monosyllable exceptions:
+[{al} : [a00 l]] | # ve al grano.
+[{han} : [a00 n]] | # han hecho un buen trabajo
+[{has} : [a00 s]] | # ¿Qué has hecho?
 [{con} : [k o00 n]] | 
 [{de} : [d e00]] | 
 [{del} : [d e00 l]] | 
@@ -243,8 +246,10 @@ define exceptions
 [{su} : [s u00]] | 
 [{sus} : [s u00 s]] | 
 [{te} : [t e00]] | 
+[{ti} : [t i00]] | 
 [{tu} : [t u00]] | 
 [{tus} : [t u00 s]] | 
+[{un} : [u00 n]] | 
 [{mas} : [m a00 s]] | 
 # Prepositions:
 [{tras} : [t r a00 s]] | 
@@ -254,6 +259,26 @@ define exceptions
 [{a.m.} : [d e l a m a ni a1 n a]] | 
 [{d.c.} : [d e s p w e1 s d e k r i1 s t o]] | 
 [{p.m.} : [d e l a t a1 r d e]] | 
+# Weeks, months:
+[{lun.} : [l u1 n e s]] | 
+[{mar.} : [m a1 r t e s]] | 
+[{mié.} : [m J e1 r k o l e s]] | 
+[{jue.} : [X w e1 v e s]] | 
+[{vie.} : [v J e1 r n e s]] | 
+[{sáb.} : [s a1 b a d o]] | 
+[{dom.} : [d o m i1 n g o]] | 
+[{ene.} : [e n e1 r o]] | 
+[{feb.} : [f e b r e1 r o]] | 
+[{mar.} : [m a1 r zh o]] | 
+[{abr.} : [a b r i1 l]] | 
+[{may.} : [m a1 y o]] | 
+[{jun.} : [X u1 n J o]] | 
+[{jul.} : [X u1 l J o]] | 
+[{ago.} : [a g o1 s t o]] | 
+[{sep.} : [s e p t J e1 m b r e]] | 
+[{oct.} : [o k t u1 b r e]] | 
+[{nov.} : [n o v J e1 m b r e]] | 
+[{dic.} : [d i c J e1 m b r e]] | 
 [{etc.} : [e t c e1 t e r a]] @-> || .#. _ .#. ; 
 
 define Stage1 

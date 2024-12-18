@@ -188,9 +188,9 @@ define MarkTeens
 
 define InsertAnds 
 [..] -> and || 
-NZDigit ten _ NZDigit , 
+NZDigit ten _ NZDigit ; 
 #NZDigit hnd _ (%0 ten) NZDigit , 
-PowerOfThousandSymbol _ [[NZDigit [hnd|hnd0] %0 ten %0] | [%0 hnd (%0 ten) NZDigit]] .#. ; 
+#PowerOfThousandSymbol _ [[NZDigit [hnd|hnd0] %0 ten %0] | [%0 hnd (%0 ten) NZDigit]] .#. ; 
 
 define RemoveOnes 
 1 -> 0 || .#. _ ths | OrdPowerOfThousandSymbol ; 
@@ -235,6 +235,7 @@ define fixes
 [tres mil]:[tresmil] -> || _ ; 
 
 define fixes2 
+uno -> un || _ [millón|billón|trillón] ,, 
 [veinte y dosmil]:[veintidosmil] -> || _ ,, 
 [veinte y tresmil]:[veintitresmil] -> || _ ; 
 

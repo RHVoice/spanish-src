@@ -52,7 +52,7 @@ define MonosylStress stresses -> ||
 # Monosyllables in spanish always have the stress in the only one vowel between first consonants, and last consonants.
 .#. ConsonantNS+ _ ConsonantNS* .#. ,, 
 # Also, monosyllables can start with a vowel, ann more than one consonant. Let's put two.
-.#. _ ConsonantNS^2 .#. ; 
+.#. _ ConsonantNS .#. , .#. _ ConsonantNS^2 .#. ; 
 
 define SpanishStress stresses -> || 
 # In words that end in a vowel, n or s, the stress generally falls on the penultimate syllable.
