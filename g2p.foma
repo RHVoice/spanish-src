@@ -151,19 +151,19 @@ define WordEndRules
 {oy} -> [o yc] || _ .#. ,, # voy, soy, estoy.
 {uy} -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
 # The following is especially for foreign words.
-{by} -> [b i] || _ .#. ,, 
+{by} -> [b i] || _ ,, 
 {dy} -> [d i] || _ ,, 
 {gy} -> [g i] || _ .#. ,, 
 {ky} -> [k i] || _ .#. ,, 
 [i n g] -> [i n] || _ .#. ,, 
 {ly} -> [l i] || _ .#. ,, 
 {my} -> [m i] || _ ,, 
-{ny} -> [n i] || _ .#. ,, # Danny, Ronny.
+{ny} -> [n i] || _ ,, # Danny, Ronny.
 {py} -> [p i] || _ .#. ,, 
 {ry} -> [r i] || _ .#. ,, 
 [rr y] -> [rr i] || _ .#. ,, # cherry.
 {sy} -> [s i] || _ .#. ,, 
-{ty} -> [t i] || _ .#. ,, 
+{ty} -> [t i] || _ ,, 
 {uy} -> [u i] || _ .#. ,, 
 [y s] -> [i s] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
@@ -269,7 +269,6 @@ define exceptions
 [{dom.} : [d o m i1 n g o]] | 
 [{ene.} : [e n e1 r o]] | 
 [{feb.} : [f e b r e1 r o]] | 
-[{mar.} : [m a1 r zh o]] | 
 [{abr.} : [a b r i1 l]] | 
 [{may.} : [m a1 y o]] | 
 [{jun.} : [X u1 n J o]] | 

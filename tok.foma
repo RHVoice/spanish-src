@@ -46,8 +46,7 @@ u -> u|U ,
 ü -> ü|Ü , 
 v -> v|V , 
 w -> w|W , 
-# X is problematic here.
-#x -> x|X , 
+x -> x|X , 
 y -> y|Y , 
 z -> z|Z ; 
 
@@ -61,14 +60,13 @@ define SmallLetter a|á|b|c|d|e|é|f|g|h|i|í|j|k|l|m|n|ñ|o|ó|p|q|r|s|t|u|ú|�
 define CapitalLetter A|Á|B|C|D|E|É|F|G|H|I|Í|J|K|L|M|N|Ñ|O|Ó|P|Q|R|S|T|U|Ú|Ü|V|W|X|Y|Z;
 define CapitalLetterWithoutRoman CapitalLetter - [[I|X]:[?+]] ; 
 define Letter SmallLetter | CapitalLetter;
-define atSym %@ ; 
 define ExceptionalWord 
 [[a|A] %. [m|M] %.] | 
 [[p|P] %. [m|M] %.] | 
 [[a|A] %. [c|C] %.] | 
 [[d|D] %. [c|C] %.] | 
 [L u n %.] | [M a r %.] | [M i é %.] | [J u e %.] | [V i e %.] | [S á b %.] | [D o m %.] | 
-[e n e %.] | [f e b %.] | [m a r %.] | [a b r %.] | [m a y %.] | [j u n %.] | [j u l %.] | [a g o %.] | [s e p %.] | [o c t %.] | [n o v %.] | [d i c %.] | 
+[e n e %.] | [f e b %.] | [a b r %.] | [m a y %.] | [j u n %.] | [j u l %.] | [a g o %.] | [s e p %.] | [o c t %.] | [n o v %.] | [d i c %.] | 
 [[e|E] [t|T] [c|C] %.] | 
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
 define NZDigit 1|2|3|4|5|6|7|8|9;
@@ -93,8 +91,10 @@ Word @-> ... word || _ .#. | \Letter ,,
 define Stage2 
 [..] -> lseq || CapitalLetter _ CapitalLetter SmallLetter ,, 
 #word -> lseq || CapitalLetterWithoutRoman CapitalLetterWithoutRoman CapitalLetterWithoutRoman _ ,,
-word -> lseq || [.#.|word|num|sym] LetterSequence _ ,, 
-word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ,, 
+word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
+
+define Stage3 
+word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ,, 
 sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,
 num DecimalSeparator _ Digit+,,
@@ -108,7 +108,7 @@ num -> dig || sym %0 NZDigit+ _ , sym %0^2 NZDigit+ _ , sym %0^3 NZDigit+ _ ,,
 num -> dig || ExceptDigit %0 NZDigit _ .#. , ExceptDigit %0^2 NZDigit _ .#. , ExceptDigit %0^3 NZDigit _ .#. ,, 
 [num:0] [%º|%ª] [sym:num] -> ; 
 
-define Stage3 
+define Stage4 
 dig -> num || NZDigit+ %0^2 NZDigit _ .#. , NZDigit+ %0^3 NZDigit _ .#. , NZDigit+ %0^4 NZDigit _ .#. , NZDigit+ %0^5 NZDigit _ .#. , NZDigit+ %0^6 NZDigit _ .#. , NZDigit+ %0^7 NZDigit _ .#. ,, 
 #lseq:0 %' sym:word -> || .#. | [\%' sym] _ .#. | Letter ,, 
 word -> lseq || .#. _ ;
@@ -121,4 +121,5 @@ regex
 NormalizeCharacters.o. 
 Stage1 .o. 
 Stage2 .o. 
-Stage3;
+Stage3 .o.
+Stage4 ; 
