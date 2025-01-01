@@ -158,7 +158,7 @@ define WordEndRules
 [i n g] -> [i n] || _ .#. ,, 
 {ly} -> [l i] || _ .#. ,, 
 {my} -> [m i] || _ ,, 
-{ny} -> [n i] || _ ,, # Danny, Ronny.
+{ny} -> [n i] || _ .#. ,, # Danny, Ronny.
 {py} -> [p i] || _ .#. ,, 
 {ry} -> [r i] || _ .#. ,, 
 [rr y] -> [rr i] || _ .#. ,, # cherry.

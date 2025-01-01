@@ -56,10 +56,11 @@ define ConsonantLetterSequence
 define LetterSequence 
 [ConsonantLetterSequence .o. CaseVariants].l ; 
 
-define SmallLetter a|á|b|c|d|e|é|f|g|h|i|í|j|k|l|m|n|ñ|o|ó|p|q|r|s|t|u|ú|ü|v|w|x|y|z;
-define CapitalLetter A|Á|B|C|D|E|É|F|G|H|I|Í|J|K|L|M|N|Ñ|O|Ó|P|Q|R|S|T|U|Ú|Ü|V|W|X|Y|Z;
-define CapitalLetterWithoutRoman CapitalLetter - [[I|X]:[?+]] ; 
-define Letter SmallLetter | CapitalLetter;
+define SmallLetter b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z;
+define CapitalLetter B|C|D|F|G|H|J|K|L|M|N|Ñ|P|Q|R|S|T|V|W|X|Y|Z;
+define SmallVowel a|á|e|é|i|í|o|ó|u|ú|ü ; 
+define CapitalVowel A|Á|E|É|I|Í|O|Ó|U|Ú|Ü ; 
+define Letter SmallLetter | SmallVowel | CapitalLetter | CapitalVowel;
 define ExceptionalWord 
 [[a|A] %. [m|M] %.] | 
 [[p|P] %. [m|M] %.] | 
@@ -89,8 +90,8 @@ Word @-> ... word || _ .#. | \Letter ,,
 \[Letter | Digit] @-> ... sym || _ ; 
 
 define Stage2 
-[..] -> lseq || CapitalLetter _ CapitalLetter SmallLetter ,, 
-#word -> lseq || CapitalLetterWithoutRoman CapitalLetterWithoutRoman CapitalLetterWithoutRoman _ ,,
+[..] -> lseq || [CapitalLetter|CapitalVowel] _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel] ,, 
+word -> lseq || CapitalLetter CapitalLetter CapitalVowel _ , .#. CapitalVowel CapitalLetter CapitalLetter _ .#. , .#. CapitalVowel CapitalLetter^3 _ .#. ,, 
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
 
 define Stage3 

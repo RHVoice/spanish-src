@@ -20,25 +20,25 @@ define IndefiniteArticle
 un | una | unos | unas ; 
 
 define PersonalPronoun 
-yo | tú | su | sus | vos | él | ella | nosotros | nosotras | vosotros | vosotras | usted | ustedes | vuestro | vuestra | vuestros | ellos | ellas | lo | la | le ; 
+yo | tú | vos | usted | ustedes | él | ella | ellos | ellas | nosotros | nosotras | vosotros | vosotras ; 
 
 define PersonalReflexivePronoun 
 me | mí | se | te | ti | os | nos ; 
 
 define DemonstrativePronoun 
-ese | esa | este | esta | esos | esas | estos | estas | aquel | aquella | aquellos | aquellas | que ; 
+ese | esa | este | esto | esta | eso | esos | esas | estos | estas | aquel | aquella | aquello | aquellos | aquellas ; 
 
 define PossessiveAdjective 
 mi | mis | tu | tus | su | sus | nuestro | nuestra | nuestros | nuestras | vuestro | vuestra | vuestros | vuestras ; 
 
 define Preposition 
-de | en | no | nos | por | desde | entre | sobre ; 
+a | ante | bajo | cabe | con | contra | de | desde | durante | en | entre | hacia | hasta | lo | mediante | no | para | por | según | si | sin | so | sobre | tras | versus | vía ; 
 
 define UnstressedConjunction 
-y | tu | sí | más | como ; 
+y | o | tu | sí | más | como | porque ; 
 
 define Conjunction 
-todavía | asimismo | porque | entonces | caso | apenas | enquanto ; 
+todavía | asimismo | entonces | caso | apenas | enquanto ; 
 
 define Ser 
 ser | soy | és | somos | sois | son | era | érase | éramos | érais | eran | fui | fuiste | fue | fuimos | fuistes | fueron | será | serás | serán | seremos | sereis | sería | serías | seríamos | seríais | serían ;

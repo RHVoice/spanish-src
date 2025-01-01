@@ -2,6 +2,7 @@
 define PB %- | .#. ; 
 # Word boundary (words of the utterance)
 define WB %# | PB ; 
+define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1] ; 
 # We'll need to remove/fix 00 phonemes, that is done on purpose to preserve comon Spanish homonimous words.
 define distinguishStress [
 a00: a0 |
@@ -14,8 +15,13 @@ S: s |
 X: x ]
 @-> || _ ; 
 
+define RemainingApproximants 
+b @-> bh || vocal WB _ vocal WB ,, 
+d @-> dh || vocal WB _ vocal WB ,, 
+v @-> vh || vocal WB _ vocal WB ; 
+
 define MaleObjectPronoun 
-[[u0 n] | [e0 l] | [e0 s e0] | [e0 s t e0] | [a0 k e1 l]] ; 
+wb [[u0 n] | [e0 l] | [e0 s e0] | [e0 s t e0] | [a0 k e1 l]] WB ; 
 
 define PersonalObjectPronoun 
 [t u0] | [s u0] ; 
@@ -31,4 +37,5 @@ object -> || MaleObjectPronoun WB _ WB ;
 
 regex 
 distinguishStress .o. 
+RemainingApproximants .o. 
 HomonymousWords ; 
