@@ -31,7 +31,7 @@ b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|vh|w|yc|zh ;
 define Onset 
 0 | Consonant | 
 {bl} | {bj} | {br} | [b r j] | {bw} | [bh w] | {ts} | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh w] | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | {gw} | [gh  w] | {kl} | {kj} | {kr} | 
-{kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | [vh w] | {mj} | {nj} | {nw} | {rw} | y ; 
+{kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | [vh w] | {mj} | {nj} | {sj} | {nw} | {rw} | y ; 
 
 define Syllable 
 #[Nucleus | a | e | o] %{ i | u %} Consonant* | # Au, da, cia. A, e, o, after "i" or "u", is a syllable, then any Consonant.

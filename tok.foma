@@ -91,7 +91,13 @@ Word @-> ... word || _ .#. | \Letter ,,
 
 define Stage2 
 [..] -> lseq || [CapitalLetter|CapitalVowel] _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel] ,, 
-word -> lseq || CapitalLetter CapitalLetter CapitalVowel _ , .#. CapitalVowel CapitalLetter CapitalLetter _ .#. , .#. CapitalVowel CapitalLetter^3 _ .#. ,, 
+word -> lseq || 
+.#. CapitalLetter^2 CapitalVowel _ (\[Letter | Digit] sym) .#. , 
+.#. CapitalLetter^3 CapitalVowel _ (\[Letter | Digit] sym) .#. , 
+.#. CapitalVowel CapitalLetter^2 _ (\[Letter | Digit] sym) .#. , 
+.#. CapitalVowel CapitalLetter^3 _ (\[Letter | Digit] sym) .#. , 
+.#. X CapitalVowel CapitalLetter _ (\[Letter | Digit] sym) .#. , 
+.#. CapitalLetter CapitalVowel W _ (\[Letter | Digit] sym) .#. ,, 
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
 
 define Stage3 
@@ -104,7 +110,7 @@ num -> dig || Digit^16 _ ,,
 # Zeros at start:
 num -> dig || .#. %0 NZDigit+ _ , .#. %0^2 NZDigit+ _ , .#. %0^3 NZDigit+ _ ,, 
 # When a sym is found:
-num -> dig || sym %0 NZDigit+ _ , sym %0^2 NZDigit+ _ , sym %0^3 NZDigit+ _ ,, 
+num -> dig || [sym|word] %0 NZDigit+ _ , sym %0^2 NZDigit+ _ , sym %0^3 NZDigit+ _ ,, 
 # Zeros at the end. 0.05, 0.005, 0.0005, etc. Only occurrences ending in 0+digit.
 num -> dig || ExceptDigit %0 NZDigit _ .#. , ExceptDigit %0^2 NZDigit _ .#. , ExceptDigit %0^3 NZDigit _ .#. ,, 
 [num:0] [%º|%ª] [sym:num] -> ; 
