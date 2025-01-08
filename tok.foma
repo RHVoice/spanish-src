@@ -80,6 +80,7 @@ define UnformattedNumber [Digit Digit*] ;
 define Number  UnformattedNumber;
 define DecimalSeparator %.|%,;
 define Word Letter+ | ExceptionalWord ;
+define Symbol \[Letter | Digit] ; 
 #define Date DayOrMonth+ dateSep+ DayOrMonth+ dateSep+ year+ ; 
 
 define Stage1 
@@ -87,17 +88,17 @@ Number @-> ... num || _ ,,
 Word @-> ... word || _ .#. | \Letter ,, 
 # We will apply this future new token for Spanish, called date, when someone helps me with cpp code for it.
 #Date @-> ... date || _ ,, 
-\[Letter | Digit] @-> ... sym || _ ; 
+Symbol @-> ... sym || _ ; 
 
 define Stage2 
 [..] -> lseq || [CapitalLetter|CapitalVowel] _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel] ,, 
 word -> lseq || 
-.#. CapitalLetter^2 CapitalVowel _ (\[Letter | Digit] sym) .#. , 
-.#. CapitalLetter^3 CapitalVowel _ (\[Letter | Digit] sym) .#. , 
-.#. CapitalVowel CapitalLetter^2 _ (\[Letter | Digit] sym) .#. , 
-.#. CapitalVowel CapitalLetter^3 _ (\[Letter | Digit] sym) .#. , 
-.#. X CapitalVowel CapitalLetter _ (\[Letter | Digit] sym) .#. , 
-.#. CapitalLetter CapitalVowel W _ (\[Letter | Digit] sym) .#. ,, 
+.#. CapitalLetter^2 CapitalVowel _ (Symbol sym) .#. , 
+.#. CapitalLetter^3 CapitalVowel _ (Symbol sym) .#. , 
+.#. CapitalVowel CapitalLetter^2 _ (Symbol sym) .#. , 
+.#. CapitalVowel CapitalLetter^3 _ (Symbol sym) .#. , 
+.#. X CapitalVowel CapitalLetter _ (Symbol sym) .#. , 
+.#. CapitalLetter CapitalVowel W _ (Symbol sym) .#. ,, 
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
 
 define Stage3 
