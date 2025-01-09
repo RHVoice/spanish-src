@@ -1,8 +1,24 @@
+# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 2.1 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
 # Phrase Boundary.
 define PB %- | .#. ; 
 # Word boundary (words of the utterance)
 define WB %# | PB ; 
-define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1] ; 
+define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|j|w] ; 
 # We'll need to remove/fix 00 phonemes, that is done on purpose to preserve comon Spanish homonimous words.
 define distinguishStress [
 a00: a0 |

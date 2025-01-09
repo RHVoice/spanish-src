@@ -1,4 +1,4 @@
-# Copyright (C) 2024  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -95,6 +95,7 @@ define Stage2
 word -> lseq || 
 .#. CapitalLetter^2 CapitalVowel _ (Symbol sym) .#. , 
 .#. CapitalLetter^3 CapitalVowel _ (Symbol sym) .#. , 
+.#. CapitalLetter^4 CapitalVowel _ (Symbol sym) .#. , 
 .#. CapitalVowel CapitalLetter^2 _ (Symbol sym) .#. , 
 .#. CapitalVowel CapitalLetter^3 _ (Symbol sym) .#. , 
 .#. X CapitalVowel CapitalLetter _ (Symbol sym) .#. , 
