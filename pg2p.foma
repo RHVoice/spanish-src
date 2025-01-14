@@ -51,20 +51,45 @@ define StressedNumber
 define unstressNumber 
 # When treinta, cuarenta, cincuenta, etc... is in the word, accompanied by i (y), remove the stress. For example, cuarenta y...
 StressedNumber @-> || WB _ WB i0 ; 
+
 define MaleObjectPronoun 
+# connectors: Un, el, ese, este, aquel. We will use these to conjugate and modifying stress according to word context. see below.
 [[u0 n] | [e0 l] | [e0 s e0] | [e0 s t e0] | [a0 k e1 l]] ; 
 
 define PersonalObjectPronoun 
+# The same thing but for "mi", "tu" and "su".
 [m i0] | [t u0] | [s u0] ; 
 define object 
+# So, we could start conjugating: Un bajo, el bajo, ese bajo, este bajo, aquel bajo, mi bajo, tu bajo, su bajo (the bass music instrument)
 [b a0 x o0]: [b a1 x o0] | 
+# Un sobre, el sobre, ese sobre, este sobre, aquel sobre, mi sobre, tu sobre, su sobre (a paper object)
 [s o0 b r e0]: [s o1 b r e0] ; 
-# Un sobre, el sobre, ese sobre, este sobre, aquel sobre (a paper object)
-#Un bajo, el bajo, ese bajo, este bajo, aquel bajo (a music instrument)
-# We'll need to stress "bajo" and "sobre" in these five cases, because regarding "bajo" we are talking of the "bass" music instrument instead of the attribution (under), and regarding "sobre" we are talking of the paper object, not the "about" preposition (talk about her / hablar sobre ella, for example).
+# We created the context structure for "bajo", "sobre" and other future words according to sentence. Now, let's create another context to improve spanish stress, according to sentence as well.
+define esDemonstrative 
+# Now, we have: esta, este, ese, esa.
+[e0 s t a0]:[e1 s t a0] | [e0 s t e0]:[e1 s t e0] | [e0 s e0]:[e1 s e0] | [e0 s a0]:[e1 s a0] ; 
+
+define sonDemonstrative 
+# We have estas, estos, esas, esos.
+[e0 s t a0 s]:[e1 s t a0 s] | [e0 s t o0 s]:[e1 s t o0 s] | [e0 s a0 s]:[e1 s a0 s] | [e0 s o0 s]:[e1 s o0 s] ; 
+
+define es [e1 s] ; 
+define son [s o1 n] ; 
+# We defined "es" and "son", which can be used in a different context. For example: "esta es mi casa", "este es Mateo, tu amigo", "esto es lo que hay que hacer", "estas son mis llaves", etc. In all of these cases, the demonstrative should be stressed, as we saw in these definitions.
 
 define HomonymousWords 
-object -> || [MaleObjectPronoun|PersonalObjectPronoun] WB _ WB ; 
+# We'll need to stress "bajo" and "sobre" in these eight cases, because regarding "bajo" we are talking of the "bass" music instrument instead of the attribution (under), and regarding "sobre" we are talking of the paper object, not the "about" preposition (talk about her / hablar sobre ella, for example).
+object -> || [MaleObjectPronoun|PersonalObjectPronoun] WB _ WB ,, 
+# Also, we will stress demonstratives for es. For example: esta es, este es, ese es, esa es.
+esDemonstrative -> || WB _ WB es ,, 
+# And we will apply the same for "son". Example: estas son las bufandas que Mateo tegió.
+sonDemonstrative -> || WB _ WB son ,, 
+# Let's create another context. Since "una" is unstressed in g2p, we need to stress it when the word "cada" is found before. For example, "él repartió cada una de las galletas". The strength of the vowel is in the una (cada úna).
+[u0 n a0]:[u1 n a0] -> || WB [k a1 dh a0] WB _ ,, 
+# And create stressing context for "haya". "Haya" can be used in two contexts. The one is the verb called "hacer" (espero que hayas hecho la tarea), default in g2p, and the other is from the verb "haber" (cuando haya plata, que haya paz en la tierra) which we are going to make here.
+[a0 y a0]:[a1 y a0] -> || 
+WB [k w a0 n d o0] WB _ , 
+WB _ WB [[l a0]|[p a1 zh]] ; 
 
 regex 
 distinguishStress .o. 
