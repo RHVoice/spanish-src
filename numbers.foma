@@ -70,7 +70,7 @@ define FemaleOrdUnit
 
 define Teen 
 1:once | 
-2:doze | 
+2:doce | 
 3:trece | 
 4:catorce | 
 5:quince | 
@@ -230,14 +230,10 @@ define fixes
 [veinte y seis]:[veintiséis] -> || _ ,, 
 [veinte y siete]:[veintisiete] -> || _ ,, 
 [veinte y ocho]:[veintiocho] -> || _ ,, 
-[veinte y nueve]:[veintinueve] -> || _ ,, 
-[dós mil]:[dosmil] -> || _ ,, 
-[tres mil]:[tresmil] -> || _ ; 
+[veinte y nueve]:[veintinueve] -> || _ ; 
 
 define fixes2 
-uno -> un || _ [mil|millón|billón|trillón] ,, 
-[veinte y dosmil]:[veintidosmil] -> || _ ,, 
-[veinte y tresmil]:[veintitresmil] -> || _ ; 
+uno -> un || _ [mil|millón|billón|trillón] ; 
 
 define NumberRules 
 Number .o. 
