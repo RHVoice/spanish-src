@@ -60,7 +60,7 @@ define SpanishStress stresses -> ||
 
 define SpanishStress2 stresses -> || 
 # If a word ends with a consonant, the stress falls in the last vowel of the syllable. Example, Español.
-.#. noStress+ noStress+ _ Consonant* .#. ; 
+.#. noStress+ noStress+ _ ConsonantNS* .#. ; 
 
 define UnstressWords 
 [m j e1 n t r a0 s] -> [m j e0 n t r a0 s] || .#. _ .#. ,, 
