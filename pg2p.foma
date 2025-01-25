@@ -84,9 +84,10 @@ define MaleObjectPronoun
 define PersonalObjectPronoun 
 # The same thing but for "mi", "tu" and "su".
 [m i0] | [t u0] | [s u0] ; 
-define object 
+define bajoObject 
 # So, we could start conjugating: Un bajo, el bajo, ese bajo, este bajo, aquel bajo, mi bajo, tu bajo, su bajo (the bass music instrument)
-[b a0 x o0]: [b a1 x o0] | 
+[b a0 x o0]: [b a1 x o0] ; 
+define sobreObject 
 # Un sobre, el sobre, ese sobre, este sobre, aquel sobre, mi sobre, tu sobre, su sobre (a paper object)
 [s o0 b r e0]: [s o1 b r e0] ; 
 # We created the context structure for "bajo", "sobre" and other future words according to sentence. Now, let's create another context to improve spanish stress, according to sentence as well.
@@ -104,7 +105,10 @@ define son [s o1 n] ;
 
 define HomonymousWords 
 # We'll need to stress "bajo" and "sobre" in these eight cases, because regarding "bajo" we are talking of the "bass" music instrument instead of the attribution (under), and regarding "sobre" we are talking of the paper object, not the "about" preposition (talk about her / hablar sobre ella, for example).
-object -> || [MaleObjectPronoun|PersonalObjectPronoun] WB _ WB ,, 
+# Bass instrument:
+bajoObject -> || [MaleObjectPronoun|PersonalObjectPronoun] WB _ WB ,, 
+# Sobre object. There are two subcases for this word. The one is the mentioned, but the other one is if "con" is found after "sobre".
+sobreObject -> || [MaleObjectPronoun|PersonalObjectPronoun] WB _ WB , WB _ WB [k o0 n] ,, 
 # Also, we will stress demonstratives for es. For example: esta es, este es, ese es, esa es.
 esDemonstrative -> || WB _ WB es ,, 
 # And we will apply the same for "son". Example: estas son las bufandas que Mateo tegió.
