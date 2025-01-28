@@ -91,6 +91,9 @@ Word @-> ... word || _ .#. | \Letter ,,
 Symbol @-> ... sym || _ ; 
 
 define Stage2 
+word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
+
+define Stage3 
 [..] -> lseq || [CapitalLetter|CapitalVowel] _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel] ,, 
 word -> lseq || 
 .#. CapitalLetter^2 CapitalVowel _ (Symbol sym) .#. , 
@@ -99,10 +102,9 @@ word -> lseq ||
 .#. CapitalVowel CapitalLetter^2 _ (Symbol sym) .#. , 
 .#. CapitalVowel CapitalLetter^3 _ (Symbol sym) .#. , 
 .#. X CapitalVowel CapitalLetter _ (Symbol sym) .#. , 
-.#. CapitalLetter CapitalVowel W _ (Symbol sym) .#. ,, 
-word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
+.#. CapitalLetter CapitalVowel W _ (Symbol sym) .#. ; 
 
-define Stage3 
+define Stage4 
 word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ,, 
 sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,
@@ -119,7 +121,7 @@ num -> dig || [sym|word] %0 NZDigit+ _ , sym %0^2 NZDigit+ _ , sym %0^3 NZDigit+
 num -> dig || ExceptDigit %0 NZDigit _ .#. , ExceptDigit %0^2 NZDigit _ .#. , ExceptDigit %0^3 NZDigit _ .#. ,, 
 [num:0] [%º|%ª] [sym:num] -> ; 
 
-define Stage4 
+define Stage5 
 dig -> num || NZDigit+ %0^2 NZDigit _ .#. , NZDigit+ %0^3 NZDigit _ .#. , NZDigit+ %0^4 NZDigit _ .#. , NZDigit+ %0^5 NZDigit _ .#. , NZDigit+ %0^6 NZDigit _ .#. , NZDigit+ %0^7 NZDigit _ .#. ,, 
 #lseq:0 %' sym:word -> || .#. | [\%' sym] _ .#. | Letter ,, 
 word -> lseq || .#. _ ;
@@ -132,5 +134,6 @@ regex
 NormalizeCharacters.o. 
 Stage1 .o. 
 Stage2 .o. 
-Stage3 .o.
-Stage4 ; 
+Stage3 .o. 
+Stage4 .o. 
+Stage5 ; 
