@@ -1,4 +1,4 @@
-# Copyright (C) 2024  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -17,6 +17,9 @@ source romans.foma
 
 define MapRomanNumeral 
 ESRomanMapping -> || .#. _ .#. ; 
+
+define SpanishRoman 
+[{II}:segundo|{III}:tercero|{IV}:cuarto|{VI}:sexto|{VII}:séptimo|{VIII}:octavo|{IX}:noveno] @-> || .#. _ .#. ; 
 
 define MaleOrdChar %º ; 
 define FemaleOrdChar %ª ; 
@@ -237,6 +240,7 @@ uno -> un || _ [mil|millón|billón|trillón] ;
 
 define NumberRules 
 Number .o. 
+SpanishRoman .o. 
 MapRomanNumeral .o. 
 RemoveThousandsSeparators .o. 
 SeparatePowerOfThousand(ths) .o. 

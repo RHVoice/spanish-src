@@ -15,7 +15,5 @@
 
 source ../common/roman.foma
 
-define units {II}:segundo|{III}:tercero|{IV}:cuarto|{VI}:sexto|{VII}:séptimo|{VIII}:octavo|{IX}:noveno ;
-define Exceptions RomanMapping - [[I|{II}|{III}|{IV}|V|{VI}|{VII}|{VIII}|{IX}|X]:[?+]] ; 
-define ESRomanMapping Exceptions | units ; 
+define ESRomanMapping RomanMapping - [[I|V|X]:[?+]] ; 
 define ESRomanNumeral ESRomanMapping.u ; 
