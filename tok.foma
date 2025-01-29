@@ -118,11 +118,12 @@ num -> dig || .#. %0* _ .#. ,,
 # Middle zeros
 num -> dig || 
 [word|sym] %0 NZDigit %0 NZDigit* _ .#. , 
-.#. %0 NZDigit %0 NZDigit* _ .#. ,, 
+.#. %0 NZDigit %0 NZDigit* _ .#. , 
+.#. NZDigit+ num Symbol sym %0* _ .#. ,, 
 # When a sym is found:
 num -> dig || [sym|word] %0 NZDigit+ _ , [sym|word] %0^2 NZDigit+ _ , [sym|word] %0^3 NZDigit+ _ ,, 
 # zeros in an hour format:
-num -> dig || %0 _ Symbol sym Number num , %0^2 _ Symbol sym Number num ,, 
+num -> dig || .#. %0+ _ Symbol sym Number num .#. ,, 
 # Zeros at the end. 0.05, 0.005, 0.0005, etc. Only occurrences ending in 0+digit.
 num -> dig || ExceptDigit %0 NZDigit _ .#. , ExceptDigit %0^2 NZDigit _ .#. , ExceptDigit %0^3 NZDigit _ .#. ,, 
 [num:0] [%º|%ª] [sym:num] -> ; 
