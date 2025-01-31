@@ -140,6 +140,6 @@ WB _ WB [[l a0]|[p a1 zh]] ;
 
 regex 
 distinguishStress .o. 
-RemainingApproximants ; 
-#unstressNumber .o. 
-#HomonymousWords ; 
+RemainingApproximants .o. 
+unstressNumber .o. 
+HomonymousWords ; 
