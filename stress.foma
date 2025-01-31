@@ -62,14 +62,6 @@ define SpanishStress2 stresses -> ||
 # If a word ends with a consonant, the stress falls in the last vowel of the syllable. Example, Español.
 .#. noStress+ noStress+ _ ConsonantNS* .#. ; 
 
-define UnstressWords 
-[m j e1 n t r a0 s] -> [m j e0 n t r a0 s] || .#. _ .#. ,, 
-[p e1 r o0] -> [p e0 r o0] || .#. _ .#. ,, 
-[s o1 b r e0] -> [s o0 b r e0] || .#. _ .#. ,, # palabra homónima. sobre (conector) y sobre (objeto)
-[u1 n a0] -> [u0 n a0] || .#. _ .#. ,, 
-[u1 n o0 s] -> [u0 n o0 s] || .#. _ .#. ,, 
-[u1 n a0 s] -> [u0 n a0 s] || .#. _ .#. ; 
-
 define unstress [
 a:a0|
 e:e0|

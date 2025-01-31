@@ -84,6 +84,10 @@ define MaleObjectPronoun
 define PersonalObjectPronoun 
 # The same thing but for "mi", "tu" and "su".
 [m i0] | [t u0] | [s u0] ; 
+# We now define first person, afirmative and condition keywords, which be used lather in two cases.
+define firstPerson [y o1] ; 
+define afirmative [y a1] ; 
+define condition [s i0] | [m j e0 n t r a0 s] ; 
 define bajoObject 
 # So, we could start conjugating: Un bajo, el bajo, ese bajo, este bajo, aquel bajo, mi bajo, tu bajo, su bajo (the bass music instrument)
 [b a0 x o0]: [b a1 x o0] ; 
@@ -102,17 +106,27 @@ define sonDemonstrative
 define es [e1 s] ; 
 define son [s o1 n] ; 
 # We defined "es" and "son", which can be used in a different context. For example: "esta es mi casa", "este es Mateo, tu amigo", "esto es lo que hay que hacer", "estas son mis llaves", etc. In all of these cases, the demonstrative should be stressed, as we saw in these definitions.
+define comer 
+# This is from the verb "comer" (eat).
+[k o0 m o0]:[k o1 m o0] ; 
+# So, it would be: yo como, si como, mientras como. Yo como is a statement, meaning "I eat something"; si como is a condition, meaning "if I eat". We can add the "mientras" as extra word, meaning "mientras como" (while I eat).
 
 define HomonymousWords 
 # We'll need to stress "bajo" and "sobre" in these eight cases, because regarding "bajo" we are talking of the "bass" music instrument instead of the attribution (under), and regarding "sobre" we are talking of the paper object, not the "about" preposition (talk about her / hablar sobre ella, for example).
+bajoObject -> || 
 # Bass instrument:
-bajoObject -> || [MaleObjectPronoun|PersonalObjectPronoun] WB _ WB ,, 
+[MaleObjectPronoun|PersonalObjectPronoun] WB _ WB , 
+# Other subcase for bajo: lowering action (acción de bajar)
+# Mientras bajo, si bajo, yo bajo, ya bajo.
+[firstPerson|afirmative|condition] WB _ WB ,, 
 # Sobre object. There are two subcases for this word. The one is the mentioned, but the other one is if "con" is found after "sobre".
 sobreObject -> || [MaleObjectPronoun|PersonalObjectPronoun] WB _ WB , WB _ WB [k o0 n] ,, 
 # Also, we will stress demonstratives for es. For example: esta es, este es, ese es, esa es.
 esDemonstrative -> || WB _ WB es ,, 
 # And we will apply the same for "son". Example: estas son las bufandas que Mateo tegió.
 sonDemonstrative -> || WB _ WB son ,, 
+# And these rules for the "eat" verb:
+comer -> || [firstPerson|condition] WB _ WB ,, 
 # Let's create another context. Since "una" is unstressed in g2p, we need to stress it when the word "cada" is found before. For example, "él repartió cada una de las galletas". The strength of the vowel is in the una (cada úna).
 [u0 n a0]:[u1 n a0] -> || WB [k a1 dh a0] WB _ ,, 
 # And create stressing context for "haya". "Haya" can be used in two contexts. The one is the verb called "hacer" (espero que hayas hecho la tarea), default in g2p, and the other is from the verb "haber" (cuando haya plata, que haya paz en la tierra) which we are going to make here.

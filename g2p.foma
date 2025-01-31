@@ -135,6 +135,7 @@ define WordStartRules
 {ks} -> s || .#. _ ,, # xilófono
 # Matthew's rules:
 {any} -> {ani} || .#. _ ,, # Especially for English text.
+{may} -> {mai} || .#. _ ,,
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
 [ts r i] -> [k r i] || .#. _ ,, # Christian, christina.
 [d e sh] -> [d e s] || .#. _ ,, # des prefix. Deshabilitar, deshacer, deshecho.
@@ -194,10 +195,17 @@ define exceptions
 [{hayas} : [a y a00 s]] | 
 [{hemos} : [e m o00 s]] | 
 [{mediante} : [m e d J a n t e00]] | 
+[{mientras} : [m J e n t r a00 s]] | 
+[{pero} : [p e r o00]] | 
 [{porque} : [p o r k e00]] | 
 [{quien} : [k J e00 n]] | 
 [{quienes} : [k J e n e00 s]] | 
 [{sino} : [s i n o00]] | 
+[{sobre} : [s o b r e00]] | 
+# articles
+[{una} : [u n a00]] | 
+[{unos} : [u n o00 s]] | 
+[{unas} : [u n a00 s]] | 
 # Indefinite pronouns:
 [{ante} : [a n t e00]] | # Ante todo, ante ciertas circunstancias, etc.
 [{cuya} : [k u y a00]] | 
@@ -258,6 +266,8 @@ define exceptions
 [{mas} : [m a00 s]] | 
 # Prepositions:
 [{tras} : [t r a00 s]] | 
+# Special word:
+[{tayta} : [t a1 i t a]] | 
 # Other exceptions:
 [[{wi} (%-) {fi}] : [w a i f a1 yc]] | 
 [{a.c.} : [a n t e s d e k r i1 s t o]] | 
@@ -315,5 +325,4 @@ unstress .o.
 dhipthongStress .o. 
 MonosylStress .o. 
 SpanishStress .o. 
-SpanishStress2 .o. 
-UnstressWords ; 
+SpanishStress2 ; 
