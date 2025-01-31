@@ -130,7 +130,9 @@ sonDemonstrative -> || WB _ WB pluralAction ,,
 # And these rules for the "eat" verb:
 comer -> || [firstPerson|condition] WB _ WB ,, 
 # Let's create another context. Since "una" is unstressed in g2p, we need to stress it when the word "cada" is found before. For example, "él repartió cada una de las galletas". The strength of the vowel is in the una (cada úna).
-[u0 n a0]:[u1 n a0] -> || WB [k a1 dh a0] WB _ ,, 
+[u0 n a0]:[u1 n a0] -> || 
+WB [k a1 dh a0] WB _ , 
+WB _ WB [[d|dh] e0] ,, 
 # And create stressing context for "haya". "Haya" can be used in two contexts. The one is the verb called "hacer" (espero que hayas hecho la tarea), default in g2p, and the other is from the verb "haber" (cuando haya plata, que haya paz en la tierra) which we are going to make here.
 [a0 y a0]:[a1 y a0] -> || 
 WB [k w a0 n d o0] WB _ WB , 
@@ -138,6 +140,6 @@ WB _ WB [[l a0]|[p a1 zh]] ;
 
 regex 
 distinguishStress .o. 
-RemainingApproximants .o. 
-unstressNumber .o. 
-HomonymousWords ; 
+RemainingApproximants ; 
+#unstressNumber .o. 
+#HomonymousWords ; 
