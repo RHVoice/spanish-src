@@ -103,8 +103,10 @@ define sonDemonstrative
 # We have estas, estos, esas, esos.
 [e0 s t a0 s]:[e1 s t a0 s] | [e0 s t o0 s]:[e1 s t o0 s] | [e0 s a0 s]:[e1 s a0 s] | [e0 s o0 s]:[e1 s o0 s] ; 
 
-define es [e1 s] ; 
-define son [s o1 n] ; 
+define singularAction 
+[e1 s]|[t j e1 n e0]|[p o0 s e1 e0]|[s i0 g n i0 f i1 k a0] ; 
+define pluralAction 
+[s o1 n]|[t j e1 n e0 n]|[p o0 s e1 e0 n]|[s i0 g n i0 f i1 k a0 n] ; 
 # We defined "es" and "son", which can be used in a different context. For example: "esta es mi casa", "este es Mateo, tu amigo", "esto es lo que hay que hacer", "estas son mis llaves", etc. In all of these cases, the demonstrative should be stressed, as we saw in these definitions.
 define comer 
 # This is from the verb "comer" (eat).
@@ -122,9 +124,9 @@ bajoObject -> ||
 # Sobre object. There are two subcases for this word. The one is the mentioned, but the other one is if "con" is found after "sobre".
 sobreObject -> || [MaleObjectPronoun|PersonalObjectPronoun] WB _ WB , WB _ WB [k o0 n] ,, 
 # Also, we will stress demonstratives for es. For example: esta es, este es, ese es, esa es.
-esDemonstrative -> || WB _ WB es ,, 
+esDemonstrative -> || WB _ WB singularAction ,, 
 # And we will apply the same for "son". Example: estas son las bufandas que Mateo tegió.
-sonDemonstrative -> || WB _ WB son ,, 
+sonDemonstrative -> || WB _ WB pluralAction ,, 
 # And these rules for the "eat" verb:
 comer -> || [firstPerson|condition] WB _ WB ,, 
 # Let's create another context. Since "una" is unstressed in g2p, we need to stress it when the word "cada" is found before. For example, "él repartió cada una de las galletas". The strength of the vowel is in the una (cada úna).
