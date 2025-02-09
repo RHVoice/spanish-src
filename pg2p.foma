@@ -67,7 +67,7 @@ define StressedDigitTeen
 [k i1 n c e0]:[k i0 n c e0] | 
 [d j e0 c i0 s e1 i0 s]:[d j e0 c i0 s e0 i0 s] | 
 [d j e0 c i0 s j e1 t e0]:[d j e0 c i0 s j e0 t e0] | 
-[d j e0 c j o1 ts o]:[d j e0 c j o0 ts o0] | 
+[d j e0 c j o1 ts o0]:[d j e0 c j o0 ts o0] | 
 [d j e0 c i0 n w e1 vh e0]:[d j e0 c i0 n w e0 vh e0] ; 
 
 define unstressNumber 
@@ -80,7 +80,48 @@ StressedDigitTeen @-> || WB _ WB [m i1 l] ;
 define MaleObjectPronoun 
 # connectors: Un, el, ese, este, aquel. We will use these to conjugate and modifying stress according to word context. see below.
 [[u0 n] | [e0 l] | [e0 s e0] | [e0 s t e0] | [a0 k e1 l]] ; 
+# Conjugate with "Hace" (ago) as a reference to something that happened in the past, a time gramaticalization.
+define HaceFemeninoSingular 
+[u0 n a0] ; 
 
+define HaceFemeninoSingularAction 
+[o1 r a0] | [s e0 m a1 n a0] | [d e1 k a0 dh a0] ; 
+
+define HaceFemeninoPlural 
+[u0 n a0 s] | [a0 l g u1 n a0 s] | [m u1 ts a0 s] | [p o1 k a0 s] | [t a1 n t a0 s] ; 
+
+define HaceFemeninoPluralAction 
+[o1 r a0 s] | [s e0 m a1 n a0 s] | [d e1 k a0 dh a0 s] ; 
+
+define HaceMasculinoSingular 
+[u0 n] | [a0 l g u1 n] | [m u1 ts o0] | [p o1 k o0] | [t a1 n t o0] ; 
+
+define HaceMasculinoSingularAction 
+[s e0 gh u1 n d o0] | [m i0 n u1 t o0] | [[d|dh] i1 a0] | [m e1 s] | [a1 ni o0] | [s i1 g l o0] | [t j e1 m p o0] | [i0 n s t a1 n t e0] | [m o0 m e1 n t o0] | [rr a1 t o0] ; 
+
+define HaceMasculinoPlural 
+[u0 n o0 s] | [a0 l g u1 n o0 s] | [m u1 ts o0 s] | [p o1 k o0 s] | [t a1 n t o0 s] ; 
+
+define HaceMasculinoPluralAction 
+# To avoid confusion. This is the action that accompanies to complement.
+[t j e1 m p o0 s] | [i0 n s t a1 n t e0 s] ; 
+
+define HaceMasculinoPluralActionNumber 
+# In the female context, time specifications only are definned, so has only one definition. However, in the male context, a specific definition of time indicators like these are required to follow the correct context. And the most important, I can notice gender inequality, even in the morphosyntactic aspect, not only in society.
+[s e0 gh u1 n d o0 s] | [m i0 n u1 t o0 s] | [[d|dh] i1 a0 s] | [m e1 s e0 s] | [a1 ni o0 s] | [s i1 g l o0 s] ; 
+
+define PhoneticedDigit 
+[d o1 s] | [t r e1 s] | [k w a1 t r o0] | [c i1 n k o0] | [s e1 i0 s] | [s j e1 t e0] | [o1 ts o0] | [n w e1 vh e0] ; 
+
+define PhoneticedNumber 
+[d j e1 zh] | [o1 n c e0] | [d o1 c e0] | [t r e1 c e0] | [k a0 t o1 r c e0] | [k i1 n c e0] | [d j e0 c i0 s e1 i0 s] | [d j e0 c i0 s j e1 t e0] | [d j e0 c j o1 ts o0] | [d j e0 c i0 n w e1 vh e0] | 
+[[v|vh] e1 i0 n t e0] | [[v|vh] e0 i0 n t i0 PhoneticedDigit] ; 
+
+define PhoneticedNumber2 
+[t r e0 i0 n t a0]|[k w a0 r e0 n t a0]|[c i0 n k w e0 n t a0]|[s e0 s e0 n t a0]|[s e0 t e0 n t a0]|[o0 ts e0 n t a0]|[n o0 vh e0 n t a0] ; 
+
+define PhoneticedNumber3 
+[t r e1 i0 n t a0]|[k w a0 r e1 n t a0]|[c i0 n k w e1 n t a0]|[s e0 s e1 n t a0]|[s e0 t e1 n t a0]|[o0 ts e1 n t a0]|[n o0 vh e1 n t a0] ; 
 define PersonalObjectPronoun 
 # The same thing but for "mi", "tu" and "su".
 [m i0] | [t u0] | [s u0] ; 
@@ -141,13 +182,34 @@ comer -> || [firstPerson|condition] WB _ WB ,,
 [u0 n a0]:[u1 n a0] -> || 
 WB [k a1 dh a0] WB _ , 
 WB _ WB [[d|dh] e0] ,, 
+# Stressing context for "hace". Hace is the action of "hacer" (make), however it also reffers to an action happened in the past. "ella ya no está desde hace un tiempo"
+MakeTag:[a0 c e0] -> || 
+# General basis.
+[d e0 s d e0] WB _ WB , 
+WB _ WB [m i1 l e0 s]|[m i0 ll o1 n e0 s] , 
+# Gender-independent:
+WB _ WB HaceFemeninoSingular WB HaceFemeninoSingularAction , 
+WB _ WB HaceFemeninoPlural WB HaceFemeninoPluralAction , 
+WB _ WB HaceMasculinoSingular WB HaceMasculinoSingularAction , 
+WB _ WB HaceMasculinoPlural WB [HaceMasculinoPluralAction|HaceMasculinoPluralActionNumber] , 
+# Number independend:
+WB _ WB PhoneticedNumber2 WB i0 WB PhoneticedDigit WB [HaceFemeninoPluralAction|HaceMasculinoPluralActionNumber] , 
+WB _ WB PhoneticedNumber3 WB [HaceFemeninoPluralAction|HaceMasculinoPluralActionNumber] , 
+WB _ WB [PhoneticedDigit|PhoneticedNumber] WB [HaceFemeninoPluralAction|HaceMasculinoPluralActionNumber] ,, 
+# Create stressing context for "nuestro" (s), example: lo nuestro ya no puede continuar, este es uno de los nuestros.
+[n w e0 s t r o0]:[n w e1 s t r o0] -> || WB [l o0] WB _ ,, 
+[n w e0 s t r o0 s]:[n w e1 s t r o0 s] -> || WB [l o0 s] WB _ ,, 
 # And create stressing context for "haya". "Haya" can be used in two contexts. The one is the verb called "hacer" (espero que hayas hecho la tarea), default in g2p, and the other is from the verb "haber" (cuando haya plata, que haya paz en la tierra) which we are going to make here.
 [a0 y a0]:[a1 y a0] -> || 
 WB [k w a0 n d o0] WB _ WB , 
 WB _ WB [[l a0]|[p a1 zh]] ; 
 
+define untag 
+MakeTag -> [a1 c e0] ; 
+
 regex 
 distinguishStress .o. 
 RemainingApproximants .o. 
 unstressNumber .o. 
-HomonymousWords ; 
+HomonymousWords .o. 
+untag ; 

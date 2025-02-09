@@ -58,8 +58,8 @@ define LetterSequence
 
 define SmallLetter b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z;
 define CapitalLetter B|C|D|F|G|H|J|K|L|M|N|Ñ|P|Q|R|S|T|V|W|X|Y|Z;
-define SmallVowel a|á|e|é|i|í|o|ó|u|ú|ü ; 
-define CapitalVowel A|Á|E|É|I|Í|O|Ó|U|Ú|Ü ; 
+define SmallVowel a|á|e|é|i|í|o|ó|u|ú|ü|y|ý ; 
+define CapitalVowel A|Á|E|É|I|Í|O|Ó|U|Ú|Ü|Y|Ý ; 
 define Letter SmallLetter | SmallVowel | CapitalLetter | CapitalVowel;
 define ExceptionalWord 
 [[a|A] %. [m|M] %.] | 

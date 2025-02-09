@@ -178,6 +178,8 @@ define approximants
 {v} -> vh || vocal _ vocal ; 
 
 define exceptions 
+# To handle a special action for "hace":
+[{hace} : [MakeTag]] | 
 # a way to preserve most comon homonymous words for later conversion in pg2p.
 [{aunque} : [a u n k e00]] | 
 [{hacia} : [a c J a00]] | 
