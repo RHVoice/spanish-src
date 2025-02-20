@@ -306,8 +306,6 @@ TranscribeConsonant @-> ;
 define Stage3 
 SpanishRules @-> ; 
 
-source special_chars.foma
-
 define rules 
 Stage1 .o. 
 Stage2 .o. 
@@ -320,7 +318,6 @@ approximants ;
 source stress.foma
 
 regex 
-NormalizeCharactersG2p .o. 
 exceptions .o. 
 rules .o. 
 unstress .o. 
