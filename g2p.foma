@@ -314,7 +314,8 @@ Stage3 .o.
 WordStartRules .o. 
 WordMidRules .o. 
 WordEndRules .o. 
-approximants ; 
+approximants .o. 
+[%' @-> 0] ; 
 
 source stress.foma
 
