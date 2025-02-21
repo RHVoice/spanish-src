@@ -249,6 +249,7 @@ define exceptions
 [{las} : [l a00 s]] | 
 [{me} : [m e00]] | 
 [{nos} : [n o00 s]] | 
+[{os} : [o00 s]] | 
 [{por} : [p o00 r]] | 
 [{pues} : [p w e S]] | 
 [{mi} : [m i00]] | 

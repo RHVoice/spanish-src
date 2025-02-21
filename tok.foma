@@ -75,17 +75,17 @@ define Digit %0|NZDigit;
 define year [Digit^<4] ; 
 define DayOrMonth [Digit^<2] ; 
 #define dateSep %/ ; 
-define ExceptDigit   \NZDigit ; 
-define UnformattedNumber [Digit Digit*] ;
-define Number  UnformattedNumber;
+define Number  %0 | [NZDigit Digit*];
 define DecimalSeparator %.|%,;
 define Word Letter+ | ExceptionalWord ;
 define Symbol \[Letter | Digit] ; 
 #define Date DayOrMonth+ dateSep+ DayOrMonth+ dateSep+ year+ ; 
 
 define Stage1 
-Number @-> ... num || _ ,, 
 Word @-> ... word || _ .#. | \Letter ,, 
+NZDigit Digit* @-> ... num ,, 
+%0 Digit+ @-> ... dig ,, 
+%0 @-> ... num ,, 
 # We will apply this future new token for Spanish, called date, when someone helps me with cpp code for it.
 #Date @-> ... date || _ ,, 
 Symbol @-> ... sym || _ ; 
@@ -110,26 +110,9 @@ sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,
 num DecimalSeparator _ Digit+,,
 num -> dig || Digit^16 _ ,, 
-# We will handle zeros here, especially for decimals. Numbers.foma uses zeros (0+digit) as a part of rules.
-# Zeros at start:
-num -> dig || .#. %0 NZDigit+ _ , .#. %0^2 NZDigit+ _ , .#. %0^3 NZDigit+ _ ,, 
-# Zeros only
-num -> dig || .#. %0* _ .#. ,, 
-# Middle zeros
-num -> dig || 
-[word|sym] %0 NZDigit %0 NZDigit* _ .#. , 
-.#. %0 NZDigit %0 NZDigit* _ .#. , 
-.#. NZDigit+ num Symbol sym %0* _ .#. ,, 
-# When a sym is found:
-num -> dig || [sym|word] %0 NZDigit+ _ , [sym|word] %0^2 NZDigit+ _ , [sym|word] %0^3 NZDigit+ _ ,, 
-# zeros in an hour format:
-num -> dig || .#. %0+ _ Symbol sym Number num .#. ,, 
-# Zeros at the end. 0.05, 0.005, 0.0005, etc. Only occurrences ending in 0+digit.
-num -> dig || ExceptDigit %0 NZDigit _ .#. , ExceptDigit %0^2 NZDigit _ .#. , ExceptDigit %0^3 NZDigit _ .#. ,, 
 [num:0] [%º|%ª] [sym:num] -> ; 
 
 define Stage5 
-dig -> num || NZDigit+ %0^2 NZDigit _ .#. , NZDigit+ %0^3 NZDigit _ .#. , NZDigit+ %0^4 NZDigit _ .#. , NZDigit+ %0^5 NZDigit _ .#. , NZDigit+ %0^6 NZDigit _ .#. , NZDigit+ %0^7 NZDigit _ .#. ,, 
 #lseq:0 %' sym:word -> || .#. | [\%' sym] _ .#. | Letter ,, 
 word -> lseq || .#. _ ;
 #num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
