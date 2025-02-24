@@ -42,6 +42,8 @@ v @-> vh || vocal %# _ vocal ;
 # Here, to get a better prosody of the voice, we unstress the "enta y" prefix. For example, a speaker doesn't say tréinta y cinco, but treinta y cinco, withouth stressing in the e. So, we will fix this behavior in RHVoice voices.
 define StressedNumber 
 [v e1 i0 n t e0]:[v e0 i0 n t e0]|
+# Veinte in approximant (example: ciento veinte mil).
+[vh e1 i0 n t e0]:[vh e0 i0 n t e0]|
 [t r e1 i0 n t a0]:[t r e0 i0 n t a0]|
 [k w a0 r e1 n t a0]:[k w a0 r e0 n t a0]|
 [c i0 n k w e1 n t a0]:[c i0 n k w e0 n t a0]|
@@ -52,6 +54,7 @@ define StressedNumber
 # We will do the same, but for digits and teens.
 define StressedDigitTeen 
 [d o1 s]:[d o0 s] | 
+[dh o1 s]:[dh o0 s] | 
 [t r e1 s]:[t r e0 s] | 
 [k w a1 t r o0]:[k w a0 t r o0] | 
 [c i1 n k o0]:[c i0 n k o0] | 
@@ -60,15 +63,21 @@ define StressedDigitTeen
 [o1 ts o0]:[o0 ts o0] | 
 [n w e1 vh e0]:[n w e0 vh e0] | 
 [d j e1 zh]:[d j e0 zh] | 
+[dh j e1 zh]:[dh j e0 zh] | 
 [o1 n c e0]:[o0 n c e0] | 
 [d o1 c e0]:[d o0 c e0] | 
+[dh o1 c e0]:[dh o0 c e0] | 
 [t r e1 c e0]:[t r e0 c e0] | 
 [k a0 t o1 r c e0]:[k a0 t o0 r c e0] | 
 [k i1 n c e0]:[k i0 n c e0] | 
 [d j e0 c i0 s e1 i0 s]:[d j e0 c i0 s e0 i0 s] | 
+[dh j e0 c i0 s e1 i0 s]:[dh j e0 c i0 s e0 i0 s] | 
 [d j e0 c i0 s j e1 t e0]:[d j e0 c i0 s j e0 t e0] | 
+[dh j e0 c i0 s j e1 t e0]:[dh j e0 c i0 s j e0 t e0] | 
 [d j e0 c j o1 ts o0]:[d j e0 c j o0 ts o0] | 
-[d j e0 c i0 n w e1 vh e0]:[d j e0 c i0 n w e0 vh e0] ; 
+[dh j e0 c j o1 ts o0]:[dh j e0 c j o0 ts o0] | 
+[d j e0 c i0 n w e1 vh e0]:[d j e0 c i0 n w e0 vh e0] | 
+[dh j e0 c i0 n w e1 vh e0]:[dh j e0 c i0 n w e0 vh e0] ; 
 
 define unstressNumber 
 # When treinta, cuarenta, cincuenta, etc... is in the word, accompanied by i (y) or mil, remove the stress. For example, cuarénta y... = cuarenta y... sesénta mil... = sesenta mil...
