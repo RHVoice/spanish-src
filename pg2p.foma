@@ -20,17 +20,6 @@ define PB %- | .#. ;
 define WB %# | PB ; 
 # Vowels for approximants or allophones.
 define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|j|w] ; 
-# We'll need to remove/fix 00 phonemes, that is done on purpose to preserve comon Spanish unstressed words.
-define distinguishStress [
-a00: a0 |
-e00: e0 |
-i00: i0 |
-o00: o0 |
-u00: u0 |
-J: j |
-S: s |
-X: x ]
-@-> || _ ; 
 
 # Here, we apply approximants through the whole utterance, same that we did in g2p but with word boundaries between vowels.
 define RemainingApproximants 
@@ -225,7 +214,6 @@ define untag
 MakeTag -> [a1 c e0] ; 
 
 regex 
-distinguishStress .o. 
 RemainingApproximants .o. 
 unstressNumber .o. 
 HomonymousWords .o. 

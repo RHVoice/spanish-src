@@ -13,6 +13,23 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+define UnstressedWords 
+{aunque} | {hacia} | {hasta} | {bajo} | {contra} | {como} | {cuando} | {cuanto} | {desde} | {donde} | {durante} | 
+[{haya}(n|s)] | 
+{hemos} | {mediante} | {mientras} | {pero} | {porque} | 
+[{quien}({es})] | 
+{sino} | {sobre} | 
+[{una}(s)] | {unos} | {ante} | 
+[{cuya}(s)] | [{cuyo}(s)] | {entre} | 
+[{esa}(s)] | [{esta}(s)] | {ese} | {esos} | {este} | {estos} | 
+[{nuestro}(s)] | [{nuestra}(s)] | [{vuestro}(s)] | [{vuestra}(s)] | 
+{para} | 
+{al} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {que} | {se} | {si} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
+
+define UnstressedWordsTag 
+[..] @-> Uns || .#. UnstressedWords _ .#. ,, 
+{hace} @-> MakeTag || .#. _ .#. ; 
+
 define vocal 
 [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|j|w] ; 
 
@@ -178,125 +195,34 @@ define approximants
 {v} -> vh || vocal _ vocal ; 
 
 define exceptions 
-# To handle a special action for "hace":
-[{hace} : [MakeTag]] | 
-# a way to preserve most comon homonymous words for later conversion in pg2p.
-[{aunque} : [a u n k e00]] | 
-[{hacia} : [a c J a00]] | 
-[{hasta} : [a s t a00]] | 
-[{bajo} : [b a X o00]] | 
-[{contra} : [k o n t r a00]] | 
-[{como} : [k o m o00]] | 
-[{cuando} : [k w a n d o00]] | 
-[{cuanto} : [k w a n t o00]] | 
-[{desde} : [d e s d e00]] | 
-[{donde} : [d o n d e00]] | 
-[{durante} : [d u r a n t e00]] | 
-[{haya} : [a y a00]] | 
-[{hayan} : [a y a00 n]] | 
-[{hayas} : [a y a00 s]] | 
-[{hemos} : [e m o00 s]] | 
-[{mediante} : [m e d J a n t e00]] | 
-[{mientras} : [m J e n t r a00 s]] | 
-[{pero} : [p e r o00]] | 
-[{porque} : [p o r k e00]] | 
-[{quien} : [k J e00 n]] | 
-[{quienes} : [k J e n e00 s]] | 
-[{sino} : [s i n o00]] | 
-[{sobre} : [s o b r e00]] | 
-# articles
-[{una} : [u n a00]] | 
-[{unos} : [u n o00 s]] | 
-[{unas} : [u n a00 s]] | 
-# Indefinite pronouns:
-[{ante} : [a n t e00]] | # Ante todo, ante ciertas circunstancias, etc.
-[{cuya} : [k u y a00]] | 
-[{cuyas} : [k u y a00 s]] | 
-[{cuyo} : [k u y o00]] | 
-[{cuyos} : [k u y o00 s]] | 
-[{entre} : [e n t r e00]] | 
-[{esa} : [e s a00]] | 
-[{esas} : [e s a00 s]] | 
-[{ese} : [e s e00]] | 
-[{esos} : [e s o00 s]] | 
-[{esta} : [e s t a00]] | 
-[{este} : [e s t e00]] | 
-[{estas} : [e s t a00 s]] | 
-[{estos} : [e s t o00 s]] | 
-[{nuestro} : [n w e s t r o00]] | 
-[{nuestra} : [n w e s t r a00]] | 
-[{nuestros} : [n w e s t r o00 s]] | 
-[{nuestras} : [n w e s t r a00 s]] | 
-[{vuestro} : [v w e s t r o00]] | 
-[{vuestra} : [v w e s t r a00]] | 
-[{vuestros} : [v w e s t r o00 s]] | 
-[{vuestras} : [v w e s t r a00 s]] | 
-[{para} : [p a r a00]] | 
-# Monosyllable exceptions:
-[{al} : [a00 l]] | # ve al grano.
-[{han} : [a00 n]] | # han hecho un buen trabajo
-[{has} : [a00 s]] | # ¿Qué has hecho?
-[{con} : [k o00 n]] | 
-[{de} : [d e00]] | 
-[{del} : [d e00 l]] | 
-[{en} : [e00 n]] | 
-[{el} : [e00 l]] | 
-[{les} : [l e00 s]] | 
-[{le} : [l e00]] | 
-[{lo} : [l o00]] | 
-[{los} : [l o00 s]] | 
-[{la} : [l a00]] | 
-[{las} : [l a00 s]] | 
-[{me} : [m e00]] | 
-[{nos} : [n o00 s]] | 
-[{os} : [o00 s]] | 
-[{por} : [p o00 r]] | 
-[{pues} : [p w e S]] | 
-[{mi} : [m i00]] | 
-[{mis} : [m i00 s]] | 
-[{ni} : [n i00]] | 
-[{que} : [k e00]] | 
-[{se} : [s e00]] | 
-[{si} : [s i00]] | 
-[{sin} : [s i00 n]] | 
-[{su} : [s u00]] | 
-[{sus} : [s u00 s]] | 
-[{te} : [t e00]] | 
-[{ti} : [t i00]] | 
-[{tu} : [t u00]] | 
-[{tus} : [t u00 s]] | 
-[{un} : [u00 n]] | 
-[{mas} : [m a00 s]] | 
-# Prepositions:
-[{tras} : [t r a00 s]] | 
 # Special word:
-[{tayta} : [t a1 i t a]] | 
+[{tayta} : [t a1 i0 t a0]] | 
 # Other exceptions:
-[[{wi} (%-) {fi}] : [w a i f a1 yc]] | 
-[{a.c.} : [a n t e s d e k r i1 s t o]] | 
-[{a.m.} : [d e l a m a ni a1 n a]] | 
-[{d.c.} : [d e s p w e1 s d e k r i1 s t o]] | 
-[{p.m.} : [d e l a t a1 r d e]] | 
+[[{wi} (%-) {fi}] : [w a0 i0 f a1 yc]] | 
+[{a.c.} : [a1 n t e0 s d e0 k r i1 s t o0]] | 
+[{a.m.} : [d e0 l a0 m a0 ni a1 n a0]] | 
+[{d.c.} : [d e0 s p w e1 s d e0 k r i1 s t o0]] | 
+[{p.m.} : [d e0 l a0 t a1 r d e0]] | 
 # Weeks, months:
-[{lun.} : [l u1 n e s]] | 
-[{mar.} : [m a1 r t e s]] | 
-[{mié.} : [m J e1 r k o l e s]] | 
-[{jue.} : [X w e1 v e s]] | 
-[{vie.} : [v J e1 r n e s]] | 
-[{sáb.} : [s a1 b a d o]] | 
-[{dom.} : [d o m i1 n g o]] | 
-[{ene.} : [e n e1 r o]] | 
-[{feb.} : [f e b r e1 r o]] | 
-[{abr.} : [a b r i1 l]] | 
-[{may.} : [m a1 y o]] | 
-[{jun.} : [X u1 n J o]] | 
-[{jul.} : [X u1 l J o]] | 
-[{ago.} : [a g o1 s t o]] | 
-[{sep.} : [s e p t J e1 m b r e]] | 
-[{oct.} : [o k t u1 b r e]] | 
-[{nov.} : [n o v J e1 m b r e]] | 
-[{dic.} : [d i c J e1 m b r e]] | 
-[{etc.} : [e t c e1 t e r a]] @-> || .#. _ .#. ; 
+[{lun.} : [l u1 n e0 s]] | 
+[{mar.} : [m a1 r t e0 s]] | 
+[{mié.} : [m j e1 r k o0 l e0 s]] | 
+[{jue.} : [x w e1 v e0 s]] | 
+[{vie.} : [v j e1 r n e0 s]] | 
+[{sáb.} : [s a1 b a0 d o0]] | 
+[{dom.} : [d o0 m i1 n g o0]] | 
+[{ene.} : [e0 n e1 r o0]] | 
+[{feb.} : [f e0 b r e1 r o0]] | 
+[{abr.} : [a0 b r i1 l]] | 
+[{may.} : [m a1 y o0]] | 
+[{jun.} : [x u1 n j o0]] | 
+[{jul.} : [x u1 l j o0]] | 
+[{ago.} : [a g o1 s t o0]] | 
+[{sep.} : [s e0 p t j e1 m b r e0]] | 
+[{oct.} : [o0 k t u1 b r e0]] | 
+[{nov.} : [n o0 v j e1 m b r e0]] | 
+[{dic.} : [d i0 c j e1 m b r e0]] | 
+[{etc.} : [e0 t c e1 t e0 r a0]] ; 
 
 define Stage1 
 TranscribeVowel @-> ; 
@@ -307,22 +233,24 @@ TranscribeConsonant @-> ;
 define Stage3 
 SpanishRules @-> ; 
 
+source stress.foma
+
+
 define rules 
+UnstressedWordsTag .o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3 .o. 
 WordStartRules .o. 
 WordMidRules .o. 
 WordEndRules .o. 
-approximants ; 
-
-source stress.foma
-
-regex 
-exceptions .o. 
-rules .o. 
+approximants .o. 
 unstress .o. 
 dhipthongStress .o. 
 MonosylStress .o. 
 SpanishStress .o. 
-SpanishStress2 ; 
+SpanishStress2 .o. 
+[Uns @-> 0] ; 
+
+regex 
+[exceptions .P. rules] ; 
