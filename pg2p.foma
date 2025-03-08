@@ -113,7 +113,7 @@ define PhoneticedDigit
 
 define PhoneticedNumber 
 [d j e1 zh] | [o1 n c e0] | [d o1 c e0] | [t r e1 c e0] | [k a0 t o1 r c e0] | [k i1 n c e0] | [d j e0 c i0 s e1 i0 s] | [d j e0 c i0 s j e1 t e0] | [d j e0 c j o1 ts o0] | [d j e0 c i0 n w e1 vh e0] | 
-[[v|vh] e1 i0 n t e0] | [[v|vh] e0 i0 n t i0 PhoneticedDigit] ; 
+[[v|vh] e1 i0 n t e0] | [[v|vh] e0 i0 n t [i0|j] PhoneticedDigit] ; 
 
 define PhoneticedNumber2 
 [t r e0 i0 n t a0]|[k w a0 r e0 n t a0]|[c i0 n k w e0 n t a0]|[s e0 s e0 n t a0]|[s e0 t e0 n t a0]|[o0 ts e0 n t a0]|[n o0 vh e0 n t a0] ; 
