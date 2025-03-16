@@ -65,7 +65,7 @@ define AuxiliaryVerb
 Ser | Estar | Tener | Haber ; 
 
 define WhWord 
-qué | quién | quiénes | cuándo | donde | adonde | cuanto | cuanta | cuantos | cuantas | cuan | cual | cuales | como ; 
+qué | quién | quiénes | cuándo | dónde | adónde | cuánto | cuánta | cuántos | cuántas | cuán | cuál | cuáles | cómo ; 
 
 define FunctionWord 
 DefiniteArticle | 
