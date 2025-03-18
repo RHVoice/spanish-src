@@ -94,6 +94,7 @@ define Stage2
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
 
 define Stage3 
+# Custom LSeq handling:
 [..] -> lseq || [CapitalLetter|CapitalVowel] _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel] ,, 
 word -> lseq || 
 .#. CapitalLetter^2 CapitalVowel _ (Symbol sym) .#. , 
@@ -101,6 +102,8 @@ word -> lseq ||
 .#. CapitalLetter^4 CapitalVowel _ (Symbol sym) .#. , 
 .#. CapitalVowel CapitalLetter^2 _ (Symbol sym) .#. , 
 .#. CapitalVowel CapitalLetter^3 _ (Symbol sym) .#. , 
+.#. CapitalLetter CapitalVowel CapitalLetter^2 _ (Symbol sym) .#. , 
+.#. CapitalLetter CapitalVowel CapitalLetter^3 _ (Symbol sym) .#. , 
 .#. X CapitalVowel CapitalLetter _ (Symbol sym) .#. , 
 .#. CapitalLetter CapitalVowel W _ (Symbol sym) .#. ; 
 
