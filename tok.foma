@@ -113,7 +113,6 @@ num -> dig || Digit^16 _ ,,
 [num:0] [%º|%ª] [sym:num] -> ; 
 
 define Stage5 
-#lseq:0 %' sym:word -> || .#. | [\%' sym] _ .#. | Letter ,, 
 word -> lseq || .#. _ ;
 #num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
 # DecimalSeparator num Digit+ num DecimalSeparator _ ; 

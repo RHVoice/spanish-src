@@ -205,6 +205,8 @@ WB _ WB [PhoneticedDigit|PhoneticedNumber] WB [HaceFemeninoPluralAction|HaceMasc
 [n w e0 s t r o0 s]:[n w e1 s t r o0 s] -> || WB [l o0 s] WB _ ,, 
 # Stress "cuando", example: "de vez en cuando"
 [k w a0 n d o0]:[k w a1 n d o0] -> || [vh e1 zh %# e0 n %#] _ WB ,, 
+# Unstress frente (example: frente a una copa de vino)
+[f r e1 n t e0]:[f r e0 n t e0] -> || WB _ WB [a0 (l)] WB ,, 
 # And create stressing context for "haya". "Haya" can be used in two contexts. The one is the verb called "hacer" (espero que hayas hecho la tarea), default in g2p, and the other is from the verb "haber" (cuando haya plata, que haya paz en la tierra) which we are going to make here.
 [a0 y a0]:[a1 y a0] -> || 
 WB [k w a0 n d o0] WB _ WB , 
