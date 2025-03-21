@@ -68,10 +68,13 @@ define StressedDigitTeen
 [d j e0 c i0 n w e1 vh e0]:[d j e0 c i0 n w e0 vh e0] | 
 [dh j e0 c i0 n w e1 vh e0]:[dh j e0 c i0 n w e0 vh e0] ; 
 
+define PhoneticedDigit 
+[u1 n o0] | [[d|dh] o1 s] | [t r e1 s] | [k w a1 t r o0] | [c i1 n k o0] | [s e1 i0 s] | [s j e1 t e0] | [o1 ts o0] | [n w e1 vh e0] ; 
+
 define unstressNumber 
 # When treinta, cuarenta, cincuenta, etc... is in the word, accompanied by i (y) or mil, remove the stress. For example, cuarénta y... = cuarenta y... sesénta mil... = sesenta mil...
 # Note, the acute vowel it is written on purpose to show the illustration of the stress / unstress.
-StressedNumber @-> || WB _ WB i0 , WB _ WB [m i1 l] ,, 
+StressedNumber @-> || WB _ WB i0 WB PhoneticedDigit , WB _ WB [m i1 l] ,, 
 # And, when (digit or then) mil is available, such as cinco mil, the speaker doesn't say cínco mil, but cinco mil or cincomil (unstressing 5).
 StressedDigitTeen @-> || WB _ WB [m i1 l] ; 
 
@@ -107,9 +110,6 @@ define HaceMasculinoPluralAction
 define HaceMasculinoPluralActionNumber 
 # In the female context, time specifications only are definned, so has only one definition. However, in the male context, a specific definition of time indicators like these are required to follow the correct context. And the most important, I can notice gender inequality, even in the morphosyntactic aspect, not only in society.
 [s e0 gh u1 n d o0 s] | [m i0 n u1 t o0 s] | [[d|dh] i1 a0 s] | [m e1 s e0 s] | [a1 ni o0 s] | [s i1 g l o0 s] ; 
-
-define PhoneticedDigit 
-[[d|dh] o1 s] | [t r e1 s] | [k w a1 t r o0] | [c i1 n k o0] | [s e1 i0 s] | [s j e1 t e0] | [o1 ts o0] | [n w e1 vh e0] ; 
 
 define PhoneticedNumber 
 [[d|dh] j e1 zh] | [o1 n c e0] | [[d|dh] o1 c e0] | [t r e1 c e0] | [k a0 t o1 r c e0] | [k i1 n c e0] | [[d|dh] j e0 c i0 s e1 i0 s] | [[d|dh] j e0 c i0 s j e1 t e0] | [[d|dh] j e0 c j o1 ts o0] | [[d|dh] j e0 c i0 n w e1 vh e0] | 

@@ -68,7 +68,7 @@ pau o1 yc ssil e1 s ssil e l (def) ssil k u m . p l e . a1 . ni o s ssil d e (pr
 pau e n (prep) ssil x u1 . l j o ssil m e (prp) ssil g r a . dh w e1 ssil e n (prep) ssil e l (def) ssil k o . l e1 . x j o ssil dh e (prep) ssil bh a . ts i . ll e . r a1 . t o ssil m a . n w e1 l ssil k o1 r . d o . bh a ssil gh a . l a1 r . zh a pau 
 pau n o1 (prep) ssil m e (prp) ssil k i . s i1 s . t e pau f w i1 s . t e (cop) ssil m a1 . l a ssil i (uconj) ssil n o1 (prep) ssil l o (prep) ssil n j e1 . gh e s pau 
 pau t r e1 s ssil t r e i n . t a ssil i (uconj) ssil s j e1 . t e ssil p e1 pau e1 . m e pau 
-pau y a1 ssil s e (prp) ssil e s . t a1 (cop) ssil o r . g a . n i . zh a1 n . d o ssil l a (def) ssil p l a . n i . f i . k a . c j o1 n ssil p a . r a (prep) ssil l a (def) ssil n o . ts e . bh w e1 . n a ssil dh e l ssil v e i n . t i . k w a1 . t r o ssil dh o1 . c e ssil dh o s ssil m i1 l ssil v e i n . t i . k w a1 . t r o pau 
+pau y a1 ssil s e (prp) ssil e s . t a1 (cop) ssil o r . g a . n i . zh a1 n . d o ssil l a (def) ssil p l a . n i . f i . k a . c j o1 n ssil p a . r a (prep) ssil l a (def) ssil n o . ts e . bh w e1 . n a ssil dh e l ssil v e i n . t i . k w a1 . t r o ssil dh e (prep) ssil dh i . c j e1 m . b r e ssil dh e l ssil d o s ssil m i1 l ssil v e i n . t i . k w a1 . t r o pau 
 pau u . s e r . d i1 k t pau 
 pau m j e1 r . k o . l e s pau d j e . c j o1 . ts o ssil dh e (prep) ssil dh i . c j e1 m . b r e pau 
 pau a . y e1 r ssil v i . s i . t e1 ssil a (prep) ssil j a1 . gh o pau 
@@ -90,3 +90,4 @@ pau m e1 . x i . k o pau
 pau k a1 n . t i . k o pau 
 pau a1 r . t i . k o pau 
 pau e s . d r u1 . x u . l a s pau 
+pau t r e i n . t a ssil i (uconj) ssil u1 . n o ssil dh e (prep) ssil m a1 r . zh o ssil dh e l ssil d o s ssil m i1 l ssil v e i n . t i . c i1 n . k o pau 
