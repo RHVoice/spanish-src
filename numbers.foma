@@ -258,7 +258,8 @@ define fixes
 [treinta y 1]:[treinta y uno] -> || _ ; 
 
 define fixes2 
-uno -> un || _ [mil|millón|billón|trillón] ; 
+uno -> un || _ [mil|millón|billón|trillón] ,, 
+Unit -> || .#. _ de [enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre] ; 
 
 define DateRule 
 # Convert months to words.
