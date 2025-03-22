@@ -35,13 +35,13 @@ define Preposition
 a | ante | bajo | cabe | con | contra | de | desde | durante | en | entre | hacia | hasta | lo | mediante | no | para | por | según | si | sin | so | sobre | tras | versus | vía ; 
 
 define UnstressedConjunction 
-y | o | tu | sí | más | como | porque ; 
+del | y | o | tu | sí | más | como | porque ; 
 
 define Conjunction 
 todavía | asimismo | entonces | caso | apenas | enquanto ; 
 
 define Ser 
-ser | soy | és | somos | sois | son | era | érase | éramos | érais | eran | fui | fuiste | fue | fuimos | fuistes | fueron | será | serás | serán | seremos | sereis | sería | serías | seríamos | seríais | serían ;
+ser | soy | es | somos | sois | son | era | érase | éramos | érais | eran | fui | fuiste | fue | fuimos | fuistes | fueron | será | serás | serán | seremos | sereis | sería | serías | seríamos | seríais | serían ;
 
 define Estar 
 estar | estoy | estás | está | estamos | estáis | estado | estaba | estabas | estábamos | estaban | estuve | estuvo | estuvimos | estuviéramos | estuvieran | estaré | estarás | estará | estaremos | estarán ; 

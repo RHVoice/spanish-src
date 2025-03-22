@@ -571,7 +571,7 @@ define NormalizeCharactersLseq
 [[ｖ|Ｖ]:[u1 vh e]]|
 [[ｗ|Ｗ]:[u vh e dh o1 b l e]]|
 [[ｘ|Ｘ]:[e1 k i s]]|
-[[ｙ|Ｙ]:[i1 g r j e1 g a]]|
+[[ｙ|Ｙ]:[i1 g r j e1 gh a]]|
 [[ｚ|Ｚ]:[c e1 t a]]|
 [[𝐚|𝐀]:[a1]]|
 [[𝐛|𝐁]:[b e1]]|
@@ -595,9 +595,9 @@ define NormalizeCharactersLseq
 [[𝐭|𝐓]:[t e1]]|
 [[𝐮|𝐔]:[u]]|
 [[𝐯|𝐕]:[u1 vh e]]|
-[[𝐰|𝐖]:[u1 vh e d o1 b l e]]|
+[[𝐰|𝐖]:[u1 vh e dh o1 b l e]]|
 [[𝐱|𝐗]:[e1 k i s]]|
-[[𝐲|𝐘]:[i1 g r j e1 g a]]|
+[[𝐲|𝐘]:[i1 g r j e1 gh a]]|
 [[𝐳|𝐙]:[c e1 t a]]|
 [[𝗮|𝗔]:[a1]]|
 [[𝗯|𝗕]:[b e1]]|
@@ -621,9 +621,9 @@ define NormalizeCharactersLseq
 [[𝘁|𝗧]:[t e1]]|
 [[𝘂|𝗨]:[u1]]|
 [[𝘃|𝗩]:[u1 vh e]]|
-[[𝘄|𝗪]:[u1 vh e d o1 b l e]]|
+[[𝘄|𝗪]:[u1 vh e dh o1 b l e]]|
 [[𝘅|𝗫]:[e1 k i s]]|
-[[𝘆|𝗬]:[i1 g r j e1 g a]]|
+[[𝘆|𝗬]:[i1 g r j e1 gh a]]|
 [[𝘇|𝗭]:[c e1 t a]]|
 [[𝘢|𝘈]:[a1]]|
 [[𝘣|𝘉]:[b e1]]|
@@ -647,9 +647,9 @@ define NormalizeCharactersLseq
 [[𝘵|𝘛]:[t e1]]|
 [[𝘶|𝘜]:[u1]]|
 [[𝘷|𝘝]:[u1 vh e]]|
-[[𝘸|𝘞]:[u1 vh e d o1 b l e]]|
+[[𝘸|𝘞]:[u1 vh e dh o1 b l e]]|
 [[𝘹|𝘟]:[e1 k i s]]|
-[[𝘺|𝘠]:[i1 g r j e1 g a]]|
+[[𝘺|𝘠]:[i1 g r j e1 gh a]]|
 [[𝘻|𝘡]:[c e1 t a]]|
 [[𝙖|𝘼]:[a1]]|
 [[𝙗|𝘽]:[b e1]]|
@@ -673,9 +673,9 @@ define NormalizeCharactersLseq
 [[𝙩|𝙏]:[t e1]]|
 [[𝙪|𝙐]:[u1]]|
 [[𝙫|𝙑]:[u1 vh e]]|
-[[𝙬|𝙒]:[u1 vh e d o1 b l e]]|
+[[𝙬|𝙒]:[u1 vh e dh o1 b l e]]|
 [[𝙭|𝙓]:[e1 k i s]]|
-[[𝙮|𝙔]:[i1 g r j e1 g a]]|
+[[𝙮|𝙔]:[i1 g r j e1 gh a]]|
 [[𝙯|𝙕]:[c e1 t a]]|
 [[𝚊|𝙰]:[a1]]|
 [[𝚋|𝙱]:[b e1]]|
@@ -699,9 +699,9 @@ define NormalizeCharactersLseq
 [[𝚝|𝚃]:[t e1]]|
 [[𝚞|𝚄]:[u1]]|
 [[𝚟|𝚅]:[u1 vh e]]|
-[[𝚠|𝚆]:[u1 vh e d o1 b l e]]|
+[[𝚠|𝚆]:[u1 vh e dh o1 b l e]]|
 [[𝚡|𝚇]:[e1 k i s]]|
-[[𝚢|𝚈]:[i1 g r j e1 g a]]|
+[[𝚢|𝚈]:[i1 g r j e1 gh a]]|
 [[𝚣|𝚉]:[c e1 t a]]|
 # Collected from me:
 [𝕬|𝖆]:[a1] | 
@@ -728,7 +728,7 @@ define NormalizeCharactersLseq
 [𝖁|𝖛]:[u1 vh e] | 
 [𝖂|𝖜]:[u vh e dh o1 b l e] | 
 [𝖃|𝖝]:[e k i s] | 
-[𝖄|𝖞]:[i1 g r j e1 g a] | 
+[𝖄|𝖞]:[i1 g r j e1 gh a] | 
 [𝖅|𝖟]:[c e1 t a] | 
 [ä|â|ą|ă|Ą|Ă|ā|Ā]: [a1] | 
 [à|À]: [a1] | 
@@ -801,10 +801,10 @@ define NormalizeCharactersLseq
 [𝓦|𝔀]:[u vh e dh o1 b l e] | 
 [𝑿|𝒙]:[e1 k i s] | 
 [𝓧|𝔁]:[e1 k i s] | 
-[Ŷ|ŷ]:[i g r j e1 g a] | 
-[Ý|ý]:[i g r j e1 g a a g u1 d o] | 
-[𝒀|𝒚]:[i g r j e1 g a] | 
-[𝓨|𝔂]:[i g r j e1 g a] | 
+[Ŷ|ŷ]:[i1 g r j e1 gh a] | 
+[Ý|ý]:[i1 g r j e1 gh a a gh u1 d o] | 
+[𝒀|𝒚]:[i1 g r j e1 gh a] | 
+[𝓨|𝔂]:[i1 g r j e1 gh a] | 
 [𝒁|𝒛]:[c e1 t a] | 
 [𝓩|𝔃]:[c e1 t a] | 
 [Ź|ź|Ż|ż]: [c e1 t a] ; 
