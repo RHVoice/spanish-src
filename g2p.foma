@@ -182,7 +182,6 @@ define WordEndRules
 [rr y] -> [rr i] || _ .#. ,, # cherry.
 {sy} -> [s i] || _ .#. ,, 
 {ty} -> [t i] || _ .#. ,, 
-{uy} -> [u i] || _ .#. ,, 
 [y s] -> [i s] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
 c -> k || _ .#. ; # cómic, tictac.
