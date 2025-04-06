@@ -82,7 +82,7 @@ h: "" | # H is a sylent consonant, so no phoneme.
 j:x | 
 k:k | 
 l:l | 
-{ll}:ll | # aquella
+{ll}:sh | # aquella
 m:m | 
 n:n | 
 ñ:ni | # año, otoño
@@ -104,7 +104,15 @@ q:k |
 [q u i1]:[k i1] | # sequía
 w:u | # Change to a u sound for some cases.
 x:{ks} | # Existe, éxito
-y:y ; 
+y:YAsVowel | 
+{ya}:[sh a] | 
+[y a1]:[sh a1] | 
+{ye}:[sh e] | 
+[y e1]:[sh e1] | 
+{yo}:[sh o] | 
+[y o1]:[sh o1] | 
+{yu}:[sh u] | 
+[y u1]:[sh u1] ; 
 
 define SpanishRules 
 # closed vowel i
@@ -126,7 +134,7 @@ define SpanishRules
 {uo}:[w o] | # reciduo
 [u o1]:[w o1] | # continuó
 # Brian, not bryan:
-[b r y]:[b r j] | 
+#[b r y]:[b r j] | 
 # c to k exceptions:
 [c c]:[k c] | # selección, leccionario
 [c d]:[k d] | # Anécdota.
@@ -151,8 +159,8 @@ define WordStartRules
 {pt} -> t || .#. _ ,, # pterodáctilo
 {ks} -> s || .#. _ ,, # xilófono
 # Matthew's rules:
-{any} -> {ani} || .#. _ ,, # Especially for English text.
-{may} -> {mai} || .#. _ ,,
+#{any} -> {ani} || .#. _ ,, # Especially for English text.
+#{may} -> {mai} || .#. _ ,,
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
 [ts r i] -> [k r i] || .#. _ ,, # Christian, christina.
 [d e sh] -> [d e s] || .#. _ ,, # des prefix. Deshabilitar, deshacer, deshecho.
@@ -169,20 +177,20 @@ define WordEndRules
 {oy} -> [o yc] || _ .#. ,, # voy, soy, estoy.
 {uy} -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
 # The following is especially for foreign words.
-{by} -> [b i] || _ .#. ,, 
-{dy} -> [d i] || _ ,, 
-{gy} -> [g i] || _ .#. ,, 
-{ky} -> [k i] || _ .#. ,, 
+#{by} -> [b i] || _ .#. ,, 
+#{dy} -> [d i] || _ ,, 
+#{gy} -> [g i] || _ .#. ,, 
+#{ky} -> [k i] || _ .#. ,, 
 [i n g] -> [i n] || _ .#. ,, 
-{ly} -> [l i] || _ .#. ,, 
-{my} -> [m i] || _ ,, 
-{ny} -> [n i] || _ .#. ,, # Danny, Ronny.
-{py} -> [p i] || _ .#. ,, 
-{ry} -> [r i] || _ .#. ,, 
-[rr y] -> [rr i] || _ .#. ,, # cherry.
-{sy} -> [s i] || _ .#. ,, 
-{ty} -> [t i] || _ .#. ,, 
-[y s] -> [i s] || _ .#. ,, 
+#{ly} -> [l i] || _ .#. ,, 
+#{my} -> [m i] || _ ,, 
+#{ny} -> [n i] || _ .#. ,, # Danny, Ronny.
+#{py} -> [p i] || _ .#. ,, 
+#{ry} -> [r i] || _ .#. ,, 
+#[rr y] -> [rr i] || _ .#. ,, # cherry.
+#{sy} -> [s i] || _ .#. ,, 
+#{ty} -> [t i] || _ .#. ,, 
+#[y s] -> [i s] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
 c -> k || _ .#. ; # cómic, tictac.
 
@@ -195,7 +203,7 @@ define approximants
 
 define exceptions 
 # Special word:
-[{tayta} : [t a1 i0 t a0]] | 
+#[{tayta} : [t a1 i0 t a0]] | 
 # Other exceptions:
 [[{wi} (%-) {fi}] : [w a0 i0 f a1 yc]] | 
 [{a.c.} : [a1 n t e0 s d e0 k r i1 s t o0]] | 
@@ -229,6 +237,9 @@ TranscribeVowel @-> ;
 define Stage2 
 TranscribeConsonant @-> ; 
 
+#define RenameY 
+#YAsVowel @-> i ; 
+
 define Stage3 
 SpanishRules @-> ; 
 
@@ -239,10 +250,12 @@ define rules
 UnstressedWordsTag .o. 
 Stage1 .o. 
 Stage2 .o. 
+[Y @-> y] .o. 
 Stage3 .o. 
 WordStartRules .o. 
 WordMidRules .o. 
 WordEndRules .o. 
+#RenameY .o. 
 approximants .o. 
 unstress .o. 
 dhipthongStress .o. 
