@@ -82,7 +82,7 @@ StressedDigitTeen @-> || WB _ WB [m i1 l] ;
 
 define MaleObjectPronoun 
 # connectors: Un, el, ese, este, aquel. We will use these to conjugate and modifying stress according to word context. see below.
-[[u0 n] | [e0 l] | [e0 s e0] | [e0 s t e0] | [a0 k e1 l]] ; 
+[[u0 n] | [e0 l] | [e0 s (t) e0] | [a0 k e1 l]] ; 
 # Conjugate with "Hace" (ago) as a reference to something that happened in the past, a time gramaticalization.
 define HaceFemeninoSingular 
 [u0 n a0] ; 
@@ -131,7 +131,7 @@ define PhoneticedNumber3
 [t r e1 i0 n t a0]|[k w a0 r e1 n t a0]|[c i0 n k w e1 n t a0]|[s e0 s e1 n t a0]|[s e0 t e1 n t a0]|[o0 ts e1 n t a0]|[n o0 vh e1 n t a0] ; 
 define PersonalObjectPronoun 
 # The same thing but for "mi", "tu" and "su".
-[m i0] | [t u0] | [s u0] ; 
+[m i0] | [[s|t] u0] ; 
 define Adverb 
 # Adverbs like "muy", than and others will be used here for some stressing situations.
 [m u1 i0] | [t a1 n] | [m e1 n t e0] ; 
@@ -165,8 +165,9 @@ define pluralAction
 [s o1 n]|[t j e1 n e0 n]|[p o0 s e1 e0 n]|[s i0 g n i0 f i1 k a0 n] ; 
 # We defined "es" and "son", which can be used in a different context. For example: "esta es mi casa", "este es Mateo, tu amigo", "esto es lo que hay que hacer", "estas son mis llaves", etc. In all of these cases, the demonstrative should be stressed, as we saw in these definitions.
 define PersonalReflexivePronoun 
+# Le, me, nos, te
 # Required for a particular case (see below)
-[l e0]|[m e0]|[n o0 s]|[t e0] ; 
+[[l|m|t] e0]|[n o0 s] ; 
 define comer 
 # This is from the verb "comer" (eat).
 [k o0 m o0]:[k o1 m o0] ; 
@@ -194,8 +195,10 @@ esDemonstrative -> || WB _ WB singularAction ,,
 # And we will apply the same for "son". Example: estas son las bufandas que Mateo tegió.
 sonDemonstrative -> || WB _ WB pluralAction ,, 
 # Rules for para, which can be used in two contexts: "stop" action (parar) and "to" preposition (para)
-# Example: se me "pára" el corazón > esto es para ti.
-[p a0 r a0]:[p a1 r a0] -> || WB [s e0] (%# PersonalReflexivePronoun) WB _ ,, 
+# Example: se me "pára" el corazón, no "pára" de llover > esto es para ti.
+[p a0 r a0]:[p a1 r a0] -> || 
+WB [s e0] (%# PersonalReflexivePronoun) WB _ , 
+WB [n o1] %# _ %# [dh e0] %# ,, 
 # And these rules for the "eat" verb:
 comer -> || [firstPerson|condition] WB _ WB ,, 
 # Let's create another context. Since "una" is unstressed in g2p, we need to stress it when the word "cada" is found before. For example, "él repartió cada una de las galletas". The strength of the vowel is in the una (cada úna).
