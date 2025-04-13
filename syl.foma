@@ -26,7 +26,7 @@ define MarkNuclei
 Nucleus @-> %{ ... %} ; 
 
 define Consonant 
-b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|vh|w|yc|zh ; 
+b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|uc|v|vh|w|yc|zh ; 
 
 define Onset 
 0 | Consonant | 

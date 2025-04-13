@@ -19,7 +19,7 @@ define PB %- | .#. ;
 # Word boundary (words of the utterance)
 define WB %# | PB ; 
 # Vowels for approximants or allophones.
-define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|j|w] ; 
+define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|uc|j|w|yc] ; 
 
 # Here, we apply approximants through the whole utterance, same that we did in g2p but with word boundaries between vowels.
 # For example, el dado de Dabid. Between o (dado) and d (de) and "de" and "David" are the intervocalic d.
@@ -32,10 +32,10 @@ v @-> vh || vocal %# _ vocal ;
 
 # Here, to get a better prosody of the voice and phonetic transcription, we unstress the "enta y" prefix. For example, a speaker doesn't say tréinta y cinco, but treinta y cinco, withouth stressing in the e. So, we will fix this behavior in RHVoice Spanish phonetics.
 define StressedNumber 
-[v e1 i0 n t e0]:[v e0 i0 n t e0]|
+[v e1 yc n t e0]:[v e0 yc n t e0]|
 # Veinte in approximant (example: ciento veinte mil. O, V, e).
-[vh e1 i0 n t e0]:[vh e0 i0 n t e0]|
-[t r e1 i0 n t a0]:[t r e0 i0 n t a0]|
+[vh e1 yc n t e0]:[vh e0 yc n t e0]|
+[t r e1 yc n t a0]:[t r e0 yc n t a0]|
 [k w a0 r e1 n t a0]:[k w a0 r e0 n t a0]|
 [c i0 n k w e1 n t a0]:[c i0 n k w e0 n t a0]|
 [s e0 s e1 n t a0]:[s e0 s e0 n t a0]|
@@ -49,7 +49,7 @@ define StressedDigitTeen
 [t r e1 s]:[t r e0 s] | 
 [k w a1 t r o0]:[k w a0 t r o0] | 
 [c i1 n k o0]:[c i0 n k o0] | 
-[s e1 i0 s]:[s e0 i0 s] | 
+[s e1 yc s]:[s e0 yc s] | 
 [s j e1 t e0]:[s j e0 t e0] | 
 [o1 ts o0]:[o0 ts o0] | 
 [n w e1 vh e0]:[n w e0 vh e0] | 
@@ -61,8 +61,8 @@ define StressedDigitTeen
 [t r e1 c e0]:[t r e0 c e0] | 
 [k a0 t o1 r c e0]:[k a0 t o0 r c e0] | 
 [k i1 n c e0]:[k i0 n c e0] | 
-[d j e0 c i0 s e1 i0 s]:[d j e0 c i0 s e0 i0 s] | 
-[dh j e0 c i0 s e1 i0 s]:[dh j e0 c i0 s e0 i0 s] | 
+[d j e0 c i0 s e1 yc s]:[d j e0 c i0 s e0 yc s] | 
+[dh j e0 c i0 s e1 yc s]:[dh j e0 c i0 s e0 yc s] | 
 [d j e0 c i0 s j e1 t e0]:[d j e0 c i0 s j e0 t e0] | 
 [dh j e0 c i0 s j e1 t e0]:[dh j e0 c i0 s j e0 t e0] | 
 [d j e0 c j o1 ts o0]:[d j e0 c j o0 ts o0] | 
@@ -71,7 +71,7 @@ define StressedDigitTeen
 [dh j e0 c i0 n w e1 vh e0]:[dh j e0 c i0 n w e0 vh e0] ; 
 
 define PhoneticedDigit 
-[u1 n o0] | [[d|dh] o1 s] | [t r e1 s] | [k w a1 t r o0] | [c i1 n k o0] | [s e1 i0 s] | [s j e1 t e0] | [o1 ts o0] | [n w e1 vh e0] ; 
+[u1 n o0] | [[d|dh] o1 s] | [t r e1 s] | [k w a1 t r o0] | [c i1 n k o0] | [s e1 yc s] | [s j e1 t e0] | [o1 ts o0] | [n w e1 vh e0] ; 
 
 define unstressNumber 
 # When treinta, cuarenta, cincuenta, etc... is in the word, accompanied by i (y) and digit (sesenta y cinco), or mil, remove the stress. For example, cuarénta y... = cuarenta y... sesénta mil... = sesenta mil...
@@ -122,10 +122,10 @@ define HaceMasculinoPluralActionNumber
 
 define PhoneticedNumber 
 [[d|dh] j e1 zh] | [o1 n c e0] | [[d|dh] o1 c e0] | [t r e1 c e0] | [k a0 t o1 r c e0] | [k i1 n c e0] | [[d|dh] j e0 c i0 s e1 i0 s] | [[d|dh] j e0 c i0 s j e1 t e0] | [[d|dh] j e0 c j o1 ts o0] | [[d|dh] j e0 c i0 n w e1 vh e0] | 
-[[v|vh] e1 i0 n t e0] | [[v|vh] e0 i0 n t [i0|j] PhoneticedDigit] ; 
+[[v|vh] e1 yc n t e0] | [[v|vh] e0 yc n t [i0|j] PhoneticedDigit] ; 
 
 define PhoneticedNumber2 
-[t r e0 i0 n t a0]|[k w a0 r e0 n t a0]|[c i0 n k w e0 n t a0]|[s e0 s e0 n t a0]|[s e0 t e0 n t a0]|[o0 ts e0 n t a0]|[n o0 vh e0 n t a0] ; 
+[t r e0 yc n t a0]|[k w a0 r e0 n t a0]|[c i0 n k w e0 n t a0]|[s e0 s e0 n t a0]|[s e0 t e0 n t a0]|[o0 ts e0 n t a0]|[n o0 vh e0 n t a0] ; 
 
 define PhoneticedNumber3 
 [t r e1 i0 n t a0]|[k w a0 r e1 n t a0]|[c i0 n k w e1 n t a0]|[s e0 s e1 n t a0]|[s e0 t e1 n t a0]|[o0 ts e1 n t a0]|[n o0 vh e1 n t a0] ; 
