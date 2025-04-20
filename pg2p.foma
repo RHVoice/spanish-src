@@ -200,7 +200,7 @@ sonDemonstrative -> || WB _ WB pluralAction ,,
 WB [s e0] (%# PersonalReflexivePronoun) WB _ , 
 WB [n o1] %# _ %# [dh e0] %# ,, 
 # And these rules for the "eat" verb:
-comer -> || [firstPerson|condition] WB _ WB ,, 
+comer -> || [firstPerson|condition] WB _ WB , [k e0 %# m e0 %#] _ WB ,, 
 # Let's create another context. Since "una" is unstressed in g2p, we need to stress it when the word "cada" is found before. For example, "él repartió cada una de las galletas". The strength of the vowel is in the una (cada úna).
 [u0 n a0]:[u1 n a0] -> || 
 WB [k a1 dh a0] WB _ , 
