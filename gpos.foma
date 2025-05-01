@@ -35,10 +35,10 @@ define Preposition
 a | ante | bajo | cabe | con | contra | de | desde | durante | en | entre | hacia | hasta | lo | mediante | no | para | por | según | si | sin | so | sobre | tras | versus | vía ; 
 
 define UnstressedConjunction 
-del | y | o | tu | sí | más | como | porque ; 
+del | y | ni | e | o | u | tu | sí | más | como | cuando | porque | pero | pues | que | aunque | mas | sino ; 
 
 define Conjunction 
-todavía | asimismo | entonces | caso | apenas | enquanto ; 
+todavía | asimismo | entonces | caso | apenas | excepto ; 
 
 define Ser 
 ser | soy | es | somos | sois | son | era | érase | éramos | érais | eran | fui | fuiste | fue | fuimos | fuistes | fueron | será | serás | serán | seremos | sereis | sería | serías | seríamos | seríais | serían ;
