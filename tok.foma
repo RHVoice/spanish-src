@@ -92,6 +92,8 @@ NZDigit Digit* @-> ... num ,,
 Symbol @-> ... sym || _ ; 
 
 define Stage2 
+# SplitWordsWhenCamelCase, so voices canInterpretAsSeparateWords InsteadOfOnlyOne
+[..] -> word || [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel]+ _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel]+ ,, 
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
 
 define Stage3 
@@ -105,6 +107,7 @@ word -> lseq ||
 .#. (Symbol sym) CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
 .#. (Symbol sym) CapitalLetter CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
 .#. (Symbol sym) CapitalLetter CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalLetter^2 CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
 .#. (Symbol sym) X CapitalVowel CapitalLetter _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
 .#. (Symbol sym) CapitalLetter CapitalVowel W _ (Symbol sym) (Symbol sym) (Symbol sym) .#. ; 
 

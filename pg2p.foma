@@ -128,7 +128,7 @@ define PhoneticedNumber2
 [t r e0 yc n t a0]|[k w a0 r e0 n t a0]|[c i0 n k w e0 n t a0]|[s e0 s e0 n t a0]|[s e0 t e0 n t a0]|[o0 ts e0 n t a0]|[n o0 vh e0 n t a0] ; 
 
 define PhoneticedNumber3 
-[t r e1 i0 n t a0]|[k w a0 r e1 n t a0]|[c i0 n k w e1 n t a0]|[s e0 s e1 n t a0]|[s e0 t e1 n t a0]|[o0 ts e1 n t a0]|[n o0 vh e1 n t a0] ; 
+[t r e1 yc n t a0]|[k w a0 r e1 n t a0]|[c i0 n k w e1 n t a0]|[s e0 s e1 n t a0]|[s e0 t e1 n t a0]|[o0 ts e1 n t a0]|[n o0 vh e1 n t a0] ; 
 define PersonalObjectPronoun 
 # The same thing but for "mi", "tu" and "su".
 [m i0] | [[s|t] u0] ; 

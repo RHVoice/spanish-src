@@ -35,7 +35,7 @@ define Preposition
 a | ante | bajo | cabe | con | contra | de | desde | durante | en | entre | hacia | hasta | lo | mediante | no | para | por | según | si | sin | so | sobre | tras | versus | vía ; 
 
 define UnstressedConjunction 
-del | y | ni | e | o | u | tu | sí | más | como | cuando | porque | pero | pues | que | aunque | mas | sino ; 
+del | y | ni | e | o | u | tu | sí | más | como | cuando | porque | pero | pues | que | quien | donde | aunque | mas | sino ; 
 
 define Conjunction 
 todavía | asimismo | entonces | caso | apenas | excepto ; 
