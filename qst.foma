@@ -18,13 +18,9 @@ StartOfWhQuestion [0:[%+ whw]] -> || .#. _ \[%-|%=] ;
 define WhQuestionTagger 
 q -> whq || %+ whw ?* %= _ .#. ; 
 
-define AltQuestionTagger 
-q -> altq || o [qué|cómo] ?* %= _ .#. ; # ¿Quieres ir al cine, o qué?
-
 define Tagger 
 DefaultTagger .o. 
 WhWordTagger .o. 
-WhQuestionTagger .o. 
-AltQuestionTagger ; 
+WhQuestionTagger ; 
 
 regex Tagger ; 

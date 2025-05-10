@@ -24,7 +24,7 @@ define SpanishRoman
 define MaleOrdChar %º ; 
 define FemaleOrdChar %ª ; 
 define OrdChar MaleOrdChar | FemaleOrdChar ; 
-
+#define Separator %/ ; 
 define ProcNumChar [ %-:menos |
 %+: más |
 %$: dólares |
@@ -35,7 +35,29 @@ define NZDigit 1|2|3|4|5|6|7|8|9 ;
 define Digit %0|NZDigit ; 
 
 define UnformattedNumber [NZDigit Digit^<16] ; 
+#define Year [Digit^<5] ; 
+#define DayOrMonth [Digit^<3] ; 
+#define FormatedDate [DayOrMonth Separator DayOrMonth Separator Year] ; 
+#define Number FormatedDate | [UnformattedNumber (OrdChar)] | ESRomanNumeral ; 
 define Number [UnformattedNumber (OrdChar)] | ESRomanNumeral ; 
+
+#define date 
+#{01}:enero | 
+#{02}:febrero | 
+#{03}:marzo | 
+#{04}:abril | 
+#{05}:mayo | 
+#{06}:junio | 
+#{07}:julio | 
+#{08}:agosto | 
+#{09}:septiembre | 
+#{10}:octubre | 
+#{11}:noviembre | 
+#{12}:diciembre ; 
+
+#define months {01}|{02}|{03}|{04}|{05}|{06}|{07}|{08}|{09}|{10}|{11}|{12} ; 
+# Up to 31 days:
+#define days months|{13}|{14}|{15}|{16}|{17}|{18}|{19}|{20}|{21}|{22}|{23}|{24}|{25}|{26}|{27}|{28}|{29}|{30}|{31} ; 
 
 define Unit 
 1:uno | 
@@ -234,12 +256,38 @@ define fixes
 [veinte y siete]:[veintisiete] -> || _ ,, 
 [veinte y ocho]:[veintiocho] -> || _ ,, 
 [veinte y nueve]:[veintinueve] -> || _ ; 
+# This is to consider when date is re-introduced in a future.
+#[veinte y [uno|1]]:[veintiuno] -> || _ ,, 
+#[veinte y [dós|2]]:[veintidós] -> || _ ,, 
+#[veinte y [tres|3]]:[veintitrés] -> || _ ,, 
+#[veinte y [cuatro|4]]:[veinticuatro] -> || _ ,, 
+#[veinte y [cinco|5]]:[veinticinco] -> || _ ,, 
+#[veinte y [seis|6]]:[veintiséis] -> || _ ,, 
+#[veinte y [siete|7]]:[veintisiete] -> || _ ,, 
+#[veinte y [ocho|8]]:[veintiocho] -> || _ ,, 
+#[veinte y [nueve|9]]:[veintinueve] -> || _ ,, 
+#[treinta y 1]:[treinta y uno] -> || _ ; 
 
 define fixes2 
 uno -> un || _ [mil|millón|billón|trillón] ; 
+#Unit -> || .#. _ de [enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre] ; 
+
+#define fixes3 un -> 0 || del _ mil ; 
+
+#define DateRule 
+# Convert months to words.
+#date -> || .#. days Separator _ Separator Year .#. ,, 
+# In Spanish, convert the last slash (Separator) to del. Del 2024.
+#Separator -> del || .#. days Separator months _ Year .#. ,, 
+# And convert the first Separator to de. 2 de febrero.
+#Separator -> de || .#. days _ months Separator Year .#. ,, 
+# And when a day starts with 01, convert it to primero.
+#{01} -> primero || .#. _ Separator months Separator Year ; 
+
 
 define NumberRules 
 Number .o. 
+#DateRule .o. 
 SpanishRoman .o. 
 MapRomanNumeral .o. 
 RemoveThousandsSeparators .o. 
@@ -263,6 +311,7 @@ RemoveOnes .o.
 Translate .o. 
 fixes .o. 
 fixes2 ; 
+#fixes3 ; 
 
 define ZeroRule 
 %0 : cero | 

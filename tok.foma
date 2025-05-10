@@ -73,14 +73,14 @@ define ExceptionalWord
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
 define NZDigit 1|2|3|4|5|6|7|8|9;
 define Digit %0|NZDigit;
-define year [Digit^<4] ; 
-define DayOrMonth [Digit^<2] ; 
+#define year Digit^<4 ; 
+#define DayOrMonth Digit^<2 ; 
 #define dateSep %/ ; 
 define Number  %0 | [NZDigit Digit*];
 define DecimalSeparator %.|%,;
 define Word [Letter+ [Apos Letter+]*] | ExceptionalWord ;
 define Symbol \[Letter | Digit] ; 
-#define Date DayOrMonth+ dateSep+ DayOrMonth+ dateSep+ year+ ; 
+#define Date [Digit^2 dateSep Digit^2 dateSep Digit^4] ; 
 
 define Stage1 
 Word @-> ... word || _ .#. | \Letter ,, 
@@ -88,6 +88,7 @@ NZDigit Digit* @-> ... num ,,
 %0 Digit+ @-> ... dig ,, 
 %0 @-> ... num ,, 
 # We will apply this future new token for Spanish, called date, when someone helps me with cpp code for it.
+# We did an experimental approach by adding date support in number processing. However, I have concluded that the best option is that date support must have its own token type, because. a) we can create a switcher in the configuration file easily to enable or disable if the user wants date reading, and b) it is more easy to control because it is a separated way, outside numbers.
 #Date @-> ... date || _ ,, 
 Symbol @-> ... sym || _ ; 
 
@@ -95,6 +96,7 @@ define Stage2
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
 
 define Stage3 
+# Custom LSeq handling:
 [..] -> lseq || [CapitalLetter|CapitalVowel] _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel] ,, 
 word -> lseq || 
 .#. CapitalLetter^2 CapitalVowel _ (Symbol sym) .#. , 
@@ -102,6 +104,8 @@ word -> lseq ||
 .#. CapitalLetter^4 CapitalVowel _ (Symbol sym) .#. , 
 .#. CapitalVowel CapitalLetter^2 _ (Symbol sym) .#. , 
 .#. CapitalVowel CapitalLetter^3 _ (Symbol sym) .#. , 
+.#. CapitalLetter CapitalVowel CapitalLetter^2 _ (Symbol sym) .#. , 
+.#. CapitalLetter CapitalVowel CapitalLetter^3 _ (Symbol sym) .#. , 
 .#. X CapitalVowel CapitalLetter _ (Symbol sym) .#. , 
 .#. CapitalLetter CapitalVowel W _ (Symbol sym) .#. ; 
 
@@ -114,7 +118,6 @@ num -> dig || Digit^16 _ ,,
 [num:0] [%º|%ª] [sym:num] -> ; 
 
 define Stage5 
-#lseq:0 %' sym:word -> || .#. | [\%' sym] _ .#. | Letter ,, 
 word -> lseq || .#. _ ;
 #num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
 # DecimalSeparator num Digit+ num DecimalSeparator _ ; 
