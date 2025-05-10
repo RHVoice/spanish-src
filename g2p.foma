@@ -262,9 +262,8 @@ dhipthongStress .o.
 MonosylStress .o. 
 SpanishStress .o. 
 SpanishStress2 .o. 
-[Uns @-> 0] ; 
+[Uns|modifier @-> 0] .o. 
 [%' @-> 0] ; 
-[Uns|modifier @-> 0] ; 
 
 regex 
 [exceptions .P. rules] ; 
