@@ -31,7 +31,11 @@ define UnstressedWordsTag
 {hace} @-> MakeTag || .#. _ .#. ; 
 
 define vocal 
-[a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|j|w] ; 
+[a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|uc|j|w|yc] ; 
+
+define deshChange 
+# Let's remove the h when it comes to Spanish prefixes des and tras: deshacer, trashumar.
+h:0 @-> || .#. [{des}|{tras}] _ vocal ; 
 
 define TranscribeVowel 
 a:a | 
@@ -73,12 +77,13 @@ g:g | # siglo
 [g i]:[x i] | 
 [g i1]:[x i1] | 
 [g u a]:[g w a] | # antigua, guarida
+[g u a1]:[g w a1] | # aguábamos
 [g ü e]:[g w e] | # antigüedad, desagüe
 [g ü e1]:[g w e1] | # averigüé
 [g ü i]:[g w i] | # agüita
 [g ü i1]:[g w i1] | # Lingüística.
 [g u o]:[g w o] | # antiguo
-h: "" | # H is a sylent consonant, so no phoneme.
+h: modifier | # the letter h, apart from being a silent consonant, fulfills a function, especially when it is in the middle of vowels, diphthongs. We will use the modifier tag for it. For the rest of cases, h is silent and removed, h is nothing, phonemically.
 j:x | 
 k:k | 
 l:l | 
@@ -104,9 +109,27 @@ q:k |
 [q u i1]:[k i1] | # sequía
 w:u | # Change to a u sound for some cases.
 x:{ks} | # Existe, éxito
-y:y ; 
+y:YAsVowel | 
+{ya}:[Y a] | 
+[y a1]:[Y a1] | 
+{ye}:[Y e] | 
+[y e1]:[Y e1] | 
+{yi}:[Y i] | 
+[y i1]:[Y i1] | 
+{yo}:[Y o] | 
+[y o1]:[Y o1] | 
+{yu}:[Y u] | 
+[y u1]:[Y u1] ; 
 
 define SpanishRules 
+# ai, ei, oi.
+{ai}:[a yc] | # aire, baila.
+{ei}:[e yc] | # leiri.
+{oi}:[o yc] | # paranoico, oiga.
+# au, eu.
+{au}:[a uc] | # audio, laura.
+{eu}:[e uc] | # deuda, neurona.
+# We doesn't add ou because there are not comon words with these.
 # closed vowel i
 {ia}:[j a] | # biacrusis, referencia, viciándose, diafragma, fiar, sequia, cecilia, ...
 [i a1]:[j a1] | # viciándose, viciado, desquiciado
@@ -138,9 +161,11 @@ define SpanishRules
 [c r]:[k r] | # secreto (sekreto, not secreto)
 [c s]:[k s] | # clics.
 [c t]:[k t] | # actualización (aktwalizhazhjo1n, not actwalicacjo1n)
-{cy}:[c i] | # Cynthia.
+[c YAsVowel]:[c i] | # Cynthia.
 [t ts]:ts | # switch
 [a p p]:[a p] ; # For English words.
+
+source stress.foma
 
 define WordStartRules 
 # source rules from cldr/common/transforms/es-es_FONIPA.xml
@@ -151,11 +176,8 @@ define WordStartRules
 {pt} -> t || .#. _ ,, # pterodáctilo
 {ks} -> s || .#. _ ,, # xilófono
 # Matthew's rules:
-{any} -> {ani} || .#. _ ,, # Especially for English text.
-{may} -> {mai} || .#. _ ,,
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
 [ts r i] -> [k r i] || .#. _ ,, # Christian, christina.
-[d e sh] -> [d e s] || .#. _ ,, # des prefix. Deshabilitar, deshacer, deshecho.
 r -> [rr] || .#. _, [l|n|s] _ ; # at the start: rato, rico, roma, all words starting r needs to be a RR sound. However, in words that contains l, n or s anywere, needs to be a rr sound, too. For example: alrededor, enredo, Desramar.
 
 define WordMidRules 
@@ -164,40 +186,24 @@ y -> i || .#. _ .#. ;
 
 define WordEndRules 
 # handling of closed vowel y to the end of word. Pley, soy, estoy, voy, hay, etc.
-{ay} -> [a yc] || _ .#. ,, # hay alguien aquí?
-{ey} -> [e yc] || _ .#. ,, # vacabuey, rey, ley.
-{oy} -> [o yc] || _ .#. ,, # voy, soy, estoy.
-{uy} -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
+[a YAsVowel] -> [a yc] || _ .#. ,, # hay alguien aquí?
+[e YAsVowel] -> [e yc] || _ .#. ,, # vacabuey, rey, ley.
+[o YAsVowel] -> [o yc] || _ .#. ,, # voy, soy, estoy.
+[u YAsVowel] -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
 # The following is especially for foreign words.
-{by} -> [b i] || _ .#. ,, 
-{dy} -> [d i] || _ ,, 
-{gy} -> [g i] || _ .#. ,, 
-{ky} -> [k i] || _ .#. ,, 
 [i n g] -> [i n] || _ .#. ,, 
-{ly} -> [l i] || _ .#. ,, 
-{my} -> [m i] || _ ,, 
-{ny} -> [n i] || _ .#. ,, # Danny, Ronny.
-{py} -> [p i] || _ .#. ,, 
-{ry} -> [r i] || _ .#. ,, 
-[rr y] -> [rr i] || _ .#. ,, # cherry.
-{sy} -> [s i] || _ .#. ,, 
-{ty} -> [t i] || _ .#. ,, 
-[y s] -> [i s] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
 c -> k || _ .#. ; # cómic, tictac.
 
 define approximants 
 # In Spanish, there are about 4 approximants, that are voiced consonants that occurs in different contexts. The good news, all approximants occurs between vowels.
-{b} -> bh || vocal _ vocal ,, 
-{d} -> dh || vocal _ vocal ,, 
-{g} -> gh || vocal _ vocal ,, 
-{v} -> vh || vocal _ vocal ; 
+{b} (modifier) -> bh || vocal _ vocal ,, 
+{d} (modifier) -> dh || vocal _ vocal ,, 
+{g} (modifier) -> gh || vocal _ vocal ,, 
+{v} (modifier) -> vh || vocal _ vocal ; 
 
 define exceptions 
-# Special word:
-[{tayta} : [t a1 i0 t a0]] | 
-# Other exceptions:
-[[{wi} (%-) {fi}] : [w a0 i0 f a1 yc]] | 
+[[{wi} (%-) {fi}] : [w a0 yc f a1 yc]] | 
 [{a.c.} : [a1 n t e0 s d e0 k r i1 s t o0]] | 
 [{a.m.} : [d e0 l a0 m a0 ni a1 n a0]] | 
 [{d.c.} : [d e0 s p w e1 s d e0 k r i1 s t o0]] | 
@@ -212,6 +218,7 @@ define exceptions
 [{dom.} : [d o0 m i1 n g o0]] | 
 [{ene.} : [e0 n e1 r o0]] | 
 [{feb.} : [f e0 b r e1 r o0]] | 
+# We doesn't add mar. (marzo) because mar (withouth the capital M) is the beach. If someone reads a text and the sentence ends with mar., for example, ayer fui al mar., the language package could interpret: ayer fui al marzo. So, we are avoiding these misunderstandings.
 [{abr.} : [a0 b r i1 l]] | 
 [{may.} : [m a1 y o0]] | 
 [{jun.} : [x u1 n j o0]] | 
@@ -229,20 +236,26 @@ TranscribeVowel @-> ;
 define Stage2 
 TranscribeConsonant @-> ; 
 
+define ModifierRule 
+modifier @-> 0 || .#. ([Consonant|i|u]) _ vocal , Consonant _ .#. ; 
+
+define RenameY YAsVowel @-> i ; 
+
 define Stage3 
 SpanishRules @-> ; 
 
-source stress.foma
-
-
 define rules 
+deshChange .o. 
 UnstressedWordsTag .o. 
 Stage1 .o. 
 Stage2 .o. 
+ModifierRule .o. 
+[Y @-> y] .o. 
 Stage3 .o. 
 WordStartRules .o. 
 WordMidRules .o. 
 WordEndRules .o. 
+RenameY .o. 
 approximants .o. 
 unstress .o. 
 dhipthongStress .o. 
@@ -251,6 +264,7 @@ SpanishStress .o.
 SpanishStress2 .o. 
 [Uns @-> 0] ; 
 [%' @-> 0] ; 
+[Uns|modifier @-> 0] ; 
 
 regex 
 [exceptions .P. rules] ; 

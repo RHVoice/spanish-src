@@ -61,7 +61,7 @@ define Number [UnformattedNumber (OrdChar)] | ESRomanNumeral ;
 
 define Unit 
 1:uno | 
-2:dós | 
+2:dos | 
 3:tres | 
 4:cuatro | 
 5:cinco | 
@@ -99,10 +99,21 @@ define Teen
 3:trece | 
 4:catorce | 
 5:quince | 
-6:dieciséis | 
+6:dieciseis | 
 7:diecisiete | 
 8:dieciocho | 
 9:diecinueve ; 
+
+define Twenti 
+1:veintiuno | 
+2:veintidós | 
+3:veintitrés | 
+4:veinticuatro | 
+5:veinticinco | 
+6:veintiseis | 
+7:veintisiete | 
+8:veintiocho | 
+9:veintinueve ; 
 
 define Ten 
 1:diez | 
@@ -211,6 +222,9 @@ define RemoveZeros
 define MarkTeens 
 [[1 ten]:0] NZDigit [0:teen] -> ; 
 
+define MarkTwenties 
+[[2 ten]:0] NZDigit [0:twenti] -> ; 
+
 define InsertAnds 
 [..] -> and || 
 NZDigit ten _ NZDigit ; 
@@ -229,6 +243,7 @@ Unit -> || _ .#. | PowerOfThousandSymbol | OrdPowerOfThousandSymbol ,,
 MaleOrdUnit -> || _ MaleOrdChar .#. ,, 
 FemaleOrdUnit -> || _ FemaleOrdChar .#. ,, 
 Teen [teen:0] -> || _ ,, 
+Twenti [twenti:0] -> || _ ,, 
 Ten [ten:0] -> || _ ,, 
 MaleOrdTen [tenth:0] -> || _ ?* MaleOrdChar .#. ,, 
 FemaleOrdTen [tenth:0] -> || _ ?* FemaleOrdChar .#. ,, 
@@ -246,16 +261,7 @@ and -> y || _ ,,
 define RemoveThousandsSeparators 
 %. -> 0 ; 
 
-define fixes 
-[veinte y uno]:[veintiuno] -> || _ ,, 
-[veinte y dós]:[veintidós] -> || _ ,, 
-[veinte y tres]:[veintitrés] -> || _ ,, 
-[veinte y cuatro]:[veinticuatro] -> || _ ,, 
-[veinte y cinco]:[veinticinco] -> || _ ,, 
-[veinte y seis]:[veintiséis] -> || _ ,, 
-[veinte y siete]:[veintisiete] -> || _ ,, 
-[veinte y ocho]:[veintiocho] -> || _ ,, 
-[veinte y nueve]:[veintinueve] -> || _ ; 
+#define fixes 
 # This is to consider when date is re-introduced in a future.
 #[veinte y [uno|1]]:[veintiuno] -> || _ ,, 
 #[veinte y [dós|2]]:[veintidós] -> || _ ,, 
@@ -304,12 +310,13 @@ MarkHundredth .o.
 MarkThousandth .o. 
 MarkOrdPowerOfThousand .o. 
 MarkTeens .o. 
+MarkTwenties .o. 
 InsertAnds .o. 
 RemoveZeros .o. 
 PowerOfThousandSymbolsToSingular .o. 
 RemoveOnes .o. 
 Translate .o. 
-fixes .o. 
+#fixes .o. 
 fixes2 ; 
 #fixes3 ; 
 
