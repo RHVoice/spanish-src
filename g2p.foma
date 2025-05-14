@@ -182,7 +182,7 @@ r -> [rr] || .#. _, [l|n|s] _ ; # at the start: rato, rico, roma, all words star
 
 define WordMidRules 
 # when y is a standalone word, converts to i because it is an open vowel.
-y -> i || .#. _ .#. ; 
+[y|YAsVowel] -> TagYgriega || .#. _ .#. ; 
 
 define WordEndRules 
 # handling of closed vowel y to the end of word. Pley, soy, estoy, voy, hay, etc.
@@ -251,6 +251,7 @@ Stage1 .o.
 Stage2 .o. 
 ModifierRule .o. 
 [Y @-> y] .o. 
+[%' @-> 0] .o. 
 Stage3 .o. 
 WordStartRules .o. 
 WordMidRules .o. 
@@ -262,8 +263,7 @@ dhipthongStress .o.
 MonosylStress .o. 
 SpanishStress .o. 
 SpanishStress2 .o. 
-[Uns|modifier @-> 0] .o. 
-[%' @-> 0] ; 
+[Uns|modifier @-> 0] ; 
 
 regex 
 [exceptions .P. rules] ; 

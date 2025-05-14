@@ -30,7 +30,7 @@ b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|uc|v|vh|w|yc|zh ;
 
 define Onset 
 0 | Consonant | 
-{bl} | {bj} | {br} | [b r j] | {bw} | [bh j] | [bh w] | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh j] | [dh w] | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | {gw} | [gh j] | [gh  w] | {kl} | {kj} | {kr} | 
+{bl} | {bj} | {br} | [b r j] | {bw} | [bh j] | [bh w] | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh j] | [dh w] | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | [g r [j|w]] | {gw} | [gh j] | [gh  w] | {kl} | {kj} | {kr} | 
 {kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | [vh j] | [vh w] | {mj} | {nj} | {sj} | {nw} | {rw} | y ; 
 
 define Syllable 

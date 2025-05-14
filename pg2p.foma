@@ -30,6 +30,10 @@ d @-> dh || vocal %# _ vocal ,,
 g @-> gh || vocal %# _ vocal ,, 
 v @-> vh || vocal %# _ vocal ; 
 
+# Here is a contextual character, y. That must be y griega when alone.
+define PhonemeToSpelling 
+TagYgriega @-> [i1 g r j e1 gh a0] || .#. _ .#. ; 
+
 # Here, to get a better prosody of the voice and phonetic transcription, we unstress the "enta y" prefix. For example, a speaker doesn't say tréinta y cinco, but treinta y cinco, withouth stressing in the e. So, we will fix this behavior in RHVoice Spanish phonetics.
 define StressedNumber 
 [v e1 yc n t e0]:[v e0 yc n t e0]|
@@ -248,7 +252,12 @@ define AloneWords
 define untag 
 MakeTag -> [a1 c e0] ; 
 
+define untag2 
+TagYgriega -> i0 ; 
+
 regex 
+PhonemeToSpelling .o. 
+untag2 .o. 
 RemainingApproximants .o. 
 unstressNumber .o. 
 HomonymousWords .o. 
