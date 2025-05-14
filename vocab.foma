@@ -1,8 +1,0 @@
-# This doesn't work with foma2fst, compile yourself using att2bin manually.
-read text vocab.txt
-define vocab
-
-#define IsVocab 
-#vocab @-> ... true || .#. _ .#. ; 
-
-regex vocab ; 
