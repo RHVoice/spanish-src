@@ -111,6 +111,7 @@ word -> lseq ||
 .#. (Symbol sym) CapitalVowel CapitalLetter^5 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
 .#. (Symbol sym) CapitalLetter CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
 .#. (Symbol sym) CapitalLetter CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalLetter CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
 .#. (Symbol sym) CapitalLetter^2 CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
 .#. (Symbol sym) X CapitalVowel CapitalLetter _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
 .#. (Symbol sym) CapitalLetter CapitalVowel W _ (Symbol sym) (Symbol sym) (Symbol sym) .#. ; 
