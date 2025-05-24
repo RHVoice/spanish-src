@@ -124,7 +124,9 @@ y:YAsVowel |
 define SpanishRules 
 # ai, ei, oi.
 {ai}:[a yc] | # aire, baila.
+[a1 i]:[a1 yc] | # abastezcáis
 {ei}:[e yc] | # leiri.
+[e1 i]:[e1 yc] | # aféitense.
 {oi}:[o yc] | # paranoico, oiga.
 # au, eu.
 {au}:[a uc] | # audio, laura.

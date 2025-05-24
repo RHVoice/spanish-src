@@ -216,7 +216,10 @@ comer -> || [firstPerson|condition] %# _ WB , [k e0 %# m e0 %#] _ WB ,,
 # Let's create another context. Since "una" is unstressed in g2p, we need to stress it when the word "cada" is found before. For example, "él repartió cada una de las galletas". The strength of the vowel is in the una (cada úna).
 [u0 n a0]:[u1 n a0] -> || 
 WB [k a1 dh a0] %# _ , 
+%# [[l|m|s] e0] %# _ WB , 
 WB _ %# [[d|dh] e0] ,, 
+# SAPM for "unas", example: cuando te unas a la llamada.
+[u0 n a0 s]:[u1 n a0 s] -> || %# [[[l|t] e0]|[n o0 s]] %# _ WB ,, 
 # Stressing context for "hace". Hace is the action of "hacer" (make), however it also reffers to an action happened in the past. "ella ya no está desde hace un tiempo"
 MakeTag:[a0 c e0] -> || 
 # General basis.
