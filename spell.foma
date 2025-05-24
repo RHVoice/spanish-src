@@ -85,6 +85,7 @@ sp:espacio |
 nbsp:[espacio sin descanso] ; 
 
 define Symbol 
+%¡ : [abrir exclamación] | 
 %! : [cerrar exclamación] | 
 %" : comillas | 
 %# : número | 
@@ -94,24 +95,49 @@ define Symbol
 %¢ : centavos | 
 %¥ : ien | 
 %₹ : rúpya | 
+%ƒ : florines | 
+%¤ : moneda | 
 %% : porciento | 
+%‰ : [por mil] | 
 %& : ampersand | 
 %' : apóstrofo | 
 %( : [abrir paréntesis] | 
 %) : [cerrar paréntesis] | 
 %* : asterisco | 
+# todo
+
 %+ : más | 
+%− : menos | 
 %, : coma | 
+%、 : [coma ideográfica] | 
+%، : [coma arábiga] | 
 %- : guión | 
 %— : raya | 
 %. : punto | 
+%． : [punto y a parte de ancho completo] | 
 %/ : barra | 
 %: : [dos puntos] | 
+%： : [dos puntos de ancho completo] | 
 %; : [punto y coma] | 
+%؛ : [punto y coma arábigo] | 
+%； : [punto y coma de ancho completo] | 
 %< : [menor que] | 
 %> : [maior que] | 
 %= : igual | 
+%≃ : [asintóticamente igual a] | 
+%≄ : [no asintóticamente igual a] | 
+%≅ : [aproximadamente igual a] | 
+%≆ : [aproximadamente pero no realmente igual a] | 
+%≈ : [casi igual a] | 
+%≌ : [todo igual a] | 
+%≍ : [equivalente a] | 
+%≭ : [no equivalente a] | 
+%≎ : [geométricamente equivalente a] | 
+%≑ : [geométricamente igual a] | 
+%¿ : [abrir interrogación] | 
 %? : [cerrar interrogación] | 
+%؟ : [signo de interrogación arábigo] | 
+%？ : [interrogación de ancho completo] | 
 %@ : arroba | 
 %[ : [abre corchete] | 
 %] : [cierra corchete] | 
@@ -122,7 +148,476 @@ define Symbol
 %{ : [abre llave] | 
 %} : [cierra llave] | 
 %| : [barra vertical] | 
+%¦ : [barra cortada] | 
 %~ : tilde | 
+%· : [punto centrado] | 
+%‚ : [comillas bajas sencillas] | 
+%„ : [comillas bajas dobles] | 
+%′ : primo | 
+%″ : [doble primo] | 
+%‴ : [triple primo] | 
+%• : viñeta | 
+%… : elipsis | 
+%“ : [abre comillas] | 
+%” : [cierra comillas] | 
+%‘ : [abrir apóstrofo] | 
+%’ : [cerrar apóstrofo] | 
+%– : [guion corto] | 
+%­ : [guion suave] | 
+%⁃ : [guion y viñeta] | 
+%● : círculo | 
+%○ : [círculo blanco] | 
+%¨ : diéresis | 
+%¯ : macron | 
+%´ : agudo | 
+%¸ : cedilla | 
+%‎ : [marca de izquierda a derecha] | 
+%‏ : [marca de derecha a izquierda] | 
+%¶ : [marca de párrafo] | 
+[%■|%▪|%◾] : [cuadrado negro] | 
+%□ : [cuadrado blanco] | 
+%◦ : [viñeta blanca] | 
+%⇨ : [flecha blanca hacia la derecha] | 
+%➔ : [flecha apuntando hacia la derecha] | 
+%➢ : [flecha con cabeza a la derecha] | 
+%§ : sección | 
+%° : grado | 
+%« : [abrir comillas angulares] | 
+%» : [cerrar comillas angulares] | 
+%µ : micro | 
+%⁰ : [superíndice cero] | 
+%¹ : [superíndice uno] | 
+%² : [superíndice dos] | 
+%³ : [superíndice tres] | 
+%⁴ : [superíndice cuatro] | 
+%⁵ : [superídnice cinco] | 
+%⁶ : [superíndice seis] | 
+%⁷ : [superíndice siete] | 
+%⁸ : [superíndice ocho] | 
+%⁹ : [superíndice nueve] | 
+%⁺ : [superíndice más] | 
+%⁼ : [superíndice igual] | 
+%⁽ : [superíndice abre paréntesis] | 
+%⁾ : [superíndice cierra paréntesis] | 
+%ⁿ : [superíndice ene] | 
+%₀ : [subíndice cero] | 
+%₁ : [subíndice uno] | 
+%₂ : [subíndice dos] | 
+%₃ : [subíndice tres] | 
+%₄ : [subíndice cuatro] | 
+%₅ : [subíndice cinco] | 
+%₆ : [subíndice seis] | 
+%₇ : [subíndice siete] | 
+%₈ : [subíndice ocho] | 
+%₉ : [subíndice nueve] | 
+%₊ : [subíndice más] | 
+%₋ : [subíndice menos] | 
+%₌ : [subíndice igual] | 
+%₍ : [subíndice abre paréntesis] | 
+%₎ : [subíndice cierra paréntesis] | 
+%® : registrado | 
+%™ : [marca registrada] | 
+%© : [derechos de autor] | 
+%℠ : [marca de servicio] | 
+[%✓|%✔] : marcado | 
+%‣ : [viñeta triangular] | 
+%✗ : [viñeta en forma de equis] | 
+%⊕ : [más rodeado de un círculo] | 
+%⊖ : [menos rodeado de un círculo] | 
+%× : multiplicación | 
+%⋅ : [punto de multiplicación] | 
+%⨯ : [producto cartesiano] | 
+%∕ : [barra de división] | 
+%⁄ : [barra de fracción] | 
+%÷ : división | 
+%∓ : [menos o más] | 
+%± : [más o menos] | 
+%∖ : [conjunto menos] | 
+%⊍ : [unión de conjunto] | 
+[%𝒫|%𝔓|%℘] : [conjunto potencia del conjunto] | 
+%∁ : [complemento del conjunto] | 
+%∅ : [conjunto vacío] | 
+%⊂ : [subconjunto de algo] | 
+%⊄ : [no es un subconjunto de] | 
+%⊃ : [superconjunto de] | 
+%⊅ : [no es un superconjunto de] | 
+%⊆ : [subconjunto de o igual a] | 
+%⊈ : [ni un subconjunto de ni igual a] | 
+%⊇ : [superconjunto de o igual a] | 
+%⊉ : [ni un superconjunto de ni igual a] | 
+%⊌ : [multiconjunto] | 
+%≚ : [equiangular a] | 
+%≬ : entre | 
+%≠ : [no es igual] | 
+%≡ : [idéntico a] | 
+%≣ : [estrictamente idéntico a] | 
+%≢ : [no es idéntico a] | 
+%∼ : [similar a] | 
+%≙ : estimación | 
+%≟ : [cuestionado igual a] | 
+[%≤|%≦] : [menor o igual a] | 
+%≪ : [mucho menor a] | 
+[%≥|%≧] : [mayor o igual a] | 
+%≫ : [mucho mayor a] | 
+%≶ : [menor o mayor que] | 
+%≷ : [mayor o menor que] | 
+%≮ : [no menor que] | 
+%≯ : [no mayor que] | 
+%⁻ : inversa | 
+%∘ : [operador anular] | 
+%∂ : [derivativa parcial] | 
+%∇ : gradiente | 
+%⃗ : [vector entre] | 
+%△ : [triángulo] | 
+%▭ : [rectángulo] | 
+%∟ : [ángulo derecho] | 
+%∠ : ángulo | 
+%∥ : [paralelo a] | 
+%∦ : [no paralelo a] | 
+%⊥ : [perpendicular a] | 
+%⟂ : [ortogonal a] | 
+%‖ : [norma del vector] | 
+%̂ : normalizado | 
+%∿ : [onda sinusoidal] | 
+%∡ : [medida de ángulo] | 
+%∢ : [ángulo esférico] | 
+%∀ : [por todos] | 
+%∃ : existe | 
+%∄ : [no existe] | 
+%⇏ : [no implica] | 
+%⇐ : [está implícito por] | 
+%∈ : [pertenece a] | 
+%∉ : [no pertenece a] | 
+%∊ : [elemento pequeño ] | 
+%∋ : [contiene como miembro] | 
+%∌ : [no contiene como miembro] | 
+%∍ : [contiene como miembro pequeño] | 
+%∎ : [fin de comprobación] | 
+%∏ : [producto aritmético de ene] | 
+%∐ : [coproducto aritmético de ene] | 
+%∑ : [suma aritmética de ene] | 
+%√ : [raíz cuadrada] | 
+%∛ : [raíz cúbica] | 
+%∜ : [raíz cuadrática] | 
+%∝ : [proporcional a] | 
+%∞ : infinito | 
+%∧ : [y lógico] | 
+%∨ : [o lógico] | 
+%¬ : [no lógico] | 
+%∩ : intersección | 
+%∪ : unión | 
+%∫ : integral | 
+%∬ : [doble Integral] | 
+%∭ : [tripple Integral] | 
+%∮ : [contorno Integral] | 
+%∯ : [superficie Integral] | 
+%∰ : [volumen Integral] | 
+%∱ : [Integral en el sentido de las agujas del reloj] | 
+%∲ : [Integral del contorno de las agujas del reloj] | 
+%∳ : [Integral del contorno contrario a las agujas del reloj] | 
+%∴ : [por tanto] | 
+%∵ : porque | 
+%∶ : ratio | 
+%∷ : proporción | 
+%∹ : exceso | 
+%∺ : [proporción geométrica] | 
+%≀ : [producto de la corona] | 
+%≏ : [diferencia entre] | 
+%≐ : [se aproxima al límite] | 
+%∙ : [operador de viñeta] | 
+%∣ : divide | 
+%∤ : [no divide] | 
+%≔ : [dos puntos igual] | 
+%≕ : [igual dos puntos] | 
+%≺ : precede | 
+%≻ : [tiene éxito] | 
+%⊀ : [no precede] | 
+%⊁ : [no tiene éxito] | 
+%¼ : [un cuarto] | 
+%½ : [un medio] | 
+%¾ : [tres cuartos] | 
+%⅐ : [un séptimo] | 
+%⅑ : [un noveno] | 
+%⅒ : [un décimo] | 
+%⅓ : [un tercio] | 
+%⅔ : [dos tercios] | 
+%⅕ : [un quinto] | 
+%⅖ : [dos quintos] | 
+%⅗ : [tres quintos] | 
+%⅘ : [cuatro quintos] | 
+%⅙ : [un sexto] | 
+%⅚ : [cinco sextos] | 
+%⅛ : [un octavo] | 
+%⅜ : [tres octavos] | 
+%⅝ : [cinco octavos] | 
+%⅞ : [siete octavos] | 
+%ℑ : [parte imaginaria de número complejo] | 
+%ℍ : cuaterniones | 
+%ℕ : [números naturales] | 
+%𝕁 : [números no negativos en la forma entera] | 
+%ℚ : [números racionales] | 
+%ℝ : [números reales] | 
+%ℜ : [parte real de número complejo] | 
+%ℤ : enteros | 
+%ℵ : [número aleph] | 
+%ℶ : [número beth] | 
+%⌘ : [tecla commando del Mac] | 
+%⌥ : [tecla Opción del mac] | 
+%⠁ : [braille uno] | 
+%⠂ : [braille dos] | 
+%⠃ : [braille uno dos] | 
+%⠄ : [braille 3] | 
+%⠅ : [braille uno tres] | 
+%⠆ : [braille dos tres] | 
+%⠇ : [braille uno dos tres] | 
+%⠈ : [braille cuatro] | 
+%⠉ : [braille uno cuatro] | 
+%⠊ : [braille dos cuatro] | 
+%⠋ : [braille uno dos cuatro] | 
+%⠌ : [braille tres cuatro] | 
+%⠍ : [braille uno tres cuatro] | 
+%⠎ : [braille dos tres cuatro] | 
+%⠏ : [braille uno dos tres cuatro] | 
+%⠐ : [braille cinco] | 
+%⠑ : [braille uno cinco] | 
+%⠒ : [braille dos cinco] | 
+%⠓ : [braille uno dos cinco] | 
+%⠔ : [braille tres cinco] | 
+%⠕ : [braille uno tres cinco] | 
+%⠖ : [braille dos tres cinco] | 
+%⠗ : [braille uno dos tres cinco] | 
+%⠘ : [braille cuatro cinco] | 
+%⠙ : [braille uno cuatro cinco] | 
+%⠚ : [braille dos cuatro cinco] | 
+%⠛ : [braille uno dos cuatro cinco] | 
+%⠜ : [braille tres cuatro cinco] | 
+%⠝ : [braille uno tres cuatro cinco] | 
+%⠞ : [braille dos tres cuatro cinco] | 
+%⠟ : [braille uno dos tres cuatro cinco] | 
+%⠠ : [braille seis] | 
+%⠡ : [braille uno seis] | 
+%⠢ : [braille dos seis] | 
+%⠣ : [braille uno dos seis] | 
+%⠤ : [braille tres seis] | 
+%⠥ : [braille uno tres seis] | 
+%⠦ : [braille dos tres seis] | 
+%⠧ : [braille uno dos tres seis] | 
+%⠨ : [braille cuatro seis] | 
+%⠩ : [braille uno cuatro seis] | 
+%⠪ : [braille dos cuatro seis] | 
+%⠫ : [braille uno dos cuatro seis] | 
+%⠬ : [braille tres cuatro seis] | 
+%⠭ : [braille uno tres cuatro seis] | 
+%⠮ : [braille dos tres cuatro seis] | 
+%⠯ : [braille uno dos tres cuatro seis] | 
+%⠰ : [braille cinco seis] | 
+%⠱ : [braille uno cinco seis] | 
+%⠲ : [braille dos cinco seis] | 
+%⠳ : [braille uno dos cinco seis] | 
+%⠴ : [braille tres cinco seis] | 
+%⠵ : [braille uno tres cinco seis] | 
+%⠶ : [braille dos tres cinco seis] | 
+%⠷ : [braille uno dos tres cinco seis] | 
+%⠸ : [braille cuatro cinco seis] | 
+%⠹ : [braille uno cuatro cinco seis] | 
+%⠺ : [braille dos cuatro cinco seis] | 
+%⠻ : [braille uno dos cuatro cinco seis] | 
+%⠼ : [braille tres cuatro cinco seis] | 
+%⠽ : [braille uno tres cuatro cinco seis] | 
+%⠾ : [braille dos tres cuatro cinco seis] | 
+%⠿ : [braille uno dos tres cuatro cinco seis] | 
+%⡀ : [braille siete] | 
+%⡁ : [braille uno siete] | 
+%⡂ : [braille dos siete] | 
+%⡃ : [braille uno dos siete] | 
+%⡄ : [braille tres siete] | 
+%⡅ : [braille uno tres siete] | 
+%⡆ : [braille dos tres siete] | 
+%⡇ : [braille uno dos tres siete] | 
+%⡈ : [braille cuatro siete] | 
+%⡉ : [braille uno cuatro siete] | 
+%⡊ : [braille dos cuatro siete] | 
+%⡋ : [braille uno dos cuatro siete] | 
+%⡌ : [braille tres cuatro siete] | 
+%⡍ : [braille uno tres cuatro siete] | 
+%⡎ : [braille dos tres cuatro siete] | 
+%⡏ : [braille uno dos tres cuatro siete] | 
+%⡐ : [braille cinco siete] | 
+%⡑ : [braille uno cinco siete] | 
+%⡒ : [braille dos cinco siete] | 
+%⡓ : [braille uno dos cinco siete] | 
+%⡔ : [braille tres cinco siete] | 
+%⡕ : [braille uno tres cinco siete] | 
+%⡖ : [braille dos tres cinco siete] | 
+%⡗ : [braille uno dos tres cinco siete] | 
+%⡘ : [braille cuatro cinco siete] | 
+%⡙ : [braille uno cuatro cinco siete] | 
+%⡚ : [braille dos cuatro cinco siete] | 
+%⡛ : [braille uno dos cuatro cinco siete] | 
+%⡜ : [braille tres cuatro cinco siete] | 
+%⡝ : [braille uno tres cuatro cinco siete] | 
+%⡞ : [braille dos tres cuatro cinco siete] | 
+%⡟ : [braille uno dos tres cuatro cinco siete] | 
+%⡠ : [braille seis siete] | 
+%⡡ : [braille uno seis siete] | 
+%⡢ : [braille dos seis siete] | 
+%⡣ : [braille uno dos seis siete] | 
+%⡤ : [braille tres seis siete] | 
+%⡥ : [braille uno tres seis siete] | 
+%⡦ : [braille dos tres seis siete] | 
+%⡧ : [braille uno dos tres seis siete] | 
+%⡨ : [braille cuatro seis siete] | 
+%⡩ : [braille uno cuatro seis siete] | 
+%⡪ : [braille dos cuatro seis siete] | 
+%⡫ : [braille uno dos cuatro seis siete] | 
+%⡬ : [braille tres cuatro seis siete] | 
+%⡭ : [braille uno tres cuatro seis siete] | 
+%⡮ : [braille dos tres cuatro seis siete] | 
+%⡯ : [braille uno dos tres cuatro seis siete] | 
+%⡰ : [braille cinco seis siete] | 
+%⡱ : [braille uno cinco seis siete] | 
+%⡲ : [braille dos cinco seis siete] | 
+%⡳ : [braille uno dos cinco seis siete] | 
+%⡴ : [braille tres cinco seis siete] | 
+%⡵ : [braille uno tres cinco seis siete] | 
+%⡶ : [braille dos tres cinco seis siete] | 
+%⡷ : [braille uno dos tres cinco seis siete] | 
+%⡸ : [braille uno dos tres siete] | 
+%⡹ : [braille uno cuatro cinco seis siete] | 
+%⡺ : [braille dos cuatro cinco seis siete] | 
+%⡻ : [braille uno dos cuatro cinco seis siete] | 
+%⡼ : [braille tres cuatro cinco seis siete] | 
+%⡽ : [braille uno tres cuatro cinco seis siete] | 
+%⡾ : [braille dos tres cuatro cinco seis siete] | 
+%⡿ : [braille uno dos tres cuatro cinco seis siete] | 
+%⢀ : [braille ocho] | 
+%⢁ : [braille uno ocho] | 
+%⢂ : [braille dos ocho] | 
+%⢃ : [braille uno dos ocho] | 
+%⢄ : [braille tres ocho] | 
+%⢅ : [braille uno tres ocho] | 
+%⢆ : [braille dos tres ocho] | 
+%⢇ : [braille uno dos tres ocho] | 
+%⢈ : [braille cuatro ocho] | 
+%⢉ : [braille uno cuatro ocho] | 
+%⢊ : [braille dos cuatro ocho] | 
+%⢋ : [braille uno dos cuatro ocho] | 
+%⢌ : [braille tres cuatro ocho] | 
+%⢍ : [braille uno tres cuatro ocho] | 
+%⢎ : [braille dos tres cuatro ocho] | 
+%⢏ : [braille uno dos tres cuatro ocho] | 
+%⢐ : [braille cinco ocho] | 
+%⢑ : [braille uno cinco ocho] | 
+%⢒ : [braille dos cinco ocho] | 
+%⢓ : [braille uno dos cinco ocho] | 
+%⢔ : [braille tres cinco ocho] | 
+%⢕ : [braille uno tres cinco ocho] | 
+%⢖ : [braille dos tres cinco ocho] | 
+%⢗ : [braille uno dos tres cinco ocho] | 
+%⢘ : [braille cuatro cinco ocho] | 
+%⢙ : [braille uno cuatro cinco ocho] | 
+%⢚ : [braille dos cuatro cinco ocho] | 
+%⢛ : [braille uno dos cuatro cinco ocho] | 
+%⢜ : [braille tres cuatro cinco ocho] | 
+%⢝ : [braille uno tres cuatro cinco ocho] | 
+%⢞ : [braille dos tres cuatro cinco ocho] | 
+%⢟ : [braille uno dos tres cuatro cinco ocho] | 
+%⢠ : [braille seis ocho] | 
+%⢡ : [braille uno seis ocho] | 
+%⢢ : [braille dos seis ocho] | 
+%⢣ : [braille uno dos seis ocho] | 
+%⢤ : [braille tres seis ocho] | 
+%⢥ : [braille uno tres seis ocho] | 
+%⢦ : [braille dos tres seis ocho] | 
+%⢧ : [braille uno dos tres seis ocho] | 
+%⢨ : [braille cuatro seis ocho] | 
+%⢩ : [braille uno cuatro seis ocho] | 
+%⢪ : [braille dos cuatro seis ocho] | 
+%⢫ : [braille uno dos cuatro seis ocho] | 
+%⢬ : [braille tres cuatro seis ocho] | 
+%⢭ : [braille uno tres cuatro seis ocho] | 
+%⢮ : [braille dos tres cuatro seis ocho] | 
+%⢯ : [braille uno dos tres cuatro seis ocho] | 
+%⢰ : [braille cinco seis ocho] | 
+%⢱ : [braille uno cinco seis ocho] | 
+%⢲ : [braille dos cinco seis ocho] | 
+%⢳ : [braille uno dos cinco seis ocho] | 
+%⢴ : [braille tres cinco seis ocho] | 
+%⢵ : [braille uno tres cinco seis ocho] | 
+%⢶ : [braille dos tres cinco seis ocho] | 
+%⢷ : [braille uno dos tres cinco seis ocho] | 
+%⢸ : [braille uno dos tres ocho] | 
+%⢹ : [braille uno cuatro cinco seis ocho] | 
+%⢺ : [braille dos cuatro cinco seis ocho] | 
+%⢻ : [braille uno dos cuatro cinco seis ocho] | 
+%⢼ : [braille tres cuatro cinco seis ocho] | 
+%⢽ : [braille uno tres cuatro cinco seis ocho] | 
+%⢾ : [braille dos tres cuatro cinco seis ocho] | 
+%⢿ : [braille uno dos tres cuatro cinco seis ocho] | 
+%⣀ : [braille siete ocho] | 
+%⣁ : [braille uno siete ocho] | 
+%⣂ : [braille dos siete ocho] | 
+%⣃ : [braille uno dos siete ocho] | 
+%⣄ : [braille tres siete ocho] | 
+%⣅ : [braille uno tres siete ocho] | 
+%⣆ : [braille dos tres siete ocho] | 
+%⣇ : [braille uno dos tres siete ocho] | 
+%⣈ : [braille cuatro siete ocho] | 
+%⣉ : [braille uno cuatro siete ocho] | 
+%⣊ : [braille dos cuatro siete ocho] | 
+%⣋ : [braille uno dos cuatro siete ocho] | 
+%⣌ : [braille tres cuatro siete ocho] | 
+%⣍ : [braille uno tres cuatro siete ocho] | 
+%⣎ : [braille dos tres cuatro siete ocho] | 
+%⣏ : [braille uno dos tres cuatro siete ocho] | 
+%⣐ : [braille cinco siete ocho] | 
+%⣑ : [braille uno cinco siete ocho] | 
+%⣒ : [braille dos cinco siete ocho] | 
+%⣓ : [braille uno dos cinco siete ocho] | 
+%⣔ : [braille tres cinco siete ocho] | 
+%⣕ : [braille uno tres cinco siete ocho] | 
+%⣖ : [braille dos tres cinco siete ocho] | 
+%⣗ : [braille uno dos tres cinco siete ocho] | 
+%⣘ : [braille cuatro cinco siete ocho] | 
+%⣙ : [braille uno cuatro cinco siete ocho] | 
+%⣚ : [braille dos cuatro cinco siete ocho] | 
+%⣛ : [braille uno dos cuatro cinco siete ocho] | 
+%⣜ : [braille tres cuatro cinco siete ocho] | 
+%⣝ : [braille uno tres cuatro cinco siete ocho] | 
+%⣞ : [braille dos tres cuatro cinco siete ocho] | 
+%⣟ : [braille uno dos tres cuatro cinco siete ocho] | 
+%⣠ : [braille seis siete ocho] | 
+%⣡ : [braille uno seis siete ocho] | 
+%⣢ : [braille dos seis siete ocho] | 
+%⣣ : [braille uno dos seis siete ocho] | 
+%⣤ : [braille tres seis siete ocho] | 
+%⣥ : [braille uno tres seis siete ocho] | 
+%⣦ : [braille dos tres seis siete ocho] | 
+%⣧ : [braille uno dos tres seis siete ocho] | 
+%⣨ : [braille cuatro seis siete ocho] | 
+%⣩ : [braille uno cuatro seis siete ocho] | 
+%⣪ : [braille dos cuatro seis siete ocho] | 
+%⣫ : [braille uno dos cuatro seis siete ocho] | 
+%⣬ : [braille tres cuatro seis siete ocho] | 
+%⣭ : [braille uno tres cuatro seis siete ocho] | 
+%⣮ : [braille dos tres cuatro seis siete ocho] | 
+%⣯ : [braille uno dos tres cuatro seis siete ocho] | 
+%⣰ : [braille cinco seis siete ocho] | 
+%⣱ : [braille uno cinco seis siete ocho] | 
+%⣲ : [braille dos cinco seis siete ocho] | 
+%⣳ : [braille uno dos cinco seis siete ocho] | 
+%⣴ : [braille tres cinco seis siete ocho] | 
+%⣵ : [braille uno tres cinco seis siete ocho] | 
+%⣶ : [braille dos tres cinco seis siete ocho] | 
+%⣷ : [braille uno dos tres cinco seis siete ocho] | 
+%⣸ : [braille uno dos tres siete ocho] | 
+%⣹ : [braille uno cuatro cinco seis siete ocho] | 
+%⣺ : [braille dos cuatro cinco seis siete ocho] | 
+%⣻ : [braille uno dos cuatro cinco seis siete ocho] | 
+%⣼ : [braille tres cuatro cinco seis siete ocho] | 
+%⣽ : [braille uno tres cuatro cinco seis siete ocho] | 
+%⣾ : [braille dos tres cuatro cinco seis siete ocho] | 
+%⣿ : [braille uno dos tres cuatro cinco seis siete ocho] | 
 %ª : [ordinal femenino] | 
 %º : [ordinal masculino] ; 
 
