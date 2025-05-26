@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+source variables.foma
+
 define UnstressedWords 
 {aunque} | {hacia} | {hasta} | {bajo} | {contra} | {como} | {cuando} | {cuanto} | {desde} | {donde} | {durante} | 
 [{haya}(n|s)] | 
@@ -29,9 +31,6 @@ define UnstressedWords
 define UnstressedWordsTag 
 [..] @-> Uns || .#. UnstressedWords _ .#. ,, 
 {hace} @-> MakeTag || .#. _ .#. ; 
-
-define vocal 
-[a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|uc|j|w|yc] ; 
 
 define deshChange 
 # Let's remove the h when it comes to Spanish prefixes des and tras: deshacer, trashumar.

@@ -18,9 +18,7 @@
 define PB %- | .#. ; 
 # Word boundary (words of the utterance)
 define WB %# | PB ; 
-# Vowels for approximants or allophones.
-define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|uc|j|w|yc] ; 
-
+source variables.foma
 # Here, we apply approximants through the whole utterance, same that we did in g2p but with word boundaries between vowels.
 # For example, el dado de Dabid. Between o (dado) and d (de) and "de" and "David" are the intervocalic d.
 # So, as a result, it sould be "el daDo De DaVid". The mayus d is the aproximant.

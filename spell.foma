@@ -13,17 +13,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-define Digit 
-%0 : cero | 
-1:uno | 
-2:dos | 
-3:trés | 
-4:cuatro | 
-5:cinco | 
-6:seis | 
-7:siete | 
-8:ocho | 
-9:nueve ; 
+source variables.foma
 
 define RegularLetter 
 # regular letters:
