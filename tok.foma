@@ -15,7 +15,7 @@
 
 source romans.foma
 
-define Apos %' ; 
+define Apos %'|%‘|%’ ; 
 define CaseVariants 
 a -> a|A , 
 á -> á|Á , 
