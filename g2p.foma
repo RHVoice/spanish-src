@@ -32,6 +32,9 @@ define UnstressedWordsTag
 [..] @-> Uns || .#. UnstressedWords _ .#. ,, 
 {hace} @-> MakeTag || .#. _ .#. ; 
 
+define StressedForms 
+[..] @-> Stressf || .#. [[{a}|{e}|{i}|{o}|{u}] h]|[h [{i}|{o}|{u}]] _ .#. ; 
+
 define deshChange 
 # Let's remove the h when it comes to Spanish prefixes des and tras: deshacer, trashumar.
 h:0 @-> || .#. [{des}|{tras}] _ vocal ; 
@@ -238,16 +241,20 @@ define Stage2
 TranscribeConsonant @-> ; 
 
 define ModifierRule 
-modifier @-> 0 || .#. ([Consonant|i|u]) _ vocal , Consonant _ .#. , vocal _ Consonant .#. ; 
+modifier @-> 0 || .#. ([Consonant|i|u]) _ vocal , Consonant _ .#. , vocal _ (Consonant) .#. ; 
 
 define RenameY YAsVowel @-> i ; 
 
 define Stage3 
 SpanishRules @-> ; 
 
+define StressFormRule 
+stresses @-> || .#. _ (modifier) Stressf .#. ; 
+
 define rules 
 deshChange .o. 
 UnstressedWordsTag .o. 
+StressedForms .o. 
 Stage1 .o. 
 Stage2 .o. 
 ModifierRule .o. 
@@ -262,9 +269,10 @@ approximants .o.
 unstress .o. 
 dhipthongStress .o. 
 MonosylStress .o. 
+StressFormRule .o. 
 SpanishStress .o. 
 SpanishStress2 .o. 
-[Uns|modifier @-> 0] ; 
+[Uns|modifier|Stressf @-> 0] ; 
 
 regex 
 [exceptions .P. rules] ; 
