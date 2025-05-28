@@ -30,12 +30,13 @@ define RegularLetter
 [e|E]:e | 
 [É|é]:[é agudo] | 
 [Ë|ë]:[é diéresis] | 
-[Ê|ê]:[ê circunflejo] | 
+[Ê|ê]:[é circunflejo] | 
 [f|F]:efe | 
 [g|G]:gé | 
 [h|H]:ache | 
 [i|I]:i | 
 [í|Í]:[í agudo] | 
+[î|Î]:[í circunflejo] | 
 [ï|Ï]:[í diéresis] | 
 [j|J]:jota | 
 [k|K]:ca | 
@@ -46,8 +47,8 @@ define RegularLetter
 [o|O]:o | 
 [Ó|ó]:[ó agudo] | 
 [Ö|ö]:[ó diéresis] | 
-[Ô|ô]:[ô circunflejo] | 
-[Õ|õ]:[ô tilde] | 
+[Ô|ô]:[ó circunflejo] | 
+[Õ|õ]:[ó tilde] | 
 [Ö|ö]:[ô diéresis] | 
 [p|P]:pe | 
 [q|Q]:qu | 
@@ -56,6 +57,7 @@ define RegularLetter
 [t|T]:té | 
 [u|U]:u | 
 [Ú|ú]:[ú agudo] | 
+[û|Û]:[ú circunflejo] | 
 [Ü|ü]:[ú diéresis] | 
 [v|V]:uve | 
 [w|W]:[uve doble] | 

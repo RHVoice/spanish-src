@@ -238,7 +238,7 @@ define Stage2
 TranscribeConsonant @-> ; 
 
 define ModifierRule 
-modifier @-> 0 || .#. ([Consonant|i|u]) _ vocal , Consonant _ .#. ; 
+modifier @-> 0 || .#. ([Consonant|i|u]) _ vocal , Consonant _ .#. , vocal _ Consonant .#. ; 
 
 define RenameY YAsVowel @-> i ; 
 
