@@ -200,6 +200,29 @@ define NormalizeCharacters
 ˣ -> x || _ ,, 
 ʸ -> y || _ ,, 
 ᶻ -> z || _ ,, 
+ᴀ -> a || _ ,, 
+ʙ -> b || _ ,, 
+ᴄ -> c || _ ,, 
+ᴅ -> d || _ ,, 
+ᴇ -> e || _ ,, 
+ꜰ -> f || _ ,, 
+ɢ -> g || _ ,, 
+ʜ -> h || _ ,, 
+ɪ -> i || _ ,, 
+ᴊ -> j || _ ,, 
+ᴋ -> k || _ ,, 
+ʟ -> l || _ ,, 
+ᴍ -> m || _ ,, 
+ɴ -> n || _ ,, 
+ᴏ -> o || _ ,, 
+ᴘ -> p || _ ,, 
+ʀ -> r || _ ,, 
+ᴛ -> t || _ ,, 
+ᴜ -> u || _ ,, 
+ᴠ -> v || _ ,, 
+ᴡ -> w || _ ,, 
+ʏ -> y || _ ,, 
+ᴢ -> z || _ ,, 
 # Bubble style
 [ⓐ|Ⓐ] -> a || _ ,, 
 [ⓑ|Ⓑ] -> b || _ ,, 
@@ -523,6 +546,29 @@ define NormalizeCharactersSpell
 [ˣ:[equis pequeña]]|
 [ʸ:[i griega pequeña]]|
 [ᶻ:[ceta pequeña]]|
+[ᴀ:[a pequeña]]|
+[ʙ:[bé pequeña]]|
+[ᴄ:[cé pequeña]]|
+[ᴅ:[dé pequeña]]|
+[ᴇ:[e pequeña]]|
+[ꜰ:[efe pequeña]]|
+[ɢ:[ge pequeña]]|
+[ʜ:[ache pequeña]]|
+[ɪ:[i pequeña]]|
+[ᴊ:[jota pequeña]]|
+[ᴋ:[ca pequeña]]|
+[ʟ:[ele pequeña]]|
+[ᴍ:[eme pequeña]]|
+[ɴ:[ene pequeña]]|
+[ᴏ:[o pequeña]]|
+[ᴘ:[pe pequeña]]|
+[ʀ:[erre pequeña]]|
+[ᴛ:[té pequeña]]|
+[ᴜ:[u pequeña]]|
+[ᴠ:[uve pequeña]]|
+[ᴡ:[uve doble pequeña]]|
+[ʏ:[i griega pequeña]]|
+[ᴢ:[ceta pequeña]]|
 # Bubble style
 [[ⓐ|Ⓐ]:[a]]|
 [[ⓑ|Ⓑ]:[bé]]|
@@ -843,6 +889,29 @@ define NormalizeCharactersLseq
 [ˣ:[e1 k i s]]|
 [ʸ:[i1 g r j e1 gh a]]|
 [ᶻ:[c e1 t a]]|
+[ᴀ:[a1]]|
+[ʙ:[b e1]]|
+[ᴄ:[c e1]]|
+[ᴅ:[d e1]]|
+[ᴇ:[e1]]|
+[ꜰ:[e1 f e]]|
+[ɢ:[x e1]]|
+[ʜ:[a1 ts e]]|
+[ɪ:[i1]]|
+[ᴊ:[x o1 t a]]|
+[ᴋ:[k a1]]|
+[ʟ:[e1 l e]]|
+[ᴍ:[e1 m e]]|
+[ɴ:[e1 n e]]|
+[ᴏ:[o1]]|
+[ᴘ:[p e1]]|
+[ʀ:[e1 rr e]]|
+[ᴛ:[t e1]]|
+[ᴜ:[u1]]|
+[ᴠ:[u1 vh e]]|
+[ᴡ:[u1 vh e dh o1 b l e]]|
+[ʏ:[i1 g r j e1 gh a]]|
+[ᴢ:[c e1 t a]]|
 # Bubble style:
 [[ⓐ|Ⓐ]:[a1]]|
 [[ⓑ|Ⓑ]:[b e1]]|
