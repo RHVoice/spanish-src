@@ -190,10 +190,10 @@ define WordMidRules
 
 define WordEndRules 
 # handling of closed vowel y to the end of word. Pley, soy, estoy, voy, hay, etc.
-[a YAsVowel] -> [a yc] || _ .#. ,, # hay alguien aquí?
-[e YAsVowel] -> [e yc] || _ .#. ,, # vacabuey, rey, ley.
-[o YAsVowel] -> [o yc] || _ .#. ,, # voy, soy, estoy.
-[u YAsVowel] -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
+[a YAsVowel] -> [a yc] || _ (Consonant|modifier) .#. ,, # hay alguien aquí?
+[e YAsVowel] -> [e yc] || _ (Consonant|modifier) .#. ,, # vacabuey, rey, ley.
+[o YAsVowel] -> [o yc] || _ (Consonant|modifier) .#. ,, # voy, soy, estoy.
+[u YAsVowel] -> [u j] || _ (Consonant|modifier) .#. ,, # muy, cuy, Chuy, juyayay.
 # The following is especially for foreign words.
 [i n g] -> [i n] || _ .#. ,, 
 # now, when a words ends with c, convert to k.
