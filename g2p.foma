@@ -33,7 +33,7 @@ define UnstressedWordsTag
 {hace} @-> MakeTag || .#. _ .#. ; 
 
 define StressedForms 
-[..] @-> Stressf || .#. [[{a}|{e}|{i}|{o}|{u}] h]|[h [{i}|{o}|{u}]] _ .#. ; 
+[..] @-> Stressf || .#. [a|e|i|o|u] h _ .#., .#. h [i|o|u] _ .#. ; 
 
 define deshChange 
 # Let's remove the h when it comes to Spanish prefixes des and tras: deshacer, trashumar.
