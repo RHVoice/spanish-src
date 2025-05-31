@@ -15,6 +15,7 @@
 
 source romans.foma
 
+define Apos %'|%‘|%’ ; 
 define CaseVariants 
 a -> a|A , 
 á -> á|Á , 
@@ -77,7 +78,7 @@ define Digit %0|NZDigit;
 #define dateSep %/ ; 
 define Number  %0 | [NZDigit Digit*];
 define DecimalSeparator %.|%,;
-define Word Letter+ | ExceptionalWord ;
+define Word [Letter+ [Apos Letter+]*] | ExceptionalWord ;
 define Symbol \[Letter | Digit] ; 
 #define Date [Digit^2 dateSep Digit^2 dateSep Digit^4] ; 
 
@@ -92,21 +93,28 @@ NZDigit Digit* @-> ... num ,,
 Symbol @-> ... sym || _ ; 
 
 define Stage2 
+# SplitWordsWhenCamelCase, so voices canInterpretAsSeparateWords InsteadOfOnlyOne
+[..] -> word || [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel]+ _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel]+ ,, 
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
 
 define Stage3 
 # Custom LSeq handling:
 [..] -> lseq || [CapitalLetter|CapitalVowel] _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel] ,, 
 word -> lseq || 
-.#. CapitalLetter^2 CapitalVowel _ (Symbol sym) .#. , 
-.#. CapitalLetter^3 CapitalVowel _ (Symbol sym) .#. , 
-.#. CapitalLetter^4 CapitalVowel _ (Symbol sym) .#. , 
-.#. CapitalVowel CapitalLetter^2 _ (Symbol sym) .#. , 
-.#. CapitalVowel CapitalLetter^3 _ (Symbol sym) .#. , 
-.#. CapitalLetter CapitalVowel CapitalLetter^2 _ (Symbol sym) .#. , 
-.#. CapitalLetter CapitalVowel CapitalLetter^3 _ (Symbol sym) .#. , 
-.#. X CapitalVowel CapitalLetter _ (Symbol sym) .#. , 
-.#. CapitalLetter CapitalVowel W _ (Symbol sym) .#. ; 
+.#. (Symbol sym) CapitalLetter^2 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalLetter^3 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalLetter^4 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalLetter^5 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalVowel CapitalLetter^5 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalLetter CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalLetter CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalLetter CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalLetter^2 CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) X CapitalVowel CapitalLetter _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Symbol sym) CapitalLetter CapitalVowel W _ (Symbol sym) (Symbol sym) (Symbol sym) .#. ; 
 
 define Stage4 
 word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ,, 

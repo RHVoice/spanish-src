@@ -13,22 +13,11 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-define NZDigit 
-1:uno | 
-2:dos | 
-3:tres | 
-4:kuatro | 
-5:cinco | 
-6:seis | 
-7:siete | 
-8:ocho | 
-9:nueve ;
-
-define Digit [%0 : cero] | NZDigit;
+source variables.foma
 
 define Number 
-NZDigit | 
-[[1:diez|2:veinti] [%0:0|NZDigit]] ;
+Unit | 
+[[1:diez|2:veinti] [%0:0|Unit]] ;
 
 define Plus %+ : más;
 define Minus %- : menos;

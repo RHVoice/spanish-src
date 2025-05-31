@@ -46,7 +46,8 @@ V -> v || _ ,,
 W -> w || _ ,, 
 X -> x || _ ,, 
 Y -> y || _ ,, 
-Z -> z || _ ; 
+Z -> z || _ ,, 
+%‘|%’ -> %' || _ ; 
 
 source special_chars.foma
 
