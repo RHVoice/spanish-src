@@ -251,6 +251,10 @@ SpanishRules @-> ;
 define StressFormRule 
 stresses @-> || .#. _ (modifier) Stressf .#. ; 
 
+define ohiRule 
+# prohibamos, prohibido, prohibiciones, prohibición, prohibid, prohibid, etc.
+i0:yc @-> || [o0 modifier] _ ; 
+
 define rules 
 deshChange .o. 
 UnstressedWordsTag .o. 
@@ -272,6 +276,7 @@ MonosylStress .o.
 StressFormRule .o. 
 SpanishStress .o. 
 SpanishStress2 .o. 
+ohiRule .o. 
 [Uns|modifier|Stressf @-> 0] ; 
 
 regex 
