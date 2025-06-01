@@ -13,9 +13,12 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# Spanish Grapheme to Phoneme (g2p) for RHVoice.
+
 source variables.foma
 
 define UnstressedWords 
+# This is the special word list to be unstressed. That means, these words doesn't have intonation / stress mark, marked by 1 (ones).
 {aunque} | {hacia} | {hasta} | {bajo} | {contra} | {como} | {cuando} | {cuanto} | {desde} | {donde} | {durante} | 
 [{haya}(n|s)] | 
 {hemos} | {mediante} | {mientras} | {pero} | {porque} | 
@@ -29,15 +32,20 @@ define UnstressedWords
 {al} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {que} | {se} | {si} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
 
 define UnstressedWordsTag 
-[..] @-> Uns || .#. UnstressedWords _ .#. ,, 
-{hace} @-> MakeTag || .#. _ .#. ; 
+[..] @-> Uns || .#. UnstressedWords _ .#. ,, # Prevent touching these words by the stress rule, just phonemize only.
+{hace} @-> MakeTag || .#. _ .#. ; # this is a special case we will need to handle latter for time reference to predict stress. "Hace unas horas", "hace mucho frío".
 
 define StressedForms 
+# A vowel preceded by h should be stressed, and a h preceded by vowel as well, except for "ha" and "he" which are conjuntions.
 [..] @-> Stressf || .#. [a|e|i|o|u] h _ .#., .#. h [i|o|u] _ .#. ; 
 
 define deshChange 
-# Let's remove the h when it comes to Spanish prefixes des and tras: deshacer, trashumar.
+# Let's remove the h when it comes to Spanish prefixes des- and tras-, for example: deshacer, trashumar.
+# Because this is pronounced as s (de /s acer), not sh (de /sh acer). We have a phoneme called sh for foreign words.
+# In summary, prevent sh in the following prefixes:
 h:0 @-> || .#. [{des}|{tras}] _ vocal ; 
+
+# general transcription rules:
 
 define TranscribeVowel 
 a:a | 
@@ -111,7 +119,7 @@ q:k |
 [q u i1]:[k i1] | # sequía
 w:u | # Change to a u sound for some cases.
 x:{ks} | # Existe, éxito
-y:YAsVowel | 
+y:YAsVowel | # Y can be a vowel or a consonant. When "y" is followed by a vowel, it is a phoneme, /y. When not, it is a vowel, /i.
 {ya}:[Y a] | 
 [y a1]:[Y a1] | 
 {ye}:[Y e] | 
@@ -207,6 +215,7 @@ define approximants
 {v} (modifier) -> vh || vocal _ vocal ; 
 
 define exceptions 
+# There are special words having own phonemes.
 [[{wi} (%-) {fi}] : [w a0 yc f a1 yc]] | 
 [{a.c.} : [a1 n t e0 s d e0 k r i1 s t o0]] | 
 [{a.m.} : [d e0 l a0 m a0 ni a1 n a0]] | 
@@ -252,7 +261,7 @@ define StressFormRule
 stresses @-> || .#. _ (modifier) Stressf .#. ; 
 
 define ohiRule 
-# prohibamos, prohibido, prohibiciones, prohibición, prohibid, prohibid, etc.
+# prohibamos, prohibido, prohibiciones, prohibición, prohibid, prohibida, etc.
 i0:yc @-> || [o0 modifier] _ ; 
 
 define rules 
