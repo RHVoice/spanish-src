@@ -5,6 +5,12 @@
 # are demonstrating how to do in Spanish. Also, please note that you will need to specify your date format 
 # in the tokenizer, placing it in the future tokenization type called date, so the date FST can run in 
 # these cases when a date is found according to your language.
+
+# Advice: Please do not implement date support in Numbers.foma. Although we did previously and we got 
+# very good results, some users may not preffer date support. Let numbers.foma for number processing only. 
+# Wait until this date token type to be added and configureable through the core. This way, users can 
+# enable or disable date support. However, This  feature needs a conditional tokenizer.
+
 # In this case, the separator is / (slash) that helps to identify and translate a date.
 define NZDig 1|2|3|4|5|6|7|8|9 ; 
 define Dig %0|NZDig ; 
