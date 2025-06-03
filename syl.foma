@@ -30,7 +30,7 @@ Nucleus @-> %{ ... %} ;
 define Onset 
 0 | Consonant | 
 {bl} | {bj} | {br} | [b r j] | {bw} | [bh j] | [bh w] | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh j] | [dh w] | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | [g r [j|w]] | {gw} | [gh j] | [gh  w] | {kl} | {kj} | {kr} | 
-{kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | [vh j] | [vh w] | {mj} | {nj} | {sj} | {nw} | {rw} ; 
+{kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | [vh j] | [vh w] | {mj} | {nj} | {sj} | {nw} | {rw} | [sh j] [sh w] ; 
 
 define Syllable 
 #[Nucleus | a | e | o] %{ i | u %} Consonant* | # Au, da, cia. A, e, o, after "i" or "u", is a syllable, then any Consonant.
