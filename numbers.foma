@@ -234,7 +234,7 @@ define RemoveThousandsSeparators
 %. -> 0 ; 
 
 define fixes2 
-uno -> un || _ [mil|millón|billón|trillón] ; 
+[uno:un | veintiuno:veintiún] -> || _ [mil|millón|billón|trillón] ; 
 
 define NumberRules 
 Number .o. 
