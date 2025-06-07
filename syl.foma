@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+source variables.foma
+
 define Nucleus 
 [[a | a0 | a1 | 
 e | e0 | e1 | 
@@ -25,13 +27,10 @@ u | u0 | u1 ;
 define MarkNuclei 
 Nucleus @-> %{ ... %} ; 
 
-define Consonant 
-b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|vh|w|yc|zh ; 
-
 define Onset 
 0 | Consonant | 
-{bl} | {bj} | {br} | [b r j] | {bw} | [bh j] | [bh w] | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh j] | [dh w] | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | {gw} | [gh j] | [gh  w] | {kl} | {kj} | {kr} | 
-{kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | [vh j] | [vh w] | {mj} | {nj} | {sj} | {nw} | {rw} | y ; 
+{bl} | {bj} | {br} | [b r j] | {bw} | [bh j] | [bh w] | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh j] | [dh w] | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | [g r [j|w]] | {gw} | [gh j] | [gh  w] | {kl} | {kj} | {kr} | 
+{kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | [vh j] | [vh w] | {mj} | {nj} | {sj} | {nw} | {rw} | [sh j] | [sh w] ; 
 
 define Syllable 
 #[Nucleus | a | e | o] %{ i | u %} Consonant* | # Au, da, cia. A, e, o, after "i" or "u", is a syllable, then any Consonant.

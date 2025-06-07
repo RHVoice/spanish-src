@@ -83,6 +83,26 @@ define Roman66 Roman60 Roman6 ;
 define Roman67 Roman60 Roman7 ; 
 define Roman68 Roman60 Roman8 ; 
 define Roman69 Roman60 Roman9 ; 
+define Roman70 Roman50 Roman20 ; 
+define Roman71 Roman70 Roman1 ; 
+define Roman72 Roman70 Roman2 ; 
+define Roman73 Roman70 Roman3 ; 
+define Roman74 Roman70 Roman4 ; 
+define Roman75 Roman70 Roman5 ; 
+define Roman76 Roman70 Roman6 ; 
+define Roman77 Roman70 Roman7 ; 
+define Roman78 Roman70 Roman8 ; 
+define Roman79 Roman70 Roman9 ; 
+define Roman80 Roman50 Roman30 ; 
+define Roman81 Roman80 Roman1 ; 
+define Roman82 Roman80 Roman2 ; 
+define Roman83 Roman80 Roman3 ; 
+define Roman84 Roman80 Roman4 ; 
+define Roman85 Roman80 Roman5 ; 
+define Roman86 Roman80 Roman6 ; 
+define Roman87 Roman80 Roman7 ; 
+define Roman88 Roman80 Roman8 ; 
+define Roman89 Roman80 Roman9 ; 
 
 define RomanMapping 
 Roman1 : 1 | 
@@ -154,4 +174,24 @@ Roman65 : {65} |
 Roman66 : {66} | 
 Roman67 : {67} | 
 Roman68 : {68} | 
-Roman69 : {69} ; 
+Roman69 : {69} | 
+Roman70 : {70} | 
+Roman71 : {71} | 
+Roman72 : {72} | 
+Roman73 : {73} | 
+Roman74 : {74} | 
+Roman75 : {75} | 
+Roman76 : {76} | 
+Roman77 : {77} | 
+Roman78 : {78} | 
+Roman79 : {79} | 
+Roman80 : {80} | 
+Roman81 : {81} | 
+Roman82 : {82} | 
+Roman83 : {83} | 
+Roman84 : {84} | 
+Roman85 : {85} | 
+Roman86 : {86} | 
+Roman87 : {87} | 
+Roman88 : {88} | 
+Roman89 : {89} ; 

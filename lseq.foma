@@ -1,4 +1,4 @@
-# Copyright (C) 2024  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -18,7 +18,6 @@ a:a1 |
 á:a1 | 
 b:[b e1] |
 c:[c e1] |
-{ch}:[ts e1] |
 d:[d e1] |
 e:e1 |
 é:e1 |
@@ -30,7 +29,6 @@ i:i1 |
 j:[x o1 t a] |
 k:[k a1] |
 l:[e1 l e] |
-{ll}:[e1 ll e] |
 m:[e1 m e] |
 n:[e1 n e] |
 ñ:[e1 ni e] |
@@ -50,9 +48,14 @@ x:[e1 k i s] |
 y:[i1 g r j e1 gh a] |
 z:[c e1 t a]] ;
 
+define SingleLseq 
+{ch}:[ts e1] | 
+{ll}:[e1 ll e0] ; 
+
 source special_chars.foma
 
 define TranscribeLetterSequence 
+SingleLseq -> || .#. _ .#. ,, 
 LetterLseq|NormalizeCharactersLseq -> || _ ;
 
 regex TranscribeLetterSequence ; 
