@@ -121,7 +121,7 @@ word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ,,
 sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,
 num DecimalSeparator _ Digit+,,
-num -> dig || Digit^16 _ ,, 
+num -> dig || Digit^28 _ ,, 
 [num:0] [%º|%ª] [sym:num] -> ; 
 
 define Stage5 
