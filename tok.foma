@@ -55,7 +55,7 @@ define ConsonantLetterSequence
 [b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|z]+ ; 
 
 define LetterSequence 
-[ConsonantLetterSequence .o. CaseVariants].l ; 
+[ConsonantLetterSequence .o. CaseVariants].l /Apos ; 
 
 define SmallLetter b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z;
 define CapitalLetter B|C|D|F|G|H|J|K|L|M|N|Ñ|P|Q|R|S|T|V|W|X|Y|Z;
@@ -94,12 +94,13 @@ Symbol @-> ... sym || _ ;
 
 define Stage2 
 # SplitWordsWhenCamelCase, so voices canInterpretAsSeparateWords InsteadOfOnlyOne
-[..] -> word || [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel]+ _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel]+ ,, 
+[..] -> word || 
+[SmallLetter|SmallVowel] _ [CapitalLetter|CapitalVowel] , 
+[CapitalLetter|CapitalVowel] _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel] ,, 
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
 
 define Stage3 
 # Custom LSeq handling:
-[..] -> lseq || [CapitalLetter|CapitalVowel] _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel] ,, 
 word -> lseq || 
 .#. (Symbol sym) CapitalLetter^2 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
 .#. (Symbol sym) CapitalLetter^3 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
