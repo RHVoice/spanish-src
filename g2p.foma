@@ -165,6 +165,7 @@ define SpanishRules
 # c to k exceptions:
 [c c]:[k c] | # selección, leccionario
 [c d]:[k d] | # Anécdota.
+[c x]:[k x] | # discjockey.
 [c k]:k | # talkback.
 [c l]:[k l] | # claro (klaro, not claro)
 [c m]:[k m] | # francmasonería.
@@ -188,6 +189,7 @@ define WordStartRules
 {pt} -> t || .#. _ ,, # pterodáctilo
 {ks} -> s || .#. _ ,, # xilófono
 # Matthew's rules:
+{pse} -> {se} || .#. _ ,, # seudo.
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
 [ts r i] -> [k r i] || .#. _ ,, # Christian, christina.
 r -> [rr] || .#. _, [l|n|s] _ ; # at the start: rato, rico, roma, all words starting r needs to be a RR sound. However, in words that contains l, n or s anywere, needs to be a rr sound, too. For example: alrededor, enredo, Desramar.
