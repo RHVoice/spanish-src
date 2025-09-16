@@ -46,7 +46,8 @@ v:[u1 vh e] |
 w:[u vh e dh o1 b l e] |
 x:[e1 k i s] |
 y:[i1 g r j e1 gh a] |
-z:[c e1 t a]] ;
+z:[c e1 t a]] |
+%':0 ; 
 
 define SingleLseq 
 {ch}:[ts e1] | 

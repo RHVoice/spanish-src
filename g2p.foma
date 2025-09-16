@@ -288,7 +288,7 @@ StressFormRule .o.
 SpanishStress .o. 
 SpanishStress2 .o. 
 ohiRule .o. 
-[Uns|modifier|Stressf @-> 0] ; 
+[modifier|Stressf @-> 0] ; 
 
 regex 
 [exceptions .P. rules] ; 
