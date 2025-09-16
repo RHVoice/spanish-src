@@ -25,7 +25,7 @@ define dhipthong  UnstressedDhipthong  | StressedDhipthong ;
 define pc   \vowel ; 
 define pcd   \dhipthong ; 
 define noStress UnstressedVowel | pc ; 
-define noStressD UnstressedDhipthong | pcd | StressMark ; 
+define noStressD UnstressedDhipthong | pcd ; 
 define stresses 
 [a0:a1|
 e0:e1|
