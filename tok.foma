@@ -14,54 +14,12 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 source romans.foma
+source variables.foma
 
 define Apos %'|%‘|%’ ; 
-define CaseVariants 
-a -> a|A , 
-á -> á|Á , 
-b -> b|B , 
-c -> c|C , 
-d -> d|D , 
-e -> e|E , 
-é -> é|É , 
-f -> f|F , 
-g -> g|G , 
-h -> h|H , 
-i -> i|I , 
-í -> í|Í , 
-j -> j|J , 
-k -> k|K , 
-l -> l|L , 
-m -> m|M , 
-n -> n|N , 
-ñ -> ñ|Ñ , 
-o -> o|O , 
-ó -> ó|Ó , 
-p -> p|P , 
-q -> q|Q , 
-r -> r|R , 
-s -> s|S , 
-t -> t|T , 
-u -> u|U , 
-ú -> ú|Ú , 
-ü -> ü|Ü , 
-v -> v|V , 
-w -> w|W , 
-x -> x|X , 
-y -> y|Y , 
-z -> z|Z ; 
 
-define ConsonantLetterSequence 
-[b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|z]+ ; 
+define LetterSequence [GraphemeConsonant - [y|Y]]+ /Apos ; 
 
-define LetterSequence 
-[ConsonantLetterSequence .o. CaseVariants].l /Apos ; 
-
-define SmallLetter b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z;
-define CapitalLetter B|C|D|F|G|H|J|K|L|M|N|Ñ|P|Q|R|S|T|V|W|X|Y|Z;
-define SmallVowel a|á|e|é|i|í|o|ó|u|ú|ü|y|ý ; 
-define CapitalVowel A|Á|E|É|I|Í|O|Ó|U|Ú|Ü|Y|Ý ; 
-define Letter SmallLetter | SmallVowel | CapitalLetter | CapitalVowel;
 define ExceptionalWord 
 [[a|A] %. [m|M] %.] | 
 [[p|P] %. [m|M] %.] | 
@@ -71,8 +29,8 @@ define ExceptionalWord
 [e n e %.] | [f e b %.] | [a b r %.] | [m a y %.] | [j u n %.] | [j u l %.] | [a g o %.] | [s e p %.] | [o c t %.] | [n o v %.] | [d i c %.] | 
 [[e|E] [t|T] [c|C] %.] | 
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
-define NZDigit 1|2|3|4|5|6|7|8|9;
-define Digit %0|NZDigit;
+define Digit SpellDigit.u ;
+define NZDigit Digit - %0 ; 
 #define year Digit^<4 ; 
 #define DayOrMonth Digit^<2 ; 
 #define dateSep %/ ; 
@@ -123,17 +81,18 @@ sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,
 num DecimalSeparator _ Digit+,,
 num -> dig || Digit^28 _ ,, 
-[num:0] [%º|%ª] [sym:num] -> ; 
+[num:0] OrdChar [sym:num] -> ; 
 
 define Stage5 
-word -> lseq || .#. _ ;
+word -> lseq || .#. _ ,, 
+sym -> num || word [%.|%/] _ Word ; 
 #num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
 # DecimalSeparator num Digit+ num DecimalSeparator _ ; 
 
-source special_chars.foma
+#source special_chars.foma
 
 regex 
-NormalizeCharacters.o. 
+#NormalizeCharacters.o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3 .o. 

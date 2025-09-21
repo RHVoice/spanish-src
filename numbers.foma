@@ -22,18 +22,16 @@ ESRomanMapping -> || .#. _ .#. ;
 define SpanishRoman 
 [{II}:segundo|{III}:tercero|{IV}:cuarto|{VI}:sexto|{VII}:séptimo|{VIII}:octavo|{IX}:noveno] @-> || .#. _ .#. ; 
 
-define MaleOrdChar %º ; 
-define FemaleOrdChar %ª ; 
-define OrdChar MaleOrdChar | FemaleOrdChar ; 
 #define Separator %/ ; 
 define ProcNumChar [ %-:menos |
 %+: más |
 %$: dólares |
 %.: punto |
+%/: barra |
 %,: coma ] ;
 
-define NZDigit 1|2|3|4|5|6|7|8|9 ; 
-define Digit %0|NZDigit ; 
+define Digit SpellDigit.u ;
+define NZDigit Digit - %0 ; 
 
 define UnformattedNumber [NZDigit Digit^<27] ; 
 #define Year [Digit^<5] ; 

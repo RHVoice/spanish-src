@@ -49,7 +49,6 @@ define RegularLetter
 [Ö|ö]:[ó diéresis] | 
 [Ô|ô]:[ó circunflejo] | 
 [Õ|õ]:[ó tilde] | 
-[Ö|ö]:[ô diéresis] | 
 [p|P]:pe | 
 [q|Q]:qu | 
 [r|R]:erre | 
