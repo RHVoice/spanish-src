@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+source romans.foma
+
 # For number:
 define SpellDigit 
 %0:cero | 
@@ -45,3 +47,9 @@ define SmallVowel a|á|e|é|i|í|o|ó|u|ú|ü|y|ý ;
 define CapitalVowel A|Á|E|É|I|Í|O|Ó|U|Ú|Ü|Y|Ý ; 
 define GraphemeVowel SmallVowel | CapitalVowel ; 
 define Letter GraphemeConsonant | GraphemeVowel ; 
+# Numbers and tokenization:
+define Digit SpellDigit.u ;
+define NZDigit Digit - %0 ; 
+define UnformattedNumber [NZDigit Digit^<27] ; 
+#define FormattedNumber NZDigit Digit^<3 [%. Digit^3]^{1,4} ; 
+define Number [UnformattedNumber (OrdChar)] | ESRomanNumeral ; 

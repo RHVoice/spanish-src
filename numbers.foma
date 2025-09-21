@@ -13,7 +13,6 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-source romans.foma
 source variables.foma
 
 define MapRomanNumeral 
@@ -30,15 +29,10 @@ define ProcNumChar [ %-:menos |
 %/: barra |
 %,: coma ] ;
 
-define Digit SpellDigit.u ;
-define NZDigit Digit - %0 ; 
-
-define UnformattedNumber [NZDigit Digit^<27] ; 
 #define Year [Digit^<5] ; 
 #define DayOrMonth [Digit^<3] ; 
 #define FormatedDate [DayOrMonth Separator DayOrMonth Separator Year] ; 
 #define Number FormatedDate | [UnformattedNumber (OrdChar)] | ESRomanNumeral ; 
-define Number [UnformattedNumber (OrdChar)] | ESRomanNumeral ; 
 
 define MaleOrdUnit 
 1:primero | 

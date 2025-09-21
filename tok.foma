@@ -13,7 +13,6 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-source romans.foma
 source variables.foma
 
 define Apos %'|%‘|%’ ; 
@@ -29,12 +28,9 @@ define ExceptionalWord
 [e n e %.] | [f e b %.] | [a b r %.] | [m a y %.] | [j u n %.] | [j u l %.] | [a g o %.] | [s e p %.] | [o c t %.] | [n o v %.] | [d i c %.] | 
 [[e|E] [t|T] [c|C] %.] | 
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
-define Digit SpellDigit.u ;
-define NZDigit Digit - %0 ; 
 #define year Digit^<4 ; 
 #define DayOrMonth Digit^<2 ; 
 #define dateSep %/ ; 
-define Number  %0 | [NZDigit Digit*];
 define DecimalSeparator %.|%,;
 define Word [Letter+ [Apos Letter+]*] | ExceptionalWord ;
 define Symbol \[Letter | Digit] ; 
@@ -89,10 +85,10 @@ sym -> num || word [%.|%/] _ Word ;
 #num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
 # DecimalSeparator num Digit+ num DecimalSeparator _ ; 
 
-#source special_chars.foma
+source special_chars.foma
 
 regex 
-#NormalizeCharacters.o. 
+NormalizeCharacters.o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3 .o. 
