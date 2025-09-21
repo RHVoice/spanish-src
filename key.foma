@@ -63,7 +63,7 @@ Enter |
 {window} : windows ; 
 
 define KPKey 
-[{kp-} : 0] [Digit | Plus | Minus | Star | Slash | Dot | Enter];
+[{kp-} : 0] [SpellDigit | Plus | Minus | Star | Slash | Dot | Enter];
 
 define FKey 
 f:efe Number ;

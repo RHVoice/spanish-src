@@ -8,7 +8,7 @@ pau s e . k r e1 . t o pau
 pau a k . t i . vh i . dh a1 d pau 
 pau a k . t w a1 r pau 
 pau a k . t u1 . e n pau 
-pau u . vh e . dh o1 . b l e . u . vh e . dh o1 . b l e . u . vh e . dh o1 . b l e pau 
+pau u . vh e . dh o1 . b l e u . vh e . dh o1 . b l e u . vh e . dh o1 . b l e pau 
 pau k e1 pau 
 pau s e . k i1 . a pau 
 pau l a (def) # gh a1 . t a # f j e1 . r a # s a . l j o1 # a (prep) # l a s (def) # a . f w e1 . r a s pau 
@@ -108,3 +108,4 @@ pau i1 . g r j e1 . gh a (uconj) pau
 pau i . g r j e1 . gh a pau 
 pau a k . t i . vh a1 r # l o s (def) # s o . n i1 . dh o s # p e r . s o . n a . l i . zh a1 . dh o s # k w a n . d o (uconj) # t e (prp) # u1 . n a s (indef) # a (prep) # ts a1 t s # d e (prep) # vh o1 zh pau 
 pau k o . n o zh . k a1 yc s pau a . bh a . l w a r . t a . r e1 yc s pau 
+pau e l (def) # p e . o1 n # s e (prp) # m o . vh j o1 # e n (prep) # a1 # c i1 n . k o pau 
