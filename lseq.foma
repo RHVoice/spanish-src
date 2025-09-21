@@ -21,32 +21,32 @@ c:[c e1] |
 d:[d e1] |
 e:e1 |
 é:e1 |
-f:[e1 f e] |
+f:[e1 f e0] |
 g:[x e1] |
-h:[a1 ts e] |
+h:[a1 ts e0] |
 i:i1 |
 í:i1 |
-j:[x o1 t a] |
+j:[x o1 t a0] |
 k:[k a1] |
-l:[e1 l e] |
-m:[e1 m e] |
-n:[e1 n e] |
-ñ:[e1 ni e] |
+l:[e1 l e0] |
+m:[e1 m e0] |
+n:[e1 n e0] |
+ñ:[e1 ni e0] |
 o:o1 |
 ó:o1 |
 p:[p e1] |
 q:[k u1] |
-r:[e1 rr e] |
-s:[e1 s e] |
+r:[e1 rr e0] |
+s:[e1 s e0] |
 t:[t e1] |
 u:u1 |
 ú:u1 |
 ü:u1 |
-v:[u1 vh e] |
-w:[u vh e dh o1 b l e] |
-x:[e1 k i s] |
-y:[i1 g r j e1 gh a] |
-z:[c e1 t a]] |
+v:[u1 vh e0] |
+w:[u0 vh e0 dh o1 b l e0] |
+x:[e1 k i0 s] |
+y:[i1 g r j e1 gh a0] |
+z:[c e1 t a0]] |
 %':0 ; 
 
 define SingleLseq 
