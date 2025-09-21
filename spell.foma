@@ -66,7 +66,7 @@ define RegularLetter
 
 source special_chars.foma
 
-define Letter RegularLetter | NormalizeCharactersSpell ;
+define SpellLetter RegularLetter | NormalizeCharactersSpell ;
 
 define Whitespace 
 tab:tab | 
@@ -613,4 +613,4 @@ define Symbol
 %º : [ordinal masculino] ; 
 
 regex 
-Letter|Digit | Whitespace | Symbol ; 
+SpellLetter|Digit | Whitespace | Symbol ; 
