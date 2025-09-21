@@ -80,8 +80,9 @@ num -> dig || Digit^28 _ ,,
 [num:0] OrdChar [sym:num] -> ; 
 
 define Stage5 
-word -> lseq || .#. _ ,, 
+word -> lseq || .#. _ , .#. GraphemeVowel _ Number ,, 
 sym -> num || word [%.|%/] _ Word ; 
+
 #num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
 # DecimalSeparator num Digit+ num DecimalSeparator _ ; 
 
