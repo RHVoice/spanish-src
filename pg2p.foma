@@ -15,13 +15,23 @@
 
 # Spanish Post g2p with documentation. Important things to consider:
 # Phrase Boundary.
-define PB %- | .#. ; 
+define PB %- | .#. ;
 # Word boundary (words of the utterance)
-define WB %# | PB ; 
+define WB %# | PB ;
+
 source variables.foma
+
+define PhWord [Consonant|vocal]+ ; 
+define Unstress1 
+Uns @-> 0 || 
+PB PhWord _ PB , _ %# PhWord Uns .#. ; 
+
+define Unstress2 
+Uns @-> 0 || _ ; 
+
 # Here, we apply approximants through the whole utterance, same that we did in g2p but with word boundaries between vowels.
 # For example, el dado de Dabid. Between o (dado) and d (de) and "de" and "David" are the intervocalic d.
-# So, as a result, it sould be "el daDo De DaVid". The mayus d is the aproximant.
+# So, as a result, it will be "el daDo De DaVid". The mayus d is the aproximant.
 define RemainingApproximants 
 b @-> bh || vocal %# _ vocal ,, 
 d @-> dh || vocal %# _ vocal ,, 
@@ -175,7 +185,7 @@ define singularAction
 [e1 s]|[t j e1 n e0]|[p o0 s e1 e0]|[s i0 g n i0 f i1 k a0] ; 
 define pluralAction 
 [s o1 n]|[t j e1 n e0 n]|[p o0 s e1 e0 n]|[s i0 g n i0 f i1 k a0 n] ; 
-# We defined "es" and "son", which can be used in a different context. For example: "esta es mi casa", "este es Mateo, tu amigo", "esto es lo que hay que hacer", "estas son mis llaves", etc. In all of these cases, the demonstrative should be stressed, as we saw in these definitions.
+# We defined "es" and "son", which can be used in a different context. For example: "esta es mi casa", "este es Mateo, tu amigo", "esto es lo que hay que hacer", "estas son mis llaves", etc. In all of these cases, the demonstrative needs to be stressed, as we saw in these definitions.
 define PersonalReflexivePronoun 
 # Le, me, nos, te
 # Required for a particular case (see below)
@@ -262,11 +272,12 @@ define untag2
 TagYgriega -> i0 ; 
 
 regex 
-[Uns @-> 0] .o. 
+Unstress1 .o. 
 dhipthongStress .o. 
 MonosylStress .o. 
 SpanishStress .o. 
-SpanishStress2 .o.  
+SpanishStress2 .o. 
+Unstress2 .o. 
 PhonemeToSpelling .o. 
 untag2 .o. 
 RemainingApproximants .o. 
