@@ -273,10 +273,8 @@ TagYgriega -> i0 ;
 
 regex 
 Unstress1 .o. 
-dhipthongStress .o. 
 MonosylStress .o. 
 SpanishStress .o. 
-SpanishStress2 .o. 
 Unstress2 .o. 
 PhonemeToSpelling .o. 
 untag2 .o. 
