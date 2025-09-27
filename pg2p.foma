@@ -15,28 +15,28 @@
 
 # Spanish Post g2p with documentation. Important things to consider:
 # Phrase Boundary.
-define PB %- | .#. ;
+define PB %- | .#. ; 
 # Word boundary (words of the utterance)
-define WB %# | PB ;
+define WB %# | PB ; 
 
 source variables.foma
 
 define PhWord [Consonant|vocal]+ ; 
 define Unstress1 
+# 1. Well stress these tagged words when they are alone, that means, when the utterance contains only the word. Our stress.foma is our colleague during this pipeline. To do this, let's remove the Uns tag. Else, if the word from the wordlist is not alone, is an unstressed word.
 Uns @-> 0 || 
 PB PhWord _ PB , _ %# PhWord Uns .#. ; 
 
 define Unstress2 
+# 2. After applying Spanish stressing rules and regulations in these tagged words alone in the utterance, we don't need this tag anymore.
 Uns @-> 0 || _ ; 
 
 # Here, we apply approximants through the whole utterance, same that we did in g2p but with word boundaries between vowels.
 # For example, el dado de Dabid. Between o (dado) and d (de) and "de" and "David" are the intervocalic d.
 # So, as a result, it will be "el daDo De DaVid". The mayus d is the aproximant.
-define RemainingApproximants 
-b @-> bh || vocal %# _ vocal ,, 
-d @-> dh || vocal %# _ vocal ,, 
-g @-> gh || vocal %# _ vocal ,, 
-v @-> vh || vocal %# _ vocal ; 
+define RemainingApproximants [
+	b: bh | d: dh | g: gh | v: vh
+] @-> || vocal %# _ vocal ; 
 
 # Here is a contextual character, y. That must be y griega when alone.
 define PhonemeToSpelling 
