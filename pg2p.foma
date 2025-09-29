@@ -240,7 +240,7 @@ WB _ %# [[d|dh] e0] ,,
 MakeTag:[a0 c e0] -> || 
 # General basis.
 WB [d e0 s d e0] %# _ %# PhWord , 
-WB _ %# [[m i1 l e0 s]|[m i0 ll o1 n e0 s]] WB , 
+WB _ %# [[m i1 l e0 s]|[m i0 ll o1 n e0 s]] %# PhWord , 
 # Gender-independent:
 WB _ %# HaceFemeninoSingular %# HaceFemeninoSingularAction WB , 
 WB _ %# HaceFemeninoPlural %# HaceFemeninoPluralAction WB , 
@@ -264,7 +264,7 @@ WB _ %# [PhoneticedDigit|PhoneticedNumber] %# [HaceFemeninoPluralAction|HaceMasc
 [d u0 r a0 n t e0]:[d u0 r a1 n t e0] | [dh u0 r a0 n t e0]:[dh u0 r a1 n t e0] -> 
 || WB _ %# i0 %# PhWord WB ,, 
 # SAPM for "mediante": "mediante" is the connector for "through", but it isn't used as connector in a special religious case.
-[m e0 d j a0 n t e0]:[m e0 d j a1 n t e0] -> || WB [d j o1 s] %# _ WB ,, 
+[m e0 dh j a0 n t e0]:[m e0 dh j a1 n t e0] -> || WB [d j o1 s] %# _ WB ,, 
 # And create stressing context for "haya". "Haya" can be used in two contexts. The one is the verb called "hacer" (espero que hayas hecho la tarea), default in g2p, and the other is from the verb "haber" (cuando haya plata, que haya paz en la tierra) which we are going to make here.
 [a0 y a0]:[a1 y a0] -> || 
 WB [k w a0 n d o0] %# _ WB , 
