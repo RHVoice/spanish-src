@@ -279,7 +279,7 @@ SpanishStress .o.
 Unstress2 .o. 
 PhonemeToSpelling .o. 
 untag2 .o. 
+RemainingApproximants .o. 
 unstressNumber .o. 
 HomonymousWords .o. 
-untag .o. 
-RemainingApproximants ; 
+untag ; 
