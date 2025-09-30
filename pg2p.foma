@@ -215,11 +215,13 @@ sobreObject -> ||
 WB _ %# [k o0 n] %# PhWord ,, 
 # Also, we will stress demonstratives for es. For example: esta es, este es, ese es, esa es.
 esDemonstrative -> || 
-WB _ %# singularAction , 
+WB _ %# singularAction WB , 
+WB _ %# [p w e1 dh [e0|a0]] WB , 
 WB [s i0 n %# k e0 %#] _ %# ImperativoAfirmativoSSingular WB ,, 
 # And we will apply the same for "son". Example: estas son las bufandas que Mateo tegió.
 sonDemonstrative -> || 
-WB _ %# pluralAction , 
+WB _ %# pluralAction WB , 
+WB _ %# [p w e1 dh [e0|a0] n] WB , 
 WB [s i0 n %# k e0 %#] _ %# ImperativoAfirmativoTPlural WB ,, 
 # Rules for para, which can be used in two contexts: "stop" action (parar) and "to" preposition (para)
 # Example: se me "pára" el corazón, no "pára" de llover > esto es para ti.

@@ -81,15 +81,15 @@ num -> dig || Digit^28 _ ,,
 
 define Stage5 
 word -> lseq || .#. _ , .#. GraphemeVowel _ Number ,, 
-sym -> num || word [%.|%/] _ Word ; 
+sym -> num || [word|lseq] [%.|%/] _ [Word|LetterSequence] ; 
 
 #num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
 # DecimalSeparator num Digit+ num DecimalSeparator _ ; 
 
-#source special_chars.foma
+source special_chars.foma
 
 regex 
-#NormalizeCharacters.o. 
+NormalizeCharacters.o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3 .o. 
