@@ -122,14 +122,25 @@ define HaceFemeninoPluralAction
 # Horas, semanas, décadas.
 [o1 r a0 s] | [s e0 m a1 n a0 s] | [d e1 k a0 dh a0 s] ; 
 
-define HaceMasculinoSingular 
+define HaceMasculinoSingularArticle 
 # Same as female.
-[u0 n] | [a0 l g u1 n] | [m u1 ts o0] | [m u0 ts i1 s i0 m o0] | [p o1 k o0] | [p o0 k i1 s i0 m o0] | [t a1 n t o0] | [t a0 n t i1 s i0 m o0] | [b a0 s t a1 n t e0] | [b a0 s t a0 n t i1 s i0 m o0] ; 
+[u0 n] | [a0 l g u1 n] ; 
 
-define HaceMasculinoSingularAction 
-# Segundo, minuto, día, mes, año, siglo, tiempo, instante, momento, rato.
+define HaceMasculinoSingularQuant 
+[m u1 ts o0] | [m u0 ts i1 s i0 m o0] | [p o1 k o0] | [p o0 k i1 s i0 m o0] | [t a1 n t o0] | [t a0 n t i1 s i0 m o0] | [b a0 s t a1 n t e0] | [b a0 s t a0 n t i1 s i0 m o0] ; 
+
+define HaceMasculinoSingular HaceMasculinoSingularArticle | HaceMasculinoSingularQuant ; 
+
+define HaceMasculinoSingularActionTime 
+# Segundo, minuto, día, mes, año, siglo, instante, momento.
 # Example: hace un instante.
-[s e0 gh u1 n d o0] | [m i0 n u1 t o0] | [[d|dh] i1 a0] | [m e1 s] | [a1 ni o0] | [s i1 g l o0] | [t j e1 m p o0] | [i0 n s t a1 n t e0] | [m o0 m e1 n t o0] | [rr a1 t o0] ; 
+[s e0 gh u1 n d o0] | [m i0 n u1 t o0] | [[d|dh] i1 a0] | [m e1 s] | [a1 ni o0] | [s i1 g l o0] | [i0 n s t a1 n t e0] | [m o0 m e1 n t o0] ; 
+
+define HaceMasculinoSingularActionCircunstance 
+# tiempo, rato.
+[t j e1 m p o0] | [rr a1 t o0] ; 
+
+define HaceMasculinoSingularAction HaceMasculinoSingularActionTime | HaceMasculinoSingularActionCircunstance ; 
 
 define HaceMasculinoPlural 
 [u0 n o0 s] | [a0 l g u1 n o0 s] | [m u1 ts o0 s] | [m u0 ts i1 s i0 m o0 s] | [p o1 k o0 s] | [p o0 k i1 s i0 m o0 s] | [t a1 n t o0 s] | [t a0 n t i1 s i0 m o0 s] | [b a0 s t a1 n t e0 s] | [b a0 s t a0 n t i1 s i0 m o0 s] ; 

@@ -37,7 +37,7 @@ define UnstressedWordsTag
 
 define StressedForms 
 # A vowel preceded by h should be stressed, and a h preceded by vowel as well, except for "ha" and "he" which are conjuntions.
-[..] @-> Stressf || .#. [a|e|i|o|u] h _ .#., .#. h [i|o|u] _ .#. ; 
+[..] @-> Stressf || .#. [a|e|i|o|u] h _ .#., .#. h [i|o|u] _ .#. , .#. i _ .#. ; 
 
 define deshChange 
 # Let's remove the h when it comes to Spanish prefixes des- and tras-, for example: deshacer, trashumar.
