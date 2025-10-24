@@ -34,11 +34,11 @@ define OrdChar MaleOrdChar | FemaleOrdChar ;
 define Unit SpellDigit - [%0:[?+]] ; 
 # Grapheme to phoneme:
 define Consonant 
-b|bh|c|ts|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|uc|v|vh|w|{ks}|y|yc|zh ; 
+b|bh|c|ch|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|w|{ks}|y ; 
 
 define ConsonantWithouthNS Consonant - [n|s] ; 
 # for approximants:
-define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|uc|j|w|yc] ; 
+define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|j|w] ; 
 # Pure graphemes:
 define SmallLetter b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z;
 define CapitalLetter B|C|D|F|G|H|J|K|L|M|N|Ñ|P|Q|R|S|T|V|W|X|Y|Z;

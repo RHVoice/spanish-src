@@ -74,7 +74,7 @@ c:c |
 [c o1]:[k o1] | # marcó, achicó.
 [c u]:{ku} | # curso, cuveta
 [c u1]:[k u1] | # cúspide.
-{ch}:ts | # Chico, cholo
+{ch}:ch | # Chico, cholo
 d:d | 
 f:f | 
 g:g | # siglo
@@ -133,14 +133,14 @@ y:YAsVowel | # Y can be a vowel or a consonant. When "y" is followed by a vowel,
 
 define SpanishRules 
 # ai, ei, oi.
-{ai}:[a yc] | # aire, baila.
-[a1 i]:[a1 yc] | # abastezcáis
-{ei}:[e yc] | # leiri.
-[e1 i]:[e1 yc] | # aféitense.
-{oi}:[o yc] | # paranoico, oiga.
+{ai}:[a j] | # aire, baila.
+[a1 i]:[a1 j] | # abastezcáis
+{ei}:[e j] | # leiri.
+[e1 i]:[e1 j] | # aféitense.
+{oi}:[o j] | # paranoico, oiga.
 # au, eu.
-{au}:[a uc] | # audio, laura.
-{eu}:[e uc] | # deuda, neurona.
+{au}:[a w] | # audio, laura.
+{eu}:[e w] | # deuda, neurona.
 # We doesn't add ou because there are not comon words with these.
 # closed vowel i
 {ia}:[j a] | # biacrusis, referencia, viciándose, diafragma, fiar, sequia, cecilia, ...
@@ -175,7 +175,7 @@ define SpanishRules
 [c s]:[k s] | # clics.
 [c t]:[k t] | # actualización (aktwalizhazhjo1n, not actwalicacjo1n)
 [c YAsVowel]:[c i] | # Cynthia.
-[t ts]:ts | # switch
+[t ch]:ch | # switch
 [a p p]:[a p] ; # For English words.
 
 source stress.foma
@@ -191,7 +191,7 @@ define WordStartRules
 # Matthew's rules:
 {pse} -> {se} || .#. _ ,, # seudo.
 {psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
-[ts r i] -> [k r i] || .#. _ ,, # Christian, christina.
+[ch r i] -> [k r i] || .#. _ ,, # Christian, christina.
 r -> [rr] || .#. _, [l|n|s] _ ; # at the start: rato, rico, roma, all words starting r needs to be a RR sound. However, in words that contains l, n or s anywere, needs to be a rr sound, too. For example: alrededor, enredo, Desramar.
 
 define WordMidRules 
@@ -200,9 +200,9 @@ define WordMidRules
 
 define WordEndRules 
 # handling of closed vowel y to the end of word. Pley, soy, estoy, voy, hay, etc.
-[a YAsVowel] -> [a yc] || _ (Consonant|modifier) .#. ,, # hay alguien aquí?
-[e YAsVowel] -> [e yc] || _ (Consonant|modifier) .#. ,, # vacabuey, rey, ley.
-[o YAsVowel] -> [o yc] || _ (Consonant|modifier) .#. ,, # voy, soy, estoy.
+[a YAsVowel] -> [a j] || _ (Consonant|modifier) .#. ,, # hay alguien aquí?
+[e YAsVowel] -> [e j] || _ (Consonant|modifier) .#. ,, # vacabuey, rey, ley.
+[o YAsVowel] -> [o j] || _ (Consonant|modifier) .#. ,, # voy, soy, estoy.
 [u YAsVowel] -> [u j] || _ (Consonant|modifier) .#. ,, # muy, cuy, Chuy, juyayay.
 # The following is especially for foreign words.
 [i n g] -> [i n] || _ .#. ,, 
@@ -214,11 +214,11 @@ define approximants
 {b} (modifier) -> bh || vocal _ vocal ,, 
 {d} (modifier) -> dh || vocal _ vocal ,, 
 {g} (modifier) -> gh || vocal _ vocal ,, 
-{v} (modifier) -> vh || vocal _ vocal ; 
+{v} (modifier) -> bh || vocal _ vocal ; 
 
 define exceptions 
 # There are special words having own phonemes.
-[[{wi} (%-) {fi}] : [w a0 yc f a1 yc]] | 
+[[{wi} (%-) {fi}] : [w a0 j f a1 j]] | 
 [{a.c.} : [a1 n t e0 s d e0 k r i1 s t o0]] | 
 [{a.m.} : [d e0 l a0 m a0 ni a1 n a0]] | 
 [{d.c.} : [d e0 s p w e1 s d e0 k r i1 s t o0]] | 
@@ -254,7 +254,9 @@ TranscribeConsonant @-> ;
 define ModifierRule 
 modifier @-> 0 || .#. ([Consonant|i|u]) _ vocal , Consonant _ (Consonant) .#. , vocal _ (Consonant) .#. ; 
 
-define RenameY YAsVowel @-> i ; 
+define RenameConsonants 
+YAsVowel @-> i ,, 
+zh @-> c ; 
 
 define Stage3 
 SpanishRules @-> ; 
@@ -264,7 +266,7 @@ stresses @-> || .#. _ (modifier) Stressf .#. ;
 
 define ohiRule 
 # prohibamos, prohibido, prohibiciones, prohibición, prohibid, prohibida, etc.
-i0:yc @-> || [o0 modifier] _ ; 
+i0:j @-> || [o0 modifier] _ ; 
 
 define rules 
 deshChange .o. 
@@ -279,7 +281,7 @@ Stage3 .o.
 WordStartRules .o. 
 WordMidRules .o. 
 WordEndRules .o. 
-RenameY .o. 
+RenameConsonants .o. 
 approximants .o. 
 unstress .o. 
 dhipthongStress .o. 
