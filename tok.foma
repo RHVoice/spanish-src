@@ -40,7 +40,9 @@ define Symbol \[Letter | Digit] ;
 
 define Stage1 
 Word @-> ... word || _ .#. | \Letter ,, 
-NZDigit Digit* @-> ... num ,, 
+#FormattedNumber @-> ... num || _ .#. | \Digit ,, 
+#UnformattedNumber @-> ... num ,, 
+Number @-> ... num ,, 
 %0 Digit+ @-> ... dig ,, 
 %0 @-> ... num ,, 
 # We will apply this future new token for Spanish, called date, when someone helps me with cpp code for it.

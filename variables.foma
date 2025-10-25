@@ -50,6 +50,6 @@ define Letter GraphemeConsonant | GraphemeVowel ;
 # Numbers and tokenization:
 define Digit SpellDigit.u ;
 define NZDigit Digit - %0 ; 
-define UnformattedNumber [NZDigit Digit^<27] ; 
-#define FormattedNumber NZDigit Digit^<3 [%. Digit^3]^{1,4} ; 
-define Number [UnformattedNumber (OrdChar)] | ESRomanNumeral ; 
+define UnformattedNumber %0 | [NZDigit Digit*] ; 
+define FormattedNumber NZDigit Digit^<3 [%. Digit^3]^{1,4} ; 
+define Number [[UnformattedNumber|FormattedNumber] (OrdChar)] | ESRomanNumeral ; 
