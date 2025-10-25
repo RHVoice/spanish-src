@@ -27,6 +27,7 @@ define ProcNumChar [ %-:menos |
 %$: dólares |
 %.: punto |
 %/: barra |
+[%/]^2: [barra barra] |
 %,: coma ] ;
 
 #define Year [Digit^<5] ; 

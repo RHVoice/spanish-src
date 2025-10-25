@@ -28,6 +28,7 @@ define ExceptionalWord
 [e n e %.] | [f e b %.] | [a b r %.] | [m a y %.] | [j u n %.] | [j u l %.] | [a g o %.] | [s e p %.] | [o c t %.] | [n o v %.] | [d i c %.] | 
 [[e|E] [t|T] [c|C] %.] | 
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
+# Exceptions for apple product names. Avoid word splitting (see below)
 define ExceptionalWord2 [[P h o n e]|[P [a|o] d]] ; 
 #define year Digit^<4 ; 
 #define DayOrMonth Digit^<2 ; 
@@ -77,17 +78,20 @@ word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ,,
 sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,
 num DecimalSeparator _ Digit+,,
+sym -> 0 || [%: sym %/] _ [%/ sym Word] ,, 
 num -> dig || Digit^28 _ ,, 
 [num:0] OrdChar [sym:num] -> ; 
 
 define Stage5 
 word -> lseq || .#. _ , .#. GraphemeVowel _ Number ,, 
-sym -> num || [word|lseq] [%.|%/] _ [Word|LetterSequence] ,, 
+sym -> num || 
+[word|lseq] [%.|%/] _ [Word|LetterSequence] , 
+%: sym [%/^2] _ Word ,, 
 word -> 0 || 
-{i} _ ExceptionalWord2 word , [[y|Y] o u] _ [[t|T] u b e] ; 
-
-#num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
-# DecimalSeparator num Digit+ num DecimalSeparator _ ; 
+# Apple product names.
+{i} _ ExceptionalWord2 word , 
+# Miscellaneous: YouTube and others.
+[[y|Y] o u] _ [[t|T] u b e] ; 
 
 source special_chars.foma
 
