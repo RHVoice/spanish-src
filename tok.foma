@@ -28,6 +28,7 @@ define ExceptionalWord
 [e n e %.] | [f e b %.] | [a b r %.] | [m a y %.] | [j u n %.] | [j u l %.] | [a g o %.] | [s e p %.] | [o c t %.] | [n o v %.] | [d i c %.] | 
 [[e|E] [t|T] [c|C] %.] | 
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
+define ExceptionalWord2 [[P h o n e]|[P [a|o] d]] ; 
 #define year Digit^<4 ; 
 #define DayOrMonth Digit^<2 ; 
 #define dateSep %/ ; 
@@ -56,20 +57,20 @@ word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ;
 define Stage3 
 # Custom LSeq handling:
 word -> lseq || 
-.#. (Symbol sym) CapitalLetter^2 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalLetter^3 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalLetter^4 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalLetter^5 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalVowel CapitalLetter^5 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalLetter CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalLetter CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalLetter CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalLetter^2 CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) X CapitalVowel CapitalLetter _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Symbol sym) CapitalLetter CapitalVowel W _ (Symbol sym) (Symbol sym) (Symbol sym) .#. ; 
+.#. ([Symbol sym]|[Word word]) CapitalLetter^2 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalLetter^3 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalLetter^4 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalLetter^5 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalVowel CapitalLetter^5 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalLetter CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalLetter CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalLetter CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalLetter^2 CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) X CapitalVowel CapitalLetter _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. ([Symbol sym]|[Word word]) CapitalLetter CapitalVowel W _ (Symbol sym) (Symbol sym) (Symbol sym) .#. ; 
 
 define Stage4 
 word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ,, 
@@ -81,7 +82,9 @@ num -> dig || Digit^28 _ ,,
 
 define Stage5 
 word -> lseq || .#. _ , .#. GraphemeVowel _ Number ,, 
-sym -> num || [word|lseq] [%.|%/] _ [Word|LetterSequence] ; 
+sym -> num || [word|lseq] [%.|%/] _ [Word|LetterSequence] ,, 
+word -> 0 || 
+{i} _ ExceptionalWord2 word , [[y|Y] o u] _ [[t|T] u b e] ; 
 
 #num -> sym || DecimalSeparator _ Digit+ num DecimalSeparator num,
 # DecimalSeparator num Digit+ num DecimalSeparator _ ; 
