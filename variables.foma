@@ -40,11 +40,11 @@ define ConsonantWithouthNS Consonant - [n|s] ;
 # for approximants:
 define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|uc|j|w|yc] ; 
 # Pure graphemes:
-define SmallLetter b|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z;
-define CapitalLetter B|C|D|F|G|H|J|K|L|M|N|Ñ|P|Q|R|S|T|V|W|X|Y|Z;
+define SmallLetter b|c|ç|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z;
+define CapitalLetter B|C|Ç|D|F|G|H|J|K|L|M|N|Ñ|P|Q|R|S|T|V|W|X|Y|Z;
 define GraphemeConsonant SmallLetter | CapitalLetter ; 
-define SmallVowel a|á|e|é|i|í|o|ó|u|ú|ü|y|ý ; 
-define CapitalVowel A|Á|E|É|I|Í|O|Ó|U|Ú|Ü|Y|Ý ; 
+define SmallVowel a|á|ä|â|à|ã|e|é|ë|ê|è|i|í|ï|î|ì|o|ó|ö|ô|ò|õ|u|ú|ü|û|ù|y|ý ; 
+define CapitalVowel A|Á|Ä|Â|À|Ã|E|É|Ë|Ê|È|I|Í|Ï|Î|Ì|O|Ó|Ö|Ô|Ò|Õ|U|Ú|Ü|Û|Ù|Y|Ý ; 
 define GraphemeVowel SmallVowel | CapitalVowel ; 
 define Letter GraphemeConsonant | GraphemeVowel ; 
 # Numbers and tokenization:
