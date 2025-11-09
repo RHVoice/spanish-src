@@ -22,18 +22,16 @@ o | o0 | o1] (i0|u0)] |
 i|i0 | i1 | 
 u | u0 | u1 ; 
 # área, línea, zapatear (á-rea, lí-nea, za-pa-tear).
-#[[e0] (a1)] ; 
 
 define MarkNuclei 
 Nucleus @-> %{ ... %} ; 
 
 define Onset 
 0 | Consonant | 
-{bl} | {bj} | {br} | [b r j] | {bw} | [bh j] | [bh w] | [ts j] | [ts w] | {cj} | {pl} | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh j] | [dh w] | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | [g r [j|w]] | {gw} | [gh j] | [gh  w] | {kl} | {kj} | {kr} | 
-{kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | [vh j] | [vh w] | {mj} | {nj} | {sj} | {nw} | {rw} | [sh j] | [sh w] ; 
+{bl} | [b l j] | [b l w] | {bj} | {br} | [b r j] | [b r w] | {bw} | [bh j] | [bh w] | [ch j] | [ch w] | {cj} | {pl} | [p l j] | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh j] | [dh w] | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | [g r [j|w]] | {gw} | [gh j] | [gh  w] | {kl} | {kj} | {kr} | 
+{kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | {mj} | {nj} | {sj} | {nw} | {rw} | [sh j] | [sh w] ; 
 
 define Syllable 
-#[Nucleus | a | e | o] %{ i | u %} Consonant* | # Au, da, cia. A, e, o, after "i" or "u", is a syllable, then any Consonant.
 Onset %{ Nucleus %} Consonant* ; 
 
 define MarkSyllables 

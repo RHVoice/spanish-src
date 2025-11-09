@@ -855,7 +855,7 @@ define NormalizeCharactersLseq
 [ｅ:[e1]]|
 [ｆ:[e1 f e0]]|
 [ｇ:[x e1]]|
-[ｈ:[a1 ts e0]]|
+[ｈ:[a1 ch e0]]|
 [ｉ:[i1]]|
 [ｊ:[x o1 t a0]]|
 [ｋ:[k a]]|
@@ -869,8 +869,8 @@ define NormalizeCharactersLseq
 [ｓ:[e1 s e0]]|
 [ｔ:[t e1]]|
 [ｕ:[u1]]|
-[ｖ:[u1 vh e0]]|
-[ｗ:[u0 vh e0 dh o1 b l e0]]|
+[ｖ:[u1 bh e0]]|
+[ｗ:[u0 bh e0 dh o1 b l e0]]|
 [ｘ:[e1 k i0 s]]|
 [ｙ:[i1 g r j e1 gh a0]]|
 [ｚ:[c e1 t a0]]|
@@ -881,7 +881,7 @@ define NormalizeCharactersLseq
 [𝐞:[e1]]|
 [𝐟:[e1 f e0]]|
 [𝐠:[x e1]]|
-[𝐡:[a1 ts e0]]|
+[𝐡:[a1 ch e0]]|
 [𝐢:[i0]]|
 [𝐣:[x o1 t a0]]|
 [𝐤:[k a1]]|
@@ -895,8 +895,8 @@ define NormalizeCharactersLseq
 [𝐬:[e1 s e0]]|
 [𝐭:[t e1]]|
 [𝐮:[u1]]|
-[𝐯:[u1 vh e0]]|
-[𝐰:[u0 vh e0 dh o1 b l e0]]|
+[𝐯:[u1 bh e0]]|
+[𝐰:[u0 bh e0 dh o1 b l e0]]|
 [𝐱:[e1 k i0 s]]|
 [𝐲:[i1 g r j e1 gh a0]]|
 [𝐳:[c e1 t a0]]|
@@ -907,7 +907,7 @@ define NormalizeCharactersLseq
 [𝗲:[e1]]|
 [𝗳:[e1 f e0]]|
 [𝗴:[x e1]]|
-[𝗵:[a1 ts e0]]|
+[𝗵:[a1 ch e0]]|
 [𝗶:[i1]]|
 [𝗷:[x o1 t a0]]|
 [𝗸:[k a1]]|
@@ -921,7 +921,7 @@ define NormalizeCharactersLseq
 [𝘀:[e1 s e0]]|
 [𝘁:[t e1]]|
 [𝘂:[u1]]|
-[𝘃:[u1 vh e0]]|
+[𝘃:[u1 bh e0]]|
 [𝘄:[u0 vh e0 dh o1 b l e0]]|
 [𝘅:[e1 k i0 s]]|
 [𝘆:[i1 g r j e1 gh a0]]|
@@ -933,7 +933,7 @@ define NormalizeCharactersLseq
 [𝘦:[e1]]|
 [𝘧:[e1 f e0]]|
 [𝘨:[x e1]]|
-[𝘩:[a1 ts e0]]|
+[𝘩:[a1 ch e0]]|
 [𝘪:[i1]]|
 [𝘫:[x o1 t a0]]|
 [𝘬:[k a1]]|
@@ -947,8 +947,8 @@ define NormalizeCharactersLseq
 [𝘴:[e1 s e0]]|
 [𝘵:[t e1]]|
 [𝘶:[u1]]|
-[𝘷:[u1 vh e0]]|
-[𝘸:[u0 vh e0 dh o1 b l e0]]|
+[𝘷:[u1 bh e0]]|
+[𝘸:[u0 bh e0 dh o1 b l e0]]|
 [𝘹:[e1 k i0 s]]|
 [𝘺:[i1 g r j e1 gh a0]]|
 [𝘻:[c e1 t a0]]|
@@ -959,7 +959,7 @@ define NormalizeCharactersLseq
 [𝙚:[e1]]|
 [𝙛:[e1 f e0]]|
 [𝙜:[x e1]]|
-[𝙝:[a1 ts e0]]|
+[𝙝:[a1 ch e0]]|
 [𝙞:[i1]]|
 [𝙟:[x o1 t a0]]|
 [𝙠:[k a1]]|
@@ -973,8 +973,8 @@ define NormalizeCharactersLseq
 [𝙨:[e1 s e0]]|
 [𝙩:[t e1]]|
 [𝙪:[u1]]|
-[𝙫:[u1 vh e0]]|
-[𝙬:[u0 vh e0 dh o1 b l e0]]|
+[𝙫:[u1 bh e0]]|
+[𝙬:[u0 bh e0 dh o1 b l e0]]|
 [𝙭:[e1 k i0 s]]|
 [𝙮:[i1 g r j e1 gh a0]]|
 [𝙯:[c e1 t a0]]|
@@ -985,7 +985,7 @@ define NormalizeCharactersLseq
 [𝚎:[e1]]|
 [𝚏:[e1 f e0]]|
 [𝚐:[x e1]]|
-[𝚑:[a1 ts e0]]|
+[𝚑:[a1 ch e0]]|
 [𝚒:[i1]]|
 [𝚓:[x o1 t a0]]|
 [𝚔:[k a1]]|
@@ -999,8 +999,8 @@ define NormalizeCharactersLseq
 [𝚜:[e1 s e0]]|
 [𝚝:[t e1]]|
 [𝚞:[u1]]|
-[𝚟:[u1 vh e0]]|
-[𝚠:[u0 vh e0 dh o1 b l e0]]|
+[𝚟:[u1 bh e0]]|
+[𝚠:[u0 bh e0 dh o1 b l e0]]|
 [𝚡:[e1 k i0 s]]|
 [𝚢:[i1 g r j e1 gh a0]]|
 [𝚣:[c e1 t a0]]|
@@ -1012,7 +1012,7 @@ define NormalizeCharactersLseq
 [ᵉ:[e1]]|
 [ᶠ:[e1 f e0]]|
 [ᵍ:[x e1]]|
-[ʰ:[a1 ts e0]]|
+[ʰ:[a1 ch e0]]|
 [ⁱ:[i1]]|
 [ʲ:[x o1 t a0]]|
 [ᵏ:[k a1]]|
@@ -1026,8 +1026,8 @@ define NormalizeCharactersLseq
 [ˢ:[e1 s e0]]|
 [ᵗ:[t e1]]|
 [ᵘ:[u1]]|
-[ᵛ:[u1 vh e0]]|
-[ʷ:[u0 vh e0 dh o1 b l e0]]|
+[ᵛ:[u1 bh e0]]|
+[ʷ:[u0 bh e0 dh o1 b l e0]]|
 [ˣ:[e1 k i0 s]]|
 [ʸ:[i1 g r j e1 gh a0]]|
 [ᶻ:[c e1 t a0]]|
@@ -1038,7 +1038,7 @@ define NormalizeCharactersLseq
 [ᴇ:[e1]]|
 [ꜰ:[e1 f e0]]|
 [ɢ:[x e1]]|
-[ʜ:[a1 ts e0]]|
+[ʜ:[a1 ch e0]]|
 [ɪ:[i1]]|
 [ᴊ:[x o1 t a0]]|
 [ᴋ:[k a1]]|
@@ -1050,8 +1050,8 @@ define NormalizeCharactersLseq
 [ʀ:[e1 rr e0]]|
 [ᴛ:[t e1]]|
 [ᴜ:[u1]]|
-[ᴠ:[u1 vh e0]]|
-[ᴡ:[u0 vh e0 dh o1 b l e0]]|
+[ᴠ:[u1 bh e0]]|
+[ᴡ:[u0 bh e0 dh o1 b l e0]]|
 [ʏ:[i1 g r j e1 gh a0]]|
 [ᴢ:[c e1 t a0]]|
 # Bubble style:
@@ -1062,7 +1062,7 @@ define NormalizeCharactersLseq
 [ⓔ:[e1]]|
 [ⓕ:[e1 f e0]]|
 [ⓖ:[x e1]]|
-[ⓗ:[a1 ts e0]]|
+[ⓗ:[a1 ch e0]]|
 [ⓘ:[i1]]|
 [ⓙ:[x o1 t a0]]|
 [ⓚ:[k a1]]|
@@ -1076,8 +1076,8 @@ define NormalizeCharactersLseq
 [ⓢ:[e1 s e0]]|
 [ⓣ:[t e1]]|
 [ⓤ:[u1]]|
-[ⓥ:[u1 vh e0]]|
-[ⓦ:[u0 vh e0 dh o1 b l e0]]|
+[ⓥ:[u1 bh e0]]|
+[ⓦ:[u0 bh e0 dh o1 b l e0]]|
 [ⓧ:[e1 k i0 s]]|
 [ⓨ:[i1 g r j e1 gh a0]]|
 [ⓩ:[c e1 t a0]]|
@@ -1089,7 +1089,7 @@ define NormalizeCharactersLseq
 [𝑒:[e1]]|
 [𝑓:[e1 f e0]]|
 [𝑔:[x e1]]|
-[𝐻:[a1 ts e0]]|
+[𝐻:[a1 ch e0]]|
 [𝑖:[i1]]|
 [𝑗:[x o1 t a0]]|
 [𝑘:[k a1]]|
@@ -1103,11 +1103,11 @@ define NormalizeCharactersLseq
 [𝑠:[e1 s e0]]|
 [𝑡:[t e1]]|
 [𝑢:[u1]]|
-[𝑣:[u1 vh e0]]|
-[𝑤:[u0 vh e0 dh o1 b l e0]]|
+[𝑣:[u1 bh e0]]|
+[𝑤:[u0 bh e0 dh o1 b l e0]]|
 [𝑥:[e1 k i0 s]]|
 [𝑦:[i1 g r j e1 gh a0]]|
-[𝑧:[zh e1 t a0]]|
+[𝑧:[c e1 t a0]]|
 [𝖺:[a1]]|
 [𝖻:[b e1]]|
 [𝖼:[c e1]]|
@@ -1115,7 +1115,7 @@ define NormalizeCharactersLseq
 [𝖾:[e1]]|
 [𝖿:[e1 f e0]]|
 [𝗀:[x e1]]|
-[𝗁:[a1 ts e0]]|
+[𝗁:[a1 ch e0]]|
 [𝗂:[i1]]|
 [𝗃:[x o1 t a0]]|
 [𝗄:[k a1]]|
@@ -1129,11 +1129,11 @@ define NormalizeCharactersLseq
 [𝗌:[e1 s e0]]|
 [𝗍:[t e1]]|
 [𝗎:[u1]]|
-[𝗏:[u1 vh e0]]|
-[𝗐:[u0 vh e0 dh o1 b l e0]]|
+[𝗏:[u1 bh e0]]|
+[𝗐:[u0 bh e0 dh o1 b l e0]]|
 [𝗑:[e1 k i0 s]]|
 [𝗒:[i1 g r j e1 gh a0]]|
-[𝗓:[zh e1 t a0]]|
+[𝗓:[c e1 t a0]]|
 # Letters with parentheses.
 [⒜:[a1]]|
 [⒝:[b e1]]|
@@ -1142,7 +1142,7 @@ define NormalizeCharactersLseq
 [⒠:[e1]]|
 [⒡:[e1 f e0]]|
 [⒢:[x e1]]|
-[⒣:[a1 ts e0]]|
+[⒣:[a1 ch e0]]|
 [⒤:[i1]]|
 [⒥:[x o1 t a0]]|
 [⒦:[k a1]]|
@@ -1156,11 +1156,11 @@ define NormalizeCharactersLseq
 [⒮:[e1 s e0]]|
 [⒯:[t e1]]|
 [⒰:[u1]]|
-[⒱:[e1 vh e0]]|
-[⒲:[u0 vh e0 dh o1 b l e0]]|
+[⒱:[u1 bh e0]]|
+[⒲:[u0 bh e0 dh o1 b l e0]]|
 [⒳:[e1 k i0 s]]|
 [⒴:[i1 g r j e1 gh a0]]|
-[⒵:[zh e1 t a0]]|
+[⒵:[c e1 t a0]]|
 # Collected from me:
 𝖆:[a1] | 
 𝖇:[b e1] | 
@@ -1169,7 +1169,7 @@ define NormalizeCharactersLseq
 𝖊:[e1] | 
 𝖋:[e1 f e0] | 
 𝖌:[x e1] | 
-𝖍:[a1 ts e0] | 
+𝖍:[a1 ch e0] | 
 𝖎:[i1] | 
 𝖏:[x o1 t a0] | 
 𝖐:[k a1] | 
@@ -1183,8 +1183,8 @@ define NormalizeCharactersLseq
 𝖘:[e1 s e0] | 
 𝖙:[t e1] | 
 𝖚:[u1] | 
-𝖛:[u1 vh e0] | 
-𝖜:[u0 vh e0 dh o1 b l e0] | 
+𝖛:[u1 bh e0] | 
+𝖜:[u0 bh e0 dh o1 b l e0] | 
 𝖝:[e1 k i0 s] | 
 𝖞:[i1 g r j e1 gh a0] | 
 𝖟:[c e1 t a0] | 
@@ -1201,8 +1201,8 @@ define NormalizeCharactersLseq
 [𝓯|𝒇]:[e1 f e0] | 
 [ĝ|ğ|ġ|ģ]: [x e1] | 
 [𝓰|𝒈]: [x e1] | 
-[ĥ|ħ]: [a1 ts e0] | 
-[𝓱|𝒉]: [a1 ts e0] | 
+[ĥ|ħ]: [a1 ch e0] | 
+[𝓱|𝒉]: [a1 ch e0] | 
 [ĩ|ī|ĭ|į|ı]: [i1] | 
 [𝓲|𝒊]: [i1] | 
 ĵ: [x o1 t a0] | 
@@ -1226,8 +1226,8 @@ define NormalizeCharactersLseq
 [𝓽|𝒕]: [t e1] | 
 [ũ|ū|ŭ|ů|ű|ų]: [u1] | 
 [𝓾|𝒖]: [u1] | 
-[𝓿|𝒗]: [u1 vh e0] | 
-[ŵ|𝒘|𝔀]:[u0 vh e0 dh o1 b l e0] | 
+[𝓿|𝒗]: [u1 bh e0] | 
+[ŵ|𝒘|𝔀]:[u0 bh e0 dh o1 b l e0] | 
 [𝔁|𝒙]:[e1 k i0 s] | 
 [ŷ|𝒚|𝔂]:[i1 g r j e1 gh a0] | 
 ý:[i0 g r j e1 gh a0 a0 gh u1 d o0] | 

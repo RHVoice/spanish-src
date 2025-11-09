@@ -14,19 +14,19 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import difflib
+from sys import argv
 
-with open("checktrans-output - copia.txt", "r") as f:
-    text1 = f.readlines()
-with open("checktrans-output.txt", "r") as f2:
-    text2 = f2.readlines()
+def print_differences(file1, file2):
+	with open(file1, "r") as f:
+		text1 = f.readlines()
+	with open(file2, "r") as f2:
+		text2 = f2.readlines()
+	assert len(text1) == len(text2), "No se puede hacer la diferencia porque ambos archivos no tienen el mismo número de líneas"
+	for i, (line1, line2) in enumerate(zip(text1, text2), start=1):
+		ratio = difflib.SequenceMatcher(None, line1, line2).ratio()
+		if ratio < 1.0:
+			print(f"Diferencia en la línea {i}, detalles a continuación:\nCopia: {line1}\nActual: {line2}\n")
 
-if len(text1) != len(text2):
-    raise ValueError("No hay cómo hacer la diferencia!")
-
-for i, (line1, line2) in enumerate(zip(text1, text2), start=1):
-    ratio = difflib.SequenceMatcher(None, line1, line2).ratio()
-    print(f"Línea {i} similitud: {ratio:.2f}")
-    if ratio < 1.0:
-        print(f"Copia: {line1}")
-        print(f"Actual: {line2}")
-print("Listo, patrón.")
+if __name__ == "__main__":
+	print_differences(argv[1], argv[2])
+	print("Listo, patrón.")

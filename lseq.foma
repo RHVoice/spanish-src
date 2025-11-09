@@ -37,7 +37,7 @@ e:e1 |
 ê:[e0 circumflex] |
 f:[e1 f e0] |
 g:[x e1] |
-h:[a1 ts e0] |
+h:[a1 ch e0] |
 i:i1 |
 í:[i0 acute] |
 ï:[i0 umlaut] |
@@ -65,15 +65,15 @@ u:u1 |
 ü:[u0 umlaut] |
 ù:[u0 graav] |
 û:[u0 circumflex] |
-v:[u1 vh e0] |
-w:[u vh e dh o1 b l e] |
+v:[u1 bh e0] |
+w:[u bh e dh o1 b l e] |
 x:[e1 k i0 s] |
 y:[i1 g r j e1 gh a0] |
 z:[c e1 t a0]] |
 %':0 ; 
 
 define SingleLseq 
-{ch}:[ts e1] | 
+{ch}:[ch e1] | 
 {ll}:[e1 ll e0] ; 
 
 source special_chars.foma
