@@ -21,12 +21,12 @@ def print_differences(file1, file2):
 		text1 = f.readlines()
 	with open(file2, "r") as f2:
 		text2 = f2.readlines()
-	assert len(text1) != len(text2), "No se puede hacer la diferencia porque ambos archivos no tienen el mismo número de líneas"
+	assert len(text1) == len(text2), "No se puede hacer la diferencia porque ambos archivos no tienen el mismo número de líneas"
 	for i, (line1, line2) in enumerate(zip(text1, text2), start=1):
 		ratio = difflib.SequenceMatcher(None, line1, line2).ratio()
 		if ratio < 1.0:
 			print(f"Diferencia en la línea {i}, detalles a continuación:\nCopia: {line1}\nActual: {line2}\n")
 
-if __name__ == __main__:
+if __name__ == "__main__":
 	print_differences(argv[1], argv[2])
 	print("Listo, patrón.")
