@@ -48,21 +48,16 @@ h:0 @-> || .#. [{des}|{tras}] _ vocal ;
 # general transcription rules:
 
 define TranscribeVowel 
-a:a | 
+[a|ä|â|à|ã]:a | 
 á:a1 | 
-Á:a1 | 
-e:e | 
+[e|ë|è|ê]:e | 
 é:e1 | 
-É:e1 | 
-i:i | 
+[i|î|ï|ì]:i | 
 í:i1 | 
-Í:i1 | 
-o:o | 
+[o|ö|ò|ô|õ]:o | 
 ó:o1 | 
-Ó:o1 | 
-u:u | 
-ú:u1 | 
-Ú:u1 ; 
+[u|ù|û]:u | 
+ú:u1 ; 
 
 define TranscribeConsonant 
 b:b | 
