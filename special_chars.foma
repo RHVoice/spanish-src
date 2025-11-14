@@ -922,7 +922,7 @@ define NormalizeCharactersLseq
 [𝘁:[t e1]]|
 [𝘂:[u1]]|
 [𝘃:[u1 bh e0]]|
-[𝘄:[u0 vh e0 dh o1 b l e0]]|
+[𝘄:[u0 bh e0 dh o1 b l e0]]|
 [𝘅:[e1 k i0 s]]|
 [𝘆:[i1 g r j e1 gh a0]]|
 [𝘇:[c e1 t a0]]|

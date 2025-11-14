@@ -32,7 +32,7 @@ define PossessiveAdjective
 mi | mis | tu | tus | su | sus | nuestro | nuestra | nuestros | nuestras | vuestro | vuestra | vuestros | vuestras ; 
 
 define Preposition 
-a | ante | bajo | cabe | con | contra | de | desde | durante | en | entre | hacia | hasta | lo | mediante | no | para | por | según | si | sin | so | sobre | tras | versus | vía ; 
+a | ante | cabe | con | contra | de | desde | durante | en | entre | hacia | hasta | lo | mediante | no | para | por | según | si | sin | so | tras | versus | vía ; 
 
 define UnstressedConjunction 
 del | y | ni | e | o | u | tu | sí | como | cuando | porque | pero | pues | que | quien | donde | aunque | mas | sino ; 
@@ -41,25 +41,25 @@ define Conjunction
 más | todavía | asimismo | entonces | caso | apenas | excepto ; 
 
 define Ser 
-ser | soy | es | somos | sois | son | era | érase | éramos | érais | eran | fui | fuiste | fue | fuimos | fuistes | fueron | será | serás | serán | seremos | sereis | sería | serías | seríamos | seríais | serían ;
+ser | érase | soy | sido | es | somos | sois | son | era | eras | érase | éramos | erais | eran | eres | fue | fuimos | fuiste | fuísteis | fueron | seré | será | serás | serán | seremos | sereis | sería | serías | seríamos | seríais | serían | sea | seas | seamos | seáis | sean ;
 
 define Estar 
-estar | estoy | estás | está | estamos | estáis | estado | estaba | estabas | estábamos | estaban | estuve | estuvo | estuvimos | estuviéramos | estuvieran | estaré | estarás | estará | estaremos | estarán ; 
+estar | estando | estoy | estás | está | están | estamos | estáis | estábais | estaba | estabas | estábamos | estaban | estuve | estuvo | estuvimos | estuviste | estuvísteis | estuviéramos | estuviera | estuvieran | estuvieras | estuviérais | estuvieron | estuviese | estuvieses | estuviésemos | estuviéseis | estuviesen | estaré | estarás | estará | estaremos | estaréis | estarán | estaría | estarías | estaríamos | estaríais | estarían | esté | estés | estemos | estéis | estén ; 
 
 define Tener 
-tener | tengo | tienes | tiene | tenemos | tiendes | tienen | tenía | tenías | teníamos | tenéis | tenían | tuve | tenido | tuvo | tuvimos | tuviste | tuviera | tuvieran | tuviéramos | tendré | tendrás | tendrá | tendremos | tendráis | tendrán | tendría | tendrías | tendríamos | tendrían ; 
+tener | ten | teniendo | tengo | tienes | tiene | tenemos | tienen | tenía | tenías | teníamos | teníais | tenéis | tenían | tuve | tenido | tuvo | tuvimos | tuviste | tuvísteis | tuviera | tuvieran | tuviéramos | tuvieron | tendré | tendrás | tendrá | tendremos | tendréis | tendrán | tendría | tendrías | tendríamos | tendríais | tendrían | tenga | tengan | tengas | tengamos | tengáis | tuvieras | tuviérais | tuviese | tuvieses | tuviésemos | tuviéseis | tuviesen ; 
 
 define Hacer 
-harán | hicieron | haciendo | hazer | hago | haz | hacemos | hacen ; 
+hacer | haciendo | harán | hago | haz | haced | hacemos | hacéis | hacen | haces | hice | hizo | hiciste | hicísteis | hicimos | hicieron | hacía | hacías | hacíamos | hacíais | hacían | haré | harás | hará | haremos | haréis | harán | haría | harían | harías | haríamos | haríais | haga | hagas | hagan | hagamos | hagáis | hiciera | hicieran | hicieras | hiciéramos | hiciérais | hiciese | hicieses | hiciésemos | hiciéseis | hiciesen | hecho ; 
 
 define Poder 
-poder | puedo | puedes | puede | podemos | podéis | pueden | podía | podías | podíamos | podíais | podían | pude | pudo | pudimos | pudiera | pudieran | pudieras | podré | podrás | podrá | podremos | podreis | podrán | podría | podrías | podríamos | podrían ; 
+puedo | pudiendo | puedes | puede | podemos | podéis | pueden | podía | podías | podíamos | podíais | podían | pude | pudo | pudimos | pudiste | pudísteis | pudiera | pudieran | pudieras | pudiéramos | pudiérais | pudieron | podré | podrás | podrá | podremos | podréis | podrán | podría | podrías | podríamos | podríais | podrían | pueda | puedas | podamos | podáis | puedan | pudiese | pudieses | pudiésemos | pudiéseis | pudiesen | podido ; 
 
 define Ir 
-ir | voy | vas | va | vamos | van | iba | ibas | íbamos | iban | iré | irás | irá | iremos | irán ; 
+ir | yendo | voy | vas | va | vamos | vais | van | iba | ibas | íbamos | ívais | iban | iré | irás | irá | iremos | iréis | irán | iría | irías | irían | iríamos | iríais | vaya | vayas | vayan | vayamos | vayáis ; 
 
 define Haber 
-haber | oye | deberíamos | habrán | había | habían | havíamos | habré | habrá | habrás | habremos | habrán | habría | habríamos | habrían ; 
+haber | habiendo | has | han | había | habían | habíamos | habré | habrá | habrás | habremos | habréis | habrán | habría | habríamos | habríais | habrían | habrías | hayas | hayamos | hayáis | hayan | hubiera | hubieras | hubieran | hubiéramos | hubiérais | hubiese | hubieses | hubiésemos | hubiéseis | hubiesen | habido ; 
 
 define AuxiliaryVerb 
 Ser | Estar | Tener | Haber ; 

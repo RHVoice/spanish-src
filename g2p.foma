@@ -15,7 +15,7 @@
 
 # Spanish Grapheme to Phoneme (g2p) for RHVoice.
 
-source variables.foma
+source stress.foma
 
 define UnstressedWords 
 # This is the special word list to be unstressed. That means, these words doesn't have intonation / stress mark, marked by 1 (ones).
@@ -173,8 +173,6 @@ define SpanishRules
 [t ch]:ch | # switch
 [a p p]:[a p] ; # For English words.
 
-source stress.foma
-
 define WordStartRules 
 # source rules from cldr/common/transforms/es-es_FONIPA.xml
 {ct} -> t || .#. _ ,, # ctónico
@@ -238,6 +236,11 @@ define exceptions
 [{oct.} : [o0 k t u1 b r e0]] | 
 [{nov.} : [n o0 v j e1 m b r e0]] | 
 [{dic.} : [d i0 c j e1 m b r e0]] | 
+# Adverbs with one syllable after suffix:
+[{cruelmente} : [k r w e1 l m e1 n t e0]] | 
+[{fielmente} : [f j e1 l m e1 n t e0]] | 
+[{grismente} : [g r i1 s m e1 n t e0]] | # Poem: Los ausentes soplan grismente y la noche es densa
+[{vilmente} : [v i1 l m e1 n t e0]] | 
 [{etc.} : [e0 t c e1 t e0 r a0]] ; 
 
 define Stage1 
@@ -263,6 +266,16 @@ define ohiRule
 # prohibamos, prohibido, prohibiciones, prohibición, prohibid, prohibida, etc.
 i0:j @-> || [o0 modifier] _ ; 
 
+# adverbs
+source adverbs_exceptions.foma
+define mente [m [e1|e0] n t e0] ; 
+define AdverbRule 
+[..] @-> adv || 
+.#. [[pc+ vocal2+ ([pc|vocal2]+)]|[vocal2+ pc+ (vocal2+)]]^2* | [vocal2+ pc+ vocal2] | [pc+ vocal2 vocal2] _ mente .#. ; 
+
+define NotAdverb 
+adv @-> 0 || .#. _ PhWord .#. , .#. AdverbExceptions _ mente .#. ; 
+
 define rules 
 deshChange .o. 
 UnstressedWordsTag .o. 
@@ -285,7 +298,9 @@ StressFormRule .o.
 SpanishStress .o. 
 SpanishStress2 .o. 
 ohiRule .o. 
-[modifier|Stressf @-> 0] ; 
+[modifier|Stressf @-> 0] .o. 
+AdverbRule .o. 
+NotAdverb ; 
 
 regex 
 [exceptions .P. rules] ; 

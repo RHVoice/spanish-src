@@ -14,14 +14,9 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # Spanish Post g2p with documentation. Important things to consider:
-# Phrase Boundary.
-define PB %- | .#. ; 
-# Word boundary (words of the utterance)
-define WB %# | PB ; 
 
-source variables.foma
+source stress.foma
 
-define PhWord [Consonant|vocal]+ ; 
 define Unstress1 
 # 1. Well stress these tagged words when they are alone, that means, when the utterance contains only the word. Our stress.foma is our colleague during this pipeline. To do this, let's remove the Uns tag. Else, if the word from the wordlist is not alone, is an unstressed word.
 Uns @-> 0 || 
@@ -29,7 +24,10 @@ PB PhWord _ PB , _ %# PhWord Uns .#. ;
 
 define Unstress2 
 # 2. After applying Spanish stressing rules and regulations in these tagged words alone in the utterance, we don't need this tag anymore.
-Uns @-> 0 || _ ; 
+[Uns|adv] @-> 0 || _ ; 
+
+define StressAdverb 
+[m e0 n t e0]:[m e1 n t e0] @-> || WB PhWord "adv" _ WB ; 
 
 # Here, we apply approximants through the whole utterance, same that we did in g2p but with word boundaries between vowels.
 # For example, el dado de Dabid. Between o (dado) and d (de) and "de" and "David" are the intervocalic d.
@@ -284,8 +282,6 @@ WB [k w a0 n d o0] %# _ WB ,
 WB _ %# [[l a0]|[p a1 c]] WB , 
 WB _ %# [n a1 dh a0] WB ; 
 
-source stress.foma
-
 define untag 
 MakeTag -> [a1 c e0] ; 
 
@@ -294,8 +290,11 @@ TagYgriega -> i0 ;
 
 regex 
 Unstress1 .o. 
+SpanishStressPost .o. 
+SpanishStressPost2 .o. 
 MonosylStress .o. 
 SpanishStress .o. 
+StressAdverb .o. 
 Unstress2 .o. 
 PhonemeToSpelling .o. 
 untag2 .o. 
