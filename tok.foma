@@ -40,6 +40,8 @@ define Word [Letter+ [Apos Letter+]*] | ExceptionalWord ;
 define Symbol \[Letter | Digit] ; 
 #define Date [Digit^2 dateSep Digit^2 dateSep Digit^4] ; 
 
+define Structure [Symbol sym]|[Word word]|[Number num] ; 
+
 define Stage1 
 Word @-> ... word || _ .#. | \Letter ,, 
 #FormattedNumber @-> ... num || _ .#. | \Digit ,, 
@@ -62,20 +64,20 @@ word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ;
 define Stage3 
 # Custom LSeq handling:
 word -> lseq || 
-.#. ([Symbol sym]|[Word word]) [[CapitalLetter^2 CapitalVowel] - GraphemeSyllableAllow] _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalLetter^3 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalLetter^4 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalLetter^5 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalVowel CapitalLetter^5 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalLetter CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalLetter CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalLetter CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalLetter^2 CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) X CapitalVowel CapitalLetter _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. ([Symbol sym]|[Word word]) CapitalLetter CapitalVowel W _ (Symbol sym) (Symbol sym) (Symbol sym) .#. ; 
+.#. (Structure) [[CapitalLetter^2 CapitalVowel] - GraphemeSyllableAllow] _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalLetter^3 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalLetter^4 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalLetter^5 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalVowel CapitalLetter^5 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalLetter^2 CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) X CapitalVowel CapitalLetter _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
+.#. (Structure) CapitalLetter CapitalVowel W _ (Symbol sym) (Symbol sym) (Symbol sym) .#. ; 
 
 define Stage4 
 word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ,, 
