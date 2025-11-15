@@ -13,7 +13,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-source cluster.foma
+source include/textproc/cluster.foma
+source include/formats.foma
 
 define Apos %'|%‘|%’ ; 
 
@@ -96,9 +97,10 @@ word -> 0 ||
 # Miscellaneous: YouTube and others.
 [[y|Y] o u] _ [[t|T] u b e] ; 
 
-source special_chars.foma
+source include/norm/ntok.foma
 
 regex 
+NormalizeCharacters .o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3 .o. 

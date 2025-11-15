@@ -15,7 +15,7 @@
 
 # Spanish Post g2p with documentation. Important things to consider:
 
-source stress.foma
+source include/phon/stress.foma
 
 define Unstress1 
 # 1. Well stress these tagged words when they are alone, that means, when the utterance contains only the word. Our stress.foma is our colleague during this pipeline. To do this, let's remove the Uns tag. Else, if the word from the wordlist is not alone, is an unstressed word.
@@ -98,7 +98,7 @@ StressedDigit @-> || WB [[v|bh] e1 j n t e0] | [[v|bh] e0 j n t [i0|j]] _ %# [m 
 
 # Contextual accentuation, AKA Sentence-Aware Prosody Modelling (SAPM) #
 
-source imperverbs.foma
+source include/phon/imperverbs.foma
 
 define MaleObjectPronoun 
 # connectors: Un, el, ese, este, aquel. We will use these to conjugate and modify stress according to word context. see below.

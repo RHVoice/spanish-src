@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-source variables.foma
+source include/formats.foma
 
 define RegularLetter 
 # regular letters:
@@ -68,7 +68,7 @@ define RegularLetter
 [y|Y]:[i griega] | 
 [z|Z]:ceta ; 
 
-source special_chars.foma
+source include/norm/nspell.foma
 
 define SpellLetter RegularLetter | NormalizeCharactersSpell ;
 

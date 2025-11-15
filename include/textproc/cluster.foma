@@ -1,4 +1,4 @@
-source variables.foma
+source include/variables.foma
 
 #He definido lo siguiente para que el stop más el glide más vocal, por ejemplo, BLA, BRE, DLI, DRO, FRU, sean palabras y no secuencias de caracteres. Con esto le vamos a decir al tokenizador en foma que defina las secuencias de caracteres en consonante^2 (dos veces) y una vocal, a excepción de estas reglas que son clusters de sílabas a continuación.
 define GraphemeStop B|C|D|F|G|K|P|T ; 

@@ -15,7 +15,7 @@
 
 # Spanish Grapheme to Phoneme (g2p) for RHVoice.
 
-source stress.foma
+source include/phon/stress.foma
 
 define UnstressedWords 
 # This is the special word list to be unstressed. That means, these words doesn't have intonation / stress mark, marked by 1 (ones).
@@ -279,7 +279,7 @@ define ohiRule
 i0:j @-> || [o0 modifier] _ ; 
 
 # adverbs
-source adverbs_exceptions.foma
+source include/phon/adverbs_exceptions.foma
 define mente [m [e1|e0] n t e0] ; 
 define AdverbRule 
 [..] @-> adv || 

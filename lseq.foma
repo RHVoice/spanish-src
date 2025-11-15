@@ -76,7 +76,7 @@ define SingleLseq
 {ch}:[ch e1] | 
 {ll}:[e1 ll e0] ; 
 
-source special_chars.foma
+source include/norm/nlseq.foma
 
 define TranscribeLetterSequence 
 SingleLseq -> || .#. _ .#. ,, 
