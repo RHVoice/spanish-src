@@ -15,5 +15,5 @@
 
 source roman.foma
 
-define ESRomanMapping RomanMapping - [[I|V|X|L]:[?+]] ; 
+define ESRomanMapping RomanMapping - [[I|V|VI|X|L]:[?+]] ; 
 define ESRomanNumeral ESRomanMapping.u ; 

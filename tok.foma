@@ -26,6 +26,7 @@ define ExceptionalWord
 [[d|D] %. [c|C] %.] | 
 [L u n %.] | [M a r %.] | [M i é %.] | [J u e %.] | [V i e %.] | [S á b %.] | [D o m %.] | 
 [e n e %.] | [f e b %.] | [a b r %.] | [m a y %.] | [j u n %.] | [j u l %.] | [a g o %.] | [s e p %.] | [o c t %.] | [n o v %.] | [d i c %.] | 
+[D R (A) %.] | [L C D (O|A) %.] | [S R (A|[[A|E] S]|[T A]) %.] | [U D (S) %.] | 
 [[e|E] [t|T] [c|C] %.] | 
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
 # Exceptions for apple product names. Avoid word splitting (see below)
@@ -98,7 +99,6 @@ word -> 0 ||
 source special_chars.foma
 
 regex 
-NormalizeCharacters.o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3 .o. 

@@ -236,6 +236,18 @@ define exceptions
 [{oct.} : [o0 k t u1 b r e0]] | 
 [{nov.} : [n o0 v j e1 m b r e0]] | 
 [{dic.} : [d i0 c j e1 m b r e0]] | 
+# Comon
+[{dr.} : [d o0 k t o1 r]] | 
+[{dra.} : [d o0 k t o1 r a]] | 
+[{lcdo.} : [l i0 c e0 n c j a1 dh o0]] | 
+[{lcda.} : [l i0 c e0 n c j a1 dh a0]] | 
+[{sr.} : [s e0 ni o1 r]] | 
+[{sres.} : [s e0 ni o1 r e0 s]] | 
+[{sra.} : [s e0 ni o1 r a0]] | 
+[{sras.} : [s e0 ni o1 r a0 s]] | 
+[{srta.} : [s e0 ni o0 r i1 t a0]] | 
+[{ud.} : [u0 s t e1 d]] | 
+[{uds.} : [u0 s t e1 dh e0 s]] | 
 # Adverbs with one syllable after suffix:
 [{cruelmente} : [k r w e1 l m e1 n t e0]] | 
 [{fielmente} : [f j e1 l m e1 n t e0]] | 
