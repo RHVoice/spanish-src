@@ -32,26 +32,16 @@ define ExceptionalWord
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
 # Exceptions for apple product names. Avoid word splitting (see below)
 define ExceptionalWord2 [[P h o n e]|[P [a|o] d]] ; 
-#define year Digit^<4 ; 
-#define DayOrMonth Digit^<2 ; 
-#define dateSep %/ ; 
-define DecimalSeparator %.|%,;
 define Word [Letter+ [Apos Letter+]*] | ExceptionalWord ;
 define Symbol \[Letter | Digit] ; 
-#define Date [Digit^2 dateSep Digit^2 dateSep Digit^4] ; 
 
 define Structure [Symbol sym]|[Word word]|[Number num] ; 
 
 define Stage1 
 Word @-> ... word || _ .#. | \Letter ,, 
-#FormattedNumber @-> ... num || _ .#. | \Digit ,, 
-#UnformattedNumber @-> ... num ,, 
 Number @-> ... num ,, 
 %0 Digit+ @-> ... dig ,, 
 %0 @-> ... num ,, 
-# We will apply this future new token for Spanish, called date, when someone helps me with cpp code for it.
-# We did an experimental approach by adding date support in number processing. However, I have concluded that the best option is that date support must have its own token type, because. a) we can create a switcher in the configuration file easily to enable or disable if the user wants date reading, and b) it is more easy to control because it is a separated way, outside numbers.
-#Date @-> ... date || _ ,, 
 Symbol @-> ... sym || _ ; 
 
 define Stage2 
@@ -82,9 +72,9 @@ word -> lseq ||
 define Stage4 
 word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ,, 
 sym -> num || [sym|.#.] %- _ Digit,
-sym -> num || [sym|.#.] %+ _ Digit,
-num DecimalSeparator _ Digit+,,
+sym -> num || [sym|.#.] %+ _ Digit,,
 sym -> 0 || [%: sym %/] _ [%/ sym Word] ,, 
+[num %, sym] -> %,  || .#. Digit+  _ Digit+ num .#. ,, 
 num -> dig || Digit^28 _ ,, 
 [num:0] OrdChar [sym:num] -> ; 
 

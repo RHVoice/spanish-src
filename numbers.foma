@@ -27,8 +27,7 @@ define ProcNumChar [ %-:menos |
 %$: dólares |
 %.: punto |
 %/: barra |
-[%/]^2: [barra barra] |
-%,: coma ] ;
+[%/]^2: [barra barra]] ; 
 
 #define Year [Digit^<5] ; 
 #define DayOrMonth [Digit^<3] ; 
@@ -36,6 +35,7 @@ define ProcNumChar [ %-:menos |
 #define Number FormatedDate | [UnformattedNumber (OrdChar)] | ESRomanNumeral ; 
 
 define MaleOrdUnit 
+%0:cerésimo | 
 1:primero | 
 2:segundo | 
 3:tercero | 
@@ -47,6 +47,7 @@ define MaleOrdUnit
 9:noveno ; 
 
 define FemaleOrdUnit 
+%0:cerésima | 
 1:primera | 
 2:segunda | 
 3:tercera | 
@@ -147,6 +148,12 @@ define FemaleOrdHundred
 8:octocentésima | 
 9:noningentésima ; 
 
+define preTranslate 
+[1 mlns] -> [1 mln] || _ ,, 
+[1 blns] -> [1 bln] || _ ,, 
+[1 tlns] -> [1 tln] || _ ,, 
+[1 qlns] -> [1 qln] || _ ; 
+
 define PowerOfThousandSymbol ths|mlns|blns|tlns|qlns|mln|bln|tln|qln ; 
 define TenOrHundredSymbol ten|hnd0|hnd ; 
 define PowerOfTenSymbol TenOrHundredSymbol|PowerOfThousandSymbol ; 
@@ -155,22 +162,24 @@ define OrdPowerOfThousandSymbol thth|mlnth|blnth|tlnth|qlnth ;
 define OrdTenOrHundredSymbol tenth|hndth ; 
 define OrdPowerOfTenSymbol OrdTenOrHundredSymbol|OrdPowerOfThousandSymbol ; 
 
-define SeparatePowerOfThousand(s) [..] -> s || Digit _ Digit^3 [.#.|\Digit] ; 
+define SeparatePowerOfThousand(s) [..] -> s || Digit _ Digit^3 [\dec & \Digit] ; 
 
 define RemoveSilentGroups 
-%0^3 (PowerOfThousandSymbol) @-> 0 ; 
+%0^3 (PowerOfThousandSymbol) @-> 0 || _ ?* wnum ; 
 
 define SeparateHundreds 
-[..] -> hnd || Digit _ Digit^2 ; 
+[..] -> hnd || Digit _ Digit^2 ?* wnum ; 
 
 define Mark100s 
 hnd -> hnd0 || 1 _ {00} ; 
 
 define SeparateTens 
-[..] -> ten || Digit _ Digit ; 
+[..] -> ten || Digit _ Digit ?* wnum ; 
 
 define MarkTenth 
-ten -> tenth || Digit _ Digit OrdChar ; 
+ten -> tenth || 
+Digit _ Digit ths Digit hnd Digit ten Digit wnum ord OrdChar , 
+Digit _ Digit wnum ord OrdChar ; 
 
 define MarkHundredth 
 [hnd|hnd0] -> hndth || Digit _ Digit tenth ; 
@@ -179,61 +188,73 @@ define MarkThousandth
 ths -> thth || Digit _ [Digit hndth] | OrdChar ; 
 
 define MarkOrdPowerOfThousand 
-mlns:mlnth | blns:blnth | tlns:tlnth | qlns:qlnth -> || _ OrdChar ; 
+mlns:mlnth | blns:blnth | tlns:tlnth | qlns:qlnth -> || _ ?* wnum ord OrdChar ; 
 
 define RemoveZeros 
-%0 ([TenOrHundredSymbol | OrdTenOrHundredSymbol]) @-> 0 ; 
+%0 ([TenOrHundredSymbol | OrdTenOrHundredSymbol]) @-> 0 || \%. _ ?* wnum ; 
 
 define MarkTeens 
-[[1 ten]:0] NZDigit [0:teen] -> ; 
+[[1 ten]:0] NZDigit [0:[teen %0]] -> ; 
 
 define MarkTwenties 
-[[2 ten]:0] NZDigit [0:twenti] -> ; 
+[[2 ten]:0] NZDigit [0:[twenti %0]] -> ; 
 
 define InsertAnds 
 [..] -> and || 
 NZDigit ten _ NZDigit ; 
-#NZDigit hnd _ (%0 ten) NZDigit , 
-#PowerOfThousandSymbol _ [[NZDigit [hnd|hnd0] %0 ten %0] | [%0 hnd (%0 ten) NZDigit]] .#. ; 
 
 define RemoveOnes 
 1 -> 0 || .#. _ ths | OrdPowerOfThousandSymbol ; 
 
 define PowerOfThousandSymbolsToSingular 
-[mlns:mln|blns:bln|tlns:tln|qlns:qln] -> || [[PowerOfThousandSymbol (and)]|.#.] 1 _ ; 
+[mlns:mln|blns:bln|tlns:tln|qlns:qln] -> || [[PowerOfThousandSymbol (and)]|wnum] 1 _ ; 
 
-define Translate 
-OrdChar -> 0 ,, 
-Unit -> || _ .#. | PowerOfThousandSymbol | OrdPowerOfThousandSymbol ,, 
-MaleOrdUnit -> || _ MaleOrdChar .#. ,, 
-FemaleOrdUnit -> || _ FemaleOrdChar .#. ,, 
+define tagNumberTypes 
+  [FormattedNumber|UnformattedNumber] @-> ... wnum || .#. _ (%, Digit+)  .#. ,, 
+	UnformattedNumber @-> ... wnum || .#. _ (%. Digit+)  .#.  ,, 
+	[FormattedNumber|UnformattedNumber] @-> ... wnum ord || .#. _ OrdChar .#. ; 
+
+define tagCascade 
+   [  [%,|%.] -> ... dp || wnum  _ Digit+ .#. ] 
+  .o. [ [%.]:0  -> || _ ?* wnum ] 
+	.o. [ Digit -> ... dec  || dp Digit* _ .#. ] 
+	.o. [ dec -> wnum || dp NZDigit Digit^<3 _ .#. ] 
+ 	.o. [ Digit-> ... wnum || [.#. | \Digit] Digit* _ [ .#. | %. | %, ]]; 
+
+define tagRules  tagNumberTypes .o. tagCascade; 
+
+define Ords 
+#OrdChar -> 0 ,, 
+MaleOrdUnit -> || _ wnum ord MaleOrdChar .#. ,, 
+FemaleOrdUnit -> || _ wnum ord FemaleOrdChar .#. ,, 
+[MaleOrdTen tenth:0] -> || _ ?* wnum ord MaleOrdChar .#. ,, 
+[FemaleOrdTen tenth:0] -> || _ ?* wnum ord FemaleOrdChar .#. ,, 
+[MaleOrdHundred hndth:0] -> || _ ?* wnum ord MaleOrdChar .#. ,, 
+[FemaleOrdHundred hndth:0] -> || _ ?* wnum ord FemaleOrdChar .#. ; 
+
+define Translate [
+SpellDigit -> || _ wnum | dec | PowerOfThousandSymbol | OrdPowerOfThousandSymbol ,, 
+SpellDigit -> || dp Digit* _ Digit* dec ,, 
 Teen [teen:0] -> || _ ,, 
 Twenti [twenti:0] -> || _ ,, 
 Ten [ten:0] -> || _ ,, 
-MaleOrdTen [tenth:0] -> || _ ?* MaleOrdChar .#. ,, 
-FemaleOrdTen [tenth:0] -> || _ ?* FemaleOrdChar .#. ,, 
 Hundred [hnd:0] -> || _ ,, 
 1 hnd0 -> cien || _ ,, 
-MaleOrdHundred [hndth:0] -> || _ ?* MaleOrdChar .#. ,, 
-FemaleOrdHundred [hndth:0] -> || _ ?* FemaleOrdChar .#. ,, 
-ths -> mil || _ ,, 
 and -> y || _ ,, 
+%, -> coma || _ ?+ .#. ,, 
+%. -> punto || _ ?+ .#. ,, 
+[thth:milésimo | mlnth:millonésimo | blnth:billonésimo | tlnth:trillonésimo | qlnth:cuatrillonésimo] @-> || _ ?* wnum ord MaleOrdChar ,, 
+[thth:milésima | mlnth:millonésima | blnth:billonésima | tlnth:trillonésima | qlnth:cuatrillonésima] @-> || _ ?* wnum ord FemaleOrdChar 
+] .o. [
+ths -> mil || _ ,, 
 [mln:millón | bln:billón | tln:trillón | qln:cuatrillón] -> || _ ,, 
-[mlns:millones | blns:billones | tlns:trillones | qlns:cuatrillones] -> || _ ,, 
-[thth:milésimo | mlnth:millonésimo | blnth:billonésimo | tlnth:trillonésimo | qlnth:cuatrillonésimo] -> || _ ?* MaleOrdChar .#. ,, 
-[thth:milésima | mlnth:millonésima | blnth:billonésima | tlnth:trillonésima | qlnth:cuatrillonésima] -> || _ ?* FemaleOrdChar .#. ; 
-
-define RemoveThousandsSeparators 
-%. -> 0 ; 
+[mlns:millones | blns:billones | tlns:trillones | qlns:cuatrillones] -> || _
+] ; 
 
 define fixes2 
-[uno:un | veintiuno:veintiún] -> || _ [mil|millón|billón|trillón|cuatrillón] ; 
+[uno:ún | veintiuno:veintiún] -> || _ [mil|millón|billón|trillón|cuatrillón] ; 
 
 define NumberRules 
-Number .o. 
-SpanishRoman .o. 
-MapRomanNumeral .o. 
-RemoveThousandsSeparators .o. 
 SeparatePowerOfThousand(ths) .o. 
 SeparatePowerOfThousand(mlns) .o. 
 SeparatePowerOfThousand(ths) .o.
@@ -255,17 +276,18 @@ MarkTwenties .o.
 InsertAnds .o. 
 RemoveZeros .o. 
 PowerOfThousandSymbolsToSingular .o. 
+preTranslate .o. 
 RemoveOnes .o. 
+Ords .o. 
+[%.|%,|wnum] -> cero ... || .#. _ .o. 
 Translate .o. 
-#fixes .o. 
+[[ord OrdChar]:0 -> || wnum _ .#.] .o. 
+[[dp:0|dec:0|wnum:0] -> || _] .o. 
 fixes2 ; 
-#fixes3 ; 
-
-define ZeroRule 
-%0 : cero | 
-[%0 MaleOrdChar] : cerésimo | 
-[%0 FemaleOrdChar] : cerésima ; 
-
 
 regex 
-ProcNumChar | ZeroRule | NumberRules ; 
+[ProcNumChar | Number] .o. 
+SpanishRoman .o. 
+MapRomanNumeral .o. 
+tagRules .o.
+NumberRules ; 
