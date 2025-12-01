@@ -15,11 +15,6 @@
 
 source include/variables.foma
 
-# Phrase Boundary.
-define PB %- | .#. ; 
-# Word boundary (words of the utterance)
-define WB %# | PB ; 
-
 # One of references that helped a lot: https://www.reddit.com/r/Spanish/comments/1336w1x/stress_pattern_on_espa%C3%B1ol/
 
 define StressedVowel [a1 | e1 | i1 | o1 | u1] ; 
@@ -64,7 +59,7 @@ define SpanishStress stresses -> ||
 
 define SpanishStressPost stresses -> || 
 # In words that end in a vowel, n or s, the stress generally falls on the penultimate syllable.
-WB noStress* _ pc* UnstressedVowel (n|s) adv [m [e1|e0] n t e0] WB ; 
+.#. noStress* _ pc* UnstressedVowel (n|s) adv [m [e1|e0] n t e0] .#. ; 
 
 define SpanishStress2 stresses -> || 
 # If a word ends with a consonant, the stress falls in the last vowel of the syllable. Example, Español.
@@ -72,7 +67,7 @@ define SpanishStress2 stresses -> ||
 
 define SpanishStressPost2 stresses -> || 
 # If a word ends with a consonant, the stress falls in the last vowel of the syllable. Example, Español.
-WB noStress+ (noStress+) _ Consonant+ adv [m e1 n t e0] WB ; 
+.#. noStress+ (noStress+) _ Consonant+ adv [m e1 n t e0] .#. ; 
 
 define unstress [
 a:a0|

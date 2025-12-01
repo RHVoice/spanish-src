@@ -279,18 +279,22 @@ define ohiRule
 i0:j @-> || [o0 modifier] _ ; 
 
 # adverbs
-source include/phon/adverbs_exceptions.foma
+source include/textproc/adverbs_exceptions.foma
 define mente [m [e1|e0] n t e0] ; 
 define AdverbRule 
 [..] @-> adv || 
 .#. [[pc+ vocal2+ ([pc|vocal2]+)]|[vocal2+ pc+ (vocal2+)]]^2* | [vocal2+ pc+ vocal2] | [pc+ vocal2 vocal2] _ mente .#. ; 
 
 define NotAdverb 
-adv @-> 0 || .#. _ PhWord .#. , .#. AdverbExceptions _ mente .#. ; 
+adv @-> 0 || .#. _ PhWord .#. ; 
+
+define StressAdverb 
+[m e0 n t e0]:[m e1 n t e0] @-> || .#. PhWord "adv" _ .#. , .#. PhWord _ exc .#. ; 
 
 define rules 
 deshChange .o. 
 UnstressedWordsTag .o. 
+AdverbExceptionTag .o. 
 StressedForms .o. 
 Stage1 .o. 
 Stage2 .o. 
@@ -312,7 +316,11 @@ SpanishStress2 .o.
 ohiRule .o. 
 [modifier|Stressf @-> 0] .o. 
 AdverbRule .o. 
-NotAdverb ; 
+NotAdverb .o. 
+SpanishStressPost .o. 
+SpanishStressPost2 .o. 
+StressAdverb .o. 
+[[adv|exc] @-> 0] ; 
 
 regex 
 [exceptions .P. rules] ; 

@@ -1,0 +1,34 @@
+# Those exceptions are not adverbs.
+
+define AdverbExceptions 
+{argu} | # argumente
+{ator} | # atormente
+{comple} | # complemente
+{condi} | # condimente
+{cumpli} | # cumplimente: acción de cumplimentar, ejemplo: Le ruego que cumplimente este formulario con sus datos.
+{depri} | # deprimente
+{desfrag} | # desfragmente
+{diri} | # dirimente
+{docu} | # documente
+{escar} | # escarmente: acción del verbo escarmentar.
+{excre} | # excremente: del verbo excrementar
+{exi} | # eximente
+{experi} | # experimente
+{funda} | # fundamente
+{imple} | # implemente
+[{inc} [l|r] {e}] | # inclemente (adj), incremente (vrb)
+{jura} | # juramente
+{orna} | # ornamente (vrb)
+{parla} | # parlamente
+{pavi} | # pavimente
+{puli} | # pulimente
+{regla} | # reglamente
+{sedi} | # sedimente
+{sacra} | # sacramente
+[({sobre}) {ali}] # alimente, sobrealimente
+ ; 
+
+define FullAdverbExceptions [AdverbExceptions {mente}] ; 
+
+define AdverbExceptionTag 
+[..] @-> exc || .#. FullAdverbExceptions _ .#. ; 
