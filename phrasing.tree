@@ -20,7 +20,7 @@
  ((R:Token.n.name is 0)
   ((R:TokStructure.parent.parent.daughtern.name in ("," ":" ";" ")" "." "?" "!" "-" "–" "—"))
    ((B))
-   ((R:TokStructure.parent.parent.n.daughter1.name in ("(" "-" "–" "—"))
+   ((R:TokStructure.parent.parent.n.daughter1.name in ("(" "¿" "¡" "-" "–" "—"))
     ((B))
     ((NB))))
   ((NB))))

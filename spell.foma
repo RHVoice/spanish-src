@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-source variables.foma
+source include/formats.foma
 
 define RegularLetter 
 # regular letters:
@@ -29,6 +29,7 @@ define RegularLetter
 [d|D]:dé | 
 [e|E]:e | 
 [É|é]:[é agudo] | 
+[è|È]:e | 
 [Ë|ë]:[é diéresis] | 
 [Ê|ê]:[é circunflejo] | 
 [f|F]:efe | 
@@ -38,6 +39,7 @@ define RegularLetter
 [í|Í]:[í agudo] | 
 [î|Î]:[í circunflejo] | 
 [ï|Ï]:[í diéresis] | 
+[ì|Ì]:i | 
 [j|J]:jota | 
 [k|K]:ca | 
 [l|L]:ele | 
@@ -49,7 +51,7 @@ define RegularLetter
 [Ö|ö]:[ó diéresis] | 
 [Ô|ô]:[ó circunflejo] | 
 [Õ|õ]:[ó tilde] | 
-[Ö|ö]:[ô diéresis] | 
+[ò|Ò]:o | 
 [p|P]:pe | 
 [q|Q]:qu | 
 [r|R]:erre | 
@@ -59,15 +61,16 @@ define RegularLetter
 [Ú|ú]:[ú agudo] | 
 [û|Û]:[ú circunflejo] | 
 [Ü|ü]:[ú diéresis] | 
+[ù|Ù]:u | 
 [v|V]:uve | 
 [w|W]:[uve doble] | 
 [x|X]:equis | 
 [y|Y]:[i griega] | 
 [z|Z]:ceta ; 
 
-source special_chars.foma
+source include/norm/nspell.foma
 
-define Letter RegularLetter | NormalizeCharactersSpell ;
+define SpellLetter RegularLetter | NormalizeCharactersSpell ;
 
 define Whitespace 
 tab:tab | 
@@ -614,4 +617,4 @@ define Symbol
 %º : [ordinal masculino] ; 
 
 regex 
-Letter|Digit | Whitespace | Symbol ; 
+SpellLetter|SpellDigit | Whitespace | Symbol ; 

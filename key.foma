@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-source variables.foma
+source include/formats.foma
 
 define Number 
 Unit | 
@@ -63,7 +63,7 @@ Enter |
 {window} : windows ; 
 
 define KPKey 
-[{kp-} : 0] [Digit | Plus | Minus | Star | Slash | Dot | Enter];
+[{kp-} : 0] [SpellDigit | Plus | Minus | Star | Slash | Dot | Enter];
 
 define FKey 
 f:efe Number ;
