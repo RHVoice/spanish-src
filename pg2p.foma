@@ -54,7 +54,7 @@ define StressedNumber
 [n o0 bh e1 n t a0]:[n o0 bh e0 n t a0] ; 
 # We will do the same, but for digits and teens.
 define StressedDigit 
-[u1 n]:[u0 n] (o0) | 
+[u1 n]:[u0 n] | 
 [d|dh] [o1 s]:[o0 s] | 
 [t r e1 s]:[t r e0 s] | 
 [k w a1 t r o0]:[k w a0 t r o0] | 
@@ -63,6 +63,10 @@ define StressedDigit
 [s j e1 t e0]:[s j e0 t e0] | 
 [o1 ch o0]:[o0 ch o0] | 
 [n w e1 bh e0]:[n w e0 bh e0] ; 
+
+define StressedDigit2 
+# Here, we include the number "uno"
+StressedDigit | [u1 n o0]:[u0 n o0] ; 
 
 define StressedTeen 
 [d|dh] [j e1 c]:[j e0 c] | 
@@ -77,12 +81,13 @@ define StressedTeen
 [d|dh] [j e0 c i0 n w e1 bh e0]:[j e0 c i0 n w e0 bh e0] ; 
 
 define PhoneticedDigit 
-StressedDigit .u ; 
+StressedDigit2 .u ; 
 
 define unstressNumber 
 # When treinta, cuarenta, cincuenta, etc... is in the word, accompanied by i (y) and digit (sesenta y cinco), or mil, remove the stress. For example, cuarénta y... = cuarenta y... sesénta mil... = sesenta mil...
 # Note, the acute vowel it is written on purpose to show the illustration of the stress / unstress.
-StressedNumber @-> || WB _ %# i0 %# PhoneticedDigit WB , WB _ %# [m i1 l] WB ,, 
+StressedNumber @-> || 
+WB _ %# i0 %# PhoneticedDigit WB , WB _ %# [m i1 l] WB ,, 
 # When (digit or then) mil is available, such as cinco mil, the speaker doesn't say cínco mil, but cinco mil or cincomil (unstressing 5).
 [StressedDigit|StressedTeen] @-> || WB _ %# [m i1 l] WB ,, 
 # And, there is a special case for 20x numbers, for example "veintidós mil". We will make possible to interpret as "veintidosmíl" instead, the natural way of Spanish speakers.
@@ -144,15 +149,17 @@ define HaceMasculinoPluralActionNumber
 # In the female context, time specifications only are definned, so has only one definition. However, in the male context, a specific definition of time indicators like these are required to follow the correct context. And the most important, I can notice gender inequality, even in the morphosyntactic aspect, not only in society.
 [s e0 gh u1 n d o0 s] | [m i0 n u1 t o0 s] | [[d|dh] i1 a0 s] | [m e1 s e0 s] | [a1 ni o0 s] | [s i1 g l o0 s] ; 
 
-define PhoneticedNumber 
-[ StressedTeen .u | 
-[[v|bh] e1 j n t e0] | [[v|bh] e0 j n t [i0|j] PhoneticedDigit] ; 
+define PhoneticedNumber [
+	# 1 to 9, then 10 to 19
+	PhoneticedDigit .u | StressedTeen .u | 
+	# Twenties are a special case too. Veintiuno, veintidós, veintiocho, etc.
+	[[v|bh] e0 j n t [i0|j] PhoneticedDigit] | 
+	# treinta y cuatro, cuarenta y cinco, etc. Donde la decena es sin acento.
+	[StressedNumber .l %# i0 %# PhoneticedDigit] | 
+	# Veinte, treinta, cuarenta, cincuenta...
+	StressedNumber .u
+] ; 
 
-define PhoneticedNumber2 
-[t r e0 j n t a0]|[k w a0 r e0 n t a0]|[c i0 n k w e0 n t a0]|[s e0 s e0 n t a0]|[s e0 t e0 n t a0]|[o0 ch e0 n t a0]|[n o0 bh e0 n t a0] ; 
-
-define PhoneticedNumber3 
-[t r e1 j n t a0]|[k w a0 r e1 n t a0]|[c i0 n k w e1 n t a0]|[s e0 s e1 n t a0]|[s e0 t e1 n t a0]|[o0 ch e1 n t a0]|[n o0 bh e1 n t a0] ; 
 define PersonalObjectPronoun 
 # The same thing but for "mi", "tu" and "su".
 [m i0] | [[s|t] u0] ; 
@@ -251,9 +258,7 @@ WB _ %# HaceFemeninoPlural %# HaceFemeninoPluralAction WB ,
 WB _ %# HaceMasculinoSingular %# HaceMasculinoSingularAction WB , 
 WB _ %# HaceMasculinoPlural %# [HaceMasculinoPluralAction|HaceMasculinoPluralActionNumber] WB , 
 # Number independend:
-WB _ %# PhoneticedNumber2 %# i0 %# PhoneticedDigit %# [HaceFemeninoPluralAction|HaceMasculinoPluralActionNumber] WB , 
-WB _ %# PhoneticedNumber3 %# [HaceFemeninoPluralAction|HaceMasculinoPluralActionNumber] WB , 
-WB _ %# [PhoneticedDigit|PhoneticedNumber] %# [HaceFemeninoPluralAction|HaceMasculinoPluralActionNumber] WB ,, 
+WB _ %# PhoneticedNumber %# [HaceFemeninoPluralAction|HaceMasculinoPluralActionNumber] WB , 
 # Create stressing context for "nuestro" (s), example: lo nuestro ya no puede continuar, este es uno de los nuestros.
 [n w e0 s t r o0]:[n w e1 s t r o0] -> || WB [l o0] %# _ WB ,, 
 [n w e0 s t r o0 s]:[n w e1 s t r o0 s] -> || WB [l o0 s] %# _ WB ,, 
