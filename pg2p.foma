@@ -257,7 +257,7 @@ WB _ %# HaceFemeninoPlural %# HaceFemeninoPluralAction WB ,
 WB _ %# HaceMasculinoSingular %# HaceMasculinoSingularAction WB , 
 WB _ %# HaceMasculinoPlural %# [HaceMasculinoPluralAction|HaceMasculinoPluralActionNumber] WB , 
 # Number independend:
-WB _ %# PhoneticedNumber %# [HaceFemeninoPluralAction|HaceMasculinoPluralActionNumber] WB , 
+WB _ %# PhoneticedNumber %# [HaceFemeninoPluralAction|HaceMasculinoPluralActionNumber] WB ,, 
 # Create stressing context for "nuestro" (s), example: lo nuestro ya no puede continuar, este es uno de los nuestros.
 [n w e0 s t r o0]:[n w e1 s t r o0] -> || WB [l o0] %# _ WB ,, 
 [n w e0 s t r o0 s]:[n w e1 s t r o0 s] -> || WB [l o0 s] %# _ WB ,, 
