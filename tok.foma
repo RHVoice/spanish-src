@@ -31,7 +31,7 @@ define ExceptionalWord
 [[e|E] [t|T] [c|C] %.] | 
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
 # Exceptions for apple product names. Avoid word splitting (see below)
-define ExceptionalWord2 [[P h o n e]|[P [a|o] d]] ; 
+define ExceptionalWord2 [[P h o n e]|[P [a|o] d] | [C l o u d]] ; 
 define Word [Letter+ [Apos Letter+]*] | ExceptionalWord ;
 define Symbol \[Letter | Digit] ; 
 
