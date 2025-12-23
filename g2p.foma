@@ -308,7 +308,7 @@ WordEndRules .o.
 RenameConsonants .o. 
 approximants .o. 
 unstress .o. 
-dhipthongStress .o. 
+#dhipthongStress .o. 
 MonosylStress .o. 
 StressFormRule .o. 
 SpanishStress .o. 
