@@ -39,19 +39,11 @@ define MonosylStress stresses -> ||
 
 define SpanishStress stresses @-> || 
 # In words that end in a vowel, n or s, the stress generally falls on the penultimate syllable.
-.#. noStress* _ pc* UnstressedVowel (n|s) (IVrbS|IVrbP) .#. ; 
-
-define SpanishStressPost stresses -> || 
-# In words that end in a vowel, n or s, the stress generally falls on the penultimate syllable.
-.#. noStress* _ pc* UnstressedVowel (n|s) adv [m [e1|e0] n t e0] .#. ; 
+.#. noStress* _ pc* UnstressedVowel (n|s) (IVrbS|IVrbP|[adv [m [e1|e0] n t e0]]) .#. ; 
 
 define SpanishStress2 stresses -> || 
 # If a word ends with a consonant, the stress falls in the last vowel of the syllable. Example, Español.
-.#. noStress+ (noStress+) _ Consonant* .#. ; 
-
-define SpanishStressPost2 stresses -> || 
-# If a word ends with a consonant, the stress falls in the last vowel of the syllable. Example, Español.
-.#. noStress+ (noStress+) _ Consonant+ adv [m e1 n t e0] .#. ; 
+.#. noStress+ (noStress+) _ Consonant+ ([adv [m e1 n t e0]]) .#. ; 
 
 define unstress [
 a:a0|

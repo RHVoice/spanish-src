@@ -311,6 +311,8 @@ WordEndRules .o.
 RenameConsonants .o. 
 approximants .o. 
 unstress .o. 
+AdverbRule .o. 
+NotAdverb .o. 
 #dhipthongStress .o. 
 MonosylStress .o. 
 StressFormRule .o. 
@@ -318,10 +320,6 @@ SpanishStress .o.
 SpanishStress2 .o. 
 ohiRule .o. 
 [modifier|Stressf @-> 0] .o. 
-AdverbRule .o. 
-NotAdverb .o. 
-SpanishStressPost .o. 
-SpanishStressPost2 .o. 
 StressAdverb .o. 
 [[adv|exc] @-> 0] ; 
 
