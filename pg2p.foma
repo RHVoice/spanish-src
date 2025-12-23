@@ -36,7 +36,7 @@ define Unstress2
 # So, as a result, it will be "el daDo De DaVid". The mayus d is the aproximant.
 define RemainingApproximants [
 	b: bh | d: dh | g: gh | v: bh
-] @-> || vocal %# _ vocal ; 
+] @-> || vocal (IVrbS|IVrbP) %# _ vocal ; 
 
 # Here is a contextual character, y. That must be y griega when alone.
 define PhonemeToSpelling 
@@ -96,7 +96,6 @@ StressedDigit @-> || WB [[v|bh] e1 j n t e0] | [[v|bh] e0 j n t [i0|j]] _ %# [m 
 
 # Contextual accentuation, AKA Sentence-Aware Prosody Modelling (SAPM) #
 
-source include/phon/imperverbs.foma
 
 define MaleObjectPronoun 
 # connectors: Un, el, ese, este, aquel. We will use these to conjugate and modify stress according to word context. see below.
@@ -226,12 +225,12 @@ WB _ %# [k o0 n] %# PhWord ,,
 esDemonstrative -> || 
 WB _ %# singularAction WB , 
 WB _ %# [p w e1 dh [e0|a0]] WB , 
-WB [s i0 n %# k e0 %#] _ %# ImperativoAfirmativoSSingular WB ,, 
+WB [s i0 n %# k e0 %#] _ %# PhWord IVrbS WB ,, 
 # And we will apply the same for "son". Example: estas son las bufandas que Mateo tegió.
 sonDemonstrative -> || 
 WB _ %# pluralAction WB , 
 WB _ %# [p w e1 dh [e0|a0] n] WB , 
-WB [s i0 n %# k e0 %#] _ %# ImperativoAfirmativoTPlural WB ,, 
+WB [s i0 n %# k e0 %#] _ %# PhWord IVrbP WB ,, 
 # Rules for para, which can be used in two contexts: "stop" action (parar) and "to" preposition (para)
 # Example: se me "pára" el corazón, no "pára" de llover > esto es para ti.
 [p a0 r a0]:[p a1 r a0] -> || 
@@ -281,7 +280,9 @@ WB _ %# [[l a0]|[p a1 c]] WB ,
 WB _ %# [n a1 dh a0] WB ; 
 
 define untag 
-MakeTag -> [a1 c e0] ; 
+MakeTag -> [a1 c e0] ,, 
+IVrbS @-> 0 ,, 
+IVrbP @-> 0 ; 
 
 define untag2 
 TagYgriega -> i0 ; 

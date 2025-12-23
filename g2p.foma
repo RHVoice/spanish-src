@@ -16,6 +16,7 @@
 # Spanish Grapheme to Phoneme (g2p) for RHVoice.
 
 source include/phon/stress.foma
+source include/textproc/imperverbs.foma
 
 define UnstressedWords 
 # This is the special word list to be unstressed. That means, these words doesn't have intonation / stress mark, marked by 1 (ones).
@@ -31,9 +32,11 @@ define UnstressedWords
 {para} | 
 {al} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {que} | {se} | {si} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
 
-define UnstressedWordsTag 
+define WordTags 
 [..] @-> Uns || .#. UnstressedWords _ .#. ,, # Prevent touching these words by the stress rule, just phonemize only.
-{hace} @-> MakeTag || .#. _ .#. ; # this is a special case we will need to handle latter for time reference to predict stress. "Hace unas horas", "hace mucho frío".
+{hace} @-> MakeTag || .#. _ .#. ,, # this is a special case we will need to handle latter for time reference to predict stress. "Hace unas horas", "hace mucho frío".
+[..] @-> IVrbS || .#. ImperativoAfirmativoSSingular _ .#. ,, # wordlist for singular imperative verbs.
+[..] @-> IVrbP || .#. ImperativoAfirmativoTPlural _ .#. ; # wordlist for plural imperative verbs.
 
 define StressedForms 
 # A vowel preceded by h should be stressed, and a h preceded by vowel as well, except for "ha" and "he" which are conjuntions.
@@ -293,7 +296,7 @@ define StressAdverb
 
 define rules 
 deshChange .o. 
-UnstressedWordsTag .o. 
+WordTags .o. 
 AdverbExceptionTag .o. 
 StressedForms .o. 
 Stage1 .o. 
