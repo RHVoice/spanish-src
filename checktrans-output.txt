@@ -139,3 +139,6 @@ pau v e . l o1 c . m e1 n . t e # k o r . t e1 c . m e1 n . t e # n a . t u . r 
 pau a r . g u . m e1 n . t e pau a . t o r . m e1 n . t e pau a . l i . m e1 n . t e pau k o m . p l e . m e1 n . t e pau k o n . d i . m e1 n . t e pau d e s . f r a g . m e1 n . t e pau e k s . p e . r i . m e1 n . t e pau d e . p r i . m e1 n . t e pau s o . b r e . a . l i . m e1 n . t e pau d o . k u . m e1 n . t e pau 
 pau s u1 . p e r # b a1 . x o pau rr e . k o1 n . t r a # bh a1 . x o pau 
 pau e1 . s o (dp) # e s . t a1 (cop) # rr e . a1 l . m e1 n . t e # bh a1 . x o pau 
+pau e . s e (dp) # s o1 . b r e # e1 s (cop) # p a . r a (prep) # t i (prp) pau 
+pau k w a n . d o (uconj) # s o1 . b r e # l a (def) # k o . m i1 . dh a pau g w a r . d a1 . m o s pau 
+pau k j e1 . r o # k e (uconj) # e1 n . t r e (prep) # a . o1 . r a pau 

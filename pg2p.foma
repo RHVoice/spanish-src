@@ -271,7 +271,7 @@ WB _ %# PhoneticedNumber %# [HaceFemeninoPluralAction|HaceMasculinoPluralActionN
 # Unstress frente (example: frente a una copa de vino, frente al mar)
 [f r e1 n t e0]:[f r e0 n t e0] -> || WB _ %# [a0 (l)] %# PhWord ,, 
 # Context stress for "entre": we have the preposition (between) and the verb (entrar)
-[e0 n t r e0]:[e1 n t r e0] -> || WB k e0 (%# PersonalReflexivePronoun %#) _ WB ,, 
+[e0 n t r e0]:[e1 n t r e0] -> || WB k e0 (%# PersonalReflexivePronoun) %# _ WB ,, 
 # Context stress for "durante": time reference narration VS. Simple present tense.
 # Example: antes, durante y después.
 [d u0 r a0 n t e0]:[d u0 r a1 n t e0] | [dh u0 r a0 n t e0]:[dh u0 r a1 n t e0] -> 
