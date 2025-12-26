@@ -24,12 +24,21 @@ source include/phon/stress.foma
 
 define SpanishStressPost stresses @-> || 
 # 1. Well stress these "uns" tagged words when they are alone, that means, when the utterance contains only the word, as well as at the end. Our stress.foma is our colleague during this pipeline, that's because we included it before. Else, if the word from the wordlist is not alone, is an unstressed word.
-WB (Consonant+) _ (Consonant+) Uns PB , 
+WB (Consonant+) _ (Consonant+) [Uns|Con] PB , 
 WB noStress* _ Consonant* UnstressedVowel (n|s) Uns PB ; 
+
+define ConnectorExceptions 
+# According to Spanish ortografy and grammar, here are the following things:
+# when the connector "u" is preceded by "o" at the start of the next word, is a valid connector. Otherwise, stress "u".
+# Example: plata u oro
+[u0:u1 Con] @-> || WB _ %# \[o0|o1] ,, 
+# when the connector "e" is preceded by "i" at the start of the next word, is a valid connector. Otherwise, stress "i".
+# Example: padres e hijos
+[e0:e1 Con] @-> || WB _ %# \[i0|i1] ; 
 
 define Unstress2 
 # 2. After applying Spanish stressing rules and regulations in these tagged words alone in the utterance, we don't need this tag anymore.
-[Uns] @-> 0 || _ ; 
+[Uns|Con] @-> 0 || _ ; 
 
 # Here, we apply approximants through the whole utterance, same that we did in g2p but with word boundaries between vowels.
 # For example, el dado de Dabid. Between o (dado) and d (de) and "de" and "David" are the intervocalic d.
@@ -301,6 +310,7 @@ TagYgriega -> i0 ;
 
 regex 
 SpanishStressPost .o. 
+ConnectorExceptions .o. 
 Unstress2 .o. 
 PhonemeToSpelling .o. 
 untag2 .o. 

@@ -144,4 +144,8 @@
 <s>Se ayudaron unos a otros</s>
 <s>los unos y los otros</s>
 <s>unos u otros</s>
+<!-- Casos no válidos -->
+<!-- Pruebas escritas a drede para evaluar las excepciones del g2p ante errores gramaticales -->
+<s>padres e ojos</s>
+<s>Díselo a María u a Esteban</s>
 </speak>

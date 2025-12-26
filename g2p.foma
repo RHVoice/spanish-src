@@ -18,9 +18,10 @@
 source include/phon/stress.foma
 source include/textproc/imperverbs.foma
 
+define Connectors {a} | {e} | {o} | {u} ; 
+
 define UnstressedWords 
 # This is the special word list to be unstressed. That means, these words doesn't have intonation / stress mark, marked by 1 (ones).
-{a} | {e} | {o} | {u} | 
 {aunque} | {hacia} | {hasta} | {bajo} | {contra} | {como} | {cuando} | {cuanto} | {desde} | {donde} | {durante} | 
 [{haya}(n|s)] | 
 {he} | {hemos} | {mediante} | {mientras} | {pero} | {porque} | 
@@ -34,7 +35,9 @@ define UnstressedWords
 {al} | {ha} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {que} | {se} | {si} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
 
 define WordTags 
-[..] @-> Uns || .#. UnstressedWords _ .#. ,, # Prevent touching these words by the stress rule, just phonemize only.
+# Prevent touching these words by the stress rule, just phonemize only.
+[..] @-> Uns || .#. UnstressedWords _ .#. ,,
+[..] @-> Con || .#. Connectors _ .#. ,,
 {hace} @-> MakeTag || .#. _ .#. ,, # this is a special case we will need to handle latter for time reference to predict stress. "Hace unas horas", "hace mucho frío".
 [..] @-> IVrbS || .#. ImperativoAfirmativoSSingular _ .#. ,, # wordlist for singular imperative verbs.
 [..] @-> IVrbP || .#. ImperativoAfirmativoTPlural _ .#. ; # wordlist for plural imperative verbs.
