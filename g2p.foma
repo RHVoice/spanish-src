@@ -20,6 +20,7 @@ source include/textproc/imperverbs.foma
 
 define UnstressedWords 
 # This is the special word list to be unstressed. That means, these words doesn't have intonation / stress mark, marked by 1 (ones).
+{a} | {e} | {o} | {u} | 
 {aunque} | {hacia} | {hasta} | {bajo} | {contra} | {como} | {cuando} | {cuanto} | {desde} | {donde} | {durante} | 
 [{haya}(n|s)] | 
 {hemos} | {mediante} | {mientras} | {pero} | {porque} | 

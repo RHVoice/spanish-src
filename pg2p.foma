@@ -22,10 +22,11 @@ define WB %# | PB ;
 
 source include/phon/stress.foma
 
-define Unstress1 
-# 1. Well stress these tagged words when they are alone, that means, when the utterance contains only the word. Our stress.foma is our colleague during this pipeline. To do this, let's remove the Uns tag. Else, if the word from the wordlist is not alone, is an unstressed word.
-Uns @-> 0 || 
-PB PhWord _ PB , _ %# PhWord Uns .#. ; 
+define SpanishStressPost stresses @-> || 
+# 1. Well stress these tagged words when they are alone, that means, when the utterance contains only the word. Our stress.foma is our colleague during this pipeline. Else, if the word from the wordlist is not alone, is an unstressed word.
+WB Consonant+ _ (Consonant+) Uns PB , 
+WB _ Consonant+ Uns PB , 
+WB noStress* _ Consonant* UnstressedVowel (n|s) Uns PB ; 
 
 define Unstress2 
 # 2. After applying Spanish stressing rules and regulations in these tagged words alone in the utterance, we don't need this tag anymore.
@@ -293,9 +294,8 @@ define untag2
 TagYgriega -> i0 ; 
 
 regex 
-Unstress1 .o. 
 MonosylStress .o. 
-SpanishStress .o. 
+SpanishStressPost .o. 
 Unstress2 .o. 
 PhonemeToSpelling .o. 
 untag2 .o. 
