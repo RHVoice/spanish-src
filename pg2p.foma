@@ -226,24 +226,29 @@ sobreObject -> ||
 [MaleObjectPronoun|PersonalObjectPronoun|[k a1 dh a0]] %# _ WB , 
 [k w a0 n d o0] %# _ WB , # Example: cuando sobre la comida, haré el recalentado.
 WB _ %# [k o0 n] %# PhWord ,, 
+
 # Also, we will stress demonstratives for es. For example: esta es, este es, ese es, esa es.
 esDemonstrative -> || 
 WB _ %# singularAction WB , 
 WB _ %# [p w e1 dh [e0|a0]] WB , 
 WB [s i0 n %# k e0 %#] _ %# PhWord IVrbS WB ,, 
+
 # And we will apply the same for "son". Example: estas son las bufandas que Mateo tegió.
 sonDemonstrative -> || 
 WB _ %# pluralAction WB , 
 WB _ %# [p w e1 dh [e0|a0] n] WB , 
 WB [s i0 n %# k e0 %#] _ %# PhWord IVrbP WB ,, 
+
 # Rules for para, which can be used in two contexts: "stop" action (parar) and "to" preposition (para)
 # Example: se me "pára" el corazón, no "pára" de llover > esto es para ti.
 [p a0 r a0]:[p a1 r a0] -> || 
 WB [s e0] (%# PersonalReflexivePronoun) %# _ , 
 WB [n o1] %# _ %# [dh e0] %# PhWord ,, 
+
 # And these rules for the "eat" verb:
 comer -> || 
 WB [firstPerson|condition] %# _ WB , WB [k e0 %# m e0 %#] _ WB ,, 
+
 # Let's create another context. Since "una" is unstressed in g2p, we need to stress it when the word "cada" is found before. For example, "él repartió cada una de las galletas". The strength of the vowel is in the una (cada úna).
 [u0 n a0]:[u1 n a0] -> || 
 WB [k a1 dh a0] %# _ , 
@@ -251,6 +256,8 @@ WB [k a1 dh a0] %# _ ,
 WB _ %# [[d|dh] e0] ,, 
 # SAPM for "unas", example: cuando te unas a la llamada.
 [u0 n a0 s]:[u1 n a0 s] -> || %# [[[l|m|t] e0]|[n o0 s]] %# _ WB ,, 
+# SAPM for "unos", example: unos a otros
+[u0 n o0 s]:[u1 n o0 s] -> || WB _ %# [a0|i0|u0] %# PhWord WB ,, 
 # Stressing context for "hace". Hace is the action of "hacer" (make), however it also reffers to an action happened in the past. "ella ya no está desde hace un tiempo"
 MakeTag:[a0 c e0] -> || 
 # General basis.
