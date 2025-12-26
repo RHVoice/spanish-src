@@ -23,7 +23,7 @@ define UnstressedWords
 {a} | {e} | {o} | {u} | 
 {aunque} | {hacia} | {hasta} | {bajo} | {contra} | {como} | {cuando} | {cuanto} | {desde} | {donde} | {durante} | 
 [{haya}(n|s)] | 
-{hemos} | {mediante} | {mientras} | {pero} | {porque} | 
+{he} | {hemos} | {mediante} | {mientras} | {pero} | {porque} | 
 [{quien}({es})] | 
 {sino} | {sobre} | 
 [{una}(s)] | {unos} | {ante} | 
@@ -31,17 +31,13 @@ define UnstressedWords
 [{esa}(s)] | [{esta}(s)] | {ese} | {esos} | {este} | {estos} | 
 [{nuestro}(s)] | [{nuestra}(s)] | [{vuestro}(s)] | [{vuestra}(s)] | 
 {para} | 
-{al} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {que} | {se} | {si} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
+{al} | {ha} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {que} | {se} | {si} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
 
 define WordTags 
 [..] @-> Uns || .#. UnstressedWords _ .#. ,, # Prevent touching these words by the stress rule, just phonemize only.
 {hace} @-> MakeTag || .#. _ .#. ,, # this is a special case we will need to handle latter for time reference to predict stress. "Hace unas horas", "hace mucho frío".
 [..] @-> IVrbS || .#. ImperativoAfirmativoSSingular _ .#. ,, # wordlist for singular imperative verbs.
 [..] @-> IVrbP || .#. ImperativoAfirmativoTPlural _ .#. ; # wordlist for plural imperative verbs.
-
-define StressedForms 
-# A vowel preceded by h should be stressed, and a h preceded by vowel as well, except for "ha" and "he" which are conjuntions.
-[..] @-> Stressf || .#. [a|e|i|o|u] h _ .#., .#. h [i|o|u] _ .#. , .#. i _ .#. ; 
 
 define deshChange 
 # Let's remove the h when it comes to Spanish prefixes des- and tras-, for example: deshacer, trashumar.
@@ -275,9 +271,6 @@ zh @-> c ;
 define Stage3 
 SpanishRules @-> ; 
 
-define StressFormRule 
-stresses @-> || .#. _ (modifier) Stressf .#. ; 
-
 define ohiRule 
 # prohibamos, prohibido, prohibiciones, prohibición, prohibid, prohibida, etc.
 i0:j @-> || [o0 modifier] _ ; 
@@ -299,7 +292,6 @@ define rules
 deshChange .o. 
 WordTags .o. 
 AdverbExceptionTag .o. 
-StressedForms .o. 
 Stage1 .o. 
 Stage2 .o. 
 ModifierRule .o. 
@@ -314,13 +306,11 @@ approximants .o.
 unstress .o. 
 AdverbRule .o. 
 NotAdverb .o. 
-#dhipthongStress .o. 
 MonosylStress .o. 
-StressFormRule .o. 
 SpanishStress .o. 
 SpanishStress2 .o. 
 ohiRule .o. 
-[modifier|Stressf @-> 0] .o. 
+[modifier @-> 0] .o. 
 StressAdverb .o. 
 [[adv|exc] @-> 0] ; 
 
