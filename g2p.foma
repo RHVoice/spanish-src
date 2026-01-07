@@ -1,4 +1,4 @@
-# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2024-2026  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -292,14 +292,14 @@ define StressAdverb
 [m e0 n t e0]:[m e1 n t e0] @-> || .#. PhWord "adv" _ .#. , .#. PhWord _ exc .#. ; 
 
 define rules 
-deshChange .o. 
+[%' @-> 0] .o. 
 WordTags .o. 
+deshChange .o. 
 AdverbExceptionTag .o. 
 Stage1 .o. 
 Stage2 .o. 
 ModifierRule .o. 
 [Y @-> y] .o. 
-[%' @-> 0] .o. 
 Stage3 .o. 
 WordStartRules .o. 
 WordMidRules .o. 
