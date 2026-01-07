@@ -52,11 +52,9 @@ define Stage2
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
 
 define Stage3 
-word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ; 
-
-define Stage4 
-# Custom LSeq handling:
 word -> lseq || 
+[.#.|word|num|dig|sym] LetterSequence _ , 
+# Custom LSeq handling:
 Structure [[CapitalLetter^2 CapitalVowel] - GraphemeSyllableAllow] _ , 
 Structure CapitalLetter^3 CapitalVowel _ , 
 Structure CapitalLetter^4 CapitalVowel _ , 
@@ -72,14 +70,14 @@ Structure CapitalLetter^2 CapitalVowel CapitalLetter^2 _ ,
 Structure X CapitalVowel CapitalLetter _ , 
 Structure CapitalLetter CapitalVowel W _ ; 
 
-define Stage5 
+define Stage4 
 sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,,
 sym -> 0 || [%: sym %/] _ [%/ sym Word] ,, 
 [num %, sym] -> %,  || .#. Digit+  _ Digit+ num .#. ,, 
 num -> dig || Digit^28 _ ; 
 
-define Stage6 
+define Stage5 
 word -> lseq || .#. _ , .#. GraphemeVowel _ Number ,, 
 sym -> num || 
 [word|lseq] [%.|%/] _ [Word|LetterSequence] , 
@@ -98,5 +96,4 @@ Stage1 .o.
 Stage2 .o. 
 Stage3 .o. 
 Stage4 .o. 
-Stage5 .o. 
-Stage6 ; 
+Stage5 ; 
