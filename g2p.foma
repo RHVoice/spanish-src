@@ -32,11 +32,11 @@ define UnstressedWords
 [{esa}(s)] | [{esta}(s)] | {ese} | {esos} | {este} | {estos} | 
 [{nuestro}(s)] | [{nuestra}(s)] | [{vuestro}(s)] | [{vuestra}(s)] | 
 {para} | 
-{al} | {ha} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {que} | {se} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
+{al} | {ha} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {se} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
 
 define UnstressedWords2 
 # Those words are unstressed anywhere, both word and sentence.
-{aunque} | {como} | {pero} | {si} ; 
+{aunque} | {como} | {pero} | {que} | {si} ; 
 
 define WordTags 
 # Prevent touching these words by the stress rule, just phonemize only.
