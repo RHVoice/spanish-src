@@ -22,9 +22,9 @@ define Connectors {a} | {e} | {o} | {u} ;
 
 define UnstressedWords 
 # This is the special word list to be unstressed. That means, these words doesn't have intonation / stress mark, marked by 1 (ones).
-{aunque} | {hacia} | {hasta} | {bajo} | {contra} | {como} | {cuando} | {cuanto} | {desde} | {donde} | {durante} | 
+{hacia} | {hasta} | {bajo} | {contra} | {cuando} | {cuanto} | {desde} | {donde} | {durante} | 
 [{haya}(n|s)] | 
-{he} | {hemos} | {mediante} | {mientras} | {pero} | {porque} | 
+{he} | {hemos} | {mediante} | {mientras} | {porque} | 
 [{quien}({es})] | 
 {sino} | {sobre} | 
 [{una}(s)] | {unos} | {ante} | 
@@ -32,11 +32,16 @@ define UnstressedWords
 [{esa}(s)] | [{esta}(s)] | {ese} | {esos} | {este} | {estos} | 
 [{nuestro}(s)] | [{nuestra}(s)] | [{vuestro}(s)] | [{vuestra}(s)] | 
 {para} | 
-{al} | {ha} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {que} | {se} | {si} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
+{al} | {ha} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {que} | {se} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
+
+define UnstressedWords2 
+# Those words are unstressed anywhere, both word and sentence.
+{aunque} | {como} | {pero} | {si} ; 
 
 define WordTags 
 # Prevent touching these words by the stress rule, just phonemize only.
 [..] @-> Uns || .#. UnstressedWords _ .#. ,,
+[..] @-> Uns2 || .#. UnstressedWords2 _ .#. ,,
 [..] @-> Con || .#. Connectors _ .#. ,,
 {hace} @-> MakeTag || .#. _ .#. ,, # this is a special case we will need to handle latter for time reference to predict stress. "Hace unas horas", "hace mucho frío".
 [..] @-> IVrbS || .#. ImperativoAfirmativoSSingular _ .#. ,, # wordlist for singular imperative verbs.
@@ -131,21 +136,21 @@ y:YAsVowel | # Y can be a vowel or a consonant. When "y" is followed by a vowel,
 
 define SpanishRules 
 # ai, ei, oi.
-{ai}:[a j] | # aire, baila.
-[a1 i]:[a1 j] | # abastezcáis
-{ei}:[e j] | # leiri.
-[e1 i]:[e1 j] | # aféitense.
-{oi}:[o j] | # paranoico, oiga.
+(u:w|i:j) {ai}:[a j] | # aire, baila.
+(u:w|i:j) [a1 i]:[a1 j] | # abastezcáis
+(u:w|i:j) {ei}:[e j] | # leiri.
+(u:w|i:j) [e1 i]:[e1 j] | # aféitense.
+(u:w|i:j) {oi}:[o j] | # paranoico, oiga.
 # au, eu.
-{au}:[a w] | # audio, laura.
-{eu}:[e w] | # deuda, neurona.
+(u:w|i:j) {au}:[a w] | # audio, laura.
+(u:w|i:j) {eu}:[e w] | # deuda, neurona.
 # We doesn't add ou because there are not comon words with these.
 # closed vowel i
-{ia}:[j a] | # biacrusis, referencia, viciándose, diafragma, fiar, sequia, cecilia, ...
-[i a1]:[j a1] | # viciándose, viciado, desquiciado
-{ie}:[j e] | # bien, ciego, diente, fiera, quieto, lienzo, pie
-[i e1]:[j e1] | # arrepiéntanse, vicié
-{io}:[j o] | # biología, servicio, fiona, kiosco, julio, leccionario
+{ia}:[j a] (u:w|i:j) | # biacrusis, referencia, viciándose, diafragma, fiar, sequia, cecilia, ...
+[i a1]:[j a1] (u:w) | # viciándose, viciado, desquiciado
+{ie}:[j e] (u:w|i:j) | # bien, ciego, diente, fiera, quieto, lienzo, pie
+[i e1]:[j e1] (u:w|i:j) | # arrepiéntanse, vicié
+{io}:[j o] (u:w|i:j) | # biología, servicio, fiona, kiosco, julio, leccionario
 [i o1]:[j o1] | # siguió, biósfera, asociación, institución, adiós, selección, actualización
 {iu}:[j u] | # viudo, quiubo, veintiuno
 [i u1]:[j u1] | # veintiún
@@ -264,7 +269,7 @@ define ModifierRule
 modifier @-> 0 || .#. ([Consonant|i|u]) _ vocal , Consonant _ (Consonant) .#. , vocal _ (Consonant) .#. ; 
 
 define RenameConsonants 
-YAsVowel @-> i ,, 
+YAsVowel @-> i0 ,, 
 zh @-> c ; 
 
 define Stage3 
@@ -295,16 +300,16 @@ AdverbExceptionTag .o.
 Stage1 .o. 
 Stage2 .o. 
 ModifierRule .o. 
-ohiRule .o. 
 [Y @-> y] .o. 
 Stage3 .o. 
 WordStartRules .o. 
 WordMidRules .o. 
 WordEndRules .o. 
-[modifier @-> 0] .o. 
-ApplyApproximants .o. 
-RenameConsonants .o. 
 unstress .o. 
+ohiRule .o. 
+[modifier @-> 0] .o. 
+RenameConsonants .o. 
+ApplyApproximants .o. 
 AdverbRule .o. 
 NotAdverb .o. 
 MonosylStress .o. 

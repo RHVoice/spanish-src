@@ -1,4 +1,4 @@
-# Copyright (C) 2024  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2024-2026  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -28,8 +28,8 @@ Nucleus @-> %{ ... %} ;
 
 define Onset 
 0 | Consonant | 
-{bl} | [b l j] | [b l w] | {bj} | {br} | [b r j] | [b r w] | {bw} | [bh j] | [bh w] | [ch j] | [ch w] | {cj} | {pl} | [p l j] | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh j] | [dh w] | {tl} | {tj} | {tr} | {tw} | {gl} | {gj} | {gr} | [g r [j|w]] | {gw} | [gh j] | [gh  w] | {kl} | {kj} | {kr} | 
-{kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | {fj} | {fr} | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | {mj} | {nj} | {sj} | {nw} | {rw} | [sh j] | [sh w] ; 
+{bl} | [b l j] | [b l w] | {bj} | {br} | [b r j] | [b r w] | {bw} | [bh j] | [bh w] | [ch j] | [ch w] | {cj} | {pl} | [p l j] | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh j] | [dh w] | {tl} | {tj} | {tr} | [t r [j|w]] | {tw} | {gl} | {gj} | {gr} | [g r [j|w]] | {gw} | [gh j] | [gh  w] | {kl} | {kj} | {kr} | 
+{kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | [f l [j|w]] | {fj} | {fr} | [f r [j|w]] | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | {mj} | {nj} | {sj} | {nw} | {rw} | [sh j] | [sh w] ; 
 
 define Syllable 
 Onset %{ Nucleus %} Consonant* ; 

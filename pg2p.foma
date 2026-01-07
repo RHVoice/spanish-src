@@ -38,7 +38,7 @@ define ConnectorExceptions
 
 define Unstress2 
 # 2. After applying Spanish stressing rules and regulations in these tagged words alone in the utterance, we don't need this tag anymore.
-[Uns|Con] @-> 0 || _ ; 
+[Uns|Uns2|Con] @-> 0 || _ ; 
 
 # Here, we apply approximants through the whole utterance, same that we did in g2p but with word boundaries between vowels.
 # For example, el dado de Dabid. Between o (dado) and d (de) and "de" and "David" are the intervocalic d.
@@ -89,7 +89,7 @@ define StressedTeen
 [d|dh] [j e0 c i0 n w e1 bh e0]:[j e0 c i0 n w e0 bh e0] ; 
 
 define PhoneticedDigit 
-StressedDigit2 .u ; 
+[u0 n] | StressedDigit2 .u ; 
 
 define unstressNumber 
 # When treinta, cuarenta, cincuenta, etc... is in the word, accompanied by i (y) and digit (sesenta y cinco), or mil, remove the stress. For example, cuarénta y... = cuarenta y... sesénta mil... = sesenta mil...

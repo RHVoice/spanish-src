@@ -148,4 +148,7 @@
 <!-- Pruebas escritas a drede para evaluar las excepciones del g2p ante errores gramaticales -->
 <s>padres e ojos</s>
 <s>Díselo a María u a Esteban</s>
+<!-- Fin Casos no válidos -->
+<s>industrial, mounstruo, Siegfried, influencia</s>
+<s>Sus esfuerzos han sido muy fructíferos, especialmente con las compañías taiwanesas, dando como resultado muchos drivers wireless.</s>
 </speak>

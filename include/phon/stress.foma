@@ -30,12 +30,13 @@ define stresses [
 	u0:u1
 ] ; 
 
-define stresses2 stresses | [o0 u0]:[o1 u0] ; 
+define stresses2 
+stresses | [o0 u0]:[o1 u0] | [o0 i0]:[o1 i0] | [e0 i0]:[e1 i0] ; 
 define MonosylStress stresses -> || 
 # Monosyllables in spanish always have the stress in the only one vowel between first consonants, and last consonants.
 .#. (Consonant+) _ (Consonant+) (IVrbS|IVrbP) .#. ; 
 
-define SpanishStress stresses @-> || 
+define SpanishStress stresses2 @-> || 
 # In words that end in a vowel, n or s, the stress generally falls on the penultimate syllable.
 .#. noStress* _ pc* UnstressedVowel (n^<3|s^<3) (IVrbS|IVrbP|[adv [m [e1|e0] n t e0]]) .#. ; 
 
