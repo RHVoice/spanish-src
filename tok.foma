@@ -35,7 +35,7 @@ define ExceptionalWord2 [[P h o n e]|[P [a|o] d] | [C l o u d]] ;
 define Word [Letter+ [Apos Letter+]*] | ExceptionalWord ;
 define Symbol \[Letter | Digit] ; 
 
-define Structure [Symbol sym]|[Word word]|[Number num] ; 
+define Structure [[Symbol sym]|[Word word]|[Number num]|.#.] ; 
 
 define Stage1 
 Word @-> ... word || _ .#. | \Letter ,, 
@@ -52,32 +52,34 @@ define Stage2
 word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
 
 define Stage3 
-# Custom LSeq handling:
-word -> lseq || 
-.#. (Structure) [[CapitalLetter^2 CapitalVowel] - GraphemeSyllableAllow] _ , 
-.#. (Structure) CapitalLetter^3 CapitalVowel _ , 
-.#. (Structure) CapitalLetter^4 CapitalVowel _ , 
-.#. (Structure) CapitalLetter^5 CapitalVowel _ , 
-.#. (Structure) CapitalVowel CapitalLetter^2 _ , 
-.#. (Structure) CapitalVowel CapitalLetter^3 _ , 
-.#. (Structure) CapitalVowel CapitalLetter^4 _ , 
-.#. (Structure) CapitalVowel CapitalLetter^5 _ , 
-.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^2 _ , 
-.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^3 _ , 
-.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^4 _ , 
-.#. (Structure) CapitalLetter^2 CapitalVowel CapitalLetter^2 _ , 
-.#. (Structure) X CapitalVowel CapitalLetter _ , 
-.#. (Structure) CapitalLetter CapitalVowel W _ ; 
+word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ; 
 
 define Stage4 
-word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ,, 
+# Custom LSeq handling:
+word -> lseq || 
+Structure [[CapitalLetter^2 CapitalVowel] - GraphemeSyllableAllow] _ , 
+Structure CapitalLetter^3 CapitalVowel _ , 
+Structure CapitalLetter^4 CapitalVowel _ , 
+Structure CapitalLetter^5 CapitalVowel _ , 
+Structure CapitalVowel CapitalLetter^2 _ , 
+Structure CapitalVowel CapitalLetter^3 _ , 
+Structure CapitalVowel CapitalLetter^4 _ , 
+Structure CapitalVowel CapitalLetter^5 _ , 
+Structure CapitalLetter CapitalVowel CapitalLetter^2 _ , 
+Structure CapitalLetter CapitalVowel CapitalLetter^3 _ , 
+Structure CapitalLetter CapitalVowel CapitalLetter^4 _ , 
+Structure CapitalLetter^2 CapitalVowel CapitalLetter^2 _ , 
+Structure X CapitalVowel CapitalLetter _ , 
+Structure CapitalLetter CapitalVowel W _ ; 
+
+define Stage5 
 sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,,
 sym -> 0 || [%: sym %/] _ [%/ sym Word] ,, 
 [num %, sym] -> %,  || .#. Digit+  _ Digit+ num .#. ,, 
 num -> dig || Digit^28 _ ; 
 
-define Stage5 
+define Stage6 
 word -> lseq || .#. _ , .#. GraphemeVowel _ Number ,, 
 sym -> num || 
 [word|lseq] [%.|%/] _ [Word|LetterSequence] , 
@@ -96,4 +98,5 @@ Stage1 .o.
 Stage2 .o. 
 Stage3 .o. 
 Stage4 .o. 
-Stage5 ; 
+Stage5 .o. 
+Stage6 ; 
