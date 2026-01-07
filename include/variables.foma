@@ -1,4 +1,4 @@
-# Copyright (C) 2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2025-2026  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -22,6 +22,9 @@ define ConsonantWithouthNS Consonant - [n|s] ;
 define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|j|w] ; 
 define vocal2 vocal - [j|w] ; 
 define PhWord [Consonant|vocal]+ ; 
+define Approximants 
+# In Spanish, there are about 4 approximants, that are voiced consonants that occurs in different contexts. The good news, approximants are placed between vowels.
+b: bh | d: dh | g: gh | v: bh ; 
 
 # Pure graphemes:
 define SmallLetter b|c|ç|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z;

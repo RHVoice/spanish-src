@@ -1,4 +1,4 @@
-# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2024-2026  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -43,9 +43,8 @@ define Unstress2
 # Here, we apply approximants through the whole utterance, same that we did in g2p but with word boundaries between vowels.
 # For example, el dado de Dabid. Between o (dado) and d (de) and "de" and "David" are the intervocalic d.
 # So, as a result, it will be "el daDo De DaVid". The mayus d is the aproximant.
-define RemainingApproximants [
-	b: bh | d: dh | g: gh | v: bh
-] @-> || vocal (IVrbS|IVrbP) %# _ vocal ; 
+define RemainingApproximants 
+Approximants @-> || vocal (IVrbS|IVrbP) %# _ vocal ; 
 
 # Here is a contextual character, y. That must be y griega when alone.
 define PhonemeToSpelling 

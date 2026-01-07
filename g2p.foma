@@ -205,12 +205,8 @@ define WordEndRules
 # now, when a words ends with c, convert to k.
 c -> k || _ .#. ; # cómic, tictac.
 
-define approximants 
-# In Spanish, there are about 4 approximants, that are voiced consonants that occurs in different contexts. The good news, all approximants occurs between vowels.
-{b} (modifier) -> bh || vocal _ vocal ,, 
-{d} (modifier) -> dh || vocal _ vocal ,, 
-{g} (modifier) -> gh || vocal _ vocal ,, 
-{v} (modifier) -> bh || vocal _ vocal ; 
+define ApplyApproximants 
+Approximants -> || vocal _ vocal ; 
 
 define exceptions 
 # There are special words having own phonemes.
@@ -299,21 +295,21 @@ AdverbExceptionTag .o.
 Stage1 .o. 
 Stage2 .o. 
 ModifierRule .o. 
+ohiRule .o. 
 [Y @-> y] .o. 
 Stage3 .o. 
 WordStartRules .o. 
 WordMidRules .o. 
 WordEndRules .o. 
+[modifier @-> 0] .o. 
+ApplyApproximants .o. 
 RenameConsonants .o. 
-approximants .o. 
 unstress .o. 
 AdverbRule .o. 
 NotAdverb .o. 
 MonosylStress .o. 
 SpanishStress .o. 
 SpanishStress2 .o. 
-ohiRule .o. 
-[modifier @-> 0] .o. 
 StressAdverb .o. 
 [[adv|exc] @-> 0] ; 
 
