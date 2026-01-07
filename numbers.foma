@@ -212,6 +212,7 @@ define PowerOfThousandSymbolsToSingular
 define tagNumberTypes 
   [FormattedNumber|UnformattedNumber] @-> ... wnum || .#. _ (%, Digit+)  .#. ,, 
 	UnformattedNumber @-> ... wnum || .#. _ (%. Digit+)  .#.  ,, 
+	UnformattedNumber @-> ... wnum deg || .#. _ %° .#. ,, 
 	[FormattedNumber|UnformattedNumber] @-> ... wnum ord || .#. _ OrdChar .#. ; 
 
 define tagCascade 
@@ -235,6 +236,8 @@ FemaleOrdUnit -> || _ wnum ord FemaleOrdChar .#. ,,
 define Translate [
 SpellDigit -> || _ wnum | dec | PowerOfThousandSymbol | OrdPowerOfThousandSymbol ,, 
 SpellDigit -> || dp Digit* _ Digit* dec ,, 
+%° -> grado || [1 wnum deg] _ ,, 
+%° -> grados || [[Digit - 1] wnum deg] _ ,, 
 Teen [teen:0] -> || _ ,, 
 Twenti [twenti:0] -> || _ ,, 
 Ten [ten:0] -> || _ ,, 
@@ -251,8 +254,12 @@ ths -> mil || _ ,,
 [mlns:millones | blns:billones | tlns:trillones | qlns:cuatrillones] -> || _
 ] ; 
 
+define Singular1 uno:ún ; 
+define Singular2 veintiuno:veintiún ; 
+
 define fixes2 
-[uno:ún | veintiuno:veintiún] -> || _ [mil|millón|billón|trillón|cuatrillón] ; 
+[Singular1|Singular2] -> || _ [mil|millón|billón|trillón|cuatrillón] ,, 
+Singular1 -> || _ grado ; 
 
 define NumberRules 
 SeparatePowerOfThousand(ths) .o. 
@@ -282,6 +289,7 @@ Ords .o.
 [%.|%,|wnum] -> cero ... || .#. _ .o. 
 Translate .o. 
 [[ord OrdChar]:0 -> || wnum _ .#.] .o. 
+[deg:0 -> || wnum _] .o. 
 [[dp:0|dec:0|wnum:0] -> || _] .o. 
 fixes2 ; 
 

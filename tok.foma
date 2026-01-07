@@ -75,8 +75,7 @@ sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,,
 sym -> 0 || [%: sym %/] _ [%/ sym Word] ,, 
 [num %, sym] -> %,  || .#. Digit+  _ Digit+ num .#. ,, 
-num -> dig || Digit^28 _ ,, 
-[num:0] OrdChar [sym:num] -> ; 
+num -> dig || Digit^28 _ ; 
 
 define Stage5 
 word -> lseq || .#. _ , .#. GraphemeVowel _ Number ,, 

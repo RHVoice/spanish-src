@@ -41,5 +41,5 @@ define FormattedNumber .# NZDigit Digit^<3 [%. Digit^3]^{1,4} .# ;
 define Decimal [FormattedNumber|UnformattedNumber] %, Digit+; 
 define ForeignDecimal  [[NZDigit Digit*] | %0] %. [Digit^{1,2} | Digit^>3];
 define VersionFormat [NZDigit Digit^<4|%0] [%. Digit^{1,2}]^3 Digit^<4 ; 
-define Ordinal [FormattedNumber|UnformattedNumber] (OrdChar) ; 
-define Number UnformattedNumber|FormattedNumber | Decimal | ForeignDecimal | Ordinal | VersionFormat | ESRomanNumeral ; 
+define OrdinalOrDegree [FormattedNumber|UnformattedNumber] (OrdChar|%°) ; 
+define Number UnformattedNumber|FormattedNumber | Decimal | ForeignDecimal | OrdinalOrDegree | VersionFormat | ESRomanNumeral ; 
