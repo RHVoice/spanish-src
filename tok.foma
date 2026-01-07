@@ -1,4 +1,4 @@
-# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2024-2026  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -54,20 +54,20 @@ word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ;
 define Stage3 
 # Custom LSeq handling:
 word -> lseq || 
-.#. (Structure) [[CapitalLetter^2 CapitalVowel] - GraphemeSyllableAllow] _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalLetter^3 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalLetter^4 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalLetter^5 CapitalVowel _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalVowel CapitalLetter^5 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^3 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^4 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalLetter^2 CapitalVowel CapitalLetter^2 _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) X CapitalVowel CapitalLetter _ (Symbol sym) (Symbol sym) (Symbol sym) .#. , 
-.#. (Structure) CapitalLetter CapitalVowel W _ (Symbol sym) (Symbol sym) (Symbol sym) .#. ; 
+.#. (Structure) [[CapitalLetter^2 CapitalVowel] - GraphemeSyllableAllow] _ , 
+.#. (Structure) CapitalLetter^3 CapitalVowel _ , 
+.#. (Structure) CapitalLetter^4 CapitalVowel _ , 
+.#. (Structure) CapitalLetter^5 CapitalVowel _ , 
+.#. (Structure) CapitalVowel CapitalLetter^2 _ , 
+.#. (Structure) CapitalVowel CapitalLetter^3 _ , 
+.#. (Structure) CapitalVowel CapitalLetter^4 _ , 
+.#. (Structure) CapitalVowel CapitalLetter^5 _ , 
+.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^2 _ , 
+.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^3 _ , 
+.#. (Structure) CapitalLetter CapitalVowel CapitalLetter^4 _ , 
+.#. (Structure) CapitalLetter^2 CapitalVowel CapitalLetter^2 _ , 
+.#. (Structure) X CapitalVowel CapitalLetter _ , 
+.#. (Structure) CapitalLetter CapitalVowel W _ ; 
 
 define Stage4 
 word -> lseq || [.#.|word|num|dig|sym] LetterSequence _ ,, 
