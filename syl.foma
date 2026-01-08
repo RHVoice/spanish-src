@@ -28,8 +28,8 @@ Nucleus @-> %{ ... %} ;
 
 define Onset 
 0 | Consonant | 
-{bl} | [b l j] | [b l w] | {bj} | {br} | [b r j] | [b r w] | {bw} | [bh j] | [bh w] | [ch j] | [ch w] | {cj} | {pl} | [p l j] | {pj} | {pr} | {pw} | {dl} | {dj} | {dr} | {dw} | [dh j] | [dh w] | {tl} | {tj} | {tr} | [t r [j|w]] | {tw} | {gl} | {gj} | {gr} | [g r [j|w]] | {gw} | [gh j] | [gh  w] | {kl} | {kj} | {kr} | 
-{kw} | {lj} | {ll} | {lw} | [ll w] | {fl} | [f l [j|w]] | {fj} | {fr} | [f r [j|w]] | {fw} | {xj} | {xw} | {re} | {rj} | [rr j] | {vj} | {mj} | {nj} | {sj} | {nw} | {rw} | [sh j] | [sh w] ; 
+{bl} | [b l j] | [b l w] | {bj} | {br} | [b r j] | [b r w] | {bw} | [bh j] | [bh w] | [ch j] | [ch w] | {cj} | {pl} | [p l j] | {pj} | {pr} | [p r [j|w]] | {pw} | {dl} | {dj} | {dr} | [d r [j|w]] | {dw} | [dh j] | [dh w] | {tl} | {tj} | {tr} | [t r [j|w]] | {tw} | {gl} | {gj} | {gr} | [g r [j|w]] | {gw} | [gh j] | [gh  w] | {kl} | [k l [j|w]] | {kj} | {kr} | [k r [j|w]] | 
+{kw} | {lj} | {ll} | {lw} | [ll [j|w]] | {fl} | [f l [j|w]] | {fj} | {fr} | [f r [j|w]] | {fw} | {xj} | {xw} | {re} | {rj} | [rr [j|w]] | {vj} | {mj} | {mw} | {nj} | {sj} | {nw} | {rw} | [sh j] | [sh w] ; 
 
 define Syllable 
 Onset %{ Nucleus %} Consonant* ; 
