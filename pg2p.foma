@@ -89,7 +89,10 @@ define StressedTeen
 [d|dh] [j e0 c i0 n w e1 bh e0]:[j e0 c i0 n w e0 bh e0] ; 
 
 define PhoneticedDigit 
-[u0 n] | StressedDigit2 .u ; 
+StressedDigit2 .u ; 
+
+define PreUnstressNumber 
+[u0 n]:[u1 n] @-> || WB StressedNumber .u %# i0 %# _ WB ; 
 
 define unstressNumber 
 # When treinta, cuarenta, cincuenta, etc... is in the word, accompanied by i (y) and digit (sesenta y cinco), or mil, remove the stress. For example, cuarénta y... = cuarenta y... sesénta mil... = sesenta mil...
@@ -265,7 +268,7 @@ WB _ %# [[d|dh] e0] ,,
 # SAPM for "unas", example: cuando te unas a la llamada.
 [u0 n a0 s]:[u1 n a0 s] -> || %# [[[l|m|t] e0]|[n o0 s]] %# _ WB ,, 
 # SAPM for "unos", example: unos a otros
-[u0 n o0 s]:[u1 n o0 s] -> || WB _ %# [a0|i0|u0] %# PhWord WB ,, 
+[u0 n o0 s]:[u1 n o0 s] -> || WB _ %# [a0|i0|u0] %# PhWord ,, 
 # Stressing context for "hace". Hace is the action of "hacer" (make), however it also reffers to an action happened in the past. "ella ya no está desde hace un tiempo"
 MakeTag:[a0 c e0] -> || 
 # General basis.
@@ -290,7 +293,7 @@ WB _ %# PhoneticedNumber %# [HaceFemeninoPluralAction|HaceMasculinoPluralActionN
 # Context stress for "durante": time reference narration VS. Simple present tense.
 # Example: antes, durante y después.
 [d u0 r a0 n t e0]:[d u0 r a1 n t e0] | [dh u0 r a0 n t e0]:[dh u0 r a1 n t e0] -> 
-|| WB _ %# i0 %# PhWord WB ,, 
+|| WB _ %# i0 %# PhWord ,, 
 # SAPM for "mediante": "mediante" is the connector for "through", but it isn't used as connector in a special religious case.
 [m e0 dh j a0 n t e0]:[m e0 dh j a1 n t e0] -> || WB [d j o1 s] %# _ WB ,, 
 # And create stressing context for "haya". "Haya" can be used in two contexts. The one is the verb called "hacer" (espero que hayas hecho la tarea), default in g2p, and the other is from the verb "haber" (cuando haya plata, que haya paz en la tierra) which we are going to make here.
@@ -300,20 +303,20 @@ WB _ %# [[l a0]|[p a1 c]] WB ,
 WB _ %# [n a1 dh a0] WB ; 
 
 define untag 
-MakeTag -> [a1 c e0] ,, 
-IVrbS @-> 0 ,, 
-IVrbP @-> 0 ; 
+MakeTag @-> [a1 c e0] || _ ,, 
+[IVrbS|IVrbP] @-> 0 || _ ; 
 
 define untag2 
-TagYgriega -> i0 ; 
+TagYgriega @-> i0 ; 
 
 regex 
 SpanishStressPost .o. 
-ConnectorExceptions .o. 
-Unstress2 .o. 
 PhonemeToSpelling .o. 
 untag2 .o. 
+ConnectorExceptions .o. 
+Unstress2 .o. 
 RemainingApproximants .o. 
+PreUnstressNumber .o. 
 unstressNumber .o. 
 HomonymousWords .o. 
 untag ; 
