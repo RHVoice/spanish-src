@@ -165,6 +165,7 @@ define SpanishRules
 [u o1]:[w o1] | # continuó
 # Brian, not bryan:
 [b r y]:[b r j] | 
+[c ch]:[k ch] | # for old words like "quatrocchento"
 # c to k exceptions:
 [c c]:[k c] | # selección, leccionario
 [c d]:[k d] | # Anécdota.
