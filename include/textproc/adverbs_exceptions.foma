@@ -1,4 +1,4 @@
-# Copyright (C) 2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2025-2026  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -16,10 +16,10 @@
 # Those exceptions are not adverbs.
 
 define AdverbExceptions 
-{argu} | # argumente
 {ator} | # atormente
 {comple} | # complemente
 {condi} | # condimente
+[({contra}) {argu}] | # argumente, contraargumente
 {cumpli} | # cumplimente: acción de cumplimentar, ejemplo: Le ruego que cumplimente este formulario con sus datos.
 {depri} | # deprimente
 {desfrag} | # desfragmente
