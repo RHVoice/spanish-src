@@ -31,8 +31,13 @@ define SmallLetter b|c|ç|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|w|x|y|z;
 define CapitalLetter B|C|Ç|D|F|G|H|J|K|L|M|N|Ñ|P|Q|R|S|T|V|W|X|Y|Z;
 define GraphemeConsonant SmallLetter | CapitalLetter ; 
 # Pure vowels:
-define SmallVowel a|á|ä|â|à|ã|e|é|ë|ê|è|i|í|ï|î|ì|o|ó|ö|ô|ò|õ|u|ú|ü|û|ù|y|ý ; 
-define CapitalVowel A|Á|Ä|Â|À|Ã|E|É|Ë|Ê|È|I|Í|Ï|Î|Ì|O|Ó|Ö|Ô|Ò|Õ|U|Ú|Ü|Û|Ù|Y|Ý ; 
+define SmallRegularVowel a|e|i|o|u|y ; 
+define SmallSpecialVowel á|ä|â|à|ã|é|ë|ê|è|í|ï|î|ì|ó|ö|ô|ò|õ|ú|ü|û|ù|ý ; 
+define SmallVowel SmallRegularVowel | SmallSpecialVowel ; 
+define CapitalRegularVowel A|E|I|O|U|Y ; 
+define CapitalSpecialVowel Á|Ä|Â|À|Ã|É|Ë|Ê|È|Í|Ï|Î|Ì|Ó|Ö|Ô|Ò|Õ|Ú|Ü|Û|Ù|Ý ; 
+define CapitalVowel CapitalRegularVowel | CapitalSpecialVowel ; 
 define GraphemeVowel SmallVowel | CapitalVowel ; 
+define SpecialVowel SmallSpecialVowel | CapitalSpecialVowel ; 
 # General:
 define Letter GraphemeConsonant | GraphemeVowel ; 

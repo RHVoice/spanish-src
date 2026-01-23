@@ -217,10 +217,6 @@ Approximants -> || vocal _ vocal ;
 define exceptions 
 # There are special words having own phonemes.
 [[{wi} (%-) {fi}] : [w a0 j f a1 j]] | 
-[{a.c.} : [a1 n t e0 s d e0 k r i1 s t o0]] | 
-[{a.m.} : [d e0 l a0 m a0 ni a1 n a0]] | 
-[{d.c.} : [d e0 s p w e1 s d e0 k r i1 s t o0]] | 
-[{p.m.} : [d e0 l a0 t a1 r d e0]] | 
 # Weeks, months:
 [{lun.} : [l u1 n e0 s]] | 
 [{mar.} : [m a1 r t e0 s]] | 
