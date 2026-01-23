@@ -18,7 +18,7 @@
 ((R:Word.n.name is 0)
  ((B))
  ((R:Token.n.name is 0)
-  ((R:TokStructure.parent.parent.daughtern.name in ("," ":" ";" ")" "." "?" "!" "-" "–" "—"))
+  ((R:TokStructure.parent.parent.daughtern.name in ("," ":" ";" ")" "." "…" "?" "!" "-" "–" "—"))
    ((B))
    ((R:TokStructure.parent.parent.n.daughter1.name in ("(" "¿" "¡" "-" "–" "—"))
     ((B))
