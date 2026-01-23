@@ -1,4 +1,4 @@
-# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2024-2026  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -328,6 +328,132 @@ define NormalizeCharactersSpell
 [⒳:[equis entre paréntesis]]|
 [⒴:[y griega entre paréntesis]]|
 [⒵:[ceta entre paréntesis]]|
+# Script letters:
+[[𝒶|𝒜]:[a]]|
+[[𝒷|ℬ]:[bé]]|
+[[𝒸|𝒞]:[cé]]|
+[[𝒹|𝒟]:[dé]]|
+[[ℯ|ℰ]:[e]]|
+[[𝒻|ℱ]:[efe]]|
+[[ℊ|𝒢]:[ge]]|
+[[𝒽|ℋ]:[ache]]|
+[[𝒾|ℐ]:[i]]|
+[[𝒿|𝒥]:[jota]]|
+[[𝓀|𝒦]:[ca]]|
+[[𝓁|ℒ]:[ele]]|
+[[𝓂|ℳ]:[eme]]|
+[[𝓃|𝒩]:[ene]]|
+[[ℴ|𝒪]:[o]]|
+[𝓅:[pe]]|
+[[𝓆|𝒬]:[cu]]|
+[[𝓇|ℛ]:[erre]]|
+[[𝓈|𝒮]:[ese]]|
+[[𝓉|𝒯]:[té]]|
+[[𝓊|𝒰]:[u]]|
+[[𝓋|𝒱]:[uve]]|
+[[𝓌|𝒲]:[uve doble]]|
+[[𝓍|𝒳]:[equis]]|
+[[𝓎|ℐ]:[i griega]]|
+[[𝓏|𝒵]:[ceta]]|
+# Fraktur letters:
+[[𝔞|𝔄]:[a]]|
+[[𝔟|𝔅]:[bé]]|
+[[𝔠|ℭ]:[cé]]|
+[[𝔡|𝔇]:[dé]]|
+[[𝔢|𝔈]:[e]]|
+[[𝔣|𝔉]:[efe]]|
+[[𝔤|𝔊]:[ge]]|
+[[𝔥|ℌ]:[ache]]|
+[𝔦:[i]]|
+[[𝔧|𝔍]:[jota]]|
+[[𝔨|𝔎]:[ca]]|
+[[𝔩|𝔏]:[ele]]|
+[[𝔪|𝔐]:[eme]]|
+[[𝔫|𝔑]:[ene]]|
+[[𝔬|𝔒]:[o]]|
+[𝔭:[pe]]|
+[[𝔮|𝔔]:[cu]]|
+[𝔯:[erre]]|
+[[𝔰|𝔖]:[ese]]|
+[[𝔱|𝔗]:[té]]|
+[[𝔲|𝔘]:[u]]|
+[[𝔳|𝔙]:[uve]]|
+[[𝔴|𝔚]:[uve doble]]|
+[[𝔵|𝔛]:[equis]]|
+[𝔶:[i griega]]|
+[[𝔷|ℨ]:[ceta]]|
+# Double-struck letters:
+[𝕒:[a]]|
+[[𝕓|𝔹]:[bé]]|
+[𝕔:[cé]]|
+[[𝕕|𝔻]:[dé]]|
+[[𝕖|𝔼]:[e]]|
+[[𝕗|𝔽]:[efe]]|
+[[𝕘|𝔾]:[ge]]|
+[𝕙:[ache]]|
+[[𝕚|𝕀]:[i]]|
+[𝕛:[jota]]|
+[[𝕜|𝕂]:[ca]]|
+[[𝕝|𝕃]:[ele]]|
+[[𝕞|𝕄]:[eme]]|
+[𝕟:[ene]]|
+[[𝕠|𝕆]:[o]]|
+[[𝕡|ℙ]:[pe]]|
+[𝕢:[cu]]|
+[𝕣:[erre]]|
+[[𝕤|𝕊]:[ese]]|
+[[𝕥|𝕋]:[té]]|
+[[𝕦|𝕌]:[u]]|
+[[𝕧|𝕍]:[uve]]|
+[[𝕨|𝕎]:[uve doble]]|
+[[𝕩|𝕏]:[equis]]|
+[[𝕪|𝕀]:[i griega]]|
+[𝕫:[ceta]]|
+# Subscript letters:
+[ₐ:[a]]|
+[ₑ:[e]]|
+[ₕ:[ache]]|
+[ᵢ:[i]]|
+[ⱼ:[jota]]|
+[ₖ:[ca]]|
+[ₗ:[ele]]|
+[ₘ:[eme]]|
+[ₙ:[ene]]|
+[ₒ:[o]]|
+[ₚ:[pe]]|
+[ᵣ:[erre]]|
+[ₛ:[ese]]|
+[ₜ:[té]]|
+[ᵤ:[u]]|
+[ᵥ:[uve]]|
+[ₓ:[equis]]|
+# Outlined letters:
+[𜳖:[a]]|
+[𜳗:[bé]]|
+[𜳘:[cé]]|
+[𜳙:[dé]]|
+[𜳚:[e]]|
+[𜳛:[efe]]|
+[𜳜:[ge]]|
+[𜳝:[ache]]|
+[𜳞:[i]]|
+[𜳟:[jota]]|
+[𜳠:[ca]]|
+[𜳡:[ele]]|
+[𜳢:[eme]]|
+[𜳣:[ene]]|
+[𜳤:[o]]|
+[𜳥:[pe]]|
+[𜳦:[cu]]|
+[𜳧:[erre]]|
+[𜳨:[ese]]|
+[𜳩:[té]]|
+[𜳪:[u]]|
+[𜳫:[uve]]|
+[𜳬:[uve doble]]|
+[𜳭:[equis]]|
+[𜳞:[i griega]]|
+[𜳯:[ceta]]|
 # Collected from me:
 [𝕬|𝖆]:a | 
 [𝕭|𝖇]:bé | 

@@ -1,4 +1,4 @@
-# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2024-2026  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -250,6 +250,127 @@ define NormalizeCharactersLseq
 [ⓨ:[i1 g r j e1 gh a0]]|
 [ⓩ:[c e1 t a0]]|
 # others
+[𝒶:[a1]]|
+[𝒷:[b e1]]|
+[𝒸:[c e1]]|
+[𝒹:[d e1]]|
+[ℯ:[e1]]|
+[𝒻:[e1 f e0]]|
+[ℊ:[x e1]]|
+[𝒽:[a1 ch e0]]|
+[𝒾:[i1]]|
+[𝒿:[x o1 t a0]]|
+[𝓀:[k a1]]|
+[𝓁:[e1 l e0]]|
+[𝓂:[e1 m e0]]|
+[𝓃:[e1 n e0]]|
+[ℴ:[o1]]|
+[𝓅:[p e1]]|
+[𝓆:[k u1]]|
+[𝓇:[e1 rr e0]]|
+[𝓈:[e1 s e0]]|
+[𝓉:[t e1]]|
+[𝓊:[u1]]|
+[𝓋:[u1 bh e0]]|
+[𝓌:[u0 bh e0 dh o1 b l e0]]|
+[𝓍:[e1 k i0 s]]|
+[𝓎:[i0 g r j e1 gh a0]]|
+[𝓏:[c e1 t a0]]|
+[𝔞:[a1]]|
+[𝔟:[b e1]]|
+[𝔠:[c e1]]|
+[𝔡:[d e1]]|
+[𝔢:[e1]]|
+[𝔣:[e1 f e0]]|
+[𝔤:[x e1]]|
+[𝔥:[a1 ch e0]]|
+[𝔦:[i1]]|
+[𝔧:[x o1 t a0]]|
+[𝔨:[k a1]]|
+[𝔩:[e1 l e0]]|
+[𝔪:[e1 m e0]]|
+[𝔫:[e1 n e0]]|
+[𝔬:[o1]]|
+[𝔭:[p e1]]|
+[𝔮:[k u1]]|
+[𝔯:[e1 rr e0]]|
+[𝔰:[e1 s e0]]|
+[𝔱:[t e1]]|
+[𝔲:[u1]]|
+[𝔳:[u1 bh e0]]|
+[𝔴:[u0 bh e0 dh o1 b l e0]]|
+[𝔵:[e1 k i0 s]]|
+[𝔶:[i0 g r j e1 gh a0]]|
+[𝔷:[c e1 t a0]]|
+[𝕒:[a1]]|
+[𝕓:[b e1]]|
+[𝕔:[c e1]]|
+[𝕕:[d e1]]|
+[𝕖:[e1]]|
+[𝕗:[e1 f e0]]|
+[𝕘:[x e1]]|
+[𝕙:[a1 ch e0]]|
+[𝕚:[i1]]|
+[𝕛:[x o1 t a0]]|
+[𝕜:[k a1]]|
+[𝕝:[e1 l e0]]|
+[𝕞:[e1 m e0]]|
+[𝕟:[e1 n e0]]|
+[𝕠:[o1]]|
+[𝕡:[p e1]]|
+[𝕢:[k u1]]|
+[𝕣:[e1 rr e0]]|
+[𝕤:[e1 s e0]]|
+[𝕥:[t e1]]|
+[𝕦:[u1]]|
+[𝕧:[u1 bh e0]]|
+[𝕨:[u0 bh e0 dh o1 b l e0]]|
+[𝕩:[e1 k i0 s]]|
+[𝕪:[i0 g r j e1 gh a0]]|
+[𝕫:[c e1 t a0]]|
+[ₐ:[a1]]|
+[ₑ:[e1]]|
+[ₕ:[a1 ch e0]]|
+[ᵢ:[i1]]|
+[ⱼ:[x o1 t a0]]|
+[ₖ:[k a1]]|
+[ₗ:[e1 l e0]]|
+[ₘ:[e1 m e0]]|
+[ₙ:[e1 n e0]]|
+[ₒ:[o1]]|
+[ₚ:[p e1]]|
+[ᵣ:[e1 rr e0]]|
+[ₛ:[e1 s e0]]|
+[ₜ:[t e1]]|
+[ᵤ:[u1]]|
+[ᵥ:[u1 bh e0]]|
+[ₓ:[e1 k i0 s]]|
+[𜳖:[a1]]|
+[𜳗:[b e1]]|
+[𜳘:[c e1]]|
+[𜳙:[d e1]]|
+[𜳚:[e1]]|
+[𜳛:[e1 f e0]]|
+[𜳜:[x e1]]|
+[𜳝:[a1 ch e0]]|
+[𜳞:[i1]]|
+[𜳟:[x o1 t a0]]|
+[𜳠:[k a1]]|
+[𜳡:[e1 l e0]]|
+[𜳢:[e1 m e0]]|
+[𜳣:[e1 n e0]]|
+[𜳤:[o1]]|
+[𜳥:[p e1]]|
+[𜳦:[k u1]]|
+[𜳧:[e1 rr e0]]|
+[𜳨:[e1 s e0]]|
+[𜳩:[t e1]]|
+[𜳪:[u1]]|
+[𜳫:[u1 bh e0]]|
+[𜳬:[u0 bh e0 dh o1 b l e0]]|
+[𜳭:[e1 k i0 s]]|
+[𜳞:[i0 g r j e1 gh a0]]|
+[𜳯:[c e1 t a0]]|
 [𝑎:[a1]]|
 [𝑏:[b e1]]|
 [𝑐:[c e1]]|
