@@ -99,7 +99,7 @@ define unstressNumber
 # Note, the acute vowel it is written on purpose to show the illustration of the stress / unstress.
 StressedNumber @-> || 
 WB _ %# i0 %# PhoneticedDigit WB , WB _ %# [m i1 l] WB ,, 
-# When (digit or then) mil is available, such as cinco mil, the speaker doesn't say cínco mil, but cinco mil or cincomil (unstressing 5).
+# When (digit or ten) mil is available, such as cinco mil, the speaker doesn't say cínco mil, but cinco mil or cincomil (unstressing 5).
 [StressedDigit|StressedTeen] @-> || WB _ %# [m i1 l] WB ,, 
 # And, there is a special case for 20x numbers, for example "veintidós mil". We will make possible to interpret as "veintidosmíl" instead, the natural way of Spanish speakers.
 StressedDigit @-> || WB [[v|bh] e1 j n t e0] | [[v|bh] e0 j n t [i0|j]] _ %# [m i1 l] WB ; 
@@ -126,7 +126,7 @@ define HaceFemeninoPlural
 
 define HaceFemeninoPluralAction 
 # Horas, semanas, décadas.
-[o1 r a0 s] | [s e0 m a1 n a0 s] | [d e1 k a0 dh a0 s] ; 
+[o1 r a0 s] | [s e0 m a1 n a0 s] | [[d|dh] e1 k a0 dh a0 s] ; 
 
 define HaceMasculinoSingularArticle 
 # Same as female.

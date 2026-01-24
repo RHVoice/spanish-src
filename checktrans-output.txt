@@ -11,8 +11,6 @@ pau a k . t u1 . e n pau
 pau u . bh e . dh o1 . b l e . u . bh e . dh o1 . b l e . u . bh e . dh o1 . b l e pau 
 pau k e1 pau 
 pau s e . k i1 . a pau 
-pau l a (def) # gh a1 . t a # f j e1 . r a # s a . l j o1 # a (prep) # l a s (def) # a . f w e1 . r a s pau 
-pau n o1 (prep) # p w e1 . dh o # f j a1 r pau d i s . k u1 l . p e pau l o (prep) # s j e1 n . t o pau 
 pau u . s w a1 . r j o pau 
 pau u . s w a1 . r j o s pau 
 pau ch w e1 . k o pau 
@@ -20,6 +18,8 @@ pau c j e1 . gh o pau
 pau f r a1 j . l e pau 
 pau b r a . b r e . b r i . b r o1 . b r u pau b l a . b l e . b l i . b l o1 . b l u pau k r a . k r e . k r i . k r o1 . k r u pau k l a . k l e . k l i . k l o1 . k l u pau d r a . d r e . d r i . d r o1 . d r u pau d l a . d l e . d l i . d l o1 . d l u pau f r a . f r e . f r i . f r o1 . f r u pau f l a . f l e . f l i . f l o1 . f l u pau g r a . g r e . g r i . g r o1 . g r u pau 
 pau s e . l e k . c j o . n a1 . dh o pau 
+pau l a (def) # gh a1 . t a # f j e1 . r a # s a . l j o1 # a (prep) # l a s (def) # a . f w e1 . r a s pau 
+pau n o1 (prep) # p w e1 . dh o # f j a1 r pau d i s . k u1 l . p e pau l o (prep) # s j e1 n . t o pau 
 pau v o1 j # a (prep) # e s . t u . dh j a1 r # s i . k o . l o . x i1 . a pau 
 pau rr o1 . s a # rr e . gh o1 # s o . b r e # l a s (def) # s e . m i1 . ll a s # e s . t a (dp) # t a1 r . d e pau 
 pau y o1 (pp) # a . y u . dh e1 # a (prep) # y a1 . y o # a (prep) # ll e . bh a1 r # l a (def) # m e1 . s a # i (uconj) # e1 l (pp) # m e (prp) # a . g r a . dh e . c j o1 pau 
@@ -52,9 +52,9 @@ pau t e (prp) # a . b r a . c a . r e1 # k w a1 n . d o # bh w e1 l . v a s pau
 pau w i1 n . d o u s pau 
 pau d e . s a . c e1 r pau 
 pau k r i1 s . t j a n # n o s (prp) # e n . k o n . t r o1 # e n (prep) # e l (def) # m e r . k a1 . dh o pau 
-pau i1 # u1 # x e1 # o1 # c e . c e . dh i1 . ll a # x o1 . t a pau 
+pau i1 # u1 # dh j e1 . r e . s i s # x e1 # o1 # dh j e1 . r e . s i s # c e . c e . dh i1 . ll a # x o1 . t a pau 
 pau a n . t i . gh w e . dh a1 d pau d e . s a1 . gh w e pau a . bh e . r i . gh w e1 pau a . gh w i1 . t a pau l i n . g w i1 s . t i . k a pau 
-pau k j e . n e s # k j e1 . r a n # p a r . t i . c i . p a1 r pau n o s (prp) # e s . k r i1 b . n e pau 
+pau k j e . n e s # k j e1 . r a n # p a r . t i . c i . p a1 r pau n o s (prp) # e s . k r i1 . bh e n pau 
 pau e s . k r i1 . bh a # e l (def) # n o1 m . b r e # dh e l (uconj) # p r o . g r a1 . m a pau k a r . p e1 . t a pau d o . k u . m e1 n . t o # o (uconj) # rr e . k u1 r . s o # dh e (prep) # i n . t e r . n e1 t # k e (uconj) # dh e . s e1 . a # a . b r i1 r # k o n (prep) # w i1 n . d o u s pau 
 pau k w a1 . t r o # p a . r a (prep) # dh o1 s # e1 s (cop) # d o1 s pau 
 pau t e (prp) # e # p e n . s a1 . dh o # a (prep) # t o1 . dh a # o1 . r a pau e l (def) # n o1 (prep) # s a . bh e1 r # s i (prep) # t u1 (pp) # l o (prep) # a1 . c e s # m e (prp) # ll e1 . n a # dh e (prep) # c o . c o1 . b r a pau t e (prp) # e # e n . v j a1 . dh o # m e n . s a1 . x e s # k o n (prep) # e l (def) # v j e1 n . t o pau p i . dh j e1 n . d o . t e # k e (uconj) # a . p a . r e1 c . k a s # e n (prep) # k w a l . k j e1 r # m o . m e1 n . t o pau a . u1 n # e . k s i1 s . t e n # m u1 . ch o s # s e n . t i . m j e1 n . t o s # p o r (prep) # t i1 (prp) pau e # s o . ni a1 . dh o # k e (uconj) # bh w e1 l . v e s # i (uconj) # e s . t a1 s (cop) # a . k i1 pau d e s . p j e1 r . t o # i (uconj) # m e (prp) # dh o1 j # k w e1 n . t a # dh e (prep) # k e (uconj) # e n (prep) # u n (indef) # b a1 . gh o # a . n e1 . l o # k a . i1 pau n o1 (prep) # e1 s (cop) # m e n . t i1 . r a # k e (uconj) # t e (prp) # k j e1 . r o pau x u1 n . t o # a (prep) # t u (pos) # l a1 . dh o # bh i . bh i1 . a # a . o1 . r a # e k s . t r a . ni a1 n . d o . t e # m w e1 . r o pau m i (pos) # k o . r a . c o1 n # m e (prp) # p i1 . dh e # s e1 r (cop) # s i n . c e1 . r o # i (uconj) # k j e1 . r e # e s . t a1 r (cop) # a (prep) # t u (pos) # l a1 . dh o pau m u1 . ch a s # l a1 . g r i . m a s # d e (prep) # m e . l a n . k o1 . l i . k a # e # dh e . rr a . m a1 . dh o pau t u (pos) # a w . s e1 n . c j a # a (prep) # m i (pos) # bh i1 . dh a # l e # rr e1 s . t a pau e # k e . r i1 . dh o # s a . bh e1 r # s i (prep) # t u1 (pp) # m e1 (prp) pau 
@@ -73,6 +73,9 @@ pau u . s e r . d i1 k t pau
 pau m j e1 r . k o . l e s pau d j e . c j o1 . ch o # dh e (prep) # dh i . c j e1 m . b r e pau 
 pau a . y e1 r # v i . s i . t e1 # a (prep) # j a1 . gh o pau 
 pau v a1 . m o s # a (prep) # bh e1 r # e . s a (dp) # bh o1 . k a # bh i . l i1 n . g w e pau 
+pau d u1 . dh o # k e (uconj) # dh e1 . bh a # dh e . c i1 r . l e # a (prep) # dh a . bh i1 d # s o . b r e # s u (pos) # dh a1 . dh o # dh e (prep) # dh j a . m a1 n . t e pau 
+pau t r e j n . t a # i (uconj) # u1 . n o # c e1 . r o # t r e1 s # d o s # m i1 l # v e j n . t i . c i1 n . k o pau 
+pau c e1 . r o # u1 . n o # c e1 . r o # u1 . n o # m i1 l # n o . bh e . c j e1 n . t o s # n o . bh e n . t a # i (uconj) # n w e1 . bh e pau 
 pau a . bh i1 . s a . m e # k w a n . d o (uconj) # a . y a s (aux) # t e r . m i . n a1 . dh o # e l (def) # t r a . bh a1 . x o pau 
 pau e s . p e1 . r o # k e (uconj) # y a1 # a . y a s (aux) # e1 . ch o # l o (prep) # k e (uconj) # t e (prp) # p e . dh i1 pau 
 pau e l (def) # u . m o . r i1 s . t a # dh i1 . c e # k e (uconj) # e l (def) # b a1 . x o # n o1 (prep) # s e (prp) # e s . k u1 . ch a pau 
@@ -81,7 +84,6 @@ pau e . s e (dp) # a w . t o . bh u1 s # e s . t a1 (cop) # y e1 n . d o # m u1 
 pau e1 . ll a (pp) # s e (prp) # f w e1 (cop) # a . c e # u . n o s (indef) # m i . n u1 . t o s pau 
 pau a . c e # m u1 . ch o s # a1 . ni o s pau 
 pau a1 . c e # m u1 . ch o # f r i1 . o # p o r (prep) # a . k i1 pau 
-pau d u1 . dh o # k e (uconj) # dh e1 . bh a # dh e . c i1 r . l e # a (prep) # dh a . bh i1 d # s o . b r e # s u (pos) # dh a1 . dh o # dh e (prep) # dh j a . m a1 n . t e pau 
 pau e1 s (cop) # rr e . k o . m e n . d a1 . b l e # a . b r i1 r # l a (def) # a . p l i . k a . c j o1 n # d e (prep) # bh e1 c # e n (prep) # k w a1 n . d o (uconj) pau 
 pau s a1 l . g o # dh e (prep) # bh e1 c # e n (prep) # k w a1 n . d o (uconj) # a (prep) # l a (def) # p l a1 . y a pau 
 pau c j e1 n . t o # dh j e . c i . n w e . bh e # m i1 l # d o s . c j e1 n . t o s # t r e j n . t a # i (uconj) # k w a1 . t r o pau 
@@ -90,8 +92,6 @@ pau m e1 . x i . k o pau
 pau k a1 n . t i . k o pau 
 pau a1 r . t i . k o pau 
 pau e s . d r u1 . x u . l a s pau 
-pau t r e j n . t a # i (uconj) # u1 . n o # c e1 . r o # t r e1 s # d o s # m i1 l # v e j n . t i . c i1 n . k o pau 
-pau c e1 . r o # u1 . n o # c e1 . r o # u1 . n o # m i1 l # n o . bh e . c j e1 n . t o s # n o . bh e n . t a # i (uconj) # n w e1 . bh e pau 
 pau n o1 (prep) # m e (prp) # p r e . o . k u1 . p a # k e (uconj) # n o1 (prep) # a1 . y a # n a1 . dh a # dh e s . p w e1 s pau 
 pau m e (prp) # p a . r e1 . c e # k e (uconj) # a1 l . g j e n # m e (prp) # dh j o1 # u n (indef) # g o1 l . p e # bh a1 . x o pau 
 pau a1 p . t o pau 
@@ -147,9 +147,11 @@ pau l o s (def) # u1 . n o s (indef) # i (uconj) # l o s (def) # o1 . t r o s pa
 pau u1 . n o s (indef) # u (uconj) # o1 . t r o s pau 
 pau p a1 . d r e s # e1 (uconj) # o1 . x o s pau 
 pau d i1 . s e . l o # a (prep) # m a . r i1 . a # u1 (uconj) # a (prep) # e s . t e1 . bh a n pau 
+pau a1 . c e # u . n a (indef) # dh e1 . k a . dh a s pau 
 pau i n . d u s . t r j a1 l pau m o1 u1 n s . t r w o pau s j e g . f r j e1 d pau i n . f l w e1 n . c j a pau 
 pau s u s (pos) # e s . f w e1 r . c o s # a n (aux) # s i1 . dh o (cop) # m u1 j # f r u k . t i1 . f e . r o s pau e s . p e . c j a1 l . m e1 n . t e # k o n (prep) # l a s (def) # k o m . p a . ni i1 . a s # t a j . w a . n e1 . s a s pau d a1 n . d o # k o . m o (uconj) # rr e . s u l . t a1 . dh o # m u1 . ch o s # d r a1 j . bh e r s # w a1 j r . l e s pau 
 pau t r e j n . t a # i (uconj) # u1 n (indef) pau t r e j n . t a # i (uconj) # u n # m i1 l pau t r e j n . t a # i (uconj) # u n # m i1 l # u1 . n o pau 
 pau w a l . b e1 r g # ll e1 . bh a # t r e j n . t a # i (uconj) # u1 n (indef) # a1 . ni o s # s i n (prep) # p a . r a1 r # d e (prep) # k o . rr e1 r pau 
 pau k a1 . p r j o pau a . p r w e1 . bh a pau rr e . d r w e1 . x o pau a . d r j a1 . n a pau i n . k r w e1 n . t a pau a . k r j a n . c a1 r pau 
 pau d e . s i n . k l i . n a1 r pau k o n . k l w i1 . dh o pau i . p o . m o1 . k l j o pau b a . rr w e1 . k o pau a l . m w e1 r . c e pau a . x o . n w e1 c pau 
+pau a . c e # c i1 n . k o # dh e1 . k a . dh a s pau 
