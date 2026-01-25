@@ -38,13 +38,13 @@ define ConnectorExceptions
 
 define Unstress2 
 # 2. After applying Spanish stressing rules and regulations in these tagged words alone in the utterance, we don't need this tag anymore.
-[Uns|Uns2|Con] @-> 0 || _ ; 
+[Uns|Uns2|Con|Past|IVrbS|IVrbP] @-> 0 || _ ; 
 
 # Here, we apply approximants through the whole utterance, same that we did in g2p but with word boundaries between vowels.
 # For example, el dado de Dabid. Between o (dado) and d (de) and "de" and "David" are the intervocalic d.
 # So, as a result, it will be "el daDo De DaVid". The mayus d is the aproximant.
 define RemainingApproximants 
-Approximants @-> || vocal (IVrbS|IVrbP) %# _ vocal ; 
+Approximants @-> || vocal %# _ vocal ; 
 
 # Here is a contextual character, y. That must be y griega when alone.
 define PhonemeToSpelling 
@@ -111,13 +111,20 @@ StressedDigit @-> || WB [[v|bh] e1 j n t e0] | [[v|bh] e0 j n t [i0|j]] _ %# [m 
 define MaleObjectPronoun 
 # connectors: Un, el, ese, este, aquel. We will use these to conjugate and modify stress according to word context. see below.
 [[u0 n] | [e0 l] | [e0 s (t) e0] | [a0 k e1 l]] ; 
+
+# Let's define some indefinite articles for context:
+define IndefiniteArticle 
+# Algo, algún, ningún.
+[a1 l g o0] | [a0 l g u1 n] | [n i0 n g u1 n] ; 
+
+
 # Conjugate with "Hace" (ago) as a reference to something that happened in the past, a time gramaticalization.
 define HaceFemeninoSingular 
 [u0 n a0] ; 
 
 define HaceFemeninoSingularAction 
 # Hora, semana, década.
-[o1 r a0] | [s e0 m a1 n a0] | [dh e1 k a0 dh a0] ; 
+[o1 r a0] | [s e0 m a1 n a0] | [[d|dh] e1 k a0 dh a0] ; 
 
 define HaceFemeninoPlural 
 # Unas, algunas, muchas, muchísimas, pocas, poquísimas, tantas, tantísimas, bastantes
@@ -126,7 +133,7 @@ define HaceFemeninoPlural
 
 define HaceFemeninoPluralAction 
 # Horas, semanas, décadas.
-[o1 r a0 s] | [s e0 m a1 n a0 s] | [[d|dh] e1 k a0 dh a0 s] ; 
+[HaceFemeninoSingularAction s] ; 
 
 define HaceMasculinoSingularArticle 
 # Same as female.
@@ -217,6 +224,26 @@ define comer
 [k o0 m o0]:[k o1 m o0] ; 
 # So, it would be: yo como, si como, mientras como. Yo como is a statement, meaning "I eat something"; si como is a condition, meaning "if I eat". We can add the "mientras" as extra word, meaning "mientras como" (while I eat).
 
+define PastSuffix [[a1|i1] dh o0] ; 
+
+define PastException 
+[..] @-> Past || [%# a0 y a0 Uns] _ [%# (PhWord) PastSuffix] WB ; 
+
+define PreHomonymousWords 
+# Also, we will stress demonstratives for es. For example: esta es, este es, ese es, esa es.
+esDemonstrative -> || 
+WB _ Uns %# singularAction WB , 
+WB _ Uns %# [p w e1 dh [e0|a0]] WB , 
+WB [s i0 n Uns %# k e0 Uns2 %#] _ [Uns %# PhWord IVrbS] WB ,, 
+# And we will apply the same for "son". Example: estas son las bufandas que Mateo tegió.
+sonDemonstrative -> || 
+WB _ Uns %# pluralAction WB , 
+WB _ Uns %# [p w e1 dh [e0|a0] n] WB , 
+WB [s i0 n Uns %# k e0 Uns2 %#] _ [Uns %# PhWord IVrbP] WB ,, 
+
+[a0 y a0]:[a1 y a0] @-> || 
+WB [k w a0 n [d|t] o0 Uns] (%# y a1) (%# n o1) %# _ Uns \Past ; 
+
 define HomonymousWords 
 # We'll need to stress "bajo" and "sobre" in these eight cases, because regarding "bajo" we are talking of: a) the "bass" music instrument, b) low/lower, instead of the attribution (under), and regarding "sobre", we are talking of the paper object, not the "about" preposition (talk about her / hablar sobre ella, for example).
 bajoObject -> || 
@@ -237,18 +264,6 @@ sobreObject -> ||
 [MaleObjectPronoun|PersonalObjectPronoun|[k a1 dh a0]] %# _ WB , 
 [k w a0 n d o0] %# _ WB , # Example: cuando sobre la comida, haré el recalentado.
 WB _ %# [k o0 n] %# PhWord ,, 
-
-# Also, we will stress demonstratives for es. For example: esta es, este es, ese es, esa es.
-esDemonstrative -> || 
-WB _ %# singularAction WB , 
-WB _ %# [p w e1 dh [e0|a0]] WB , 
-WB [s i0 n %# k e0 %#] _ %# PhWord IVrbS WB ,, 
-
-# And we will apply the same for "son". Example: estas son las bufandas que Mateo tegió.
-sonDemonstrative -> || 
-WB _ %# pluralAction WB , 
-WB _ %# [p w e1 dh [e0|a0] n] WB , 
-WB [s i0 n %# k e0 %#] _ %# PhWord IVrbP WB ,, 
 
 # Rules for para, which can be used in two contexts: "stop" action (parar) and "to" preposition (para)
 # Example: se me "pára" el corazón, no "pára" de llover > esto es para ti.
@@ -296,15 +311,14 @@ WB _ %# PhoneticedNumber %# [HaceFemeninoPluralAction|HaceMasculinoPluralActionN
 || WB _ %# i0 %# PhWord ,, 
 # SAPM for "mediante": "mediante" is the connector for "through", but it isn't used as connector in a special religious case.
 [m e0 dh j a0 n t e0]:[m e0 dh j a1 n t e0] -> || WB [d j o1 s] %# _ WB ,, 
-# And create stressing context for "haya". "Haya" can be used in two contexts. The one is the verb called "hacer" (espero que hayas hecho la tarea), default in g2p, and the other is from the verb "haber" (cuando haya plata, que haya paz en la tierra) which we are going to make here.
-[a0 y a0]:[a1 y a0] -> || 
-WB [k w a0 n d o0] %# _ WB , 
+# And create stressing context for "haya". "Haya" can be used in two contexts. The one is unstressed, from the verb "hacer" (espero que haya hecho la tarea), default in g2p, and the other is stressed, from the verb "haber" (cuando haya plata, que haya paz en la tierra) which we are going to make here.
+[a0 y a0]:[a1 y a0] @-> || 
+WB [[k e0]|condition] (%# n o1) %# _ %# [[e0 n]|MaleObjectPronoun|IndefiniteArticle] %# PhWord , 
 WB _ %# [[l a0]|[p a1 c]] WB , 
 WB _ %# [n a1 dh a0] WB ; 
 
 define untag 
-MakeTag @-> [a1 c e0] || _ ,, 
-[IVrbS|IVrbP] @-> 0 || _ ; 
+MakeTag @-> [a1 c e0] || _ ; 
 
 define untag2 
 TagYgriega @-> i0 ; 
@@ -314,6 +328,8 @@ SpanishStressPost .o.
 PhonemeToSpelling .o. 
 untag2 .o. 
 ConnectorExceptions .o. 
+PastException .o. 
+PreHomonymousWords .o. 
 Unstress2 .o. 
 RemainingApproximants .o. 
 PreUnstressNumber .o. 
