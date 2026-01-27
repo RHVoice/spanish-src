@@ -248,7 +248,7 @@ define HomonymousWords
 # We'll need to stress "bajo" and "sobre" in these eight cases, because regarding "bajo" we are talking of: a) the "bass" music instrument, b) low/lower, instead of the attribution (under), and regarding "sobre", we are talking of the paper object, not the "about" preposition (talk about her / hablar sobre ella, for example).
 bajoObject -> || 
 # Bass instrument or low/lower:
-WB [MaleObjectPronoun|PersonalObjectPronoun|Adverb|SpecialNouns] %# _ WB , 
+WB [MaleObjectPronoun|PersonalObjectPronoun|Adverb|SpecialNouns|[[l|m|t] e0]] %# _ WB , 
 # with *mente (example: realmente bajo)
 Adverb2 %# _ WB , 
 # Other subcase for bajo: lowering action (acción de bajar)
