@@ -224,9 +224,12 @@ define comer
 [k o0 m o0]:[k o1 m o0] ; 
 # So, it would be: yo como, si como, mientras como. Yo como is a statement, meaning "I eat something"; si como is a condition, meaning "if I eat". We can add the "mientras" as extra word, meaning "mientras como" (while I eat).
 
-define PastSuffix [[a1|i1] dh o0] ; 
+define PastSuffix 
+# This suffix will be used to identify past participle for some specific contexts.
+[[a1|i1] dh o0] ; 
 
 define PastException 
+# Let's tag the defined suffix for the word "haya" as an exception. This exception means, "haya" won't be stressed if a past participle is found.
 [..] @-> Past || [%# a0 y a0 Uns] _ [%# (PhWord) PastSuffix] WB ; 
 
 define PreHomonymousWords 
