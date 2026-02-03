@@ -69,16 +69,17 @@ Structure CapitalLetter CapitalVowel W _ ;
 define Stage4 
 sym -> num || [sym|.#.] %- _ Digit,
 sym -> num || [sym|.#.] %+ _ Digit,,
-sym -> 0 || [%: sym %/] _ [%/ sym Word] ,, 
+sym -> graph || 
+[%: sym %/] _ [%/ sym Word] , 
+[%: sym %/ sym %/] _ Word ,, 
 [num %, sym] -> %,  || .#. Digit+  _ Digit+ num .#. ,, 
 num -> dig || Digit^28 _ ; 
 
 define Stage5 
 word -> lseq || .#. _ , .#. GraphemeVowel _ Number ,, 
 word -> graph || .#. SpecialVowel _ .#. ,, 
-sym -> num || 
-[word|lseq] [%.|%/] _ [Word|LetterSequence] , 
-%: sym [%/^2] _ Word ,, 
+sym -> graph || 
+[word|lseq] [%.|%/] _ [Word|LetterSequence] ,, 
 word -> 0 || 
 # Apple product names.
 {i} _ ExceptionalWord2 word , 
