@@ -67,8 +67,6 @@ Structure X CapitalVowel CapitalLetter _ ,
 Structure CapitalLetter CapitalVowel W _ ; 
 
 define Stage4 
-sym -> num || [sym|.#.] %- _ Digit,
-sym -> num || [sym|.#.] %+ _ Digit,,
 sym -> graph || 
 [%: sym %/] _ [%/ sym Word] , 
 [%: sym %/ sym %/] _ Word ,, 

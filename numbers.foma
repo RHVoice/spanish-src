@@ -22,17 +22,11 @@ define SpanishRoman
 [{II}:segundo|{III}:tercero|{IV}:cuarto|{VI}:sexto|{VII}:séptimo|{VIII}:octavo|{IX}:noveno] @-> || .#. _ .#. ; 
 
 #define Separator %/ ; 
-define ProcNumChar [ %-:menos |
-%+: más |
-%$: dólares |
-%.: punto |
-%/: barra |
-[%/]^2: [barra barra]] ; 
-
-#define Year [Digit^<5] ; 
-#define DayOrMonth [Digit^<3] ; 
-#define FormatedDate [DayOrMonth Separator DayOrMonth Separator Year] ; 
-#define Number FormatedDate | [UnformattedNumber (OrdChar)] | ESRomanNumeral ; 
+define ProcNumChar [
+	%-:menos |
+	%+: más |
+	%$: dólares 
+] ; 
 
 define MaleOrdUnit 
 %0:cerésimo | 
@@ -210,8 +204,8 @@ define PowerOfThousandSymbolsToSingular
 [mlns:mln|blns:bln|tlns:tln|qlns:qln] -> || [[PowerOfThousandSymbol (and)]|wnum] 1 _ ; 
 
 define tagNumberTypes 
-  [FormattedNumber|UnformattedNumber] @-> ... wnum || .#. _ (%, Digit+)  .#. ,, 
-	UnformattedNumber @-> ... wnum || .#. _ (%. Digit+)  .#.  ,, 
+	[FormattedNumber|UnformattedNumber] @-> ... wnum || .#. ([%-|%+]) _ (%, Digit+)  .#. ,, 
+	UnformattedNumber @-> ... wnum || .#. ([%-|%+]) _ (%. Digit+)  .#.  ,, 
 	UnformattedNumber @-> ... wnum deg || .#. _ %° .#. ,, 
 	[FormattedNumber|UnformattedNumber] @-> ... wnum ord || .#. _ OrdChar .#. ; 
 
@@ -233,6 +227,10 @@ FemaleOrdUnit -> || _ wnum ord FemaleOrdChar .#. ,,
 [MaleOrdHundred hndth:0] -> || _ ?* wnum ord MaleOrdChar .#. ,, 
 [FemaleOrdHundred hndth:0] -> || _ ?* wnum ord FemaleOrdChar .#. ; 
 
+define PlusMinus 
+%+: más | 
+%-: menos ;
+
 define Translate [
 SpellDigit -> || _ wnum | dec | PowerOfThousandSymbol | OrdPowerOfThousandSymbol ,, 
 SpellDigit -> || dp Digit* _ Digit* dec ,, 
@@ -246,6 +244,7 @@ Hundred [hnd:0] -> || _ ,,
 and -> y || _ ,, 
 %, -> coma || _ ?+ .#. ,, 
 %. -> punto || _ ?+ .#. ,, 
+PlusMinus -> || _ ?+ .#. ,, 
 [thth:milésimo | mlnth:millonésimo | blnth:billonésimo | tlnth:trillonésimo | qlnth:cuatrillonésimo] @-> || _ ?* wnum ord MaleOrdChar ,, 
 [thth:milésima | mlnth:millonésima | blnth:billonésima | tlnth:trillonésima | qlnth:cuatrillonésima] @-> || _ ?* wnum ord FemaleOrdChar 
 ] .o. [
