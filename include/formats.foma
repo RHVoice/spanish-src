@@ -33,14 +33,22 @@ define OrdChar MaleOrdChar | FemaleOrdChar ;
 
 define Unit SpellDigit - [%0:[?+]] ; 
 # Numbers and tokenization:
+define dollar %$ ; 
+define eur %€ ; 
 
 define Digit SpellDigit.u ;
 define NZDigit Digit - %0 ; 
+define 2dFormat %0 Digit ; # 2digit format. 00, 01, 02... 09.
+define DollarFormat %0|NZDigit Digit^<12 ; # Dollars must be less than 999999999999, unless you're a millionaire.
+define CentFormat [2dFormat|NZDigit Digit]^<2 ; # Cents must be less than 100, 1 to 99.
 define UnformattedNumber %0 | [NZDigit Digit*] ; 
 define FormattedNumber .# NZDigit Digit^<3 [%. Digit^3]^{1,4} .# ; 
 define Decimal [FormattedNumber|UnformattedNumber] %, Digit+; 
 define ForeignDecimal  [[NZDigit Digit*] | %0] %. [Digit^{1,2} | Digit^>3];
 define VersionFormat [NZDigit Digit^<4|%0] [%. Digit^{1,2}]^3 Digit^<4 ; 
 define OrdinalOrDegree [FormattedNumber|UnformattedNumber] (OrdChar|%°) ; 
+define Currency 
+[[dollar|eur] DollarFormat %, CentFormat] ; 
+
 define Number1 ([%+|%-]) [UnformattedNumber | FormattedNumber | Decimal | ForeignDecimal] ; 
-define Number Number1 | OrdinalOrDegree | VersionFormat | ESRomanNumeral ; 
+define Number Number1 | OrdinalOrDegree | VersionFormat | Currency | ESRomanNumeral ; 

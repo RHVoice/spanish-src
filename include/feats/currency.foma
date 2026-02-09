@@ -1,4 +1,4 @@
-# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# Copyright (C) 2024-2026  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -13,55 +13,70 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# proposal: Currency support with documentation. Maybe a new token type? Because we discovered some inconsistencies when we include these date and currency rules in number processing (numbers.foma)
-# Original script from Italian. Adaptation to Spanish from the same autor, Mateo Cedillo.
-# Separator handling and numbers.
-define DollarSign %$ ; 
+# proposal: Currency support with documentation.
+# Author: Matthew C.
+# Currencies and formats.
+define dollar %$ ; 
 define eur %€ ; 
-define separator %. ; 
-define Nums %0|1|2|3|4|5|6|7|8|9 ; 
-define CentFormat Nums < 3 ; # Cents must be less than 100, 1 to 99.
-# We will translate currency to a human currency interpreter.
+define NZNum 1|2|3|4|5|6|7|8|9 ; 
+define zNum %0|NZNum ; 
+define 2dFormat %0 zNum ; # 2digit format. 00, 01, 02... 09.
+define DollarFormat %0|NZNum zNum^<12 ; # Dollars must be less than 999999999999, unless you're a millionaire.
+define CentFormat [2dFormat|NZNum zNum]^<2 ; # Cents must be less than 100, 1 to 99.
+define UnformattedNum NZNum zNum* ; 
+define CurrencyFormat 
+# For now, this is independent. In a near future, we could consider to merge this format into numbers and tokenizer.
+[[dollar|eur] DollarFormat %, CentFormat] ; 
+
+# Parsing the currency using tags:
+
+define TagCurrency 
+# First part: dollars and euros handling, singular and plural.
+# if $0, remove it. Cents only.
+[[dollar|eur] %0 %,] @-> 0 || .#. _ ,, 
+# Ds1: dollar, in singular.
+[..] -> ds1 || dollar 1 _ %, ,, 
+# dp1: dollars, in plural.
+[..] -> dp1 || dollar [UnformattedNum - 1|%0] _ %, ,, 
+# ds2: eur, in singular.
+[..] -> ds2 || eur 1 _ %, ,, 
+# dp2: eurs, in plural
+[..] -> dp2 || eur [UnformattedNum - 1|%0] _ %, ,, 
+# dec: complement, which means and, with, etc, or empty.
+%, -> ... dec || DollarFormat _ CentFormat ,, 
+# second part: cents handling, singular and plural.
+# cs1: cent, in singular, for dollar(s).
+[%0 1] -> ... cs1 || dollar DollarFormat %, _ .#. ,, 
+# cs2: cent, in singular, for euro(s).
+[%0 1] -> ... cs2 || eur DollarFormat %, _ .#. ,, 
+# cp1: cents, in plural, for dollar(s).
+[CentFormat - [%0 1]] -> ... cp1 || dollar DollarFormat %, _ .#. ,, 
+# cp2: cents, in plural, for euro(s).
+[CentFormat - [%0 1]] -> ... cp2 || eur DollarFormat %, _ .#. ; 
+
 define TranslateCurrency 
-# When it is a one dollar.
-DollarSign 1 @-> ... dólar || .#. _ separator Nums, .#. _ .#. ,, # The seccond rule is applied when the input as just $1.
-eur 1 @-> ... euro || .#. _ separator Nums, .#. _ .#. ,, 
-# When it is more than 1 dollars.
-Nums* @-> ... dólares || .#. DollarSign _ separator Nums, .#. DollarSign _ .#. ,, # The seccond rule is applied when the input as just a number inside dollar withouth cents, example: $9.
-Nums* @-> ... euros || .#. eur _ separator Nums, .#. eur _ .#. ,, 
-# When it is one cent.
-separator [1|%0 1] @-> ... centavo || DollarSign Nums* _ ,, 
-separator [1|%0 1] @-> ... céntimo || eur Nums* _ ,, 
-# 2 or more cents.
-Nums* @-> ... centavos || DollarSign Nums* separator _ ,, 
-Nums* @-> ... céntimos || eur Nums* separator _ ,, 
-# Removal of dollars with a zero at the start. That means, this should be interpreted as cents only.
-DollarSign %0 separator @-> 0 || .#. _ Nums* ,, 
-eur %0 separator @-> 0 || .#. _ Nums* ; 
+# Translators, please take care of this:
+# Spanish: singular number:
+# A single dollar or euro.
+1 -> un || _ [ds1|ds2] ,, 
+# A single cent, either with dollar or euro.
+[%0 1] -> un || _ [cs1|cs2] ,, 
+# Remove the zero in cents, the 2digit format. We want the single digit.
+%0 -> 0 || _ [NZNum - 1] cp1|cp2 ,, 
+# Translate those two currency parts, from tags to human readable strings, which are already commented in the previous definition.
+ds1 -> dólar ,, 
+ds2 -> euro ,, 
+dp1 -> dólares ,, 
+dp2 -> euros ,, 
+dec -> con ,, 
+cs1 -> centabo ,, 
+cs2 -> céntimo ,, 
+cp1 -> centabos ,, 
+cp2 -> céntimos ,, 
+# And remove symbols, not needed in the output.
+[dollar|eur|%,] -> 0 ; 
 
-define RemoveDollar 
-# Removing original dollar sign from the input at start, because we already have the needed translation and we wont to be in output.
-DollarSign @-> 0 || .#. _ Nums* [dólar|dólares] separator Nums* [centavo|centavos], .#. _ Nums* [dólar|dólares] .#. ,, 
-eur @-> 0 || .#. _ Nums* [euro|euros] separator Nums* [céntimo|céntimos], .#. _ Nums* [euro|euros] .#. ; 
-
-define TranslateSeparator 
-# Example. due dollari è tre centesimi. The point separator is now "è" in these cases. As alwais, we follow the currency format.
-separator @-> con || .#. Nums* [dólar|dólares] _ Nums* [centavo|centavos] ,, 
-separator @-> con || .#. Nums* [euro|euros] _ Nums* [céntimo|céntimos] ; 
-
-define RemoveZeros 
-# Remove zeros anywhere.
-%0 @-> 0 || .#. _ Nums [centavo|centavos] , .#. Nums* [dólar|dólares] con _ Nums [centavo|centavos] ,, 
-%0 @-> 0 || .#. _ Nums [céntimo|céntimos] , .#. Nums* [euro|euros] con _ Nums [céntimo|céntimos] ; 
-
-define PluralToSingular 
-1 @-> un || .#. _ dólar , con _ centavo , .#. _ euro , con _ céntimo ; 
-
-define Currency 
-TranslateCurrency .o. 
-RemoveDollar .o. 
-TranslateSeparator .o. 
-RemoveZeros .o. 
-PluralToSingular ; 
-
-regex Currency ; 
+regex 
+CurrencyFormat .o. 
+TagCurrency .o. 
+TranslateCurrency ; 
