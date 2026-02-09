@@ -21,13 +21,6 @@ ESRomanMapping -> || .#. _ .#. ;
 define SpanishRoman 
 [{II}:segundo|{III}:tercero|{IV}:cuarto|{VI}:sexto|{VII}:séptimo|{VIII}:octavo|{IX}:noveno] @-> || .#. _ .#. ; 
 
-#define Separator %/ ; 
-define ProcNumChar [
-	%-:menos |
-	%+: más |
-	%$: dólares 
-] ; 
-
 define MaleOrdUnit 
 %0:cerésimo | 
 1:primero | 
@@ -293,7 +286,7 @@ Translate .o.
 fixes2 ; 
 
 regex 
-[ProcNumChar | Number] .o. 
+Number .o. 
 SpanishRoman .o. 
 MapRomanNumeral .o. 
 tagRules .o.
