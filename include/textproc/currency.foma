@@ -16,17 +16,8 @@
 # proposal: Currency support with documentation.
 # Author: Matthew C.
 # Currencies and formats.
-define dollar %$ ; 
-define eur %€ ; 
-define NZNum 1|2|3|4|5|6|7|8|9 ; 
-define zNum %0|NZNum ; 
-define 2dFormat %0 zNum ; # 2digit format. 00, 01, 02... 09.
-define DollarFormat %0|NZNum zNum^<12 ; # Dollars must be less than 999999999999, unless you're a millionaire.
-define CentFormat [2dFormat|NZNum zNum]^<2 ; # Cents must be less than 100, 1 to 99.
-define UnformattedNum NZNum zNum* ; 
-define CurrencyFormat 
-# For now, this is independent. In a near future, we could consider to merge this format into numbers and tokenizer.
-[[dollar|eur] DollarFormat %, CentFormat] ; 
+# Those are already definned in our format set.
+source include/formats.foma
 
 # Parsing the currency using tags:
 
@@ -37,11 +28,11 @@ define TagCurrency
 # Ds1: dollar, in singular.
 [..] -> ds1 || dollar 1 _ %, ,, 
 # dp1: dollars, in plural.
-[..] -> dp1 || dollar [UnformattedNum - 1|%0] _ %, ,, 
+[..] -> dp1 || dollar [UnformattedNumber - 1|%0] _ %, ,, 
 # ds2: eur, in singular.
 [..] -> ds2 || eur 1 _ %, ,, 
 # dp2: eurs, in plural
-[..] -> dp2 || eur [UnformattedNum - 1|%0] _ %, ,, 
+[..] -> dp2 || eur [UnformattedNumber - 1|%0] _ %, ,, 
 # dec: complement, which means and, with, etc, or empty.
 %, -> ... dec || DollarFormat _ CentFormat ,, 
 # second part: cents handling, singular and plural.
@@ -62,7 +53,7 @@ define TranslateCurrency
 # A single cent, either with dollar or euro.
 [%0 1] -> un || _ [cs1|cs2] ,, 
 # Remove the zero in cents, the 2digit format. We want the single digit.
-%0 -> 0 || _ [NZNum - 1] cp1|cp2 ,, 
+%0 -> 0 || _ [NZDigit - 1] cp1|cp2 ,, 
 # Translate those two currency parts, from tags to human readable strings, which are already commented in the previous definition.
 ds1 -> dólar ,, 
 ds2 -> euro ,, 
@@ -76,7 +67,8 @@ cp2 -> céntimos ,,
 # And remove symbols, not needed in the output.
 [dollar|eur|%,] -> 0 ; 
 
-regex 
-CurrencyFormat .o. 
-TagCurrency .o. 
-TranslateCurrency ; 
+# We won't regex the output as this will be included in numbers.foma.
+#regex 
+#CurrencyFormat .o. 
+#TagCurrency .o. 
+#TranslateCurrency ; 

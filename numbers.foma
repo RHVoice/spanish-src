@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-source include/formats.foma
+source include/textproc/currency.foma
 
 define MapRomanNumeral 
 ESRomanMapping -> || .#. _ .#. ; 
@@ -209,7 +209,7 @@ define tagCascade
 	.o. [ dec -> wnum || dp NZDigit Digit^<3 _ .#. ] 
  	.o. [ Digit-> ... wnum || [.#. | \Digit] Digit* _ [ .#. | %. | %, ]]; 
 
-define tagRules  tagNumberTypes .o. tagCascade; 
+define tagRules  tagNumberTypes .o. tagCascade .o. TagCurrency ; 
 
 define Ords 
 #OrdChar -> 0 ,, 
@@ -290,4 +290,5 @@ Number .o.
 SpanishRoman .o. 
 MapRomanNumeral .o. 
 tagRules .o.
+TranslateCurrency .o. 
 NumberRules ; 
