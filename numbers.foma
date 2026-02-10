@@ -155,13 +155,15 @@ define RemoveSilentGroups
 %0^3 (PowerOfThousandSymbol) @-> 0 || _ ?* wnum ; 
 
 define SeparateHundreds 
-[..] -> hnd || Digit _ Digit^2 ?* wnum ; 
+[..] -> hnd || Digit _ Digit^2 ?* [wnum|dp1|dp2] ; 
 
 define Mark100s 
-hnd -> hnd0 || 1 _ {00} ; 
+hnd -> hnd0 || 1 _ {00} (dp1|dp2) ; 
 
 define SeparateTens 
-[..] -> ten || Digit _ Digit ?* wnum ; 
+[..] -> ten || 
+Digit _ Digit ?* [wnum|dp1|dp2] , 
+NZDigit _ Digit ?* [cp1|cp2] ; 
 
 define MarkTenth 
 ten -> tenth || 
@@ -178,7 +180,7 @@ define MarkOrdPowerOfThousand
 mlns:mlnth | blns:blnth | tlns:tlnth | qlns:qlnth -> || _ ?* wnum ord OrdChar ; 
 
 define RemoveZeros 
-%0 ([TenOrHundredSymbol | OrdTenOrHundredSymbol]) @-> 0 || \%. _ ?* wnum ; 
+%0 ([TenOrHundredSymbol | OrdTenOrHundredSymbol]) @-> 0 || \%. _ ?* [wnum|ds1|ds2|dp1|dp2|cp1|cp2] ; 
 
 define MarkTeens 
 [[1 ten]:0] NZDigit [0:[teen %0]] -> ; 
@@ -209,7 +211,7 @@ define tagCascade
 	.o. [ dec -> wnum || dp NZDigit Digit^<3 _ .#. ] 
  	.o. [ Digit-> ... wnum || [.#. | \Digit] Digit* _ [ .#. | %. | %, ]]; 
 
-define tagRules  tagNumberTypes .o. tagCascade .o. TagCurrency ; 
+define tagRules TagCurrency .o. tagNumberTypes .o. tagCascade ; 
 
 define Ords 
 #OrdChar -> 0 ,, 
@@ -225,7 +227,11 @@ define PlusMinus
 %-: menos ;
 
 define Translate [
-SpellDigit -> || _ wnum | dec | PowerOfThousandSymbol | OrdPowerOfThousandSymbol ,, 
+# Currency:
+1 -> un || _ [ds1|ds2] ,, 
+[%0 1] -> un || _ [cs1|cs2] ,, 
+%0 -> 0 || _ [NZDigit - 1] cp1|cp2 ,, 
+SpellDigit -> || _ cp1 | cp2 | dp1 | dp2 | wnum | dec | PowerOfThousandSymbol | OrdPowerOfThousandSymbol ,, 
 SpellDigit -> || dp Digit* _ Digit* dec ,, 
 %° -> grado || [1 wnum deg] _ ,, 
 %° -> grados || [[Digit - 1] wnum deg] _ ,, 
@@ -235,6 +241,16 @@ Ten [ten:0] -> || _ ,,
 Hundred [hnd:0] -> || _ ,, 
 1 hnd0 -> cien || _ ,, 
 and -> y || _ ,, 
+ds1 -> dólar ,, 
+ds2 -> euro ,, 
+dp1 -> dólares ,, 
+dp2 -> euros ,, 
+%, with @-> con ,, 
+cs1 -> centabo ,, 
+cs2 -> céntimo ,, 
+cp1 -> centabos ,, 
+cp2 -> céntimos ,, 
+[dollar|eur] -> 0 ,, 
 %, -> coma || _ ?+ .#. ,, 
 %. -> punto || _ ?+ .#. ,, 
 PlusMinus -> || _ ?+ .#. ,, 
@@ -290,5 +306,4 @@ Number .o.
 SpanishRoman .o. 
 MapRomanNumeral .o. 
 tagRules .o.
-TranslateCurrency .o. 
 NumberRules ; 

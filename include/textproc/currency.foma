@@ -33,8 +33,8 @@ define TagCurrency
 [..] -> ds2 || eur 1 _ %, ,, 
 # dp2: eurs, in plural
 [..] -> dp2 || eur [UnformattedNumber - 1|%0] _ %, ,, 
-# dec: complement, which means and, with, etc, or empty.
-%, -> ... dec || DollarFormat _ CentFormat ,, 
+# with: complement, which means and, with, etc, or empty.
+%, -> ... with || [dollar|eur] DollarFormat _ CentFormat ,, 
 # second part: cents handling, singular and plural.
 # cs1: cent, in singular, for dollar(s).
 [%0 1] -> ... cs1 || dollar DollarFormat %, _ .#. ,, 
@@ -59,7 +59,7 @@ ds1 -> dólar ,,
 ds2 -> euro ,, 
 dp1 -> dólares ,, 
 dp2 -> euros ,, 
-dec -> con ,, 
+with -> con ,, 
 cs1 -> centabo ,, 
 cs2 -> céntimo ,, 
 cp1 -> centabos ,, 
