@@ -21,18 +21,22 @@ source include/formats.foma
 
 # Parsing the currency using tags:
 
+define Singular 
+# if zero cents, remove it. Dollar only:
+[%, %0^2] -> 0 || [dollar|eur] UnformattedNumber _ .#. ; 
+
 define TagCurrency 
 # First part: dollars and euros handling, singular and plural.
 # if $0, remove it. Cents only.
 [[dollar|eur] %0 %,] @-> 0 || .#. _ ,, 
 # Ds1: dollar, in singular.
-[..] -> ds1 || dollar 1 _ %, ,, 
+[..] -> ds1 || dollar 1 _ %, , .#. dollar 1 _ .#. ,, 
 # dp1: dollars, in plural.
-[..] -> dp1 || dollar [UnformattedNumber - 1|%0] _ %, ,, 
+[..] -> dp1 || dollar [UnformattedNumber - 1|%0] _ %, , .#. dollar [UnformattedNumber - 1|%0] _ .#. ,, 
 # ds2: eur, in singular.
-[..] -> ds2 || eur 1 _ %, ,, 
+[..] -> ds2 || eur 1 _ %, , .#. eur 1 _ .#. ,, 
 # dp2: eurs, in plural
-[..] -> dp2 || eur [UnformattedNumber - 1|%0] _ %, ,, 
+[..] -> dp2 || eur [UnformattedNumber - 1|%0] _ %, , .#. eur [UnformattedNumber - 1|%0] _ .#. ,, 
 # with: complement, which means and, with, etc, or empty.
 %, -> ... with || [dollar|eur] DollarFormat _ CentFormat ,, 
 # second part: cents handling, singular and plural.
@@ -69,6 +73,7 @@ cp2 -> céntimos ,,
 
 # We won't regex the output as this will be included in numbers.foma.
 #regex 
-#CurrencyFormat .o. 
+#Currency .o. 
+#Singular .o. 
 #TagCurrency .o. 
 #TranslateCurrency ; 

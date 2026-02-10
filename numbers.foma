@@ -180,7 +180,7 @@ define MarkOrdPowerOfThousand
 mlns:mlnth | blns:blnth | tlns:tlnth | qlns:qlnth -> || _ ?* wnum ord OrdChar ; 
 
 define RemoveZeros 
-%0 ([TenOrHundredSymbol | OrdTenOrHundredSymbol]) @-> 0 || \%. _ ?* [wnum|ds1|ds2|dp1|dp2|cp1|cp2] ; 
+%0 ([TenOrHundredSymbol | OrdTenOrHundredSymbol]) @-> 0 || \%. _ ?* [wnum|ds1|ds2|cp1|cp2] , .#. _ \[dp1|dp2] .#. ; 
 
 define MarkTeens 
 [[1 ten]:0] NZDigit [0:[teen %0]] -> ; 
@@ -193,7 +193,7 @@ define InsertAnds
 NZDigit ten _ NZDigit ; 
 
 define RemoveOnes 
-1 -> 0 || .#. _ ths | OrdPowerOfThousandSymbol ; 
+1 -> 0 || .#. ([dollar|eur]) _ ths | OrdPowerOfThousandSymbol ; 
 
 define PowerOfThousandSymbolsToSingular 
 [mlns:mln|blns:bln|tlns:tln|qlns:qln] -> || [[PowerOfThousandSymbol (and)]|wnum] 1 _ ; 
@@ -211,7 +211,7 @@ define tagCascade
 	.o. [ dec -> wnum || dp NZDigit Digit^<3 _ .#. ] 
  	.o. [ Digit-> ... wnum || [.#. | \Digit] Digit* _ [ .#. | %. | %, ]]; 
 
-define tagRules TagCurrency .o. tagNumberTypes .o. tagCascade ; 
+define tagRules Singular .o. TagCurrency .o. tagNumberTypes .o. tagCascade ; 
 
 define Ords 
 #OrdChar -> 0 ,, 
