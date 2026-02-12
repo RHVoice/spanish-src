@@ -181,8 +181,8 @@ define PersonalObjectPronoun
 # The same thing but for "mi", "tu" and "su".
 [m i0] | [[s|t] u0] ; 
 define Adverb 
-# Adverbs like "muy", than and others will be used here for some stressing situations.
-[m u1 j] | [t a1 n] ; 
+# Adverbs like "más", "muy", "tan" and others will be used here for some stressing situations.
+[m a1 s] | [m u1 j] | [t a1 n] ; 
 define Adverb2 
 # Mente is a special case because it is not a whole word, it is like a compound, example: realmente (real-mente)
 [m e1 n t e0] ; 
