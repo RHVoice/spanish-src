@@ -266,7 +266,7 @@ define ModifierRule
 modifier @-> 0 || .#. ([Consonant|i|u]) _ vocal , Consonant _ (Consonant) .#. , vocal _ (Consonant) .#. ; 
 
 define RenameConsonants 
-YAsVowel @-> i0 ,, 
+YAsVowel @-> j || Consonant vocal _ Consonant ,, 
 zh @-> c ; 
 
 define Stage3 
@@ -306,6 +306,7 @@ unstress .o.
 ohiRule .o. 
 [modifier @-> 0] .o. 
 RenameConsonants .o. 
+[YAsVowel @-> i0] .o. 
 ApplyApproximants .o. 
 AdverbRule .o. 
 NotAdverb .o. 

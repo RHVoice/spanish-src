@@ -234,7 +234,7 @@ define Translate [
 SpellDigit -> || _ cp1 | cp2 | dp1 | dp2 | wnum | dec | PowerOfThousandSymbol | OrdPowerOfThousandSymbol ,, 
 SpellDigit -> || dp Digit* _ Digit* dec ,, 
 %° -> grado || [1 wnum deg] _ ,, 
-%° -> grados || [[Digit - 1] wnum deg] _ ,, 
+%° -> grados || [\1 [Digit]* wnum deg] _ ,, 
 Teen [teen:0] -> || _ ,, 
 Twenti [twenti:0] -> || _ ,, 
 Ten [ten:0] -> || _ ,, 

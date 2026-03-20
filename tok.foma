@@ -77,7 +77,7 @@ define Stage5
 word -> lseq || .#. _ , .#. GraphemeVowel _ Number ,, 
 word -> graph || .#. SpecialVowel _ .#. ,, 
 sym -> graph || 
-[word|lseq] [%.|%/] _ [Word|LetterSequence] ,, 
+[.#.|word|lseq] [%.|%/] _ [Word|LetterSequence] ,, 
 word -> 0 || 
 # Apple product names.
 {i} _ ExceptionalWord2 word , 
