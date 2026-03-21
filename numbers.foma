@@ -193,7 +193,7 @@ define InsertAnds
 NZDigit ten _ NZDigit ; 
 
 define RemoveOnes 
-1 -> 0 || .#. ([dollar|eur]) _ ths | OrdPowerOfThousandSymbol ; 
+1 -> 0 || .#. ([dollar|eur]) _ ths | OrdPowerOfThousandSymbol , %. _ ths ; 
 
 define PowerOfThousandSymbolsToSingular 
 [mlns:mln|blns:bln|tlns:tln|qlns:qln] -> || [[PowerOfThousandSymbol (and)]|wnum] 1 _ ; 
