@@ -22,7 +22,7 @@ define SpanishRoman
 [{II}:segundo|{III}:tercero|{IV}:cuarto|{VI}:sexto|{VII}:séptimo|{VIII}:octavo|{IX}:noveno] @-> || .#. _ .#. ; 
 
 define OrdStem 
-[[1|3] (e) r [a|o] (s)] | [2 d [a|o] (s)] | [[4|5|6] t [a|o] (s)] | [7 m [a|o] (s)] | [8 m [a|o] (s)] | [9 n [a|o] (s)] ; 
+[[1|3] (e) r ([a|o]) (s)] | [2 d [a|o] (s)] | [[4|5|6] t [a|o] (s)] | [7 m [a|o] (s)] | [8 v [a|o] (s)] | [9 n [a|o] (s)] ; 
 
 define MaleOrdUnit 
 %0:cerésimo | 
@@ -37,30 +37,30 @@ define MaleOrdUnit
 9:noveno ; 
 
 define MaleOrdUnit2 
-1 {ro}:primero | 
-2 {do}:segundo | 
-3 {ro}:tercero | 
-4 {to}:cuarto | 
-5 {to}:quinto | 
-6 {to}:sexto | 
-7 {mo}:séptimo | 
-8 {vo}:octavo | 
-9 {no}:noveno ; 
+[1 (e) {ro}]:primero | 
+[2 {do}]:segundo | 
+[3 (e) {ro}]:tercero | 
+[4 {to}]:cuarto | 
+[5 {to}]:quinto | 
+[6 {to}]:sexto | 
+[7 {mo}]:séptimo | 
+[8 {vo}]:octavo | 
+[9 {no}]:noveno ; 
 
 define MaleOrdUnitRo 
-1:primer | 
-3:tercer ; 
+[1 {er}]:primer | 
+[3 {er}]:tercer ; 
 
 define MaleOrdUnitPlural 
-1 {ros}:primeros | 
-2 {dos}:segundos | 
-3 {ros}:terceros | 
-4 {tos}:cuartos | 
-5 {tos}:quintos | 
-6 {tos}:sextos | 
-7 {mos}:séptimos | 
-8 {vos}:octavos | 
-9 {nos}:novenos ; 
+[1 (e) {ros}]:primeros | 
+[2 {dos}]:segundos | 
+[3 (e) {ros}]:terceros | 
+[4 {tos}]:cuartos | 
+[5 {tos}]:quintos | 
+[6 {tos}]:sextos | 
+[7 {mos}]:séptimos | 
+[8 {vos}]:octavos | 
+[9 {nos}]:novenos ; 
 
 define FemaleOrdUnit 
 %0:cerésima | 
@@ -75,26 +75,26 @@ define FemaleOrdUnit
 9:novena ; 
 
 define FemaleOrdUnit2 
-1 {ra}:primera | 
-2 {da}:segunda | 
-3 {ra}:tercera | 
-4 {ta}:cuarta | 
-5 {ta}:quinta | 
-6 {ta}:sexta | 
-7 {ma}:séptima | 
-8 {va}:octava | 
-9 {na}:novena ; 
+[1 (e) {ra}]:primera | 
+[2 {da}]:segunda | 
+[3 (e) {ra}]:tercera | 
+[4 {ta}]:cuarta | 
+[5 {ta}]:quinta | 
+[6 {ta}]:sexta | 
+[7 {ma}]:séptima | 
+[8 {va}]:octava | 
+[9 {na}]:novena ; 
 
 define FemaleOrdUnitPlural 
-1 {ras}:primeras | 
-2 {das}:segundas | 
-3 {ras}:terceras | 
-4 {tas}:cuartas | 
-5 {tas}:quintas | 
-6 {tas}:sextas | 
-7 {mas}:séptimas | 
-8 {vas}:octavas | 
-9 {nas}:novenas ; 
+[1 (e) {ras}]:primeras | 
+[2 {das}]:segundas | 
+[3 (e) {ras}]:terceras | 
+[4 {tas}]:cuartas | 
+[5 {tas}]:quintas | 
+[6 {tas}]:sextas | 
+[7 {mas}]:séptimas | 
+[8 {vas}]:octavas | 
+[9 {nas}]:novenas ; 
 
 define Teen 
 1:once | 
@@ -266,12 +266,12 @@ define tagRules Singular .o. TagCurrency .o. tagNumberTypes .o. tagCascade ;
 
 define Ords 
 #OrdChar -> 0 ,, 
-MaleOrdUnit @-> || _ wnum ord MaleOrdChar .#. ,, 
-MaleOrdUnit2 @-> || _ wnum ord .#. ,, 
+MaleOrdUnit -> || _ wnum ord MaleOrdChar .#. ,, 
+MaleOrdUnit2 -> || _ wnum ord .#. ,, 
 MaleOrdUnitPlural -> || _ wnum ord .#. ,, 
-MaleOrdUnitRo -> || _ [e r] wnum ord .#. ,, 
-FemaleOrdUnit @-> || _ wnum ord FemaleOrdChar .#. ,, 
-FemaleOrdUnit2 @-> || _ wnum ord .#. ,, 
+MaleOrdUnitRo -> || _ wnum ord .#. ,, 
+FemaleOrdUnit -> || _ wnum ord FemaleOrdChar .#. ,, 
+FemaleOrdUnit2 -> || _ wnum ord .#. ,, 
 FemaleOrdUnitPlural -> || _ wnum ord .#. ,, 
 [MaleOrdTen tenth:0] -> || _ ?* wnum ord MaleOrdChar .#. ,, 
 [FemaleOrdTen tenth:0] -> || _ ?* wnum ord FemaleOrdChar .#. ,, 
