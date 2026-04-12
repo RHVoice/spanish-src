@@ -45,7 +45,8 @@ define Stage2
 [..] -> word || 
 [SmallLetter|SmallVowel] _ [CapitalLetter|CapitalVowel] , 
 [CapitalLetter|CapitalVowel] _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel] ,, 
-word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
+word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ,, 
+[[[1|3] num:0 [{era}|{eras}|{ra}|{ras}|{er}|{eros}|{ro}|{ros}]] | [2 num:0 [{da}|{das}|{do}|{dos}]] | [[4|5|6] num:0 [{ta}|{tas}|{to}|{tos}]] | [7 num:0 [{ma}|{mas}|{mo}|{mos}]] | [8 num:0 [{va}|{vas}|{vo}|{vos}]] | [9 num:0 [{na}|{nas}|{no}|{nos}]]] word:num -> || .#. _ ; 
 
 define Stage3 
 word -> lseq || 
@@ -84,10 +85,10 @@ word -> 0 ||
 # Miscellaneous: YouTube and others.
 [[y|Y] o u] _ [[t|T] u b e] ; 
 
-source include/norm/ntok.foma
+#source include/norm/ntok.foma
 
 regex 
-NormalizeCharacters .o. 
+#NormalizeCharacters .o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3 .o. 
