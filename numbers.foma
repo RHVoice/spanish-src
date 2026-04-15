@@ -48,8 +48,8 @@ define MaleOrdUnit2
 [9 {no}]:noveno ; 
 
 define MaleOrdUnitRo 
-[1 {er}]:primer | 
-[3 {er}]:tercer ; 
+[1 {er} (o)]:primer | 
+[3 {er} (o)]:tercer ; 
 
 define MaleOrdUnitPlural 
 [1 (e) {ros}]:primeros | 

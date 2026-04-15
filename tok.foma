@@ -85,10 +85,10 @@ word -> 0 ||
 # Miscellaneous: YouTube and others.
 [[y|Y] o u] _ [[t|T] u b e] ; 
 
-#source include/norm/ntok.foma
+source include/norm/ntok.foma
 
 regex 
-#NormalizeCharacters .o. 
+NormalizeCharacters .o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3 .o. 
