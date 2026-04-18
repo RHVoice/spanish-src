@@ -17,26 +17,9 @@
 
 source include/phon/stress.foma
 source include/textproc/imperverbs.foma
+source include/textproc/unstressed_words.foma
 
 define Connectors {a} | {e} | {o} | {u} ; 
-
-define UnstressedWords 
-# This is the special word list to be unstressed. That means, these words doesn't have intonation / stress mark, marked by 1 (ones).
-{hacia} | {hasta} | {bajo} | {contra} | {cuando} | {cuanto} | {desde} | {donde} | {durante} | 
-[{haya}(n|s)] | 
-{he} | {hemos} | {mediante} | {mientras} | {porque} | 
-[{quien}({es})] | 
-{sino} | {sobre} | 
-[{una}(s)] | {unos} | {ante} | 
-[{cuya}(s)] | [{cuyo}(s)] | {entre} | 
-[{esa}(s)] | [{esta}(s)] | {ese} | {esos} | {este} | {estos} | 
-[{nuestro}(s)] | [{nuestra}(s)] | [{vuestro}(s)] | [{vuestra}(s)] | 
-{para} | 
-{al} | {ha} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {se} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
-
-define UnstressedWords2 
-# Those words are unstressed anywhere, both word and sentence.
-{aunque} | {como} | {pero} | {que} | {si} ; 
 
 define WordTags 
 # Prevent touching these words by the stress rule, just phonemize only.
