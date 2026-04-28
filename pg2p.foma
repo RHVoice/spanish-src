@@ -253,7 +253,7 @@ bajoObject -> ||
 # Bass instrument or low/lower:
 WB [MaleObjectPronoun|PersonalObjectPronoun|Adverb|SpecialNouns|[[l|m|t] e0]] %# _ WB , 
 # with *mente (example: realmente bajo)
-Adverb2 %# _ WB , 
+Adverb2 %# _ \[%# [MaleObjectPronoun|PersonalObjectPronoun]] WB , 
 # Other subcase for bajo: lowering action (acción de bajar)
 # Mientras bajo, si bajo, yo bajo, ya bajo.
 WB [firstPerson|afirmative|condition] %# _ WB , 
