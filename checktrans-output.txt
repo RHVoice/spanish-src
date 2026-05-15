@@ -193,6 +193,27 @@ pau u n (indef) # d o1 . l a r # k o n (prep) # u n (indef) # c e n . t a1 . bh 
 pau u n (indef) # d o1 . l a r # k o n (prep) # d o1 s # c e n . t a1 . bh o s pau 
 pau d o1 s # d o1 . l a . r e s # k o n (prep) # u n (indef) # c e n . t a1 . bh o pau 
 pau d o1 s # d o1 . l a . r e s # k o n (prep) # d o1 s # c e n . t a1 . bh o s pau 
+pau o1 n . c e # dh o1 . l a . r e s pau 
+pau o1 n . c e # dh o1 . l a . r e s # k o n (prep) # u n (indef) # c e n . t a1 . bh o pau 
+pau o1 n . c e # dh o1 . l a . r e s # k o n (prep) # d o1 s # c e n . t a1 . bh o s pau 
+pau o1 n . c e # dh o1 . l a . r e s # k o n (prep) # d o1 . c e # c e n . t a1 . bh o s pau 
+pau o1 n . c e # dh o1 . l a . r e s # k o n (prep) # v e j n . t i . c i1 n . k o # c e n . t a1 . bh o s pau 
+pau v e j n . t i . c i1 n . k o # dh o1 . l a . r e s pau 
+pau v e j n . t i . c i1 n . k o # dh o1 . l a . r e s # k o n (prep) # u n (indef) # c e n . t a1 . bh o pau 
+pau v e j n . t i . c i1 n . k o # dh o1 . l a . r e s # k o n (prep) # d o1 s # c e n . t a1 . bh o s pau 
+pau v e j n . t i . c i1 n . k o # dh o1 . l a . r e s # k o n (prep) # o1 n . c e # c e n . t a1 . bh o s pau 
+pau c j e1 n # d o1 . l a . r e s pau 
+pau c j e1 n # d o1 . l a . r e s # k o n (prep) # u n (indef) # c e n . t a1 . bh o pau 
+pau c j e1 n # d o1 . l a . r e s # k o n (prep) # d o1 s # c e n . t a1 . bh o s pau 
+pau c j e1 n # d o1 . l a . r e s # k o n (prep) # d j e1 c # c e n . t a1 . bh o s pau 
+pau c j e1 n # d o1 . l a . r e s # k o n (prep) # o1 n . c e # c e n . t a1 . bh o s pau 
+pau c j e1 n # d o1 . l a . r e s # k o n (prep) # v e j n . t j u1 . n o # c e n . t a1 . bh o s pau 
+pau c j e1 n # d o1 . l a . r e s # k o n (prep) # c i n . k w e1 n . t a # c e n . t a1 . bh o s pau 
+pau c j e1 n . t o # u1 n # d o1 . l a . r e s # k o n (prep) # u n (indef) # c e n . t a1 . bh o pau 
+pau c j e1 n . t o # u1 n # d o1 . l a . r e s # k o n (prep) # d o1 s # c e n . t a1 . bh o s pau 
+pau c j e1 n . t o # u1 n # d o1 . l a . r e s # k o n (prep) # o1 n . c e # c e n . t a1 . bh o s pau 
+pau c j e1 n . t o # u1 n # d o1 . l a . r e s # k o n (prep) # v e j n . t i . c i1 n . k o # c e n . t a1 . bh o s pau 
+pau c j e1 n . t o # u1 n # d o1 . l a . r e s # k o n (prep) # n o . bh e n . t a # i (uconj) # n w e1 . bh e # c e n . t a1 . bh o s pau 
 pau e l (def) # p r e1 . c j o # e s . t a1 (cop) # m a1 s (conj) # b a1 . x o # k e (uconj) # e l (def) # o1 . t r o pau 
 pau a . c e # t a1 n . t o # t j e1 m . p o # k e (uconj) # n o1 (prep) # t e (prp) # bh e . i1 . a pau 
 pau a . c e # t a n . t i1 . s i . m o # t j e1 m . p o # k e (uconj) # n o1 (prep) # t e (prp) # bh e . i1 . a pau 

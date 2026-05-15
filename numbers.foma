@@ -213,8 +213,7 @@ hnd -> hnd0 || 1 _ {00} (dp1|dp2) ;
 define SeparateTens 
 [..] -> ten || 
 NZDigit _ Digit ?* wnum , 
-NZDigit _ Digit [cp1|cp2] , 
-Digit _ Digit [dp1|dp2] ; 
+NZDigit _ Digit [cp1|cp2|dp1|dp2] ; 
 
 define MarkTenth 
 ten -> tenth || 
@@ -231,7 +230,7 @@ define MarkOrdPowerOfThousand
 mlns:mlnth | blns:blnth | tlns:tlnth | qlns:qlnth -> || _ ?* wnum ord OrdChar ; 
 
 define RemoveZeros 
-%0 ([TenOrHundredSymbol | OrdTenOrHundredSymbol]) @-> 0 || \%. _ ?* [wnum|ds1|ds2|cp1|cp2] , .#. _ \[dp1|dp2] .#. ; 
+%0 ([TenOrHundredSymbol | OrdTenOrHundredSymbol]) @-> 0 || \%. _ ?* [wnum|ds1|ds2|cs1|cs2|cp1|cp2] , .#. _ \[dp1|dp2] .#. , [teen|ten|twenti|hnd0] _ (%0) [dp1|dp2] .#. ; 
 
 define MarkTeens 
 [[1 ten]:0] NZDigit [0:[teen %0]] -> ; 
@@ -285,8 +284,8 @@ define PlusMinus
 
 define Translate [
 # Currency:
+[(%0) 1] @-> un || _ [cs1|cs2] ,, 
 1 -> un || _ [ds1|ds2] ,, 
-[%0 1] -> un || _ [cs1|cs2] ,, 
 %0 -> 0 || _ [NZDigit - 1] cp1|cp2 ,, 
 %0 -> cero || %. _ NZDigit wnum ,, 
 SpellDigit -> || _ cp1 | cp2 | dp1 | dp2 | wnum | dec | PowerOfThousandSymbol | OrdPowerOfThousandSymbol ,, 
@@ -325,7 +324,7 @@ define Singular2 veintiuno:veintiún ;
 
 define fixes2 
 [Singular1|Singular2] -> || _ [mil|millón|billón|trillón|cuatrillón] ,, 
-Singular1 -> || _ grado ; 
+Singular1 -> || _ grado , ciento _ ; 
 
 define NumberRules 
 SeparatePowerOfThousand(ths) .o. 
@@ -348,6 +347,7 @@ MarkTeens .o.
 MarkTwenties .o. 
 InsertAnds .o. 
 RemoveZeros .o. 
+[%0 @-> 0 || hnd0 _ [dp1|dp2]] .o. 
 PowerOfThousandSymbolsToSingular .o. 
 preTranslate .o. 
 RemoveOnes .o. 

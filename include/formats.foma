@@ -50,7 +50,7 @@ define VersionFormat
 define OrdinalNumber [FormattedNumber|UnformattedNumber] (OrdChar) ; 
 define Degree [FormattedNumber|UnformattedNumber] (%°) ; 
 define Currency 
-[[dollar|eur] DollarFormat %, CentFormat] ; 
+[[dollar|eur] DollarFormat (%, CentFormat)] ; 
 
 define NegativeOrPositive .# [%+|%- [UnformattedNumber | FormattedNumber | Decimal | ForeignDecimal]] .# ; 
 
