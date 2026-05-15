@@ -51,8 +51,8 @@ word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ,,
 define Stage3 
 word -> lseq || 
 [.#.|word|num|dig|sym] LetterSequence _ , 
-# Upercase vowels needs to be treated as a letter sequence - it is considered an initialism:
-.#. [CapitalRegularVowel - {Y}]+ _ .#. , 
+# Multiple upercase vowels needs to be treated as a letter sequence - it is considered an initialism:
+.#. [CapitalRegularVowel - {Y}]^>1 _ .#. , 
 # Custom LSeq handling:
 Structure [[CapitalLetter^2 CapitalVowel] - GraphemeSyllableAllow] _ , 
 Structure CapitalLetter^3 CapitalVowel _ , 

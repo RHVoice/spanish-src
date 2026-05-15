@@ -52,5 +52,7 @@ define Degree [FormattedNumber|UnformattedNumber] (%°) ;
 define Currency 
 [[dollar|eur] DollarFormat %, CentFormat] ; 
 
-define Number1 ([%+|%-]) [UnformattedNumber | FormattedNumber | Decimal | ForeignDecimal] ; 
+define NegativeOrPositive .# [%+|%- [UnformattedNumber | FormattedNumber | Decimal | ForeignDecimal]] .# ; 
+
+define Number1 [UnformattedNumber | FormattedNumber | Decimal | ForeignDecimal | NegativeOrPositive] ; 
 define Number [Number1 | OrdinalNumber | Degree | VersionFormat | Currency | ESRomanNumeral] ; 

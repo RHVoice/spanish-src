@@ -212,8 +212,9 @@ hnd -> hnd0 || 1 _ {00} (dp1|dp2) ;
 
 define SeparateTens 
 [..] -> ten || 
-Digit _ Digit ?* [wnum|dp1|dp2] , 
-NZDigit _ Digit ?* [cp1|cp2] ; 
+NZDigit _ Digit ?* wnum , 
+NZDigit _ Digit [cp1|cp2] , 
+Digit _ Digit [dp1|dp2] ; 
 
 define MarkTenth 
 ten -> tenth || 
@@ -287,6 +288,7 @@ define Translate [
 1 -> un || _ [ds1|ds2] ,, 
 [%0 1] -> un || _ [cs1|cs2] ,, 
 %0 -> 0 || _ [NZDigit - 1] cp1|cp2 ,, 
+%0 -> cero || %. _ NZDigit wnum ,, 
 SpellDigit -> || _ cp1 | cp2 | dp1 | dp2 | wnum | dec | PowerOfThousandSymbol | OrdPowerOfThousandSymbol ,, 
 SpellDigit -> || dp Digit* _ Digit* dec ,, 
 %° -> grado || [1 wnum deg] _ ,, 
