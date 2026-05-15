@@ -35,7 +35,9 @@ define Structure [[Symbol sym]|[Word word]|[Number num]|.#.] ;
 
 define Stage1 
 Word @-> ... word || _ .#. | \Letter ,, 
-Number @-> ... num ,, 
+# Number-related stuff: we don't give the wole Number format set to tokenizer foma, since some formats will deppend on boundaries.
+[UnformattedNumber|Decimal|ForeignDecimal|OrdinalNumber|Degree|VersionFormat|ESRomanNumeral] @-> ... num ,, 
+[FormattedNumber|NegativeOrPositive|Currency] @-> ... num || .#. _ .#. ,, 
 %0 Digit+ @-> ... dig ,, 
 %0 @-> ... num ,, 
 Symbol @-> ... sym || _ ; 
