@@ -202,9 +202,10 @@ define sobreObject
 # Un sobre, el sobre, ese sobre, este sobre, aquel sobre, mi sobre, tu sobre, su sobre (a paper object)
 [s o0 b r e0]: [s o1 b r e0] ; 
 # We created the context structure for "bajo", "sobre" and other future words according to sentence. Now, let's create another context to improve spanish stress, according to sentence as well.
+define este [e0 s t e0]:[e1 s t e0] ; 
 define esDemonstrative 
 # Now, we have: esta, este, ese, esa.
-[e0 s t a0]:[e1 s t a0] | [e0 s t e0]:[e1 s t e0] | [e0 s e0]:[e1 s e0] | [e0 s a0]:[e1 s a0] ; 
+[e0 s t a0]:[e1 s t a0] | este | [e0 s e0]:[e1 s e0] | [e0 s a0]:[e1 s a0] ; 
 
 define sonDemonstrative 
 # We have estas, estos, esas, esos.
@@ -320,6 +321,11 @@ WB [[k e0]|condition] (%# n o1) %# _ %# [[e0 n]|MaleObjectPronoun|IndefiniteArti
 WB _ %# [[l a0]|[p a1 c]] WB , 
 WB _ %# [n a1 dh a0] WB ; 
 
+define HomonymousWords2 
+# SAPM: part two.
+# We still apply contextual stress, which purpose is overriding existing aplied words but with another context. Like this one:
+este -> || WB [e0 l] %# _ WB ; 
+
 define untag 
 MakeTag @-> [a1 c e0] || _ ; 
 
@@ -338,4 +344,5 @@ RemainingApproximants .o.
 PreUnstressNumber .o. 
 unstressNumber .o. 
 HomonymousWords .o. 
+HomonymousWords2 .o. 
 untag ; 
