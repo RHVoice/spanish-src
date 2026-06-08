@@ -21,7 +21,7 @@ define ConsonantWithouthNS Consonant - [n|s] ;
 # for approximants:
 define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|j|w] ; 
 define vocal2 vocal - [j|w] ; 
-define PhWord [Consonant|vocal]+ ; 
+define PhWord [Consonant|vocal] ; 
 define Approximants 
 # In Spanish, there are about 4 approximants, that are voiced consonants that occurs in different contexts. The good news, approximants are placed between vowels.
 b: bh | d: dh | g: gh | v: bh ; 

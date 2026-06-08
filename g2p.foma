@@ -267,10 +267,10 @@ define AdverbRule
 .#. [[pc+ vocal2+ ([pc|vocal2]+)]|[vocal2+ pc+ (vocal2+)]]^2* | [vocal2+ pc+ vocal2] | [pc+ vocal2 vocal2] _ mente .#. ; 
 
 define NotAdverb 
-adv @-> 0 || .#. _ PhWord .#. ; 
+adv @-> 0 || .#. _ PhWord+ .#. ; 
 
 define StressAdverb 
-[m e0 n t e0]:[m e1 n t e0] @-> || .#. PhWord "adv" _ .#. , .#. PhWord _ exc .#. ; 
+[m e0 n t e0]:[m e1 n t e0] @-> || .#. PhWord+ "adv" _ .#. , .#. PhWord+ _ exc .#. ; 
 
 define rules 
 [%' @-> 0] .o. 
