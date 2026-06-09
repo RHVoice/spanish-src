@@ -38,11 +38,11 @@ define ConnectorExceptions
 [e0:e1 Con] @-> || WB _ %# \[i0|i1] ,, 
 # Multi-word exceptions#
 # Pese a...
-[p e1 s e0]:[p e0 s e0] @-> || WB _ %# a0 Con %# PhWord+ ,, 
+[p e1 s e0]:[p e0 s e0] @-> || [.#.|%-] _ IVrbS %# a0 Con %# PhWord+ ,, 
 # Puesto (a) que...
-[p w e1 s t o0]:[p w e0 s t o0] @-> || WB _ (%# a0 Con) %# k e0 Uns2 WB ,, 
+[p w e1 s t o0]:[p w e0 s t o0] @-> || [.#.|%-] _ (%# a0 Con) %# k e0 Uns2 WB ,, 
 # Salvo en...
-[s a1 l v o0]:[s a0 l v o0] @-> || WB _ %# e0 n Uns %# PhWord ; 
+[s a1 l v o0]:[s a0 l v o0] @-> || [.#.|%-] _ %# e0 n Uns %# PhWord ; 
 
 define Unstress2 
 # 2. After applying Spanish stressing rules and regulations in these tagged words alone in the utterance, we don't need this tag anymore.
