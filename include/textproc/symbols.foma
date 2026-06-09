@@ -124,7 +124,7 @@ define Symbol
 %² : [superíndice dos] | 
 %³ : [superíndice tres] | 
 %⁴ : [superíndice cuatro] | 
-%⁵ : [superídnice cinco] | 
+%⁵ : [superíndice cinco] | 
 %⁶ : [superíndice seis] | 
 %⁷ : [superíndice siete] | 
 %⁸ : [superíndice ocho] | 
@@ -752,6 +752,7 @@ define Symbol
 %⪺ : [sucede sobre signo de no casi igual] | 
 %♭ : [bemol] | 
 %♯ : [sostenido] | 
+%█ : [censura] | 
 %↮ : [flecha hacia la izquierda y la derecha tachada] | 
 %₢ : [cruceiro] | 
 %₣ : [franco francés] | 
