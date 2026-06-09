@@ -28,13 +28,21 @@ WB (Consonant+) _ (Consonant+) [Uns|Con] PB ,
 WB noStress* _ Consonant* UnstressedVowel (n|s) Uns PB ; 
 
 define ConnectorExceptions 
+# Single connector exceptions #
 # According to Spanish ortografy and grammar, here are the following things:
 # when the connector "u" is preceded by "o" at the start of the next word, is a valid connector. Otherwise, stress "u".
 # Example: plata u oro
 [u0:u1 Con] @-> || WB _ %# \[o0|o1] ,, 
 # when the connector "e" is preceded by "i" at the start of the next word, is a valid connector. Otherwise, stress "i".
 # Example: padres e hijos
-[e0:e1 Con] @-> || WB _ %# \[i0|i1] ; 
+[e0:e1 Con] @-> || WB _ %# \[i0|i1] ,, 
+# Multi-word exceptions#
+# Pese a...
+[p e1 s e0]:[p e0 s e0] @-> || WB _ %# a0 Con %# PhWord+ ,, 
+# Puesto (a) que...
+[p w e1 s t o0]:[p w e0 s t o0] @-> || WB _ (%# a0 Con) %# k e0 Uns2 WB ,, 
+# Salvo en...
+[s a1 l v o0]:[s a0 l v o0] @-> || WB _ %# e0 n Uns %# PhWord ; 
 
 define Unstress2 
 # 2. After applying Spanish stressing rules and regulations in these tagged words alone in the utterance, we don't need this tag anymore.
@@ -293,8 +301,8 @@ WB MaleObjectPronoun %# [n i0 bh e1 l] %# _ %# i0 %# PhWord+ ,,
 sobreObject -> || 
 [MaleObjectPronoun|PersonalObjectPronoun|[k a1 dh a0]] %# _ WB , 
 [k w a0 n d o0] %# _ WB , # Example: cuando sobre la comida, haré el recalentado.
-WB _ %# [k o0 n] %# PhWord+ ,, 
-
+WB _ %# [k o0 n] %# PhWord+ , 
+WB [k e0] %# _ %# [n i0] %# PhWord+ ,, 
 # Rules for para, which can be used in two contexts: "stop" action (parar) and "to" preposition (para)
 # Example: se me "pára" el corazón, no "pára" de llover > esto es para ti.
 [p a0 r a0]:[p a1 r a0] -> || 
@@ -302,9 +310,10 @@ WB [s e0] (%# PersonalReflexivePronoun) %# _ ,
 WB [n o1] %# _ %# [dh e0] %# PhWord+ ,, 
 # Let's create another context. Since "una" is unstressed in g2p, we need to stress it when the word "cada" is found before. For example, "él repartió cada una de las galletas". The strength of the vowel is in the una (cada úna).
 [u0 n a0]:[u1 n a0] -> || 
-WB [k a1 dh a0] %# _ , 
-%# [[l|m|s] e0] %# _ WB , 
-WB _ %# [[d|dh] e0] ,, 
+WB [k a1 dh a0] %# _ WB , 
+WB [[l|m|s] e0] %# _ WB , 
+WB _ %# [[d|dh] e0] %# PhWord+ , 
+WB _ %# [o0 %# dh o1 s] WB ,, 
 # SAPM for "unas", example: cuando te unas a la llamada.
 [u0 n a0 s]:[u1 n a0 s] -> || %# [[[l|m|t] e0]|[n o0 s]] %# _ WB ,, 
 # SAPM for "unos", example: unos a otros

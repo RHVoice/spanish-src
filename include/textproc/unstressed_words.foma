@@ -15,7 +15,7 @@
 
 define UnstressedWords 
 # This is the special word list to be unstressed. That means, these words doesn't have intonation / stress mark, marked by 1 (ones).
-{hacia} | {hasta} | {bajo} | {contra} | {cual} | {cuando} | {cuanto} | {desde} | {donde} | {durante} | 
+{hacia} | {hasta} | {bajo} | {contra} | {cual} | {cuando} | {cuanto} | {desde} | (a) {donde} | {durante} | 
 [{haya}(n|s)] | 
 {he} | {hemos} | {mediante} | {mientras} | {porque} | 
 [{quien}({es})] | 
