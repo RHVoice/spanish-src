@@ -19,9 +19,19 @@ b|bh|c|ch|d|dh|f|g|gh|x|j|k|l|ll|m|n|ni|p|r|rr|s|sh|t|v|w|{ks}|y ;
 
 define ConsonantWithouthNS Consonant - [n|s] ; 
 # for approximants:
-define vocal [a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|j|w] ; 
+define vocal [a0|a1|e0|e1|i0|i1|o0|o1|u0|u1|j|w] ; 
 define vocal2 vocal - [j|w] ; 
 define PhWord [Consonant|vocal] ; 
+define G2pTags [
+	TagYgriega | # Phoneme to spelled letter. Y must be y when alone in the utterance. We actuactually do this in the g2p pipeline, thus we know that this is not the best aproach, but using sentence-level tokenization instead.
+	MakeTag | # Word context.
+	Uns | # List of unstressed words which will be unstressed when thay are accompanied in the text, but stressed when it is alone in the utterance.
+	Uns2 | # List of unstressed words which will be unstressed anywhere, both accompanied and alone.
+	Con | # Conector.
+	IVrbS | # List of words tagged as imperactive verbs in its singular forms.
+	IVrbP
+] ; 
+define G2pWord  [PhWord|G2pTags | %- | %#]+ ; 
 define Approximants 
 # In Spanish, there are about 4 approximants, that are voiced consonants that occurs in different contexts. The good news, approximants are placed between vowels.
 b: bh | d: dh | g: gh | v: bh ; 

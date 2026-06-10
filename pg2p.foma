@@ -361,6 +361,8 @@ define untag2
 TagYgriega @-> i0 ; 
 
 regex 
+# We follow the ordering rule as follows:
+G2pWord .o. # The fst header, that means, what foma expects as inputs. In this case, the phonemes and some tags produced by the g2p fst output.
 SpanishStressPost .o. 
 PhonemeToSpelling .o. 
 untag2 .o. 
