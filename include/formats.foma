@@ -47,9 +47,12 @@ define Decimal [FormattedNumber|UnformattedNumber] %, Digit+;
 define ForeignDecimal  [[NZDigit Digit*] | %0] %. [Digit^{1,2} | Digit^>3];
 define VersionFormat 
 [NZDigit Digit^<4|%0] [%. Digit^{1,2}]^{2,3} Digit^<4 ; 
-define OrdinalOrDegree [FormattedNumber|UnformattedNumber] (OrdChar|%°) ; 
+define OrdinalNumber [FormattedNumber|UnformattedNumber] (OrdChar) ; 
+define Degree [FormattedNumber|UnformattedNumber] (%°) ; 
 define Currency 
-[[dollar|eur] DollarFormat %, CentFormat] ; 
+[[dollar|eur] DollarFormat (%, CentFormat)] ; 
 
-define Number1 ([%+|%-]) [UnformattedNumber | FormattedNumber | Decimal | ForeignDecimal] ; 
-define Number [Number1 | OrdinalOrDegree | VersionFormat | Currency | ESRomanNumeral] ; 
+define NegativeOrPositive .# [%+|%- [UnformattedNumber | FormattedNumber | Decimal | ForeignDecimal]] .# ; 
+
+define Number1 [UnformattedNumber | FormattedNumber | Decimal | ForeignDecimal | NegativeOrPositive] ; 
+define Number [Number1 | OrdinalNumber | Degree | VersionFormat | Currency | ESRomanNumeral] ; 

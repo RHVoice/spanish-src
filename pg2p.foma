@@ -28,17 +28,25 @@ WB (Consonant+) _ (Consonant+) [Uns|Con] PB ,
 WB noStress* _ Consonant* UnstressedVowel (n|s) Uns PB ; 
 
 define ConnectorExceptions 
+# Single connector exceptions #
 # According to Spanish ortografy and grammar, here are the following things:
 # when the connector "u" is preceded by "o" at the start of the next word, is a valid connector. Otherwise, stress "u".
 # Example: plata u oro
 [u0:u1 Con] @-> || WB _ %# \[o0|o1] ,, 
 # when the connector "e" is preceded by "i" at the start of the next word, is a valid connector. Otherwise, stress "i".
 # Example: padres e hijos
-[e0:e1 Con] @-> || WB _ %# \[i0|i1] ; 
+[e0:e1 Con] @-> || WB _ %# \[i0|i1] ,, 
+# Multi-word exceptions#
+# Pese a...
+[p e1 s e0]:[p e0 s e0] @-> || [.#.|%-] _ IVrbS %# a0 Con %# PhWord+ ,, 
+# Puesto (a) que...
+[p w e1 s t o0]:[p w e0 s t o0] @-> || [.#.|%-] _ (%# a0 Con) %# k e0 Uns2 WB ,, 
+# Salvo en...
+[s a1 l v o0]:[s a0 l v o0] @-> || [.#.|%-] _ %# e0 n Uns %# PhWord ; 
 
 define Unstress2 
 # 2. After applying Spanish stressing rules and regulations in these tagged words alone in the utterance, we don't need this tag anymore.
-[Uns|Uns2|Con|Past|IVrbS|IVrbP] @-> 0 || _ ; 
+[Uns|Uns2|Con|Past|pos|IVrbS|IVrbP] @-> 0 || _ ; 
 
 # Here, we apply approximants through the whole utterance, same that we did in g2p but with word boundaries between vowels.
 # For example, el dado de Dabid. Between o (dado) and d (de) and "de" and "David" are the intervocalic d.
@@ -202,9 +210,10 @@ define sobreObject
 # Un sobre, el sobre, ese sobre, este sobre, aquel sobre, mi sobre, tu sobre, su sobre (a paper object)
 [s o0 b r e0]: [s o1 b r e0] ; 
 # We created the context structure for "bajo", "sobre" and other future words according to sentence. Now, let's create another context to improve spanish stress, according to sentence as well.
+define este [e0 s t e0]:[e1 s t e0] ; 
 define esDemonstrative 
 # Now, we have: esta, este, ese, esa.
-[e0 s t a0]:[e1 s t a0] | [e0 s t e0]:[e1 s t e0] | [e0 s e0]:[e1 s e0] | [e0 s a0]:[e1 s a0] ; 
+[e0 s t a0]:[e1 s t a0] | este | [e0 s e0]:[e1 s e0] | [e0 s a0]:[e1 s a0] ; 
 
 define sonDemonstrative 
 # We have estas, estos, esas, esos.
@@ -230,22 +239,54 @@ define PastSuffix
 
 define PastException 
 # Let's tag the defined suffix for the word "haya" as an exception. This exception means, "haya" won't be stressed if a past participle is found.
-[..] @-> Past || [%# a0 y a0 Uns] _ [%# (PhWord) PastSuffix] WB ; 
+[..] @-> Past || [%# a0 y a0 Uns] _ [%# (PhWord+) PastSuffix] WB ; 
+
+define SpecialPOSTag 
+# Pos, Part Of Speech, which doesn't need to be stressed in a specific context.
+[..] @-> pos || 
+# 1: la frente: the word "frente" needs to be protected to avoid to being stressed by a/al, after the current word.
+# This way: previous word, "la" (attribute); current word, "frente" (subject, proctected); and next word, a/al.
+WB [l a0 Uns %# f r e1 n t e0] _ [%# [a0 Con | a0 l Uns]] ; 
+## 2: tanto esto como el otro, tanto esta palabra como la otra, tanto esta representación contextual como esta otra.
+## Tanto... word... como...
+## We disambiguate this context, before "como".
+## Therefore, having this structure, "tanto" will be unstressed.
+#WB [t a1 n t o0] _ %# [PhWord+ (Uns) %#]+ [k o0 m o0 Uns2 %# PhWord+] , 
+## However, we must avoid this rule if the word 'con' is before all of this context. Since foma doesn't allow exceptions from the left side, we'll just place the 'pos' tag after the word 'con', and after the boundary. It's not the proper aproach but we'll have to deceive foma in some way.
+#WB [k o0 n Uns] %# _ [t a1 n t o0] %# [PhWord+ (Uns) %#]+ [k o0 m o0 Uns2 %# PhWord+] , 
+## We'll do the same if the previows to the previows word has the word 'no'.
+#WB [n o1] %# PhWord+ %# _ [t a1 n t o0] %# [PhWord+ (Uns) %#]+ [k o0 m o0 Uns2 %# PhWord+] , 
+## Protect the word 'como' in this context to avoid to be stressed when another context without 'pos' is found.
+#WB [t a1 n t o0] %# [PhWord+ (Uns) %#]+ [k o0 m o0 Uns2] _ [%# PhWord+] ; 
 
 define PreHomonymousWords 
 # Also, we will stress demonstratives for es. For example: esta es, este es, ese es, esa es.
 esDemonstrative -> || 
 WB _ Uns %# singularAction WB , 
 WB _ Uns %# [p w e1 dh [e0|a0]] WB , 
-WB [s i0 n Uns %# k e0 Uns2 %#] _ [Uns %# PhWord IVrbS] WB ,, 
+WB [s i0 n Uns %# k e0 Uns2 %#] _ [Uns %# PhWord+ IVrbS] WB ,, 
 # And we will apply the same for "son". Example: estas son las bufandas que Mateo tegió.
 sonDemonstrative -> || 
 WB _ Uns %# pluralAction WB , 
 WB _ Uns %# [p w e1 dh [e0|a0] n] WB , 
-WB [s i0 n Uns %# k e0 Uns2 %#] _ [Uns %# PhWord IVrbP] WB ,, 
+WB [s i0 n Uns %# k e0 Uns2 %#] _ [Uns %# PhWord+ IVrbP] WB ,, 
 
 [a0 y a0]:[a1 y a0] @-> || 
-WB [k w a0 n [d|t] o0 Uns] (%# y a1) (%# n o1) %# _ Uns \Past ; 
+WB [k w a0 n [d|t] o0 Uns] (%# y a1) (%# n o1) %# _ Uns \Past ,, 
+# Unstress frente (example: frente a una copa de vino, frente al mar)
+# But this rule is avoided if the pos tag is found in such contexts.
+[f r e1 n t e0]:[f r e0 n t e0] @-> || 
+WB _ [%# [a0 Con | a0 l Uns] %# [PhWord (Uns)]+] - pos ,, 
+#[t a1 n t o0]:[t a0 n t o0] @-> || WB _ pos ,, 
+# And these rules for the "eat" verb:
+comer @-> || 
+# 'como' (unstressed) in all cases, except when a 'pos' tag is found:
+WB [[firstPerson|condition] (Uns|Uns2) %#] _ Uns2 WB , 
+WB [k e0 Uns2 %# m e0 Uns %#] _ Uns2 WB ,, 
+# cual: needs to be stressed before el, la, lo.
+[k w a0 l]:[k w a1 l] @-> || 
+WB [[d e0 l] | [[e0|a0] l] | [l [a0|o0]]] Uns %# _ Uns , 
+WB [k a1 dh a0] %# _ Uns ; 
 
 define HomonymousWords 
 # We'll need to stress "bajo" and "sobre" in these eight cases, because regarding "bajo" we are talking of: a) the "bass" music instrument, b) low/lower, instead of the attribution (under), and regarding "sobre", we are talking of the paper object, not the "about" preposition (talk about her / hablar sobre ella, for example).
@@ -253,45 +294,42 @@ bajoObject -> ||
 # Bass instrument or low/lower:
 WB [MaleObjectPronoun|PersonalObjectPronoun|Adverb|SpecialNouns|[[l|m|t] e0]] %# _ WB , 
 # with *mente (example: realmente bajo)
-Adverb2 %# _ WB , 
+Adverb2 %# _ \[%# [MaleObjectPronoun|PersonalObjectPronoun]] WB , 
 # Other subcase for bajo: lowering action (acción de bajar)
 # Mientras bajo, si bajo, yo bajo, ya bajo.
 WB [firstPerson|afirmative|condition] %# _ WB , 
 # And other context for bajo. The low volume, the low shot.
 # Example: "El bajo volumen de ventas en línea en algunas áreas remotas mantiene altos los precios de entrega".
 # Example 2: ¡Me parece que alguien me dio un golpe bajo!
-WB UniqueObject %# _ WB , WB _ %# UniqueObject WB ,, 
-
+WB UniqueObject %# _ WB , WB _ %# UniqueObject WB , 
+# Example 3: un nivel bajo.
+WB MaleObjectPronoun %# [n i0 bh e1 l] %# _ %# i0 %# PhWord+ ,, 
 # Sobre object. There are three subcases for this word. The one is the "under" attribution, the second is the paper object, and the third is action (acción de sobrar).
 sobreObject -> || 
 [MaleObjectPronoun|PersonalObjectPronoun|[k a1 dh a0]] %# _ WB , 
 [k w a0 n d o0] %# _ WB , # Example: cuando sobre la comida, haré el recalentado.
-WB _ %# [k o0 n] %# PhWord ,, 
-
+WB _ %# [k o0 n] %# PhWord+ , 
+WB [k e0] %# _ %# [n i0] %# PhWord+ ,, 
 # Rules for para, which can be used in two contexts: "stop" action (parar) and "to" preposition (para)
 # Example: se me "pára" el corazón, no "pára" de llover > esto es para ti.
 [p a0 r a0]:[p a1 r a0] -> || 
 WB [s e0] (%# PersonalReflexivePronoun) %# _ , 
-WB [n o1] %# _ %# [dh e0] %# PhWord ,, 
-
-# And these rules for the "eat" verb:
-comer -> || 
-WB [firstPerson|condition] %# _ WB , WB [k e0 %# m e0 %#] _ WB ,, 
-
+WB [n o1] %# _ %# [dh e0] %# PhWord+ ,, 
 # Let's create another context. Since "una" is unstressed in g2p, we need to stress it when the word "cada" is found before. For example, "él repartió cada una de las galletas". The strength of the vowel is in the una (cada úna).
 [u0 n a0]:[u1 n a0] -> || 
-WB [k a1 dh a0] %# _ , 
-%# [[l|m|s] e0] %# _ WB , 
-WB _ %# [[d|dh] e0] ,, 
+WB [k a1 dh a0] %# _ WB , 
+WB [[l|m|s] e0] %# _ WB , 
+WB _ %# [[d|dh] e0 (l)] %# PhWord+ , 
+WB _ %# [o0 %# dh o1 s] WB ,, 
 # SAPM for "unas", example: cuando te unas a la llamada.
 [u0 n a0 s]:[u1 n a0 s] -> || %# [[[l|m|t] e0]|[n o0 s]] %# _ WB ,, 
 # SAPM for "unos", example: unos a otros
-[u0 n o0 s]:[u1 n o0 s] -> || WB _ %# [a0|i0|u0] %# PhWord ,, 
+[u0 n o0 s]:[u1 n o0 s] -> || WB _ %# [a0|i0|u0] %# PhWord+ ,, 
 # Stressing context for "hace". Hace is the action of "hacer" (make), however it also reffers to an action happened in the past. "ella ya no está desde hace un tiempo"
 MakeTag:[a0 c e0] -> || 
 # General basis.
-WB [d e0 s d e0] %# _ %# PhWord , 
-WB _ %# [[m i1 l e0 s]|[m i0 ll o1 n e0 s]] %# PhWord , 
+WB [d e0 s d e0] %# _ %# PhWord+ , 
+WB _ %# [[m i1 l e0 s]|[m i0 ll o1 n e0 s]] %# PhWord+ , 
 # Gender-independent:
 WB _ %# HaceFemeninoSingular %# HaceFemeninoSingularAction WB , 
 WB _ %# HaceFemeninoPlural %# HaceFemeninoPluralAction WB , 
@@ -304,21 +342,24 @@ WB _ %# PhoneticedNumber %# [HaceFemeninoPluralAction|HaceMasculinoPluralActionN
 [n w e0 s t r o0 s]:[n w e1 s t r o0 s] -> || WB [l o0 s] %# _ WB ,, 
 # Stress "cuando", example: "de vez en cuando"
 [k w a0 n d o0]:[k w a1 n d o0] -> || WB [bh e1 c %# e0 n %#] _ WB ,, 
-# Unstress frente (example: frente a una copa de vino, frente al mar)
-[f r e1 n t e0]:[f r e0 n t e0] -> || WB _ %# [a0 (l)] %# PhWord ,, 
 # Context stress for "entre": we have the preposition (between) and the verb (entrar)
-[e0 n t r e0]:[e1 n t r e0] -> || WB k e0 (%# PersonalReflexivePronoun) %# _ WB ,, 
+[e0 n t r e0]:[e1 n t r e0] -> || WB [[k e0] | [n o1]] (%# PersonalReflexivePronoun) %# _ (%# e0 n) WB ,, 
 # Context stress for "durante": time reference narration VS. Simple present tense.
 # Example: antes, durante y después.
 [d|dh] [u0 r a0 n t e0]:[u0 r a1 n t e0] -> 
-|| WB _ %# i0 %# PhWord ,, 
+|| WB _ %# i0 %# PhWord+ ,, 
 # SAPM for "mediante": "mediante" is the connector for "through", but it isn't used as connector in a special religious case.
 [m e0 dh j a0 n t e0]:[m e0 dh j a1 n t e0] -> || WB [d j o1 s] %# _ WB ,, 
 # And create stressing context for "haya". "Haya" can be used in two contexts. The one is unstressed, from the verb "hacer" (espero que haya hecho la tarea), default in g2p, and the other is stressed, from the verb "haber" (cuando haya plata, que haya paz en la tierra) which we are going to make here.
 [a0 y a0]:[a1 y a0] @-> || 
-WB [[k e0]|condition] (%# n o1) %# _ %# [[e0 n]|MaleObjectPronoun|IndefiniteArticle] %# PhWord , 
+WB [[k e0]|condition] (%# n o1) %# _ %# [[e0 n]|MaleObjectPronoun|IndefiniteArticle] %# PhWord+ , 
 WB _ %# [[l a0]|[p a1 c]] WB , 
 WB _ %# [n a1 dh a0] WB ; 
+
+define HomonymousWords2 
+# SAPM: part two.
+# We still apply contextual stress, which purpose is overriding existing aplied words but with another context. Like this one:
+este -> || WB [e0 l] %# _ WB ; 
 
 define untag 
 MakeTag @-> [a1 c e0] || _ ; 
@@ -327,15 +368,19 @@ define untag2
 TagYgriega @-> i0 ; 
 
 regex 
+# We follow the ordering rule as follows:
+G2pWord .o. # The fst header, that means, what foma expects as inputs. In this case, the phonemes and some tags produced by the g2p fst output.
 SpanishStressPost .o. 
 PhonemeToSpelling .o. 
 untag2 .o. 
 ConnectorExceptions .o. 
 PastException .o. 
+SpecialPOSTag .o. 
 PreHomonymousWords .o. 
 Unstress2 .o. 
 RemainingApproximants .o. 
 PreUnstressNumber .o. 
 unstressNumber .o. 
 HomonymousWords .o. 
+HomonymousWords2 .o. 
 untag ; 

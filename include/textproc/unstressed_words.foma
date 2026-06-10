@@ -1,0 +1,32 @@
+# Copyright (C) 2024-2026  Mateo Cedillo <angelitomateocedillo@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 2.1 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+define UnstressedWords 
+# This is the special word list to be unstressed. That means, these words doesn't have intonation / stress mark, marked by 1 (ones).
+{hacia} | {hasta} | {bajo} | {contra} | {cual} | {cuando} | {cuanto} | {desde} | (a) {donde} | {durante} | 
+[{haya}(n|s)] | 
+{he} | {hemos} | {mediante} | {mientras} | {porque} | 
+[{quien}({es})] | 
+{sino} | {sobre} | 
+[{una}(s)] | {unos} | {ante} | 
+[{cuya}(s)] | [{cuyo}(s)] | {entre} | 
+[{esa}(s)] | [{esta}(s)] | {ese} | {esos} | {este} | {estos} | 
+[{nuestro}(s)] | [{nuestra}(s)] | [{vuestro}(s)] | [{vuestra}(s)] | 
+{para} | 
+{al} | {ha} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {se} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
+
+define UnstressedWords2 
+# Those words are unstressed anywhere, both word and sentence.
+{aunque} | {como} | {pero} | {que} | {si} ; 

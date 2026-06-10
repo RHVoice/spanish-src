@@ -35,7 +35,9 @@ define Structure [[Symbol sym]|[Word word]|[Number num]|.#.] ;
 
 define Stage1 
 Word @-> ... word || _ .#. | \Letter ,, 
-Number @-> ... num ,, 
+# Number-related stuff: we don't give the wole Number format set to tokenizer foma, since some formats will deppend on boundaries.
+[UnformattedNumber|Decimal|ForeignDecimal|OrdinalNumber|Degree|VersionFormat|ESRomanNumeral] @-> ... num ,, 
+[FormattedNumber|NegativeOrPositive|Currency] @-> ... num || .#. _ .#. ,, 
 %0 Digit+ @-> ... dig ,, 
 %0 @-> ... num ,, 
 Symbol @-> ... sym || _ ; 
@@ -45,11 +47,14 @@ define Stage2
 [..] -> word || 
 [SmallLetter|SmallVowel] _ [CapitalLetter|CapitalVowel] , 
 [CapitalLetter|CapitalVowel] _ [CapitalLetter|CapitalVowel] [SmallLetter|SmallVowel] ,, 
-word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ; 
+word -> num || [.#.|sym] ESRomanNumeral _ [.#.|[? sym]] ,, 
+[[[1|3] num:0 [{era}|{eras}|{ra}|{ras}|{er}|{eros}|{ro}|{ros}]] | [2 num:0 [{da}|{das}|{do}|{dos}]] | [[4|5|6] num:0 [{ta}|{tas}|{to}|{tos}]] | [7 num:0 [{ma}|{mas}|{mo}|{mos}]] | [8 num:0 [{va}|{vas}|{vo}|{vos}]] | [9 num:0 [{na}|{nas}|{no}|{nos}]]] word:num -> || .#. _ ; 
 
 define Stage3 
 word -> lseq || 
 [.#.|word|num|dig|sym] LetterSequence _ , 
+# Multiple upercase vowels needs to be treated as a letter sequence - it is considered an initialism:
+.#. [CapitalRegularVowel - {Y}]^>1 _ .#. , 
 # Custom LSeq handling:
 Structure [[CapitalLetter^2 CapitalVowel] - GraphemeSyllableAllow] _ , 
 Structure CapitalLetter^3 CapitalVowel _ , 
