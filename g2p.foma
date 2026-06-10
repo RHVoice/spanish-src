@@ -34,7 +34,7 @@ define deshChange
 # Let's remove the h when it comes to Spanish prefixes des- and tras-, for example: deshacer, trashumar.
 # Because this is pronounced as s (de /s acer), not sh (de /sh acer). We have a phoneme called sh for foreign words.
 # In summary, prevent sh in the following prefixes:
-h:0 @-> || .#. [{des}|{tras}] _ vocal ; 
+h:0 @-> || .#. [{des}|{tras}] _ SmallVowel ; 
 
 # general transcription rules:
 
@@ -246,7 +246,7 @@ define Stage2
 TranscribeConsonant @-> ; 
 
 define ModifierRule 
-modifier @-> 0 || .#. ([Consonant|i|u]) _ vocal , Consonant _ (Consonant) .#. , vocal _ (Consonant) .#. ; 
+modifier @-> 0 || .#. ([Consonant|i|u]) _ SmallVowel , Consonant _ (Consonant) .#. , SmallVowel _ (Consonant) .#. ; 
 
 define RenameConsonants 
 YAsVowel @-> j || Consonant vocal _ Consonant ,, 
@@ -272,7 +272,10 @@ adv @-> 0 || .#. _ PhWord+ .#. ;
 define StressAdverb 
 [m e0 n t e0]:[m e1 n t e0] @-> || .#. PhWord+ "adv" _ .#. , .#. PhWord+ _ exc .#. ; 
 
+define G2pWord [Letter|%']+ ; 
+
 define rules 
+G2pWord .o. 
 [%' @-> 0] .o. 
 WordTags .o. 
 deshChange .o. 
