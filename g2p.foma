@@ -248,7 +248,7 @@ TranscribeConsonant @-> ;
 define ModifierRule 
 modifier @-> 0 || 
 .#. ([Consonant|i|u]) _ SmallVowel , 
-a _ u , 
+#a _ u , # Some speakers, for example, in the word ahuyentar, emits the u as a glide.
 Consonant _ (Consonant) .#. , 
 SmallVowel _ (Consonant) .#. ; 
 

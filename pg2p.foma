@@ -282,8 +282,11 @@ WB _ [%# [a0 Con | a0 l Uns] %# [PhWord (Uns)]+] - pos ,,
 comer @-> || 
 # 'como' (unstressed) in all cases, except when a 'pos' tag is found:
 WB [[firstPerson|condition] (Uns|Uns2) %#] _ Uns2 WB , 
-WB [k e0 Uns2 %# m e0 Uns %#] _ Uns2 WB ; 
-
+WB [k e0 Uns2 %# m e0 Uns %#] _ Uns2 WB ,, 
+# cual: needs to be stressed before el, la, lo.
+[k w a0 l]:[k w a1 l] @-> || 
+WB [[d e0 l] | [[e0|a0] l] | [l [a0|o0]]] Uns %# _ Uns , 
+WB [k a1 dh a0] %# _ Uns ; 
 
 define HomonymousWords 
 # We'll need to stress "bajo" and "sobre" in these eight cases, because regarding "bajo" we are talking of: a) the "bass" music instrument, b) low/lower, instead of the attribution (under), and regarding "sobre", we are talking of the paper object, not the "about" preposition (talk about her / hablar sobre ella, for example).
@@ -316,7 +319,7 @@ WB [n o1] %# _ %# [dh e0] %# PhWord+ ,,
 [u0 n a0]:[u1 n a0] -> || 
 WB [k a1 dh a0] %# _ WB , 
 WB [[l|m|s] e0] %# _ WB , 
-WB _ %# [[d|dh] e0] %# PhWord+ , 
+WB _ %# [[d|dh] e0 (l)] %# PhWord+ , 
 WB _ %# [o0 %# dh o1 s] WB ,, 
 # SAPM for "unas", example: cuando te unas a la llamada.
 [u0 n a0 s]:[u1 n a0 s] -> || %# [[[l|m|t] e0]|[n o0 s]] %# _ WB ,, 
