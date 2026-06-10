@@ -246,14 +246,18 @@ define SpecialPOSTag
 [..] @-> pos || 
 # 1: la frente: the word "frente" needs to be protected to avoid to being stressed by a/al, after the current word.
 # This way: previous word, "la" (attribute); current word, "frente" (subject, proctected); and next word, a/al.
-WB [l a0 Uns %# f r e1 n t e0] _ [%# [a0 Con | a0 l Uns]] , 
-# 2: tanto esto como el otro, tanto esta palabra como la otra, tanto esta representación contextual como esta otra.
-# Tanto... word... como...
-# We disambiguate this context up to 5 words, after "como".
-# Therefore, having this structure, "tanto" will be unstressed.
-WB [t a1 n t o0] _ %# [PhWord+ (Uns) %#]+ [k o0 m o0 Uns2 %# PhWord+] , 
-# Protect the word 'como' in this context to avoid to be stressed when another context without 'pos' is found.
-WB [t a1 n t o0] %# [PhWord+ (Uns) %#]+ [k o0 m o0 Uns2] _ [%# PhWord+] ; 
+WB [l a0 Uns %# f r e1 n t e0] _ [%# [a0 Con | a0 l Uns]] ; 
+## 2: tanto esto como el otro, tanto esta palabra como la otra, tanto esta representación contextual como esta otra.
+## Tanto... word... como...
+## We disambiguate this context, before "como".
+## Therefore, having this structure, "tanto" will be unstressed.
+#WB [t a1 n t o0] _ %# [PhWord+ (Uns) %#]+ [k o0 m o0 Uns2 %# PhWord+] , 
+## However, we must avoid this rule if the word 'con' is before all of this context. Since foma doesn't allow exceptions from the left side, we'll just place the 'pos' tag after the word 'con', and after the boundary. It's not the proper aproach but we'll have to deceive foma in some way.
+#WB [k o0 n Uns] %# _ [t a1 n t o0] %# [PhWord+ (Uns) %#]+ [k o0 m o0 Uns2 %# PhWord+] , 
+## We'll do the same if the previows to the previows word has the word 'no'.
+#WB [n o1] %# PhWord+ %# _ [t a1 n t o0] %# [PhWord+ (Uns) %#]+ [k o0 m o0 Uns2 %# PhWord+] , 
+## Protect the word 'como' in this context to avoid to be stressed when another context without 'pos' is found.
+#WB [t a1 n t o0] %# [PhWord+ (Uns) %#]+ [k o0 m o0 Uns2] _ [%# PhWord+] ; 
 
 define PreHomonymousWords 
 # Also, we will stress demonstratives for es. For example: esta es, este es, ese es, esa es.
@@ -273,7 +277,7 @@ WB [k w a0 n [d|t] o0 Uns] (%# y a1) (%# n o1) %# _ Uns \Past ,,
 # But this rule is avoided if the pos tag is found in such contexts.
 [f r e1 n t e0]:[f r e0 n t e0] @-> || 
 WB _ [%# [a0 Con | a0 l Uns] %# [PhWord (Uns)]+] - pos ,, 
-[t a1 n t o0]:[t a0 n t o0] @-> || _ pos ,, 
+#[t a1 n t o0]:[t a0 n t o0] @-> || WB _ pos ,, 
 # And these rules for the "eat" verb:
 comer @-> || 
 # 'como' (unstressed) in all cases, except when a 'pos' tag is found:

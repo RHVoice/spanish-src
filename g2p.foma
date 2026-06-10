@@ -246,7 +246,11 @@ define Stage2
 TranscribeConsonant @-> ; 
 
 define ModifierRule 
-modifier @-> 0 || .#. ([Consonant|i|u]) _ SmallVowel , Consonant _ (Consonant) .#. , SmallVowel _ (Consonant) .#. ; 
+modifier @-> 0 || 
+.#. ([Consonant|i|u]) _ SmallVowel , 
+a _ u , 
+Consonant _ (Consonant) .#. , 
+SmallVowel _ (Consonant) .#. ; 
 
 define RenameConsonants 
 YAsVowel @-> j || Consonant vocal _ Consonant ,, 
