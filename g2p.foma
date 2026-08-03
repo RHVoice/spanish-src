@@ -200,7 +200,7 @@ Approximants -> || vocal _ vocal ;
 define exceptions 
 # There are special words having own phonemes.
 [[{wi} (%-) {fi}] : [w a0 j f a1 j]] | 
-# Weeks, months:
+# Weeks:
 [{lun.} : [l u1 n e0 s]] | 
 [{mar.} : [m a1 r t e0 s]] | 
 [{mié.} : [m j e1 r k o0 l e0 s]] | 
@@ -208,14 +208,16 @@ define exceptions
 [{vie.} : [v j e1 r n e0 s]] | 
 [{sáb.} : [s a1 b a0 d o0]] | 
 [{dom.} : [d o0 m i1 n g o0]] | 
-[{ene.} : [e0 n e1 r o0]] | 
+# Months:
+# The abbreviation ene. = enero can also be understood as the letter "n" (ene). So, let's avoid ambiguations.
+#[{ene.} : [e0 n e1 r o0]] | 
 [{feb.} : [f e0 b r e1 r o0]] | 
 # We doesn't add mar. (marzo) because mar (withouth the capital M) is the beach. If someone reads a text and the sentence ends with mar., for example, ayer fui al mar., the language package could interpret: ayer fui al marzo. So, we are avoiding these misunderstandings.
 [{abr.} : [a0 b r i1 l]] | 
 [{may.} : [m a1 y o0]] | 
 [{jun.} : [x u1 n j o0]] | 
 [{jul.} : [x u1 l j o0]] | 
-[{ago.} : [a g o1 s t o0]] | 
+[{ago.} : [a0 g o1 s t o0]] | 
 [{sep.} : [s e0 p t j e1 m b r e0]] | 
 [{oct.} : [o0 k t u1 b r e0]] | 
 [{nov.} : [n o0 v j e1 m b r e0]] | 
