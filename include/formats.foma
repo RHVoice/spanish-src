@@ -46,7 +46,7 @@ define FormattedNumber .# NZDigit Digit^<3 [%. Digit^3]^{1,4} .# ;
 define Decimal [FormattedNumber|UnformattedNumber] %, Digit+; 
 define ForeignDecimal  [[NZDigit Digit*] | %0] %. [Digit^{1,2} | Digit^>3];
 define VersionFormat 
-[NZDigit Digit^<4|%0] [%. Digit^{1,2}]^{2,3} Digit^<4 ; 
+[NZDigit Digit^<4|%0] [%. Digit^{1,2}]^{2,3} Digit^<8 ; 
 define OrdinalNumber [FormattedNumber|UnformattedNumber] (OrdChar) ; 
 define Degree [FormattedNumber|UnformattedNumber] (%°) ; 
 define Currency 

@@ -230,7 +230,10 @@ define MarkOrdPowerOfThousand
 mlns:mlnth | blns:blnth | tlns:tlnth | qlns:qlnth -> || _ ?* wnum ord OrdChar ; 
 
 define RemoveZeros 
-%0 ([TenOrHundredSymbol | OrdTenOrHundredSymbol]) @-> 0 || \%. _ ?* [wnum|ds1|ds2|cs1|cs2|cp1|cp2] , .#. _ \[dp1|dp2] .#. , [teen|ten|twenti|hnd0|hnd|ths] _ (Digit) [dp1|dp2] .#. ; 
+%0 ([TenOrHundredSymbol | OrdTenOrHundredSymbol]) @-> 0 || 
+\%. _ ?* [wnum|ds1|ds2|cs1|cs2|cp1|cp2] , 
+.#. _ \[dp1|dp2] .#. , 
+[teen|ten|twenti|hnd0|hnd|ths] _ (Digit) [dp1|dp2] .#. ; 
 
 define MarkTeens 
 [[1 ten]:0] NZDigit [0:[teen %0]] -> ; 
@@ -260,7 +263,9 @@ define tagCascade
   .o. [ [%.]:0  -> || _ ?* wnum ] 
 	.o. [ Digit -> ... dec  || dp Digit* _ .#. ] 
 	.o. [ dec -> wnum || dp NZDigit Digit^<3 _ .#. ] 
- 	.o. [ Digit-> ... wnum || [.#. | \Digit] Digit* _ [ .#. | %. | %, ]]; 
+ 	.o. [ Digit-> ... wnum || [.#. | \Digit] Digit* _ [ .#. | %. | %, ]] 
+ 	.o. [wnum -> dec || [%. %0 NZDigit^{3,8}] _] 
+ 	.o. [%. -> ... dp || _ %0 NZDigit^{3,8}] ; 
 
 define tagRules Singular .o. TagCurrency .o. tagNumberTypes .o. tagCascade ; 
 
@@ -329,12 +334,12 @@ Singular2 -> || _ [mil|millones|billones|trillones|cuatrillones|dólares|euros|c
 define NumberRules 
 SeparatePowerOfThousand(ths) .o. 
 SeparatePowerOfThousand(mlns) .o. 
-SeparatePowerOfThousand(ths) .o.
+SeparatePowerOfThousand(ths) .o. 
 SeparatePowerOfThousand(blns) .o. 
-SeparatePowerOfThousand(ths) .o.
+SeparatePowerOfThousand(ths) .o. 
 SeparatePowerOfThousand(tlns) .o. 
-SeparatePowerOfThousand(ths) .o.
-SeparatePowerOfThousand(qlns) .o.
+SeparatePowerOfThousand(ths) .o. 
+SeparatePowerOfThousand(qlns) .o. 
 RemoveSilentGroups .o. 
 SeparateHundreds .o. 
 Mark100s .o. 
@@ -363,5 +368,5 @@ regex
 [Number|OrdStem] .o. 
 SpanishRoman .o. 
 MapRomanNumeral .o. 
-tagRules .o.
+tagRules .o. 
 NumberRules ; 
