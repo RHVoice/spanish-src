@@ -249,3 +249,4 @@ pau t j e1 . n e (aux) # u n (indef) # n i . bh e1 l # b a1 . x o # i (uconj) # 
 pau p o . dh e1 . m o s # rr e . k o . n o . c e1 r # a l # p a . t r j a r . k a1 . dh o # k o . m o (uconj) # u n (indef) # s i s . t e1 . m a # dh e (prep) # dh o . m i . n a . c j o1 n # d e (prep) # bh a . r o1 . n e s # p o r (prep) # s o . b r e # l a s (def) # m u . x e1 . r e s pau 
 pau i1 . c o # u . n a (indef) # dh e . dh i . k a . t o1 . r j a pau 
 pau e1 l (pp) # n o1 (prep) # t r a . bh a1 . x a # k o n (prep) # t a1 n . t o # e1 n . f a . s i s # k o . m o (uconj) # a1 n . t e s pau 
+pau u1 . bh e # s j e1 . t e # p u1 n . t o # s e . s e n . t a # i (uconj) # s j e1 . t e # p u1 n . t o # dh o1 s # p u1 n . t o # c e1 . r o # dh o1 s # u1 . n o # k w a1 . t r o # u1 . n o # dh o1 s # k w a1 . t r o # c i1 n . k o # u1 . n o pau 
