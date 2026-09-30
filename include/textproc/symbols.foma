@@ -118,7 +118,7 @@ define Symbol
 %° : grado | 
 %« : [abrir comillas angulares] | 
 %» : [cerrar comillas angulares] | 
-%µ : micro | 
+[%µ|%μ] : micro | 
 %⁰ : [superíndice cero] | 
 %¹ : [superíndice uno] | 
 %² : [superíndice dos] | 
