@@ -22,6 +22,8 @@ define GraphemeLR L|R ;
 define GraphemeStopException GraphemeStop - [D|T] ; 
 # Y se crea la regla de acuerdo a estas condiciones.
 define GraphemeSyllableAllow [GraphemeStopException L CapitalVowel] | [GraphemeStop R CapitalVowel] ; 
+# Para triptongos:
+define GraphemeSyllableAllow2 GraphemeSyllableAllow CapitalVowel ; 
 # ¿Por qué usamos GraphemeStopException en L pero no en R? Porque es más que obvio. D y T con r sí son sílabas correctas que no interfieren con siglas.
 
 #regex GraphemeSyllableAllow ; 

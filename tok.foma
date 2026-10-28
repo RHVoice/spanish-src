@@ -26,7 +26,7 @@ define ExceptionalWord
 # Months of year (abbreviations), except "enero" and "marzo".
 [f e b %.] | [a b r %.] | [m a y %.] | [j u n %.] | [j u l %.] | [a g o %.] | [s e p %.] | [o c t %.] | [n o v %.] | [d i c %.] | 
 # Formal roles:
-[D R (A) %.] | [L C D (O|A) %.] | [S R (A|[[A|E] S]|[T A]) %.] | [U D (S) %.] | 
+[[D r (a)] | [L c d (o|a)] | [S r (a|[[a|e] s]|[t a])] | [U d (s)]] %. | 
 [[e|E] [t|T] [c|C] %.] | 
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
 # Exceptions for apple product names. Avoid word splitting (see below)
@@ -60,6 +60,7 @@ word -> lseq ||
 .#. [CapitalRegularVowel - {Y}]^>1 _ .#. , 
 # Custom LSeq handling:
 Structure [[CapitalLetter^2 CapitalVowel] - GraphemeSyllableAllow] _ , 
+Structure [[CapitalLetter^2 CapitalVowel^2] - GraphemeSyllableAllow2] _ , 
 Structure CapitalLetter^3 CapitalVowel _ , 
 Structure CapitalLetter^4 CapitalVowel _ , 
 Structure CapitalLetter^5 CapitalVowel _ , 
@@ -92,10 +93,10 @@ word -> 0 ||
 # Miscellaneous: YouTube and others.
 [[y|Y] o u] _ [[t|T] u b e] ; 
 
-source include/norm/ntok.foma
+#source include/norm/ntok.foma
 
 regex 
-NormalizeCharacters .o. 
+#NormalizeCharacters .o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3 .o. 
