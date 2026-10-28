@@ -264,8 +264,8 @@ define tagCascade
 	.o. [ Digit -> ... dec  || dp Digit* _ .#. ] 
 	.o. [ dec -> wnum || dp NZDigit Digit^<3 _ .#. ] 
  	.o. [ Digit-> ... wnum || [.#. | \Digit] Digit* _ [ .#. | %. | %, ]] 
- 	.o. [wnum -> dec || [%. %0 NZDigit^{3,8}] _] 
- 	.o. [%. -> ... dp || _ %0 NZDigit^{3,8}] ; 
+ 	.o. [wnum -> dec || [%. %0 Digit^{3,8}] _] 
+ 	.o. [%. -> ... dp || _ %0 Digit^{3,8}] ; 
 
 define tagRules Singular .o. TagCurrency .o. tagNumberTypes .o. tagCascade ; 
 
