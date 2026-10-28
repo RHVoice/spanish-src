@@ -22,15 +22,16 @@ define LetterSequence [GraphemeConsonant - [y|Y]]+ /Apos ;
 
 define ExceptionalWord 
 # Weeks of day (abbreviations):
-[L u n %.] | [M a r %.] | [M i é %.] | [J u e %.] | [V i e %.] | [S á b %.] | [D o m %.] | 
+[[L u n] | [M a r] | [M i é] | [J u e] | [V i e] | [S á b] | [D o m]] %. | 
 # Months of year (abbreviations), except "enero" and "marzo".
-[f e b %.] | [a b r %.] | [m a y %.] | [j u n %.] | [j u l %.] | [a g o %.] | [s e p %.] | [o c t %.] | [n o v %.] | [d i c %.] | 
+[[f e b] | [a b r] | [m a y] | [j u n] | [j u l] | [a g o] | [s e p] | [o c t] | [n o v] | [d i c]] %. | 
 # Formal roles:
 [[D r (a)] | [L c d (o|a)] | [S r (a|[[a|e] s]|[t a])] | [U d (s)]] %. | 
 [[e|E] [t|T] [c|C] %.] | 
 [[w|W] [i|I] %- [f|F] [i|I]] ; 
 # Exceptions for apple product names. Avoid word splitting (see below)
-define ExceptionalWord2 [[P h o n e]|[P [a|o] d] | [C l o u d]] ; 
+define ExceptionalWord2 
+[[P h o n e]|[P [a|o] d] | [C l o u d]] ; 
 define Word [Letter+ [Apos Letter+]*] | ExceptionalWord ;
 define Symbol \[Letter | Digit] ; 
 
@@ -93,10 +94,10 @@ word -> 0 ||
 # Miscellaneous: YouTube and others.
 [[y|Y] o u] _ [[t|T] u b e] ; 
 
-#source include/norm/ntok.foma
+source include/norm/ntok.foma
 
 regex 
-#NormalizeCharacters .o. 
+NormalizeCharacters .o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3 .o. 
