@@ -107,8 +107,10 @@ define unstressNumber
 # Note, the acute vowel it is written on purpose to show the illustration of the stress / unstress.
 StressedNumber @-> || 
 WB _ %# i0 %# PhoneticedDigit WB , WB _ %# [m i1 l] WB ,, 
-# When (digit or ten) mil is available, such as cinco mil, the speaker doesn't say cínco mil, but cinco mil or cincomil (unstressing 5).
+# When (digit or teen) mil is available, such as cinco mil, the speaker doesn't say cínco mil, but cinco mil or cincomil (unstressing 5). Same for 15.000.
 [StressedDigit|StressedTeen] @-> || WB _ %# [m i1 l] WB ,, 
+# Handling hundreds as well, for example: 100.000.
+[c j e1 n]:[c j e0 n] @-> || WB _ %# [m i1 l] WB ,, 
 # And, there is a special case for 20x numbers, for example "veintidós mil". We will make possible to interpret as "veintidosmíl" instead, the natural way of Spanish speakers.
 StressedDigit @-> || WB [[v|bh] e1 j n t e0] | [[v|bh] e0 j n t [i0|j]] _ %# [m i1 l] WB ; 
 
