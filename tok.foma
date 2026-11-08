@@ -41,7 +41,7 @@ define Stage1
 Word @-> ... word || _ .#. | \Letter ,, 
 # Number-related stuff: we don't give the wole Number format set to tokenizer foma, since some formats will deppend on boundaries.
 [UnformattedNumber|Decimal|ForeignDecimal|OrdinalNumber|Degree|VersionFormat|ESRomanNumeral] @-> ... num ,, 
-[FormattedNumber|NegativeOrPositive|Currency] @-> ... num || .#. _ .#. ,, 
+[FormattedNumber|NegativeOrPositive|Currency] @-> ... num || .#. _ (Symbol) .#. ,, # bypass symbols like punctuation.
 %0 Digit+ @-> ... dig ,, 
 %0 @-> ... num ,, 
 Symbol @-> ... sym || _ ; 
@@ -64,6 +64,7 @@ Structure [[CapitalLetter^2 CapitalVowel] - GraphemeSyllableAllow] _ ,
 Structure [[CapitalLetter^2 CapitalVowel^2] - GraphemeSyllableAllow2] _ , 
 Structure CapitalLetter^3 CapitalVowel _ , 
 Structure CapitalLetter^4 CapitalVowel _ , 
+Structure CapitalLetter^4 CapitalVowel CapitalLetter _ , 
 Structure CapitalLetter^5 CapitalVowel _ , 
 Structure CapitalVowel CapitalLetter^2 _ , 
 Structure CapitalVowel CapitalLetter^3 _ , 
