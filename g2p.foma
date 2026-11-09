@@ -282,7 +282,7 @@ define G2pWord [Letter|%']+ ;
 
 define rules 
 G2pWord .o. 
-[%' @-> 0] .o. 
+[[%'|Ellipsis] @-> 0] .o. 
 WordTags .o. 
 deshChange .o. 
 AdverbExceptionTag .o. 

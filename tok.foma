@@ -17,7 +17,6 @@ source include/textproc/cluster.foma
 source include/formats.foma
 
 define Apos %'|%‘|%’ ; 
-
 define LetterSequence [GraphemeConsonant - [y|Y]]+ /Apos ; 
 
 define ExceptionalWord 
@@ -39,6 +38,7 @@ define Structure [[Symbol sym]|[Word word]|[Number num]|.#.] ;
 
 define Stage1 
 Word @-> ... word || _ .#. | \Letter ,, 
+Word Ellipsis @-> ... "word+sus" || _ .#. | \Letter ,, 
 # Number-related stuff: we don't give the wole Number format set to tokenizer foma, since some formats will deppend on boundaries.
 [UnformattedNumber|Decimal|ForeignDecimal|OrdinalNumber|Degree|VersionFormat|ESRomanNumeral] @-> ... num ,, 
 [FormattedNumber|NegativeOrPositive|Currency] @-> ... num || .#. _ (Symbol) .#. ,, # bypass symbols like punctuation.
@@ -95,10 +95,10 @@ word -> 0 ||
 # Miscellaneous: YouTube and others.
 [[y|Y] o u] _ [[t|T] u b e] ; 
 
-source include/norm/ntok.foma
+#source include/norm/ntok.foma
 
 regex 
-NormalizeCharacters .o. 
+#NormalizeCharacters .o. 
 Stage1 .o. 
 Stage2 .o. 
 Stage3 .o. 
